@@ -1,0 +1,5 @@
+rootProject.name = 'SamplesReact'
+include ':react-native-bridge-testing'
+project(':react-native-bridge-testing').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bridge-testing/android')
+
+include ':app'

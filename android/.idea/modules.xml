@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SamplesReact.iml" filepath="$PROJECT_DIR$/SamplesReact.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-bridge-testing/android/react-native-bridge-testing.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-bridge-testing/android/react-native-bridge-testing.iml" />
+    </modules>
+  </component>
+</project>
