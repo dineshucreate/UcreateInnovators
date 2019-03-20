@@ -27,9 +27,17 @@ const styles = StyleSheet.create({
         fontSize: 40,
         color: 'black'
     },
+    buttonText: {
+        fontSize: 20,
+        color: 'black'
+    },
     image:{
         width: 300,
         height: 300,
+    },
+    buttonStyle:{
+        marginTop: 10,
+        height: 40,
     }
 })
 export default styles;
