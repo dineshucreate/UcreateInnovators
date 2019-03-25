@@ -11,11 +11,30 @@ class Login extends Component {
           tempUserName: '',
         }
       }
-      handlePress = (username) => {
+      handlePress = (username,Password) => {     
         console.log(username);
         this.setState({tempUserName:username})
-        //console.log(this.state.password);
-
+        fetch('https://production-review-tool.herokuapp.com/authentication', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username: 'simerjeet-ucreate',
+              password: 'Ucreate@123',
+            }),
+           }).then((response) => response.json())
+              .then((responseJson) => {
+                console.log("login data" + ":  " + JSON.stringify(responseJson))
+                console.log("login data" + ":  " + responseJson)
+                const status = responseJson.user_info.login
+                console.log(status)
+               // navigator.reset([NavigationActions.navigate({ routeName: 'Dashboard' })], 0)
+              })
+              .catch((error) => {
+                console.error(error);
+              });
      }
      
     render() {
@@ -50,7 +69,7 @@ class Login extends Component {
                 <Button  style = {styles.buttonStyle}
                 title="Login"
                 onPress ={ () => {
-                    this.handlePress(username)
+                    this.handlePress(username,password)
                         //navigation.navigate('home',{user :username,pwd :password})
                     }} 
                 />
