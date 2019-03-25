@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-MERGED from [:react-native-bridge-testing] /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/node_modules/react-native-bridge-testing/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/40743a3b9de7aef44d4c60b78d68b12a/AndroidManifest.xml:2:1-15:12
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+MERGED from [:react-native-bridge-testing] /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/node_modules/react-native-bridge-testing/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/6dfdfeb0a058001ac641be882b6f8005/AndroidManifest.xml:2:1-15:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/173d7b823993fc20b177a7900a60317a/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/5f7939ef5436ea4e8f24efa298dcdbf5/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/fb8dcf260e201cc7c57d7d5c39323c0b/AndroidManifest.xml:17:1-22:12
@@ -40,37 +40,37 @@ MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/ucreate-51/.g
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/dcb44e720839e50ed63166ca667c4d74/AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r174650] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/922db653a4243b66ce0a09ce83ddda4c/AndroidManifest.xml:1:1-3:12
 MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/785d88bc20b055217abc0f4fef01fd91/AndroidManifest.xml:2:1-9:12
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
 	package
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:2:5-31
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:2:5-31
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:4:5-67
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:4:5-67
 	android:name
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:4:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/40743a3b9de7aef44d4c60b78d68b12a/AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/40743a3b9de7aef44d4c60b78d68b12a/AndroidManifest.xml:11:5-78
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/6dfdfeb0a058001ac641be882b6f8005/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/6dfdfeb0a058001ac641be882b6f8005/AndroidManifest.xml:11:5-78
 	android:name
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:5:22-75
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:5:22-75
 application
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:7:5-25:19
-MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/40743a3b9de7aef44d4c60b78d68b12a/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/40743a3b9de7aef44d4c60b78d68b12a/AndroidManifest.xml:13:5-20
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:7:5-25:19
+MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/6dfdfeb0a058001ac641be882b6f8005/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/6dfdfeb0a058001ac641be882b6f8005/AndroidManifest.xml:13:5-20
 MERGED from [com.android.support:support-compat:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/01650e01a35aac3dae26b1ed1bc12833/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/01650e01a35aac3dae26b1ed1bc12833/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/9cf07eacf8b97859f18739a74ae9690c/AndroidManifest.xml:22:5-23:19
@@ -82,49 +82,49 @@ MERGED from [org.webkit:android-jsc:r174650] /Users/ucreate-51/.gradle/caches/tr
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/01650e01a35aac3dae26b1ed1bc12833/AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:9:7-39
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:9:7-39
 	android:roundIcon
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:11:7-52
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:11:7-52
 	android:icon
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:10:7-41
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:10:7-41
 	android:allowBackup
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:12:7-34
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:12:7-34
 	android:theme
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:13:7-38
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:13:7-38
 	android:name
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:8:7-38
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:8:7-38
 activity#com.samplesreact.MainActivity
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:14:7-23:18
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:14:7-23:18
 	android:label
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:16:9-41
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:16:9-41
 	android:windowSoftInputMode
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:18:9-51
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:18:9-51
 	android:configChanges
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:17:9-79
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:17:9-79
 	android:name
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:15:9-37
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:15:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:19:9-22:25
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:19:9-22:25
 action#android.intent.action.MAIN
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:20:13-65
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:20:13-65
 	android:name
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:20:21-62
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:20:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:21:13-73
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:21:13-73
 	android:name
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:21:23-70
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:21:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:24:7-84
+ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:24:7-84
 	android:name
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:24:17-81
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:24:17-81
 uses-sdk
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-MERGED from [:react-native-bridge-testing] /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/node_modules/react-native-bridge-testing/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-bridge-testing] /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/node_modules/react-native-bridge-testing/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/40743a3b9de7aef44d4c60b78d68b12a/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/40743a3b9de7aef44d4c60b78d68b12a/AndroidManifest.xml:7:5-9:41
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-bridge-testing] /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/node_modules/react-native-bridge-testing/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-bridge-testing] /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/node_modules/react-native-bridge-testing/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/6dfdfeb0a058001ac641be882b6f8005/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.58.6] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/react-native-0.58.6.aar/6dfdfeb0a058001ac641be882b6f8005/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/173d7b823993fc20b177a7900a60317a/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/173d7b823993fc20b177a7900a60317a/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/5f7939ef5436ea4e8f24efa298dcdbf5/AndroidManifest.xml:20:5-44
@@ -191,19 +191,19 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/ucreate-51/.gradle/cac
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/dcb44e720839e50ed63166ca667c4d74/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/785d88bc20b055217abc0f4fef01fd91/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/ucreate-51/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/785d88bc20b055217abc0f4fef01fd91/AndroidManifest.xml:5:5-7:41
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /Users/ucreate-51/Desktop/React Native Projects/SamplesReact/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/ucreate-51/Desktop/React Native Projects/UcreateInnovators/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

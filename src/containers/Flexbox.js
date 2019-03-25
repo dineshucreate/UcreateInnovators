@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import RNReactBridgeTesting from '../../node_modules/react-native-bridge-testing';
+import LoginTest from 'react-native-bridge-testing/src/login';
 // "react-native-bridge-testing": "github:amanpreet-ucreate/react-native-bridge-testing"
 
 const value = "";
@@ -29,9 +30,9 @@ export default class FlexboxExample extends React.PureComponent {
     render() {
 
         return (
-            <View style={{ flex: 1, }}>
+            <View style={{ flex: 1, backgroundColor:'white' }}>
                 <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Flex Shrink: 2,1,2</Text>
-
+                <LoginTest />
 
                 <View style={styles.viewMain}>
                     <View style={styles.viewBlue}>
