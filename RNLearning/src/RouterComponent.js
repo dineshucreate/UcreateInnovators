@@ -1,5 +1,6 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Home from './containers/Home';
+import Login from './containers/LogIn';
 import { Colors } from './utilities/Colors';
 
 const AuthStack = createStackNavigator(
@@ -19,9 +20,15 @@ const AuthStack = createStackNavigator(
                  },
             })
         },
+        login: {
+            screen: Login,
+            navigationOptions: ({ navigation }) => ({
+                header: null,
+            })
+        },
     },
     {
-      initialRouteName : 'home'
+      initialRouteName : 'login'
     }
 );
 export default Begin = createAppContainer(AuthStack);
