@@ -9,6 +9,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Login from './src/containers/login/index'
+import Authenticate from './src/containers/authenticate/authenticate';
+import {createStackNavigator, createAppContainer} from 'react-navigation'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -20,10 +22,22 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-        <Login/>
+        <AppContainer/>
     );
   }
 }
+
+const RootStack = createStackNavigator({
+  Login:{screen:Login,
+  navigationOptions:{
+    header:null
+  }},
+  Authenticate:{screen:Authenticate}
+},{
+  initialRouteName: 'Login',
+})
+
+const AppContainer = createAppContainer(RootStack);
 
 const styles = StyleSheet.create({
   container: {
