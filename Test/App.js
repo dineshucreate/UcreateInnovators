@@ -32,7 +32,10 @@ const RootStack = createStackNavigator({
   navigationOptions:{
     header:null
   }},
-  Authenticate:{screen:Authenticate}
+  Authenticate:{screen:Authenticate,
+    navigationOptions:{
+    header:null
+  }}
 },{
   initialRouteName: 'Login',
 })
