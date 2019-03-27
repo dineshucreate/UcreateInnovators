@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 
 const erremail = 'Email is required.';
 const errpassword = 'Password is required.';
-const DeviceHeight = Dimensions.get("window").height;
+const DeviceHeight = Dimensions.get('window').height
 
 
 class Login extends Component {
@@ -60,7 +60,7 @@ class Login extends Component {
             const { loginData } = this.props;
             if (loginData) {
                 this.showHideLoader(false)
-                this.props.navigation.navigate('home')
+                this.props.navigation.navigate('flatList')
             } else {
               this.sequenceAnimations();
             }

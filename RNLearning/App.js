@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import configureStore from './src/configureStore';
 const { store, persistor } = configureStore();
 
+console.disableYellowBox = true;
 export default class RouterComponent extends React.Component {
   render() {
     return (
