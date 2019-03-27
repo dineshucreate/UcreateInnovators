@@ -10,7 +10,7 @@ export default class Authenticate extends Component {
         val1 = navigation.getParam('val1')
         return(
             <ImageBackground source={backgroundImage} style={styles.image}>
-            <TouchableOpacity onPress={()=>{this.props.navigation.pop()}}><Text>Go back with value {val1}</Text></TouchableOpacity>
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Home')}}><Text>Go back with value {val1}</Text></TouchableOpacity>
            </ImageBackground>
         )
     }

@@ -9,6 +9,7 @@ export default class Login extends Component {
     alert(json[0])
   }
   componentWillMount () {
+    this.props.navigation.navigate('Home')
     let arrUsers = [
       1,2,3,4,5
     ]
@@ -22,43 +23,48 @@ export default class Login extends Component {
          <View style={styles.innerContent}>
           <Image source={logoWhite} style={styles.innerLogo}/>
           <TouchableOpacity style={styles.buttonBackground1} onPress={() => this.test1()}><Text style={styles.button1}>CREATE AN ACCOUNT</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonBackground2} onPress={() => {this.props.navigation.navigate('Authenticate',
+          <TouchableOpacity style={styles.buttonBackground2} onPress={() => {this.props.navigation.navigate('Home',
           {'val1':'1'}
           )}}><Text style={styles.button2}>LOG IN</Text></TouchableOpacity>
-          </View>
+          </View> 
         </ImageBackground>
       );
     }
   }
 
   const styles = StyleSheet.create({
-      innerContent:{
-        height:300,
-        // backgroundColor:'white',
+      image : {
+        flex:1,
+        resizeMode: 'contain',
         justifyContent:'center',
-        marginLeft:10,
-        marginRight:10,
-        alignItems:'center'
+        alignItems:'center',
+      },
+      innerContent:{
+        flex:0.4,
+        width:'100%',
+        justifyContent:'center',
+        alignItems:'center',
       },
       innerLogo:{
         width:'50%',
         height:'53%',
-        marginBottom:40,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        marginBottom:25
       },
       buttonBackground1:{
         backgroundColor:'#096B76',
-        width:160,
+        width:'auto',
         height:35,
-        marginBottom:20,
         alignItems:'center',
         justifyContent:'center',
         borderRadius: 2,
+        paddingLeft:10,
+        paddingRight:10,
+        marginBottom:10
       },
       buttonBackground2:{
         width:160,
         height:35,
-        marginBottom:20,
         alignItems:'center',
         justifyContent:'center',
         borderRadius: 2,
@@ -66,18 +72,11 @@ export default class Login extends Component {
       button1:{
         color:'white',
         fontFamily:'Rajdhani-Semibold',
-        fontSize:16
+        fontSize:18
       },
       button2:{
         color:'#096B76',
         fontFamily:'Rajdhani-Semibold',
-        fontSize:16
-      },
-      image : {
-        flex:1,
-        width:'100%',
-        height:'100%',
-        justifyContent:'center',
-        resizeMode: 'contain'
+        fontSize:18
       }
   })

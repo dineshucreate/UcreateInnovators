@@ -9,7 +9,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Login from './src/containers/login/index'
-import Authenticate from './src/containers/authenticate/authenticate';
+import Authenticate from './src/containers/authenticate';
+import Home from './src/containers/home';
 import {createStackNavigator, createAppContainer} from 'react-navigation'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -35,7 +36,12 @@ const RootStack = createStackNavigator({
   Authenticate:{screen:Authenticate,
     navigationOptions:{
     header:null
-  }}
+  }},
+  Home:{screen:Home,
+    navigationOptions:{
+      header:null
+    }
+  }
 },{
   initialRouteName: 'Login',
 })
