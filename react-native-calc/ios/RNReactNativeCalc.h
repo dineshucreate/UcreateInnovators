@@ -5,7 +5,7 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface RNReactNativeCalc : NSObject <RCTBridgeModule>
+@interface RNReactNativeCal : NSObject <RCTBridgeModule>
 
 @end
   

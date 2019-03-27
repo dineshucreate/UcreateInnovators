@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, NativeModules } from 'react-native';
-const { Calc } = NativeModules;
+import { View, Text, TouchableOpacity, NativeModules, TextInput } from 'react-native';
+import Calculator from '../../react-native-calc/src/Calc';
+const { RNReactNativeCalc } = NativeModules;
 class NativeCall extends React.PureComponent {
     constructor() {
         super();
@@ -11,15 +12,27 @@ class NativeCall extends React.PureComponent {
 
     render() {
         return (
-            <View>
+            <View style={{ backgroundColor: 'white', marginTop: 40 }}>
                 <Text>{this.state.value}</Text>
                 <TouchableOpacity
-                    onPress={() => Calc.sum(10, 10, (sum) => {
+                    onPress={() => RNReactNativeCalc.sum(10, 10, (sum) => {
                         this.setState({ value: sum })
                     })}
                 >
                     <Text>Click Me!</Text>
                 </TouchableOpacity>
+
+
+
+                <TextInput
+                    style={{ width: 100, height: 40 }}
+                    placeholder={'Enter value'}
+                    value={this.state.value}
+
+                    onChangeText={(text) => this.setState({ value: text })}
+                />
+
+                <Calculator />
             </View>
         );
     }

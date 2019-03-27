@@ -2,4 +2,7 @@ rootProject.name = 'SamplesReact'
 include ':react-native-bridge-testing'
 project(':react-native-bridge-testing').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bridge-testing/android')
 
+include ':react-native-react-native-calc'
+project(':react-native-react-native-calc').projectDir = new File(rootProject.projectDir, '../react-native-calc/android')
+
 include ':app'

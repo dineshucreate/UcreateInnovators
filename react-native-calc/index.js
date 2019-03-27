@@ -1,6 +1,5 @@
 
-import { NativeModules } from 'react-native';
+import { AppRegistry } from 'react-native';
+import { name as appName } from './app.json';
 
-const { Calc } = NativeModules;
 
-export default Calc;
