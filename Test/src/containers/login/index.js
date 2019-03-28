@@ -9,7 +9,6 @@ export default class Login extends Component {
     alert(json[0])
   }
   componentWillMount () {
-    this.props.navigation.navigate('Home')
     let arrUsers = [
       1,2,3,4,5
     ]
@@ -23,7 +22,7 @@ export default class Login extends Component {
          <View style={styles.innerContent}>
           <Image source={logoWhite} style={styles.innerLogo}/>
           <TouchableOpacity style={styles.buttonBackground1} onPress={() => this.test1()}><Text style={styles.button1}>CREATE AN ACCOUNT</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonBackground2} onPress={() => {this.props.navigation.navigate('Home',
+          <TouchableOpacity style={styles.buttonBackground2} onPress={() => {this.props.navigation.navigate('Authenticate',
           {'val1':'1'}
           )}}><Text style={styles.button2}>LOG IN</Text></TouchableOpacity>
           </View> 
