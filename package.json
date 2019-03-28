@@ -10,7 +10,8 @@
     "lodash": "^4.17.11",
     "react": "16.6.3",
     "react-native": "0.58.6",
-    "react-native-bridge-testing": "github:amanpreet-ucreate/react-native-bridge-testing"
+    "react-native-bridge-testing": "github:amanpreet-ucreate/react-native-bridge-testing",
+    "react-native-react-native-calc": "^1.0.1"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, NativeModules, TextInput } from 'react-native';
-import Calculator from '../../react-native-calc/src/Calc';
+import Calculator from '../../node_modules/react-native-react-native-calc/src/Calc';
+
 const { RNReactNativeCalc } = NativeModules;
 class NativeCall extends React.PureComponent {
     constructor() {

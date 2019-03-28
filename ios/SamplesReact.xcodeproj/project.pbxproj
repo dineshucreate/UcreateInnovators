@@ -39,7 +39,7 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		B4808547224A0BE100469633 /* libRNReactNativeCalc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4808546224A0BB800469633 /* libRNReactNativeCalc.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		B41E4ED6224CB42F0084A504 /* libRNReactNativeCalc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B41E4ED5224CB4150084A504 /* libRNReactNativeCalc.a */; };
 		ED29378555C04CF895663386 /* RCTBridgeSample-tvOSTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC3F3D5777049C6ADB3A0EB /* RCTBridgeSample-tvOSTests.xctest */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
@@ -291,6 +291,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		B41E4ED4224CB4150084A504 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D012D46DADC44811A9083550 /* RNReactNativeCalc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNReactNativeCalc;
+		};
 		B4808539224A0B0600469633 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -318,13 +325,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
-		};
-		B4808545224A0BB800469633 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B4808541224A0BB800469633 /* RNReactNativeCalc.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNReactNativeCalc;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -360,7 +360,8 @@
 		92D54A52BB8C4E26BEA84FF3 /* libRNReactBridgeTesting.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNReactBridgeTesting.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AFE5E70FD1694A109BF7739B /* RCTBridgeSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RCTBridgeSampleTests.xctest; sourceTree = "<group>"; };
-		B4808541224A0BB800469633 /* RNReactNativeCalc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNReactNativeCalc.xcodeproj; path = "../react-native-calc/ios/RNReactNativeCalc.xcodeproj"; sourceTree = "<group>"; };
+		B20C861327BA4E45910501CC /* libRNReactNativeCalc.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNReactNativeCalc.a; sourceTree = "<group>"; };
+		D012D46DADC44811A9083550 /* RNReactNativeCalc.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReactNativeCalc.xcodeproj; path = "../node_modules/react-native-react-native-calc/ios/RNReactNativeCalc.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -390,8 +391,8 @@
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
+				B41E4ED6224CB42F0084A504 /* libRNReactNativeCalc.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				B4808547224A0BE100469633 /* libRNReactNativeCalc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +572,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B4808541224A0BB800469633 /* RNReactNativeCalc.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -584,6 +584,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				D012D46DADC44811A9083550 /* RNReactNativeCalc.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -632,6 +633,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B41E4ED1224CB4150084A504 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B41E4ED5224CB4150084A504 /* libRNReactNativeCalc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B4808513224A0B0500469633 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,16 +649,9 @@
 				92D54A52BB8C4E26BEA84FF3 /* libRNReactBridgeTesting.a */,
 				597E73BE7EE94B7995E50E8D /* RCTBridgeSample-tvOS.app */,
 				8EC3F3D5777049C6ADB3A0EB /* RCTBridgeSample-tvOSTests.xctest */,
+				B20C861327BA4E45910501CC /* libRNReactNativeCalc.a */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		B4808542224A0BB800469633 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B4808546224A0BB800469633 /* libRNReactNativeCalc.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -812,8 +814,8 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = B4808542224A0BB800469633 /* Products */;
-					ProjectRef = B4808541224A0BB800469633 /* RNReactNativeCalc.xcodeproj */;
+					ProductGroup = B41E4ED1224CB4150084A504 /* Products */;
+					ProjectRef = D012D46DADC44811A9083550 /* RNReactNativeCalc.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1058,6 +1060,13 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		B41E4ED5224CB4150084A504 /* libRNReactNativeCalc.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNReactNativeCalc.a;
+			remoteRef = B41E4ED4224CB4150084A504 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B480853A224A0B0600469633 /* libjsi.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1084,13 +1093,6 @@
 			fileType = archive.ar;
 			path = "libjsiexecutor-tvOS.a";
 			remoteRef = B480853F224A0B0600469633 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B4808546224A0BB800469633 /* libRNReactNativeCalc.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNReactNativeCalc.a;
-			remoteRef = B4808545224A0BB800469633 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1235,12 +1237,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
 					"$(SRCROOT)/../node_modules/react-bridge-testing/ios",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = SamplesReactTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1266,12 +1270,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
 					"$(SRCROOT)/../node_modules/react-bridge-testing/ios",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = SamplesReactTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1299,6 +1305,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../react-native-react-native-calc/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = SamplesReact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1324,6 +1331,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../react-native-react-native-calc/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = SamplesReact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1355,11 +1363,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
 					"$(SRCROOT)/../node_modules/react-bridge-testing/ios",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = "SamplesReact-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1394,11 +1404,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
 					"$(SRCROOT)/../node_modules/react-bridge-testing/ios",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = "SamplesReact-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1432,11 +1444,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
 					"$(SRCROOT)/../node_modules/react-bridge-testing/ios",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = "SamplesReact-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1470,11 +1484,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-bridge-testing/ios/**",
 					"$(SRCROOT)/../node_modules/react-bridge-testing/ios",
+					"$(SRCROOT)/../node_modules/react-native-react-native-calc/ios",
 				);
 				INFOPLIST_FILE = "SamplesReact-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
