@@ -1,0 +1,31 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'RNLearning' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for RNLearning
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+
+
+  target 'RNLearningTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'RNLearning-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for RNLearning-tvOS
+
+  target 'RNLearning-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

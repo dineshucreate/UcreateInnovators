@@ -45,7 +45,7 @@ const AuthStack = createStackNavigator(
         },
     },
     {
-      initialRouteName : 'login'
+      initialRouteName : 'flatList'
     }
 );
 export default Begin = createAppContainer(AuthStack);
