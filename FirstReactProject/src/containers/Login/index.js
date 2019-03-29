@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
 import styles from './style';
 
 class Login extends Component {
     constructor(){
         super()
         this.state = {
-          username: '',
-          password: '',
+            username: 'simerjeet-ucreate',
+            password: 'Ucreate@123',
           tempUserName: '',
         }
       }
       handlePress = (username,Password) => {     
-        console.log(username);
-        this.setState({tempUserName:username})
+       // console.log(username);
+        //this.setState({tempUserName:username})
         fetch('https://production-review-tool.herokuapp.com/authentication', {
             method: 'POST',
             headers: {
@@ -26,16 +26,16 @@ class Login extends Component {
             }),
            }).then((response) => response.json())
               .then((responseJson) => {
-                console.log("login data" + ":  " + JSON.stringify(responseJson))
-                console.log("login data" + ":  " + responseJson)
+              //  console.log("login data" + ":  " + JSON.stringify(responseJson))
+             //   console.log("login data" + ":  " + responseJson)
                 const status = responseJson.user_info.login
-                console.log(status)
+              //  console.log(status)
                // navigator.reset([NavigationActions.navigate({ routeName: 'Dashboard' })], 0)
               })
               .catch((error) => {
                 console.error(error);
               });
-     }
+        }
      
     render() {
         const inputAccessoryViewID = "uniqueID";
@@ -45,10 +45,10 @@ class Login extends Component {
         return (
               <ScrollView contentContainerStyle={styles.contentContainer}>
                 <View style={styles.container}>
-                <View style={{flex: 1, flexDirection: 'column'}}>
+                {/* <View style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{width: 250, height: 280, backgroundColor: 'powderblue'}} />
                 <View style={{width: 250, height: 250, backgroundColor: 'skyblue'}} />
-                </View>
+                </View> */}
                 <Text style={styles.welcome}>{tempUserName}LOGIN SCREEN</Text>
                 <Text style={styles.heading}>Login</Text>
                 <TextInput style = {styles.input}
@@ -69,8 +69,8 @@ class Login extends Component {
                 <Button  style = {styles.buttonStyle}
                 title="Login"
                 onPress ={ () => {
-                    this.handlePress(username,password)
-                        //navigation.navigate('home',{user :username,pwd :password})
+                    //this.handlePress(username,password)
+                        navigation.navigate('home',{user :username,pwd :password})
                     }} 
                 />
             </View>
