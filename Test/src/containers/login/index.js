@@ -4,6 +4,18 @@ import {backgroundImage, logoWhite} from '../../assets/images/images'
 import CustomText from '../../components/Text/CustomText'
 import styles from '../../assets/Styles/styles'
 export default class Login extends Component {
+constructor() {
+  super()
+  this.state = {
+    header:'login'
+  }
+}
+
+moveToAuthenticate() {
+  this.setState({'header':'123'})
+  this.props.navigation.navigate('Authenticate',{"header":this.state.header})
+}
+
   async test1() {
     const response = await fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`);
     const json = await response.json();
@@ -22,7 +34,7 @@ export default class Login extends Component {
         <ImageBackground source={backgroundImage} style={styles.image}>
          <View style={styles.innerContent}>
           <Image source={logoWhite} style={styles.innerLogo}/>
-          <TouchableOpacity style={styles.buttonBackground1} onPress={() => this.test1()}><Text style={styles.button1}>CREATE AN ACCOUNT</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonBackground1} onPress={() => this.moveToAuthenticate()}><Text style={styles.button1}>CREATE AN ACCOUNT</Text></TouchableOpacity>
           <TouchableOpacity style={styles.buttonBackground2} onPress={() => {this.props.navigation.navigate('Home',
           {'val1':'1'}
           )}}><Text style={styles.button2}>LOG IN</Text></TouchableOpacity>
