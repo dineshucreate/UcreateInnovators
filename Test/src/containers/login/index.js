@@ -34,10 +34,8 @@ moveToAuthenticate() {
         <ImageBackground source={backgroundImage} style={styles.image}>
          <View style={styles.innerContent}>
           <Image source={logoWhite} style={styles.innerLogo}/>
-          <TouchableOpacity style={styles.buttonBackground1} onPress={() => this.moveToAuthenticate()}><Text style={styles.button1}>CREATE AN ACCOUNT</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonBackground2} onPress={() => {this.props.navigation.navigate('Home',
-          {'val1':'1'}
-          )}}><Text style={styles.button2}>LOG IN</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonBackground1} onPress={() => this.props.navigation.navigate('Home',{'val1':'1'})}><Text style={styles.button1}>CREATE AN ACCOUNT</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonBackground2} onPress={() => {this.moveToAuthenticate()}}><Text style={styles.button2}>LOG IN</Text></TouchableOpacity>
           </View> 
         </ImageBackground>
       );
