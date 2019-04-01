@@ -6,6 +6,7 @@ import { listRequest, loadMoreRequest } from './actions';
 import { connect } from 'react-redux';
 import ListItem from './Components/ListItem';
 import firebase from 'react-native-firebase';
+import AsyncStorageUtil from '../../utilities/asyncStorage';
 
 class List extends PureComponent {
 
@@ -51,14 +52,16 @@ class List extends PureComponent {
       }
 
       async getToken() {
-        let fcmToken = await AsyncStorage.getItem('fcmToken');
+        let fcmToken = await AsyncStorageUtil.getItemFromStorage('fcmToken');
         if (!fcmToken) {
             fcmToken = await firebase.messaging().getToken();
             if (fcmToken) {
                 // user has a device token
-                await AsyncStorage.setItem('fcmToken', fcmToken);
+                alert(fcmToken);
+                await AsyncStorageUtil.setItemInStorage('fcmToken', fcmToken);
             }
         }
+        alert(`fcmToken ${fcmToken}`);
       }
 
       async requestPermission() {

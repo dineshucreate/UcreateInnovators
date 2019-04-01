@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "455516333139",
+    "firebase_url": "https://rnlearning-80e9a.firebaseio.com",
+    "project_id": "rnlearning-80e9a",
+    "storage_bucket": "rnlearning-80e9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455516333139:android:1d2c59d94124269a",
+        "android_client_info": {
+          "package_name": "com.rnlearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455516333139-m9ibe20latain4vdgnhts6saerpr0rag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnlearning",
+            "certificate_hash": "6c7d2f4abcd2268d92be83f9d15ded0232aae054"
+          }
+        },
+        {
+          "client_id": "455516333139-6bdk6756o7ltp6j21qko3f028fddp8nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMhITsudugcbA7NuShEOGCoUtPhQg2UUc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455516333139-6bdk6756o7ltp6j21qko3f028fddp8nf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "455516333139-rfb29e4kgk0pgmb8spuajrp8vi1pbdnv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.circlecidemo"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
