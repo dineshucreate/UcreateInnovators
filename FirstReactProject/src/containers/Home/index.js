@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, FlatList } from 'react-native';
-import styles from './style';
 import ListItem from '../../Components/ListItem';
 
 class Home extends Component {
@@ -8,10 +7,7 @@ class Home extends Component {
     constructor(){
         super()
         this.state = {
-          username: 'simerjeet-ucreate',
-          password: 'Ucreate@123',
-          resFromApi : []
-          
+          resFromApi : []  
         }
       }
 
@@ -46,24 +42,26 @@ class Home extends Component {
 
     render() {
         const {resFromApi} = this.state;
-
+        const { navigation } = this.props;
         return (
-          <View>
-            {
-              resFromApi ?
-               <FlatList
-                  data = {resFromApi}
-                  renderItem={({ item }) => (
-                    //<Text >{`${item.login} ${item.id}`}</Text>
-                    <ListItem
-                      dataOne = {item}
-                    />
-                  )}
-               /> : <View>
-                      <Text>No data found</Text>
-                   </View>
-            }
-          </View>
+            <View>
+              {
+                resFromApi ?
+                <FlatList
+                    data = {resFromApi}
+                    renderItem = {({ item }) => (
+                      <ListItem
+                        dataOne = {item} open = {() => {
+                          navigation.navigate('detail', {detailValues : item})
+                         // navigator.reset([NavigationActions.navigate({ routeName: 'Dashboard' })], 0)
+                        }}
+                      />
+                    )}
+                  /> : <View>
+                        <Text>No data found</Text>
+                    </View>
+              }
+            </View>
         );
         }
 }
