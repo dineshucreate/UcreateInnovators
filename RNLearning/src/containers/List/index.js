@@ -110,10 +110,11 @@ class List extends PureComponent {
       }
       
       showAlert(title, body) {
+        const {navigation} = this.props;
         Alert.alert(
           title, body,
           [
-              { text: 'OK', onPress: () => console.log('OK Pressed') },
+              { text: 'OK', onPress: () =>  navigation.navigate('home') },
           ],
           { cancelable: false },
         );
