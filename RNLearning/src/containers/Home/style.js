@@ -38,6 +38,29 @@ const styles = StyleSheet.create({
     buttonStyle:{
         marginTop: 10,
         height: 40,
+    },
+    datePickerContainer: {
+        marginTop: 10,
+        borderWidth: 1,
+        width: 140,
+        borderRadius: 100,
+        alignSelf: 'center'
+    },
+    datePicker: {
+        width: 200, 
+        color: 'black',
+    },
+    dateIcon: {
+        display: 'none',
+        height: 0
+    },
+    dateInput: {
+        margin: 0,
+        marginLeft: -65,
+        borderWidth: 0,
+    },
+    datePlaceholderText: {
+        color: 'black',
     }
 })
 export default styles;

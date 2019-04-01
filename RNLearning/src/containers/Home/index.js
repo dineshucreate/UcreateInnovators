@@ -3,6 +3,7 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './style';
 import { SafeAreaView } from 'react-navigation';
 import ImagePicker from 'react-native-image-crop-picker';
+import DatePicker from 'react-native-datepicker'
 
 class Home extends PureComponent {
 
@@ -12,6 +13,7 @@ class Home extends PureComponent {
             loading: false,
             photos: [],
             path: "",
+            date: '',
         }
     }
 
@@ -40,8 +42,24 @@ class Home extends PureComponent {
         return (
             <SafeAreaView style={styles.mainContainer}>
                 <View style={styles.viewIn}>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.titleText} >Home</Text>
+                    <View style={styles.datePickerContainer}>
+                        <DatePicker
+                            style={styles.datePicker}
+                            date={this.state.date}
+                            mode="date"
+                            placeholder="Select date"
+                            format="YYYY-MM-DD"
+                            minDate="2012-08-01"
+                            maxDate="2029-03-01"
+                            confirmBtnText="Confirm"
+                            cancelBtnText="Cancel"
+                            customStyles={{
+                                dateIcon: styles.dateIcon,
+                                dateInput: styles.dateInput,
+                                placeholderText: styles.datePlaceholderText,
+                            }}
+                            onDateChange={(date) => { this.setState({ date: date }) }}
+                            /> 
                     </View>
                     <View style={styles.photosContainer}>
                         <TouchableOpacity style={styles.buttonStyle} onPress={this._handleOpenLibrary} >
