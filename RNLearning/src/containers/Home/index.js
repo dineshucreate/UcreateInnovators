@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Switch } from 'react-native';
 import styles from './style';
 import { SafeAreaView } from 'react-navigation';
 import ImagePicker from 'react-native-image-crop-picker';
@@ -14,6 +14,7 @@ class Home extends PureComponent {
             photos: [],
             path: "",
             date: '',
+            isSwitchOn: false,
         }
     }
 
@@ -38,7 +39,7 @@ class Home extends PureComponent {
     };
 
     render() {
-        const {path} = this.state
+        const {path, isSwitchOn} = this.state
         return (
             <SafeAreaView style={styles.mainContainer}>
                 <View style={styles.viewIn}>
@@ -60,7 +61,18 @@ class Home extends PureComponent {
                             }}
                             onDateChange={(date) => { this.setState({ date: date }) }}
                             /> 
+                            
                     </View>
+                    <View style={styles.switchContainer}>
+                        <Switch
+                            onValueChange={(value) => { this.setState({ isSwitchOn: value }) }}
+                            value = {isSwitchOn}
+                            ios_backgroundColor = 'blue'
+                            tintColor = 'blue'
+                            trackColor = 'blue'
+                            thumbColor = 'grey' />
+                    </View>
+                    { isSwitchOn &&
                     <View style={styles.photosContainer}>
                         <TouchableOpacity style={styles.buttonStyle} onPress={this._handleOpenLibrary} >
                             <Text style={styles.buttonText} >Open Gallery</Text>
@@ -68,11 +80,12 @@ class Home extends PureComponent {
                         <TouchableOpacity style={styles.buttonStyle} onPress={this._handleOpenCamera} >
                             <Text style={styles.buttonText} >Open Camera</Text>
                         </TouchableOpacity>
-                        <Image
-                            style={styles.image}
-                            source={{ uri: path }}
-                        />
                     </View>
+                    }
+                    <Image
+                        style={styles.image}
+                        source={{ uri: path }}
+                    />
                 </View>
             </SafeAreaView >
         );

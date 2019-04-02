@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
     },
     viewIn: {
         flex: 1,
-        backgroundColor : "#A4CBF8"
+        backgroundColor : "#A4CBF8",
+        alignItems: "center",
     },
     titleContainer: {
         marginTop: 20,
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         justifyContent: "flex-start",
         alignItems: "center",
-        flex: 0.9,
+        flex: 0.4,
         flexDirection: 'column',
     },
     titleText: {
@@ -61,6 +62,10 @@ const styles = StyleSheet.create({
     },
     datePlaceholderText: {
         color: 'black',
-    }
+    },
+    switchContainer: {
+        marginTop: 18,
+        margin: 10,
+    },
 })
 export default styles;
