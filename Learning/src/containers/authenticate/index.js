@@ -4,6 +4,7 @@ import { backgroundImage, fbIcon, logoWhite, backButton } from '../../assets/ima
 import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import {emptyRegex, nameReg, emailReg, passwordReg, phoneReg} from '../../Utilities/Regex/Regex'
 import {LoginErrors} from '../../Utilities/ErrorStrings'
+import {underDevelopmentAlert} from '../../Utilities/CommonFunctions'
 export default class Authenticate extends Component {
     constructor(props) {
         super(props)
@@ -60,7 +61,7 @@ export default class Authenticate extends Component {
                             <View style={styles.innerView1}></View>
                             <TextInput onChangeText={(text)=>{this.state.password = text}} secureTextEntry={true} style={styles.styleTextInput} placeholder='password'></TextInput>
                             <View style={styles.innerView1}></View>
-                            <TouchableOpacity><Text style={styles.btnForgot}>Forgot your password?</Text></TouchableOpacity>
+                            <TouchableOpacity><Text style={styles.btnForgot} onPress={()=> underDevelopmentAlert()}>Forgot your password?</Text></TouchableOpacity>
                             <TouchableOpacity style={styles.styleLogin} onPress={()=> this.loginClicked()}><Text style={styles.btnLogin}>LOG IN</Text></TouchableOpacity>
                             <TouchableOpacity style={styles.styleCreate}><Text style={styles.btnCreate}>CREATE AN ACCOUNT</Text></TouchableOpacity>
                         </View>
