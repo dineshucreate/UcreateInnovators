@@ -5,6 +5,8 @@ import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import {emptyRegex, nameReg, emailReg, passwordReg, phoneReg} from '../../Utilities/Regex/Regex'
 import {LoginErrors} from '../../Utilities/ErrorStrings'
 import {underDevelopmentAlert} from '../../Utilities/CommonFunctions'
+import Axios from 'axios';
+// import {axios} from 'axios'
 export default class Authenticate extends Component {
     constructor(props) {
         super(props)
@@ -17,13 +19,23 @@ export default class Authenticate extends Component {
     loginClicked() {
         this.validateForm((isDone)=>{
             if(isDone) {
-                this.passingValue(this.state.email)
+                const url = 'https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login'
+                const headerParams = {
+                    'Content-Type' : 'application/json',
+                    'ZUMO-API-VERSION' : '2.0.0',
+                    'Ocp-Apim-Subscription-Key' : '6c192d2e80bb49a8b90f6d684cf18b9b'
+                }
+                const loginParams = {
+                    'email' : 'y@y.co',
+                    'password' : 'Ios@1234'
+                }
+                Axios.post(url, {headers:headerParams,loginParams}).then((response)=> {
+                    alert(response)
+                }).catch((error)=> {
+                    alert(error)
+                })
             }
         })
-    }
-
-    passingValue(email) {
-        alert(email)
     }
 
     validateForm = async (callback) => {
