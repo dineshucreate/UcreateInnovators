@@ -2,14 +2,43 @@ import React, { Component } from 'react'
 import { Platform, StyleSheet, Text, View, Image, Button, ImageBackground, TouchableOpacity } from 'react-native';
 import { backgroundImage, fbIcon, logoWhite, backButton } from '../../assets/images/images'
 import { TextInput, ScrollView } from 'react-native-gesture-handler';
+import {emptyRegex, nameReg, emailReg, passwordReg, phoneReg} from '../../Utilities/Regex/Regex'
+import {LoginErrors} from '../../Utilities/ErrorStrings'
 export default class Authenticate extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            'header': 'Authenticate',
-            'count': 0
+            'email': '',
+            'password': ''
         }
     }
+
+    loginClicked() {
+        this.validateForm((isDone)=>{
+            if(isDone) {
+                alert('Success')
+            }
+        })
+    }
+
+    validateForm = async (callback) => {
+        let isDone = true;
+        const loginDetails = this.state
+        mainValidations.forEach((input) => {
+          input.validations.forEach((validation) => {
+            if (!validation.regex.exec(loginDetails[input.propertyName].trim())) {
+              if (isDone) {
+                this.setState((preState) => ({ ...preState, validationErrors: { ...preState.validationErrors, [input.errorPropertyName]: validation.errorMessage } }));
+                alert(validation.errorMessage)
+                isDone = false;
+              }
+            } else {
+              this.setState((preState) => ({ ...preState, validationErrors: { ...preState.validationErrors, [input.errorPropertyName]: '' } }));
+            }
+          });
+        });
+        await callback(isDone);
+      };
 
     goBack() {
         this.props.navigation.pop()
@@ -27,12 +56,12 @@ export default class Authenticate extends Component {
                             <Text style={styles.fbText}>LOGIN WITH FACEBOOK</Text>
                         </TouchableOpacity>
                         <View style={styles.innerView}>
-                            <TextInput autoCapitalize='none' placeholder='email address' placeholderStyle={styles.styleTextInputPlaceHolder} style={styles.styleTextInput}></TextInput>
+                            <TextInput onChangeText={(text)=>{this.state.email = text}} autoCapitalize='none' placeholder='email address' placeholderStyle={styles.styleTextInputPlaceHolder} style={styles.styleTextInput}></TextInput>
                             <View style={styles.innerView1}></View>
-                            <TextInput secureTextEntry={true} style={styles.styleTextInput} placeholder='password'></TextInput>
+                            <TextInput onChangeText={(text)=>{this.state.password = text}} secureTextEntry={true} style={styles.styleTextInput} placeholder='password'></TextInput>
                             <View style={styles.innerView1}></View>
                             <TouchableOpacity><Text style={styles.btnForgot}>Forgot your password?</Text></TouchableOpacity>
-                            <TouchableOpacity style={styles.styleLogin}><Text style={styles.btnLogin}>LOG IN</Text></TouchableOpacity>
+                            <TouchableOpacity style={styles.styleLogin} onPress={()=> this.loginClicked()}><Text style={styles.btnLogin}>LOG IN</Text></TouchableOpacity>
                             <TouchableOpacity style={styles.styleCreate}><Text style={styles.btnCreate}>CREATE AN ACCOUNT</Text></TouchableOpacity>
                         </View>
                     </View>
@@ -41,6 +70,26 @@ export default class Authenticate extends Component {
         )
     }
 }
+
+const mainValidations = [
+    {
+      validations: [
+        { regex: emptyRegex, errorMessage: LoginErrors.emailEmptyError },
+        { regex: emailReg, errorMessage: LoginErrors.inValidEmail },
+      ],
+      propertyName: 'email',
+      errorPropertyName: 'emailError',
+    },
+    {
+      validations: [
+        { regex: emptyRegex, errorMessage: LoginErrors.passwordEmptyError },
+        { regex: passwordReg, errorMessage: LoginErrors.passwordLengthError },
+      ],
+      propertyName: 'password',
+      errorPropertyName: 'passwordError',
+    },
+  ];
+
 const styles = StyleSheet.create({
     backgroundIimage: {
         flex: 1,
