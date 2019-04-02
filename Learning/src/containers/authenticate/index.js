@@ -17,9 +17,13 @@ export default class Authenticate extends Component {
     loginClicked() {
         this.validateForm((isDone)=>{
             if(isDone) {
-                alert('Success')
+                this.passingValue(this.state.email)
             }
         })
+    }
+
+    passingValue(email) {
+        alert(email)
     }
 
     validateForm = async (callback) => {
