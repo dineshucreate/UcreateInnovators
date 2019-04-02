@@ -52,7 +52,7 @@ export default class Authenticate extends Component {
                 <ScrollView style={styles.scrlVw}>
                     <View style={styles.view}>
                         <Image source={logoWhite} style={styles.image} />
-                        <TouchableOpacity style={styles.fbButton}>
+                        <TouchableOpacity style={styles.fbButton} onPress={()=> underDevelopmentAlert()}>
                             <Image source={fbIcon} style={styles.fbIcon}></Image>
                             <Text style={styles.fbText}>LOGIN WITH FACEBOOK</Text>
                         </TouchableOpacity>
@@ -63,7 +63,7 @@ export default class Authenticate extends Component {
                             <View style={styles.innerView1}></View>
                             <TouchableOpacity><Text style={styles.btnForgot} onPress={()=> underDevelopmentAlert()}>Forgot your password?</Text></TouchableOpacity>
                             <TouchableOpacity style={styles.styleLogin} onPress={()=> this.loginClicked()}><Text style={styles.btnLogin}>LOG IN</Text></TouchableOpacity>
-                            <TouchableOpacity style={styles.styleCreate}><Text style={styles.btnCreate}>CREATE AN ACCOUNT</Text></TouchableOpacity>
+                            <TouchableOpacity style={styles.styleCreate} onPress={() => underDevelopmentAlert()}><Text style={styles.btnCreate}>CREATE AN ACCOUNT</Text></TouchableOpacity>
                         </View>
                     </View>
                 </ScrollView>
