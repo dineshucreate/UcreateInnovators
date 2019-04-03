@@ -26,13 +26,15 @@ export default class Home extends Component {
     }
     
     render() {
+        const {navigation} = this.props
+        var response = navigation.getParam('response')
         return(
             <View style={styles.container}>
                 {/* <View style={styles.red}></View>
                 <View style={styles.green}></View>
                 <View style={styles.blue}></View> */}
                 <TouchableOpacity onPress={ () => this.goBack()}><Image source={backButton} style={styles.headerButton}></Image></TouchableOpacity>
-                {/* <Text>abc {"\n\n"} abc</Text> */}
+                <Text style={{textAlign:'center'}}>Welcome {response.user.firstname + ' ' + response.user.lastName}</Text>
                 <FlatList onPress={()=>{alert(this)}} contentContainerStyle={styles.styleFlatList} style={styles.list} data={this.state.arrUsers} 
                 renderItem={({item}) =>
                 <TouchableOpacity style={styles.styleTouch} onPress={()=>{this.onClickItem(item)}}><View style={styles.styleView}><Text>{item.value}</Text></View></TouchableOpacity>}/>

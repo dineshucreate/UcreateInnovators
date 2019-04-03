@@ -34,7 +34,7 @@ export default class Authenticate extends Component {
                 Axios.post(url, loginParams, {headers:headerParams}).then((response)=> {
                     this.state.loading = false
                     this.forceUpdate()
-                    this.props.navigation.navigate('Home')
+                    this.props.navigation.navigate('Home', {'response':response.data})
                 }).catch((error)=> {
                     this.state.loading = false
                     this.forceUpdate()
