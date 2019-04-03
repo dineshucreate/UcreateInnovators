@@ -21,27 +21,24 @@ export default class Home extends Component {
 
     onClickItem(item) {
         // alert(JSON.stringify(item))
-        var obj = JSON.parse(JSON.stringify(item));
-        alert(obj.value)
+        // var obj = JSON.parse(JSON.stringify(item));
+        // alert(obj.value)
+        this.props.navigation.navigate('FriendList', {'response': this.props.navigation})
     }
     
     render() {
         const {navigation} = this.props
         var response = navigation.getParam('response')
         return(
-            <View style={styles.container}>
-                {/* <View style={styles.red}></View>
-                <View style={styles.green}></View>
-                <View style={styles.blue}></View> */}
+            <ImageBackground source ={backgroundImage} style={styles.container}>
                 <TouchableOpacity onPress={ () => this.goBack()}><Image source={backButton} style={styles.headerButton}></Image></TouchableOpacity>
                 <Text style={{textAlign:'center'}}>Welcome {response.user.firstname + ' ' + response.user.lastName}</Text>
-                <FlatList onPress={()=>{alert(this)}} contentContainerStyle={styles.styleFlatList} style={styles.list} data={this.state.arrUsers} 
+                <FlatList contentContainerStyle={styles.styleFlatList} style={styles.list} data={this.state.arrUsers} 
                 renderItem={({item}) =>
                 <TouchableOpacity style={styles.styleTouch} onPress={()=>{this.onClickItem(item)}}><View style={styles.styleView}><Text>{item.value}</Text></View></TouchableOpacity>}/>
-            </View>
+            </ImageBackground>
         )
     }
-    
 }
 
 const styles = StyleSheet.create({

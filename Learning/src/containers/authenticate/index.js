@@ -5,14 +5,15 @@ import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import {emptyRegex, nameReg, emailReg, passwordReg, phoneReg} from '../../Utilities/Regex/Regex'
 import {LoginErrors} from '../../Utilities/ErrorStrings'
 import {underDevelopmentAlert} from '../../Utilities/CommonFunctions'
+import {consumePostAPI} from '../../Utilities/ServerRequest'
 import Axios from 'axios';
 // import {axios} from 'axios'
 export default class Authenticate extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            'email': '',
-            'password': '',
+            'email': 'y@y.co',
+            'password': 'Ios@1234',
             loading:false
         }
     }
@@ -22,20 +23,22 @@ export default class Authenticate extends Component {
             if(isDone) {
                 this.state.loading = true
                 const url = 'https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login'
+                // Header params to attach with Request
                 var headerParams = {
                     'Content-Type' : 'application/json',
                     'ZUMO-API-VERSION' : '2.0.0',
                     'Ocp-Apim-Subscription-Key' : '6c192d2e80bb49a8b90f6d684cf18b9b'
                 }
+                // Body params to attach with Request
                 const loginParams = {
                     'email' : this.state.email,
                     'password' : this.state.password,
                 }
-                Axios.post(url, loginParams, {headers:headerParams}).then((response)=> {
+                consumePostAPI(url, headerParams, loginParams, (response) => {
                     this.state.loading = false
                     this.forceUpdate()
-                    this.props.navigation.navigate('Home', {'response':response.data})
-                }).catch((error)=> {
+                    this.props.navigation.navigate('Home', {'response':response})
+                }, (error) => {
                     this.state.loading = false
                     this.forceUpdate()
                     alert(error.response.data.message) 
@@ -71,7 +74,7 @@ export default class Authenticate extends Component {
         return (
             <ImageBackground source={backgroundImage} style={styles.backgroundIimage}>
                 <TouchableOpacity onPress={() => { this.goBack() }} ><Image source={backButton} style={styles.headerButton}></Image></TouchableOpacity>
-                <ScrollView style={styles.scrlVw}>
+                <ScrollView contentContainerStyle={styles.scrlVw}>
                     <View style={styles.view}>
                         <Image source={logoWhite} style={styles.image} />
                         <TouchableOpacity style={styles.fbButton} onPress={()=> underDevelopmentAlert()}>
