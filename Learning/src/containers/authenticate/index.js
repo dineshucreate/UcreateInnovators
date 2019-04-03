@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View, Image, Button, ImageBackground, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ActivityIndicator, Button, ImageBackground, TouchableOpacity } from 'react-native';
 import { backgroundImage, fbIcon, logoWhite, backButton } from '../../assets/images/images'
 import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import {emptyRegex, nameReg, emailReg, passwordReg, phoneReg} from '../../Utilities/Regex/Regex'
@@ -12,27 +12,33 @@ export default class Authenticate extends Component {
         super(props)
         this.state = {
             'email': '',
-            'password': ''
+            'password': '',
+            loading:false
         }
     }
 
     loginClicked() {
         this.validateForm((isDone)=>{
             if(isDone) {
+                this.state.loading = true
                 const url = 'https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login'
-                const headerParams = {
+                var headerParams = {
                     'Content-Type' : 'application/json',
                     'ZUMO-API-VERSION' : '2.0.0',
                     'Ocp-Apim-Subscription-Key' : '6c192d2e80bb49a8b90f6d684cf18b9b'
                 }
                 const loginParams = {
-                    'email' : 'y@y.co',
-                    'password' : 'Ios@1234'
+                    'email' : this.state.email,
+                    'password' : this.state.password,
                 }
-                Axios.post(url, {headers:headerParams,loginParams}).then((response)=> {
-                    alert(response)
+                Axios.post(url, loginParams, {headers:headerParams}).then((response)=> {
+                    this.state.loading = false
+                    this.forceUpdate()
+                    this.props.navigation.navigate('Home')
                 }).catch((error)=> {
-                    alert(error)
+                    this.state.loading = false
+                    this.forceUpdate()
+                    alert(error.response.data.message) 
                 })
             }
         })
@@ -83,6 +89,7 @@ export default class Authenticate extends Component {
                         </View>
                     </View>
                 </ScrollView>
+                { this.state.loading ? <View style={styles.styleActivityIndicatorView}><ActivityIndicator size='large' style={styles.styleActivityIndicator}/></View> : null} 
             </ImageBackground>
         )
     }
@@ -225,4 +232,14 @@ const styles = StyleSheet.create({
         color: '#096b76',
         alignSelf: 'center'
     },
+    styleActivityIndicatorView: {
+        width:'100%',
+        height:'100%',
+        position: 'absolute',
+        alignSelf:'center',
+        justifyContent:'center',
+    },
+    styleActivityIndicator:{
+        // backgroundColor:'red'
+    }
 })
