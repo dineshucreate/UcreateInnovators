@@ -23,7 +23,7 @@ export default class Home extends Component {
         // alert(JSON.stringify(item))
         // var obj = JSON.parse(JSON.stringify(item));
         // alert(obj.value)
-        this.props.navigation.navigate('FriendList', {'response': this.props.navigation})
+        this.props.navigation.navigate('FriendList', {'response': this.props.navigation.getParam('response')})
     }
     
     render() {
