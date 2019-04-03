@@ -16,9 +16,24 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
+  
+  callback(){
+    let calc = (num1, num2, callback) => {
+      return callback(num1, num2);
+    }
+    let add = (a, b) => {
+      return a + b;
+    }
+    let multiply = (a, b) => {
+      return a * b;
+    }
+    console.log(calc(5, 5, multiply));
+    console.log(calc(5, 5, add));
+  }
+
   render() {
+    this.logHello()
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
