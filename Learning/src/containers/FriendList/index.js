@@ -37,14 +37,14 @@ export default class FriendList extends Component {
 
   filterUsers(text) {
     this.state.arrFiltered = this.state.arrUsers.map(value => {
-        return value;
-      });
+      return value;
+    });
     if (text.length != 0) {
       this.state.arrFiltered = this.state.arrFiltered.filter(value => {
-        return value.name.toLowerCase().includes(text.toLowerCase())
+        return value.name.toLowerCase().includes(text.toLowerCase());
       });
     }
-    this.forceUpdate()
+    this.forceUpdate();
   }
 
   goBack() {
@@ -77,32 +77,33 @@ export default class FriendList extends Component {
   }
 
   render() {
-    const arr = this.state.arrUsers;
+    const arr = this.state.arrFiltered;
     return (
       <ImageBackground source={backgroundImage} style={styles.container}>
         <TouchableOpacity onPress={() => this.goBack()}>
           <Image source={backButton} style={styles.headerButton} />
         </TouchableOpacity>
         <TextInput
+          autoCorrect={false}
           onChangeText={text => this.filterUsers(text)}
           style={styles.styleTextInput}
         />
         <FlatList
-          contentContainerStyle={styles.styleFlatList}
+          numColumns={3}
           style={styles.list}
           data={this.state.arrFiltered}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.styleTouch}
-              onPress={() => {
-                this.onClickItem(item);
-              }}
-            >
-              <View style={styles.styleView}>
-                <Text>{item.name}</Text>
-              </View>
-            </TouchableOpacity>
+            <View style={styles.styleFlatList}>
+              <Image
+                style={styles.styleImage}
+                source={{ uri: item.stickerUrl ? item.stickerUrl : "" }}
+              />
+              <Text style={styles.GridViewTextLayout}>{item.name}</Text>
+            </View>
           )}
+          keyExtractor={(item, index) => {
+            index;
+          }}
         />
       </ImageBackground>
     );
@@ -111,7 +112,9 @@ export default class FriendList extends Component {
 
 const styles = StyleSheet.create({
   styleTextInput: {
-    width: "100%",
+    paddingLeft: 10,
+    margin: 8,
+    height: 30,
     backgroundColor: "white"
   },
   container: {
@@ -127,18 +130,27 @@ const styles = StyleSheet.create({
     flex: 1
   },
   styleFlatList: {
-    alignItems: "center",
-    // justifyContent:'center',
     flex: 1,
-    height: 40
+    // justifyContent: "center",
+    // alignItems: "center",
+    width: (Dimensions.get("window").width - 16) / 3,
+    height: ((Dimensions.get("window").width - 16) / 3) * 1.5,
+    margin: 4,
+    backgroundColor: "white",
+    borderRadius: 2
   },
-  styleView: {
-    alignSelf: "center",
+  styleImage: {
+    fontWeight: "bold",
     justifyContent: "center",
-    // width : Dimensions.get('window').width,
-    height: 40
+    color: "#fff",
+    marginTop: 8,
+    marginLeft: 8,
+    marginRight: 8,
+    height: ((Dimensions.get("window").width - 16) / 3 - 16) * 1.2
   },
-  styleTouch: {
-    width: Dimensions.get("window").width
+  GridViewTextLayout: {
+    height: 50,
+    paddingTop: 10,
+    textAlign: "center"
   }
 });
