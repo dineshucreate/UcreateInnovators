@@ -33,7 +33,7 @@ export default class App extends Component {
   }
 
   promise() {
-    let prom = new Promise(function(resolve, reject){
+    let prom = new Promise(function(resolve, reject) {
       let isClean = true;
       if (isClean == true) {
         resolve('Clean');
@@ -48,9 +48,46 @@ export default class App extends Component {
     });
   }
 
+  // Complex promise
+  complexPromise() {
+    let cleanRoom = function() {
+      return new Promise(function(resolve, reject) {
+        resolve('Cleaned room ');
+      });
+    }
+
+    let removeGarbage = function(message) {
+      return new Promise(function(resolve, reject) {
+        resolve( message + 'Garbage collected ');
+      });
+    }
+    let winIceCream = function(message) {
+      return new Promise(function(resolve, reject) {
+        resolve(message + 'Ice cream ');
+      });
+    }
+
+    cleanRoom().then(function(resultRoom) {
+      return removeGarbage(resultRoom);
+    }).then(function(resultRoom){
+      return winIceCream(resultRoom);
+    }).then(function(resultRoom){
+      console.log('Everything is finished ' + resultRoom);
+    })
+
+    Promise.all([cleanRoom(), removeGarbage(), winIceCream()]).then(function(){
+      console.log('Finished at once');
+    })
+
+    Promise.race([cleanRoom(), removeGarbage(), winIceCream()]).then(function(){
+      console.log('Call only one of them');
+    })
+  }
+
   render() {
     this.callback()
     this.promise()
+    this.complexPromise()
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
