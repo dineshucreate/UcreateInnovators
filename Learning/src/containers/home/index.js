@@ -32,10 +32,10 @@ export default class Home extends Component {
         return(
             <ImageBackground source ={backgroundImage} style={styles.container}>
                 <TouchableOpacity onPress={ () => this.goBack()}><Image source={backButton} style={styles.headerButton}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center'}}>Welcome {response.user.firstname + ' ' + response.user.lastName}</Text>
-                <FlatList contentContainerStyle={styles.styleFlatList} style={styles.list} data={this.state.arrUsers} 
+                <Text style={{textAlign:'center'}}>Welcome </Text>
+                {/* <FlatList contentContainerStyle={styles.styleFlatList} style={styles.list} data={this.state.arrUsers} 
                 renderItem={({item}) =>
-                <TouchableOpacity style={styles.styleTouch} onPress={()=>{this.onClickItem(item)}}><View style={styles.styleView}><Text>{item.value}</Text></View></TouchableOpacity>}/>
+                <TouchableOpacity style={styles.styleTouch} onPress={()=>{this.onClickItem(item)}}><View style={styles.styleView}><Text>{item.value}</Text></View></TouchableOpacity>}/> */}
             </ImageBackground>
         )
     }
