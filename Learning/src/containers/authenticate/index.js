@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View, Image, ActivityIndicator, Button, ImageBackground, TouchableOpacity } from 'react-native';
+import { AsyncStorage, Platform, StyleSheet, Text, View, Image, ActivityIndicator, Button, ImageBackground, TouchableOpacity } from 'react-native';
 import { backgroundImage, fbIcon, logoWhite, backButton } from '../../assets/images/images'
 import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import {emptyRegex, nameReg, emailReg, passwordReg, phoneReg} from '../../Utilities/Regex/Regex'
 import {LoginErrors} from '../../Utilities/ErrorStrings'
 import {underDevelopmentAlert} from '../../Utilities/CommonFunctions'
 import {consumePostAPI} from '../../Utilities/ServerRequest'
+import {saveToAsyncStorage} from '../../Utilities/AsyncStorage'
 import Axios from 'axios';
-// import {axios} from 'axios'
 export default class Authenticate extends Component {
     constructor(props) {
         super(props)
@@ -37,7 +37,9 @@ export default class Authenticate extends Component {
                 consumePostAPI(url, headerParams, loginParams, (response) => {
                     this.state.loading = false
                     this.forceUpdate()
-                    this.props.navigation.navigate('Home', {'response':response})
+                    saveToAsyncStorage(response, (user) => {
+                        this.props.navigation.navigate('FriendList', {'response':response})
+                    })
                 }, (error) => {
                     this.state.loading = false
                     this.forceUpdate()

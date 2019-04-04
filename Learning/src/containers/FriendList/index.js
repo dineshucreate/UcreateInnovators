@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   Image,
-  Dimensions
+  Dimensions,
+  AsyncStorage
 } from "react-native";
 import {
   backgroundImage,
@@ -18,6 +19,7 @@ import {
 } from "../../assets/images/images";
 import { consumeGetAPI } from "../../Utilities/ServerRequest";
 import { TextInput } from "react-native-gesture-handler";
+import User from '../../Utilities/Models/User'
 export default class FriendList extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ export default class FriendList extends Component {
   }
 
   onClickItem(item) {
-    alert(JSON.stringify(item.name))
+    alert(JSON.stringify(item.name));
     // var obj = JSON.parse(JSON.stringify(item));
     // alert(obj.value)
     // this.props.navigation.navigate("FriendList", {
@@ -54,14 +56,15 @@ export default class FriendList extends Component {
 
   componentDidMount() {
     const { navigation } = this.props;
-    const response = navigation.getParam("response");
+    const user = new User(navigation.getParam("response"))
     const url =
       "https://footballalbum-prod-api.imfootball.me//UserAPI/api/User/FriendList";
+    // Header params to attach with Request
     const headerParams = {
       "Content-Type": "application/json",
       "ZUMO-API-VERSION": "2.0.0",
       "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b",
-      "X-ZUMO-AUTH": navigation.getParam("response").access_token
+      "X-ZUMO-AUTH": user.accessToken
     };
     consumeGetAPI(
       url,
@@ -85,7 +88,7 @@ export default class FriendList extends Component {
           <Image source={backButton} style={styles.headerButton} />
         </TouchableOpacity>
         <TextInput
-        placeholder='Search'
+          placeholder="Search"
           autoCorrect={false}
           onChangeText={text => this.filterUsers(text)}
           style={styles.styleTextInput}
@@ -95,14 +98,18 @@ export default class FriendList extends Component {
           style={styles.list}
           data={this.state.arrFiltered}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={()=> this.onClickItem(item)}>
-            <View style={styles.styleFlatList}>
-              <Image
-                style={styles.styleImage}
-                source={item.stickerUrl ? {uri: item.stickerUrl} : friendPlaceHolderImage}
-              />
-              <Text style={styles.GridViewTextLayout}>{item.name}</Text>
-            </View>
+            <TouchableOpacity onPress={() => this.onClickItem(item)}>
+              <View style={styles.styleFlatList}>
+                <Image
+                  style={styles.styleImage}
+                  source={
+                    item.stickerUrl
+                      ? { uri: item.stickerUrl }
+                      : friendPlaceHolderImage
+                  }
+                />
+                <Text style={styles.GridViewTextLayout}>{item.name}</Text>
+              </View>
             </TouchableOpacity>
           )}
         />
@@ -119,7 +126,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
     height: 30,
     backgroundColor: "white",
-    borderRadius:2
+    borderRadius: 2
   },
   container: {
     flex: 1
@@ -132,7 +139,7 @@ const styles = StyleSheet.create({
   },
   list: {
     flex: 1,
-    margin:8,
+    margin: 8
   },
   styleFlatList: {
     // flex: 1,
@@ -150,13 +157,15 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginLeft: 8,
     marginRight: 8,
-    resizeMode:'cover',
+    resizeMode: "cover",
     height: ((Dimensions.get("window").width - 32) / 3 - 16) * 1.2,
-    width: (Dimensions.get("window").width - 32) / 3 - 16,
+    width: (Dimensions.get("window").width - 32) / 3 - 16
   },
   GridViewTextLayout: {
     height: 50,
     paddingTop: 10,
+    paddingLeft:5,
+    paddingRight:5,
     textAlign: "center"
   }
 });
