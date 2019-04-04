@@ -82,6 +82,45 @@ export default class App extends Component {
     Promise.race([cleanRoom(), removeGarbage(), winIceCream()]).then(function(){
       console.log('Call only one of them');
     })
+
+    //Async/Await
+  
+      const preMovie = async () => {
+        const wifeBringingTickets = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve('tickets');
+          }, 3000);
+        })
+  
+        let ticket = await wifeBringingTickets;
+  
+        console.log(`Wife: I have the tickets ${tickets}` );
+        console.log(`Husband: we should go in`);
+        console.log(`Wife: No i need popcorn`);
+  
+        const getPopCorn = new Promise((resolve, reject) => {
+          resolve('pocorn');
+        })
+        let popcorn = await getPopCorn;
+        console.log(`Husband: we got popcorn ${popcorn}`);
+        console.log(`Husband: Now we should go in`);
+        console.log(`Wife: No i need butter`);
+  
+        const getButter = new Promise((resolve, reject) => {
+          resolve('butter');
+        })
+        const butter = await getButter;
+        console.log(`Husband: we got butter ${butter}`);
+        console.log(`Husband: Now we should go in`);
+  
+
+
+
+        return ticket;
+      }
+
+      console.log(preMovie);
+      
   }
 
   render() {
