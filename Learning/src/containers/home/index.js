@@ -50,10 +50,10 @@ const styles = StyleSheet.create({
         // justifyContent:'space-evenly',
         // alignItems:'center'
     },
-    headerButton:{
+    headerButton: {
         width:30,
         height:30,
-        marginLeft:20,
+        marginLeft:10,
         marginTop:40
     },
     red:{

@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
     headerButton: {
         width: 30,
         height: 30,
-        marginLeft: 20,
-        marginTop: 60
+        marginLeft: 10,
+        marginTop: 40
     },
     fbIcon: {
         width: 25,

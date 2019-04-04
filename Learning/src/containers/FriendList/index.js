@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import {
   backgroundImage,
+  friendPlaceHolderImage,
   fbIcon,
   logoWhite,
   backButton
@@ -27,7 +28,7 @@ export default class FriendList extends Component {
   }
 
   onClickItem(item) {
-    // alert(JSON.stringify(item))
+    alert(JSON.stringify(item.name))
     // var obj = JSON.parse(JSON.stringify(item));
     // alert(obj.value)
     // this.props.navigation.navigate("FriendList", {
@@ -84,6 +85,7 @@ export default class FriendList extends Component {
           <Image source={backButton} style={styles.headerButton} />
         </TouchableOpacity>
         <TextInput
+        placeholder='Search'
           autoCorrect={false}
           onChangeText={text => this.filterUsers(text)}
           style={styles.styleTextInput}
@@ -93,17 +95,16 @@ export default class FriendList extends Component {
           style={styles.list}
           data={this.state.arrFiltered}
           renderItem={({ item }) => (
+            <TouchableOpacity onPress={()=> this.onClickItem(item)}>
             <View style={styles.styleFlatList}>
               <Image
                 style={styles.styleImage}
-                source={{ uri: item.stickerUrl ? item.stickerUrl : "" }}
+                source={item.stickerUrl ? {uri: item.stickerUrl} : friendPlaceHolderImage}
               />
               <Text style={styles.GridViewTextLayout}>{item.name}</Text>
             </View>
+            </TouchableOpacity>
           )}
-          keyExtractor={(item, index) => {
-            index;
-          }}
         />
       </ImageBackground>
     );
@@ -113,9 +114,12 @@ export default class FriendList extends Component {
 const styles = StyleSheet.create({
   styleTextInput: {
     paddingLeft: 10,
-    margin: 8,
+    marginLeft: 16,
+    marginRight: 16,
+    marginTop: 16,
     height: 30,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    borderRadius:2
   },
   container: {
     flex: 1
@@ -123,30 +127,32 @@ const styles = StyleSheet.create({
   headerButton: {
     width: 30,
     height: 30,
-    marginLeft: 20,
+    marginLeft: 10,
     marginTop: 40
   },
   list: {
-    flex: 1
+    flex: 1,
+    margin:8,
   },
   styleFlatList: {
-    flex: 1,
+    // flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
-    width: (Dimensions.get("window").width - 16) / 3,
-    height: ((Dimensions.get("window").width - 16) / 3) * 1.5,
-    margin: 4,
+    width: (Dimensions.get("window").width - 32) / 3,
+    height: ((Dimensions.get("window").width - 32) / 3) * 1.5,
+    marginRight: 8,
+    marginBottom: 8,
     backgroundColor: "white",
     borderRadius: 2
   },
   styleImage: {
-    fontWeight: "bold",
     justifyContent: "center",
-    color: "#fff",
     marginTop: 8,
     marginLeft: 8,
     marginRight: 8,
-    height: ((Dimensions.get("window").width - 16) / 3 - 16) * 1.2
+    resizeMode:'cover',
+    height: ((Dimensions.get("window").width - 32) / 3 - 16) * 1.2,
+    width: (Dimensions.get("window").width - 32) / 3 - 16,
   },
   GridViewTextLayout: {
     height: 50,
