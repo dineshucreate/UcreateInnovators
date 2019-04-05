@@ -66,8 +66,7 @@ export default class User {
   async getFriendList(successCallback, errorCallback) {
     const response = await AsyncStorage.getItem('user')
     const user = JSON.parse(response)
-    const url =
-      "https://footballalbum-prod-api.imfootball.me//UserAPI/api/User/FriendList";
+    const url = "https://footballalbum-prod-api.imfootball.me//UserAPI/api/User/FriendList";
     // Header params to attach with Request
     const headerParams = {
       "Content-Type": "application/json",
@@ -83,6 +82,34 @@ export default class User {
       },
       error => {
         errorCallback(error)
+      }
+    );
+  }
+
+  async removeFriend(userGUID, successCallback, errorCallback) {
+    const response = await AsyncStorage.getItem('user')
+    const user = JSON.parse(response)
+    const url = "https://footballalbum-prod-api.imfootball.me//UserAPI/api/Recommendation/UpdateRecommendationStatus";
+    // Header params to attach with Request
+    const headerParams = {
+      "Content-Type": "application/json",
+      "ZUMO-API-VERSION": "2.0.0",
+      "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b",
+      "X-ZUMO-AUTH": user.accessToken
+    };
+    const parms = {
+      recommendationStatusTypeId: '2',
+      userGuid: userGUID
+    };
+    consumePostAPI(
+      url,
+      headerParams,
+      parms,
+      response => {
+        successCallback(response);
+      },
+      error => {
+        errorCallback(error);
       }
     );
   }

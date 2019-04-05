@@ -41,12 +41,21 @@ export default class FriendList extends Component {
         // destructiveButtonIndex:1
       },
       buttonIndex => {
-        // if(buttonIndex==3) {
-        //   underDevelopmentAlert()
-        // } else {
-        //   underDevelopmentAlert()
-        // }
-        underDevelopmentAlert();
+        if (buttonIndex == 3) {
+          let user = new User(null);
+          user.removeFriend(item.userGUID,
+            response => {
+              this.state.arrUsers = response;
+              this.state.arrFiltered = response;
+              this.forceUpdate();
+            },
+            error => {
+              alert(JSON.stringify(error));
+            }
+          );
+        } else {
+          underDevelopmentAlert();
+        }
       }
     );
     // var obj = JSON.parse(JSON.stringify(item));
