@@ -9,13 +9,28 @@ class Login extends Component {
             username: 'simerjeet-ucreate',
             password: 'Ucreate@123',
         }
-      }
-      
+    }
+    static navigationOptions = {
+        drawerLabel: 'Login',
+        drawerIcon: ({ tintColor }) => (
+          <Image 
+            source = {{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+            style={[styles.icon, {tintColor: tintColor}]}
+          />
+        ),
+      };
     render() {
         const { navigation } = this.props;
         const { username,password } = this.state;
         return (
               <ScrollView contentContainerStyle={styles.contentContainer}>
+               <TouchableOpacity onPress = {() => this.props.navigation.toggleDrawer()}>
+                    <View>
+                        <Image style = {styles.profileImage}
+                             source = {{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+                        />
+                    </View>
+                </TouchableOpacity>
                 <View style={styles.container}>
                 <Text style={styles.welcome}>LOGIN SCREEN</Text>
                 <Text style={styles.heading}>Login</Text>
@@ -37,8 +52,10 @@ class Login extends Component {
                 <Button  style = {styles.buttonStyle}
                 title="Login"
                 onPress ={ () => {
-                        navigation.navigate('home',{user :username,pwd :password})
-                    }} 
+                       navigation.navigate('Home',{user :username,pwd :password})
+                        // navigation.navigate('SettingScreen')
+
+                }} 
                 />
             </View>
             </ScrollView>

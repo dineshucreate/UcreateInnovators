@@ -3,18 +3,20 @@ import {StyleSheet} from 'react-native';
 
 export default styles = StyleSheet.create({
     container: {
-      flex: 1,
+     // flex: 1,
       //justifyContent: 'flex-start',
       alignItems: 'center',
       backgroundColor: '#f00ff0',
+      height : 100
     },
     welcome: {
       fontSize: 30,
       textAlign: 'center',
-      marginTop: 100,
+      marginTop: 20,
       color: '#3F4E85',
       marginBottom: 60,
-      fontWeight : 'bold'
+      fontWeight : 'bold',
+      height : 80
     },
     heading: {
       fontSize: 20,
@@ -35,5 +37,18 @@ export default styles = StyleSheet.create({
       marginTop: 50,
       color: '#3F4E85',
       backgroundColor: '#ff00ff'
-    }
+    },
+    icon: {
+      width: 24,
+      height: 24,
+    },
+
+    profileImage : {
+      height : 50,
+      width : 50,
+      backgroundColor: '#f00ff0',
+      borderWidth : 2,
+      marginTop :  60
+
+  }
   });
