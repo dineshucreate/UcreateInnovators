@@ -46,12 +46,13 @@ export default class App extends Component<Props> {
                         fontSize: 25,
                         backgroundColor: `blue`,
                         padding: 30,
+                        alignItems: 'stretch',
                         textAlign: 'center'}}>Click for Arrow Function</Text>
         </TouchableOpacity>
         
         <View style = {styles.AlignCenter}>
         <TouchableOpacity onPress={this.simpleFun}>
-            <Text style = {styles.buttonContainer}>{`\n`}Simple Function</Text>
+            <Text style = {styles.buttonContainer}>Simple Function</Text>
         </TouchableOpacity>
         </View>
 
@@ -98,21 +99,25 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     margin: 0,
-    fontSize: 25,
-    width:"100%",
-    height: 100,
+    fontSize: 20,
+    width:200,
+    padding:10,
     textAlign: 'center',
     backgroundColor: `#00ff00`,
   },
   AlignCenter:{
     textAlign: 'center',
+    alignItems: 'stretch',
+    justifyContent: 'flex-start'
   },
   alternativeLayoutButtonContainer: {
     textAlign: 'center',
     padding:0,
     marginTop: 100,
-    flex: 0.2,
+    
     flexDirection: 'row',
+    justifyContent:'center',
+    alignItems: 'stretch',
     //justifyContent: 'space-between'
   },
   flexParentContainer: {
