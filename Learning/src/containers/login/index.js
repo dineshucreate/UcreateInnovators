@@ -13,6 +13,7 @@ import {
 import { backgroundImage, logoWhite } from "../../assets/images/images";
 import CustomText from "../../components/Text/customtext";
 import styles from "../../assets/Styles/styles";
+import {NavigationActions, StackActions} from 'react-navigation'
 export default class Login extends Component {
   constructor() {
     super();
@@ -31,7 +32,12 @@ export default class Login extends Component {
   async componentDidMount() {
     const response = await AsyncStorage.getItem('user')
     if(response != null) {
-      this.props.navigation.navigate('FriendList', {'response':JSON.parse(response)})
+      // const resetAction = StackActions.reset({
+      //   index: 0,
+      //   actions: [NavigationActions.navigate({ routeName: 'FriendList' })],
+      // })
+      // this.props.navigation.dispatch(resetAction);
+      this.props.navigation.navigate('FriendList')
     }
   }
 

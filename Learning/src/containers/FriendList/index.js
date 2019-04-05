@@ -8,7 +8,8 @@ import {
   ImageBackground,
   Image,
   Dimensions,
-  AsyncStorage
+  AsyncStorage,
+  ActionSheetIOS
 } from "react-native";
 import {
   backgroundImage,
@@ -19,7 +20,9 @@ import {
 } from "../../assets/images/images";
 import { consumeGetAPI } from "../../Utilities/ServerRequest";
 import { TextInput } from "react-native-gesture-handler";
-import User from '../../Utilities/Models/User'
+import { NavigationActions, StackActions } from "react-navigation";
+import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
+import User from "../../Utilities/Models/User";
 export default class FriendList extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +34,21 @@ export default class FriendList extends Component {
   }
 
   onClickItem(item) {
-    alert(JSON.stringify(item.name));
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options: ["Cancel", "Chat", "Report User", "Remove This User"],
+        cancelButtonIndex: 0
+        // destructiveButtonIndex:1
+      },
+      buttonIndex => {
+        // if(buttonIndex==3) {
+        //   underDevelopmentAlert()
+        // } else {
+        //   underDevelopmentAlert()
+        // }
+        underDevelopmentAlert();
+      }
+    );
     // var obj = JSON.parse(JSON.stringify(item));
     // alert(obj.value)
     // this.props.navigation.navigate("FriendList", {
@@ -55,24 +72,12 @@ export default class FriendList extends Component {
     this.props.navigation.pop();
   }
 
-  componentDidMount() {
-    if(this.state.txt) {
-      this.state.txt.focus()
+  async componentDidMount() {
+    if (this.state.txt) {
+      this.state.txt.focus();
     }
-    const { navigation } = this.props;
-    const user = new User(navigation.getParam("response"))
-    const url =
-      "https://footballalbum-prod-api.imfootball.me//UserAPI/api/User/FriendList";
-    // Header params to attach with Request
-    const headerParams = {
-      "Content-Type": "application/json",
-      "ZUMO-API-VERSION": "2.0.0",
-      "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b",
-      "X-ZUMO-AUTH": user.accessToken
-    };
-    consumeGetAPI(
-      url,
-      headerParams,
+    let user = new User(null);
+    user.getFriendList(
       response => {
         this.state.arrUsers = response;
         this.state.arrFiltered = response;
@@ -92,7 +97,7 @@ export default class FriendList extends Component {
           <Image source={backButton} style={styles.headerButton} />
         </TouchableOpacity>
         <TextInput
-          ref= {(input)=>this.state.txt = input}
+          ref={input => (this.state.txt = input)}
           placeholder="Search"
           autoCorrect={false}
           onChangeText={text => this.filterUsers(text)}
@@ -169,8 +174,8 @@ const styles = StyleSheet.create({
   GridViewTextLayout: {
     height: 50,
     paddingTop: 10,
-    paddingLeft:5,
-    paddingRight:5,
+    paddingLeft: 5,
+    paddingRight: 5,
     textAlign: "center"
   }
 });
