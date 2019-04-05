@@ -25,7 +25,8 @@ export default class FriendList extends Component {
     super(props);
     this.state = {
       arrUsers: [],
-      arrFiltered: []
+      arrFiltered: [],
+      txt: null
     };
   }
 
@@ -55,6 +56,9 @@ export default class FriendList extends Component {
   }
 
   componentDidMount() {
+    if(this.state.txt) {
+      this.state.txt.focus()
+    }
     const { navigation } = this.props;
     const user = new User(navigation.getParam("response"))
     const url =
@@ -88,6 +92,7 @@ export default class FriendList extends Component {
           <Image source={backButton} style={styles.headerButton} />
         </TouchableOpacity>
         <TextInput
+          ref= {(input)=>this.state.txt = input}
           placeholder="Search"
           autoCorrect={false}
           onChangeText={text => this.filterUsers(text)}

@@ -11,7 +11,7 @@ import {
   AsyncStorage
 } from "react-native";
 import { backgroundImage, logoWhite } from "../../assets/images/images";
-import CustomText from "../../components/Text/CustomText";
+import CustomText from "../../components/Text/customtext";
 import styles from "../../assets/Styles/styles";
 export default class Login extends Component {
   constructor() {

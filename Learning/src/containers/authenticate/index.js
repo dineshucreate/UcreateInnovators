@@ -7,6 +7,7 @@ import {LoginErrors} from '../../Utilities/ErrorStrings'
 import {underDevelopmentAlert} from '../../Utilities/CommonFunctions'
 import {consumePostAPI} from '../../Utilities/ServerRequest'
 import {saveToAsyncStorage} from '../../Utilities/AsyncStorage'
+import HeaderButton from '../../components/headerbutton'
 import Axios from 'axios';
 export default class Authenticate extends Component {
     constructor(props) {
@@ -76,6 +77,7 @@ export default class Authenticate extends Component {
         return (
             <ImageBackground source={backgroundImage} style={styles.backgroundIimage}>
                 <TouchableOpacity onPress={() => { this.goBack() }} ><Image source={backButton} style={styles.headerButton}></Image></TouchableOpacity>
+                {/* <HeaderButton onPress={() => this.goBack()} style={styles.headerButton}></HeaderButton> */}
                 <ScrollView contentContainerStyle={styles.scrlVw}>
                     <View style={styles.view}>
                         <Image source={logoWhite} style={styles.image} />
