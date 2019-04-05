@@ -18,7 +18,7 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
-  
+
     // Click function defined in JS form.
     simpleFun(){
       Alert.alert("You have clicked on simple fuction");
@@ -31,7 +31,12 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <View style={styles.container}>
+
+      /*
+        Ref from : https://facebook.github.io/react-native/docs/handling-touches
+      */
+
+       <View style={styles.container}>
        <View style={styles.flexParentContainer}>
         <Text style={styles.welcome}>Click Event Demo</Text>
 
