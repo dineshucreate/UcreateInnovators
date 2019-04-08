@@ -9,6 +9,7 @@ import {
   Image,
   Dimensions,
   AsyncStorage,
+  ActivityIndicator,
   ActionSheetIOS
 } from "react-native";
 import {
@@ -29,7 +30,8 @@ export default class FriendList extends Component {
     this.state = {
       arrUsers: [],
       arrFiltered: [],
-      txt: null
+      txt: null,
+      loading:false
     };
   }
 
@@ -42,12 +44,20 @@ export default class FriendList extends Component {
       },
       buttonIndex => {
         if (buttonIndex == 3) {
+          this.state.loading = true;
+          this.forceUpdate();
           let user = new User(null);
           user.removeFriend(item.userGUID,
             response => {
-              this.state.arrUsers = response;
-              this.state.arrFiltered = response;
-              this.forceUpdate();
+              const obj = this.state.arrUsers.find((value) => {
+                return value.userGUID == item.userGUID
+              })
+              this.state.arrUsers.splice(this.state.arrUsers.indexOf(obj), 1);
+              this.state.arrFiltered = this.state.arrUsers.map(value => {
+                return value;
+              });
+              this.state.loading = false
+              this.forceUpdate()
             },
             error => {
               alert(JSON.stringify(error));
@@ -85,9 +95,14 @@ export default class FriendList extends Component {
     if (this.state.txt) {
       this.state.txt.focus();
     }
+    this.getFriends()
+  }
+
+  getFriends() {
     let user = new User(null);
     user.getFriendList(
       response => {
+        this.state.loading = false;
         this.state.arrUsers = response;
         this.state.arrFiltered = response;
         this.forceUpdate();
@@ -132,6 +147,14 @@ export default class FriendList extends Component {
             </TouchableOpacity>
           )}
         />
+        {this.state.loading ? (
+          <View style={styles.styleActivityIndicatorView}>
+            <ActivityIndicator
+              size="large"
+              style={styles.styleActivityIndicator}
+            />
+          </View>
+        ) : null}
       </ImageBackground>
     );
   }
@@ -186,5 +209,15 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
     textAlign: "center"
+  },
+  styleActivityIndicatorView: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    alignSelf: "center",
+    justifyContent: "center"
+  },
+  styleActivityIndicator: {
+    // backgroundColor:'red'
   }
 });

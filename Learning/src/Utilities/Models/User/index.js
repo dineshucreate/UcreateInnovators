@@ -97,10 +97,10 @@ export default class User {
       "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b",
       "X-ZUMO-AUTH": user.accessToken
     };
-    const parms = {
+    const parms = [{
       recommendationStatusTypeId: '2',
       userGuid: userGUID
-    };
+    }];
     consumePostAPI(
       url,
       headerParams,
