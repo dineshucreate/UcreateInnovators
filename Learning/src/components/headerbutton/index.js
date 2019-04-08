@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { backButton } from "../../assets/images/images";
-export default class HeaderButton extends Component<props> {
+export default class HeaderButton extends Component {
   render() {
     return (
       <TouchableOpacity
         onPress={() => {
-          props.onPress();
+          this.props.onPress();
         }}
       >
-        <Image source={backButton} style={props.style} />
+        <Image source={backButton} style={this.props.style} />
       </TouchableOpacity>
     );
   }

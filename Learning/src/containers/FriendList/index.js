@@ -24,6 +24,7 @@ import { TextInput } from "react-native-gesture-handler";
 import { NavigationActions, StackActions } from "react-navigation";
 import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
 import User from "../../Utilities/Models/User";
+import HeaderButton from '../../components/headerbutton'
 export default class FriendList extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +32,7 @@ export default class FriendList extends Component {
       arrUsers: [],
       arrFiltered: [],
       txt: null,
+      text: '',
       loading:false
     };
   }
@@ -56,6 +58,7 @@ export default class FriendList extends Component {
               this.state.arrFiltered = this.state.arrUsers.map(value => {
                 return value;
               });
+              this.state.text = ''
               this.state.loading = false
               this.forceUpdate()
             },
@@ -76,6 +79,7 @@ export default class FriendList extends Component {
   }
 
   filterUsers(text) {
+    this.state.text = text
     this.state.arrFiltered = this.state.arrUsers.map(value => {
       return value;
     });
@@ -117,14 +121,13 @@ export default class FriendList extends Component {
     const arr = this.state.arrFiltered;
     return (
       <ImageBackground source={backgroundImage} style={styles.container}>
-        <TouchableOpacity onPress={() => this.goBack()}>
-          <Image source={backButton} style={styles.headerButton} />
-        </TouchableOpacity>
+        <HeaderButton onPress={() => this.goBack()} style={styles.headerButton}></HeaderButton>
         <TextInput
           ref={input => (this.state.txt = input)}
           placeholder="Search"
           autoCorrect={false}
           onChangeText={text => this.filterUsers(text)}
+          value = {this.state.text}
           style={styles.styleTextInput}
         />
         <FlatList

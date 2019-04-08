@@ -110,14 +110,7 @@ export default class Authenticate extends Component {
   render() {
     return (
       <ImageBackground source={backgroundImage} style={styles.backgroundIimage}>
-        <TouchableOpacity
-          onPress={() => {
-            this.goBack();
-          }}
-        >
-          <Image source={backButton} style={styles.headerButton} />
-        </TouchableOpacity>
-        {/* <HeaderButton onPress={() => this.goBack()} style={styles.headerButton}></HeaderButton> */}
+        <HeaderButton onPress={() => this.goBack()} style={styles.headerButton}></HeaderButton>
         <ScrollView contentContainerStyle={styles.scrlVw}>
           <View style={styles.view}>
             <Image source={logoWhite} style={styles.image} />
