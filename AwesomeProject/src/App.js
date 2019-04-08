@@ -7,16 +7,15 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import { StyleSheet, Image, View, SafeAreaView } from 'react-native';
 
 export default class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { text: '' };
+    this.state = { text2: '' };
+  }
 
   callback() {
     let calc = (num1, num2, callback) => {
@@ -116,7 +115,6 @@ export default class App extends Component {
       return ticket;
     }
     console.log(preMovie);
-
   }
 
   render() {
@@ -125,17 +123,27 @@ export default class App extends Component {
     this.complexPromise()
     return (
       <SafeAreaView style={styles.safeArea}>
-        <View style={styles.container}>
-          <View style={styles.viewStyleOne}>
-            <Text style={styles.textStyle}> 1 </Text>
+        <Image source={require('./assets/roads.jpg')} style={styles.container}></Image>
+          <View style={styles.logoContainer}>
+            <Image source={require('./assets/0.gif')} style={styles.imageLogo}></Image>
           </View>
-          <View style={styles.viewStyleTwo}>
-            <Text style={styles.textStyle}> 2 </Text>
+        
+        {/* <View style={styles.textViewContainer}>
+            <TextInput
+              style={{ height: 40, borderColor: 'gray', borderWidth: 1, padding: 10 }}
+              onChangeText={(text) => this.setState({ text })}
+              placeholder = "This is placeholder"
+              value={this.state.text}
+            />
           </View>
-          <View style={styles.viewStyleThree}>
-            <Text style={styles.textStyle}> 3 </Text>
-          </View>
-        </View>
+          <View style={styles.textViewContainer}>
+            <TextInput
+              style={{ height: 40, borderColor: 'gray', borderWidth: 1, padding: 10 }}
+              onChangeText={(text2) => this.setState({ text2 })}
+              placeholder = "This is placeholder 2"
+              value={this.state.text2}
+            />
+          </View> */}
       </SafeAreaView>
     );
   }
@@ -143,35 +151,27 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#4286f4',
     flex: 1,
-    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignSelf: 'stretch',
+    padding: 10,
+    width: null,
   },
-  viewStyleOne: {
-    height: 40,
-    width: 40,
-    flexGrow: 0.3,
+  logoContainer: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'blue'
   },
-  viewStyleTwo: {
-    width: 40,
-    height: 40,
-    flexGrow: 0.3,
-    justifyContent: 'center',
+  imageLogo: {
+    marginTop: 50,
     alignItems: 'center',
-    backgroundColor: 'green'
+    width: 100,
+    height: 100,
   },
-  viewStyleThree: {
-    width: 40,
-    height: 40,
-    flexGrow: 0.3,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'red'
+  textViewContainer: {
+    padding: 10,
+    marginRight: 8,
+    marginLeft: 8
   },
   textStyle: {
     textAlign: 'center'
@@ -179,5 +179,34 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#ddd'
-  }
+  },
+  viewStyleOne: {
+    height: 40,
+    width: 40,
+    flexGrow: 0.3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'blue',
+    marginLeft: 8
+  },
+  viewStyleTwo: {
+    width: 40,
+    height: 40,
+    flexGrow: 0.3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'green',
+    marginLeft: 8
+  },
+  viewStyleThree: {
+    width: 40,
+    height: 40,
+    flexGrow: 0.3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+    padding: 10,
+    marginRight: 8,
+    marginLeft: 8
+  },
 });
