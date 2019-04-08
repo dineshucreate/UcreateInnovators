@@ -11,7 +11,7 @@ import {
   AsyncStorage
 } from "react-native";
 import { backgroundImage, logoWhite } from "../../assets/images/images";
-import CustomText from "../../components/Text/customtext";
+import CustomText from "../../components/text/customtext";
 import styles from "../../assets/Styles/styles";
 import {NavigationActions, StackActions} from 'react-navigation'
 export default class Login extends Component {

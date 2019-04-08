@@ -24,7 +24,8 @@ import { TextInput } from "react-native-gesture-handler";
 import { NavigationActions, StackActions } from "react-navigation";
 import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
 import User from "../../Utilities/Models/User";
-import HeaderButton from '../../components/headerbutton'
+import HeaderButton from "../../components/headerbutton";
+import customAlertView from "../../components/customalertview";
 export default class FriendList extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +33,8 @@ export default class FriendList extends Component {
       arrUsers: [],
       arrFiltered: [],
       txt: null,
-      text: '',
-      loading:false
+      text: "",
+      loading: false
     };
   }
 
@@ -46,40 +47,48 @@ export default class FriendList extends Component {
       },
       buttonIndex => {
         if (buttonIndex == 3) {
-          this.state.loading = true;
-          this.forceUpdate();
-          let user = new User(null);
-          user.removeFriend(item.userGUID,
-            response => {
-              const obj = this.state.arrUsers.find((value) => {
-                return value.userGUID == item.userGUID
-              })
-              this.state.arrUsers.splice(this.state.arrUsers.indexOf(obj), 1);
-              this.state.arrFiltered = this.state.arrUsers.map(value => {
-                return value;
-              });
-              this.state.text = ''
-              this.state.loading = false
-              this.forceUpdate()
+          customAlertView(
+            "Remove this user?",
+            "Remove this user from My Friends. They will be blocked and can't connect again",
+            "Remove",
+            "Don't Remove",
+            () => {
+              this.state.loading = true;
+              this.forceUpdate();
+              let user = new User(null);
+              user.removeFriend(
+                item.userGUID,
+                response => {
+                  const obj = this.state.arrUsers.find(value => {
+                    return value.userGUID == item.userGUID;
+                  });
+                  this.state.arrUsers.splice(
+                    this.state.arrUsers.indexOf(obj),
+                    1
+                  );
+                  this.state.arrFiltered = this.state.arrUsers.map(value => {
+                    return value;
+                  });
+                  this.state.text = "";
+                  this.state.loading = false;
+                  this.forceUpdate();
+                },
+                error => {
+                  alert(JSON.stringify(error));
+                }
+              );
             },
-            error => {
-              alert(JSON.stringify(error));
-            }
+            () => {}
           );
-        } else {
+        } else if (buttonIndex != 0) {
           underDevelopmentAlert();
         }
       }
     );
-    // var obj = JSON.parse(JSON.stringify(item));
-    // alert(obj.value)
-    // this.props.navigation.navigate("FriendList", {
-    //   response: this.props.navigation.getParam("response")
-    // });
   }
 
   filterUsers(text) {
-    this.state.text = text
+    this.state.text = text;
     this.state.arrFiltered = this.state.arrUsers.map(value => {
       return value;
     });
@@ -99,7 +108,7 @@ export default class FriendList extends Component {
     if (this.state.txt) {
       this.state.txt.focus();
     }
-    this.getFriends()
+    this.getFriends();
   }
 
   getFriends() {
@@ -121,13 +130,16 @@ export default class FriendList extends Component {
     const arr = this.state.arrFiltered;
     return (
       <ImageBackground source={backgroundImage} style={styles.container}>
-        <HeaderButton onPress={() => this.goBack()} style={styles.headerButton}></HeaderButton>
+        <HeaderButton
+          onPress={() => this.goBack()}
+          style={styles.headerButton}
+        />
         <TextInput
           ref={input => (this.state.txt = input)}
           placeholder="Search"
           autoCorrect={false}
           onChangeText={text => this.filterUsers(text)}
-          value = {this.state.text}
+          value={this.state.text}
           style={styles.styleTextInput}
         />
         <FlatList
