@@ -7,13 +7,14 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Dimensions} from 'react-native';
 import Login from './src/containers/login/index'
 import Authenticate from './src/containers/authenticate';
 import Home from './src/containers/home';
 import Practice from './src/containers/practice';
 import FriendList from './src/containers/friendlist'
-import {createStackNavigator, createAppContainer} from 'react-navigation'
+import Menu from './src/containers/menu'
+import {createStackNavigator, createAppContainer, createDrawerNavigator} from 'react-navigation'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -29,6 +30,16 @@ export default class App extends Component<Props> {
     );
   }
 }
+
+const RootDrawerStack = createDrawerNavigator({
+  FriendList: {
+    screen: FriendList
+  },
+},
+  {
+    contentComponent: Menu,
+    drawerWidth: Dimensions.get('window').width,
+  });
 
 const RootStack = createStackNavigator({
   Login:{screen:Login,
@@ -49,15 +60,14 @@ const RootStack = createStackNavigator({
       header:null
     }
   },
+  RootDrawerStack:{screen:RootDrawerStack,navigationOptions:{header:null}},
   FriendList: {screen:FriendList,navigationOptions:{
     header:null
   }}
 },{
   initialRouteName: 'Login',
 })
-
 const AppContainer = createAppContainer(RootStack);
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

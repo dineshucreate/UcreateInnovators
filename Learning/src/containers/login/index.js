@@ -34,10 +34,11 @@ export default class Login extends Component {
     if(response != null) {
       // const resetAction = StackActions.reset({
       //   index: 0,
-      //   actions: [NavigationActions.navigate({ routeName: 'FriendList' })],
+      //   key: null, 
+      //   actions: [NavigationActions.navigate({ routeName: 'RootDrawerStack' })],
       // })
       // this.props.navigation.dispatch(resetAction);
-      this.props.navigation.navigate('FriendList')
+      // this.props.navigation.navigate('FriendList')
     }
   }
 

@@ -15,6 +15,9 @@ export default class User {
             this.domesticTeamId = dct.teamId;
             this.domesticTeamName = dct.teamName;
             this.domesticTeamIconUrl = dct.teamIconUrl;
+            if(dct.teamStickers.length > 0) {
+              this.stickerUrl = dct.teamStickers[0].stickerUrl
+            }
           } else {
             this.internationalTeamId = dct.teamId;
             this.internationalTeamName = dct.teamName;
@@ -33,6 +36,7 @@ export default class User {
         this.internationalTeamId = response.teamId;
         this.internationalTeamName = response.teamName;
         this.internationalTeamIconUrl = response.teamIconUrl;
+        this.stickerUrl = response.stickerUrl
       }
     }
   }

@@ -9,7 +9,8 @@ import {
   ActivityIndicator,
   Button,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import {
   backgroundImage,
@@ -27,18 +28,22 @@ import {
 } from "../../Utilities/Regex/Regex";
 import { LoginErrors } from "../../Utilities/ErrorStrings";
 import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
-import { NavigationActions, StackActions } from "react-navigation";
+import { NavigationActions, StackActions, createDrawerNavigator } from "react-navigation";
 import { consumePostAPI } from "../../Utilities/ServerRequest";
 import { saveToAsyncStorage } from "../../Utilities/AsyncStorage";
 import HeaderButton from "../../components/headerbutton";
 import User from "../../Utilities/Models/User";
+import FriendList from '../../containers/friendlist'
+import Home from '../../containers/home'
 import Axios from "axios";
 export default class Authenticate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "y@y.co",
-      password: "Ios@1234",
+      // email: "y@y.co",
+      // password: "Ios@1234",
+      email: "",
+      password: "",
       loading: false
     };
   }
@@ -52,14 +57,15 @@ export default class Authenticate extends Component {
             this.state.loading = false;
             this.forceUpdate();
             saveToAsyncStorage(response, user => {
-              // const resetAction = StackActions.reset({
-              //     index: 0,
-              //     actions: [NavigationActions.navigate({ routeName: 'FriendList' })],
-              //   })
-              //   this.props.navigation.dispatch(resetAction);
-              this.props.navigation.navigate("FriendList", {
-                response: response
-              });
+              const resetAction = StackActions.reset({
+                  index: 0,
+                  key: null, 
+                  actions: [NavigationActions.navigate({ routeName: 'RootDrawerStack' })],
+                })
+                this.props.navigation.dispatch(resetAction);
+              // this.props.navigation.navigate("FriendList", {
+              //   response: response
+              // });
             });
           },
           error => {
