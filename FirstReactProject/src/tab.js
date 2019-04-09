@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from 'react-navigation';
 import { Login, profile, setting } from './containers';
+import stack from './stack'
 
   const tabNavigator = createBottomTabNavigator ({
-    LoginScreen: Login,
+    LoginScreen: stack.stackNavigator,
     SettingScreen: setting,
     ProfileScreen: profile
     

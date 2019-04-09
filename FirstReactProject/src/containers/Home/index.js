@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, FlatList } from 'react-native';
+import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, FlatList, AsyncStorage } from 'react-native';
 import ListItem from '../../Components/ListItem';
 
 class Home extends Component {
@@ -13,12 +13,15 @@ class Home extends Component {
 
      componentDidMount() {
         const {navigation} = this.props
-        username = navigation.getParam('user','username')
-        password = navigation.getParam('pwd','password')
+       // username = navigation.getParam('user','username')
+        //password = navigation.getParam('pwd','password')
+        username =  AsyncStorage.getItem('user');
+        password =  AsyncStorage.getItem('pwd');
+        console.log("user name is : "+ username);
+        console.log("Pwd name is : "+ password);
         this.makeRemoteRequest(username,password);
       }
 
-      
     makeRemoteRequest = (username,password) => {     
         fetch('https://production-review-tool.herokuapp.com/authentication', {
             method: 'POST',

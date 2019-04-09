@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
+import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, TouchableOpacity, FlatList, AsyncStorage } from 'react-native';
 import styles from './style';
 
 class Login extends Component {
@@ -52,8 +52,11 @@ class Login extends Component {
                 <Button  style = {styles.buttonStyle}
                 title="Login"
                 onPress ={ () => {
-                       navigation.navigate('Home',{user :username,pwd :password})
+                    AsyncStorage.setItem('user', username);
+                    AsyncStorage.setItem('pwd', password);
+                    navigation.navigate('Home')
                         // navigation.navigate('SettingScreen')
+                        //{user :username,pwd :password}
 
                 }} 
                 />

@@ -3,11 +3,11 @@ import {StyleSheet} from 'react-native';
 
 export default styles = StyleSheet.create({
     container: {
-     // flex: 1,
+      flex: 1,
       //justifyContent: 'flex-start',
       alignItems: 'center',
       backgroundColor: '#f00ff0',
-      height : 100
+      // height : 100
     },
     welcome: {
       fontSize: 30,
