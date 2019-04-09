@@ -42,8 +42,10 @@ export default class Authenticate extends Component {
     this.state = {
       // email: "y@y.co",
       // password: "Ios@1234",
-      email: "",
-      password: "",
+      email: "1@test.com",
+      password: "Ios12345",
+      // email: "",
+      // password: "",
       loading: false
     };
   }

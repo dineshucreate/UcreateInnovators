@@ -8,7 +8,7 @@ import {
   Image,
   AsyncStorage
 } from "react-native";
-import { backgroundImage } from "../../assets/images/images";
+import { backgroundImage, friendPlaceHolderImage } from "../../assets/images/images";
 import User from '../../Utilities/Models/User'
 export default class Menu extends Component {
     constructor() {
@@ -34,7 +34,7 @@ export default class Menu extends Component {
         <TouchableOpacity style={styles.headerButton} onPress={()=> {this.toggleDrawer()}}>
           <Text style={styles.headerText}>Done</Text>
         </TouchableOpacity>
-        <View style={styles.view}><Image style={styles.image} source={{uri: this.state.stickerUrl}}></Image></View>
+        <View style={styles.view}><Image style={styles.image} source={(this.state.stickerUrl != null)? {uri: this.state.stickerUrl} : friendPlaceHolderImage}></Image></View>
       </ImageBackground>
     );
   }
