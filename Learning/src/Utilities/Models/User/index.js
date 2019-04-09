@@ -6,7 +6,7 @@ export default class User {
     if (response != null) {
       if (response.user) {
         this.accessToken = response.access_token;
-        this.firstName = response.user.firstName;
+        this.firstName = response.user.firstname;
         this.lastName = response.user.lastName;
         this.email = response.user.email;
         this.userGuid = response.user.userGuid;

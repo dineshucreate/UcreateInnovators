@@ -4,7 +4,8 @@ import {
   Image,
   StyleSheet,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import { backgroundImage, menuIcon } from "../../assets/images/images";
 export default class Chat extends Component {

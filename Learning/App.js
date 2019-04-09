@@ -117,6 +117,26 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
+// const menuStack = TabNavigator(
+//   {
+//     Menu: {
+//       screen: Menu,
+//       navigationOptions: {
+//         header: null
+//       }
+//     },
+//     FriendList: {
+//       screen: FriendList,
+//       navigationOptions: {
+//         header: null
+//       }
+//     }
+//   },
+//   {
+//     initialRouteName: "Menu"
+//   }
+// );
+
 const RootDrawerStack = createDrawerNavigator(
   {
     TabNavigator: {
@@ -129,7 +149,9 @@ const RootDrawerStack = createDrawerNavigator(
   }
 );
 
-const RootStack = createStackNavigator(
+
+
+const rootStack = createStackNavigator(
   {
     Login: {
       screen: Login,
@@ -170,7 +192,7 @@ const RootStack = createStackNavigator(
     initialRouteName: "Login"
   }
 );
-const AppContainer = createAppContainer(RootStack);
+const AppContainer = createAppContainer(rootStack);
 const styles = StyleSheet.create({
   container: {
     flex: 1
@@ -188,25 +210,25 @@ const styles = StyleSheet.create({
   tabbarIcon1: {
     width: 22,
     height: 20,
-    marginTop:10,
+    marginTop: 10,
     resizeMode: "cover"
   },
   tabbarIcon2: {
     width: 23,
     height: 19,
-    marginTop:10,
+    marginTop: 10,
     resizeMode: "cover"
   },
   tabbarIcon3: {
     width: 20,
     height: 20,
-    marginTop:10,
+    marginTop: 10,
     resizeMode: "cover"
   },
   tabbarIcon4: {
     width: 20,
     height: 20,
-    marginTop:10,
+    marginTop: 10,
     resizeMode: "cover"
   },
   tabbar: {
