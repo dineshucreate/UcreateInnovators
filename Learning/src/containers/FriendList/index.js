@@ -101,8 +101,7 @@ export default class FriendList extends Component {
   }
 
   goBack() {
-    this.props.navigation.toggleDrawer()
-    // this.props.navigation.pop();
+    this.props.navigation.pop();
   }
 
   async componentDidMount() {

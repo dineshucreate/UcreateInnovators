@@ -12,4 +12,5 @@ export const statsTabbarInActive = require('./Tabbar/stats-tabbar.png')
 export const newsTabbarActive = require('./Tabbar/news-tabbar-active.png')
 export const newsTabbarInActive = require('./Tabbar/news-tabbar.png')
 export const menuIcon = require('./ic_menu.png')
+export const arrowRight = require('./arrow-right.png')
 
