@@ -16,7 +16,7 @@ import {
   arrowRight
 } from "../../assets/images/images";
 import User from "../../Utilities/Models/User";
-import {underDevelopmentAlert} from '../../Utilities/CommonFunctions'
+import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
 import { StackActions } from "react-navigation";
 import FriendList from "../../containers/friendlist";
 export default class Menu extends Component {
@@ -43,14 +43,14 @@ export default class Menu extends Component {
   }
 
   onItemClick(item, index) {
-    if(index==1) {
+    if (index == 1) {
       const pushAction = StackActions.push({
         routeName: "FriendList"
       });
-  
+
       this.props.navigation.dispatch(pushAction);
     } else {
-      underDevelopmentAlert()
+      underDevelopmentAlert();
     }
   }
 
@@ -93,14 +93,27 @@ export default class Menu extends Component {
             {this.state.user.firstName} {this.state.user.lastName}
           </Text>
         </View>
-        <FlatList
+        <View style={styles.styleItemFlatListView}>
+          <FlatList
             contentContainerStyle={styles.styleFlatList}
             data={this.state.screens}
-            renderItem={({item, index}) => (
-              <TouchableOpacity onPress={()=>{this.onItemClick(item, index)}}
-              style={((index==2) || (index==3) || (index==5)) ? styles.styleItemFlatList : styles.styleItemFlatList1}><Text style={styles.styleItemText}>{item.value}</Text><Image style={styles.styleItemImage} source={arrowRight}></Image></TouchableOpacity>
+            renderItem={({ item, index }) => (
+              <TouchableOpacity
+                onPress={() => {
+                  this.onItemClick(item, index);
+                }}
+                style={
+                  index == 2 || index == 3 || index == 5
+                    ? styles.styleItemFlatList
+                    : styles.styleItemFlatList1
+                }
+              >
+                <Text style={styles.styleItemText}>{item.value}</Text>
+                <Image style={styles.styleItemImage} source={arrowRight} />
+              </TouchableOpacity>
             )}
           />
+        </View>
       </ImageBackground>
     );
   }
@@ -160,37 +173,40 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   styleFlatList: {
-    marginTop:25,
-    marginLeft:8,
-    marginRight:8,
-    marginBottom:8,
+    marginTop: 25,
+    marginLeft: 8,
+    marginRight: 8,
+    paddingBottom:30
   },
-  styleItemFlatList:{
-    height:48,
-    flexDirection:'row',
-    backgroundColor:'white',
-    marginTop:10,
+  styleItemFlatListView: {
+    flex: 1,
   },
-  styleItemFlatList1:{
-    height:48,
-    flexDirection:'row',
-    backgroundColor:'white',
+  styleItemFlatList: {
+    height: 48,
+    flexDirection: "row",
+    backgroundColor: "white",
+    marginTop: 10
+  },
+  styleItemFlatList1: {
+    height: 48,
+    flexDirection: "row",
+    backgroundColor: "white"
     // borderTopLeftRadius:2,
     // borderTopRightRadius:2,
     // borderBottomLeftRadius:2,
     // borderBottomRightRadius:2,
   },
-  styleItemText:{
-    paddingLeft:20,
-    fontFamily:'Rajdhani-Medium',
-    fontSize:17,
-    paddingTop:13
+  styleItemText: {
+    paddingLeft: 20,
+    fontFamily: "Rajdhani-Medium",
+    fontSize: 17,
+    paddingTop: 13
   },
-  styleItemImage:{
-    position:'absolute',
-    width:10,
-    height:10,
-    marginTop:18,
-    marginLeft:Dimensions.get("window").width - 45
+  styleItemImage: {
+    // position:'absolute',
+    width: 10,
+    height: 10,
+    marginTop: 18,
+    marginLeft: Dimensions.get("window").width - 45
   }
 });
