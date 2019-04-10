@@ -19,6 +19,7 @@ import User from "../../Utilities/Models/User";
 import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
 import { StackActions } from "react-navigation";
 import FriendList from "../../containers/friendlist";
+import {primaryKeyColor, secondaryKeyColor} from '../../Utilities/Constants'
 export default class Menu extends Component {
   constructor() {
     super();
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20
   },
   headerText: {
-    color: "#A5E26A",
+    color: secondaryKeyColor,
     fontFamily: "Rajdhani-SemiBold",
     fontSize: 17
   },
@@ -143,7 +144,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 7,
     position: "relative",
-    justifyContent: "center"
+    justifyContent: "center",
+    resizeMode:'cover'
   },
   styleFootbaliseMe: {
     position: "absolute",
@@ -157,13 +159,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     height: 28,
     justifyContent: "center",
-    backgroundColor: "#A5E26A"
+    backgroundColor:secondaryKeyColor
   },
   styleText: {
     textAlign: "center",
     fontFamily: "Rajdhani-Bold",
     fontSize: 16,
-    color: "#096B76"
+    color: primaryKeyColor
   },
   styleTextUsername: {
     textAlign: "center",
