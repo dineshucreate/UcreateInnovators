@@ -16,6 +16,7 @@ import {
 } from "../../assets/images/images";
 import { primaryKeyColor, secondaryKeyColor } from "../../Utilities/Constants";
 import { FlatList } from "react-native-gesture-handler";
+import StatsModel from "../../Utilities/Models/stats";
 export default class Stats extends Component {
   constructor() {
     super();
@@ -39,6 +40,16 @@ export default class Stats extends Component {
       ]
     };
   }
+
+  componentDidMount() {
+    let statsModel = new StatsModel()
+    statsModel.getResultsForActiveTournaments((response) => {
+      alert(JSON.stringify(response))
+    },(error)=> {
+      alert(JSON.stringify(error))
+    })
+  }
+
   headerButtonClicked() {
     this.props.navigation.toggleDrawer();
   }
@@ -59,7 +70,7 @@ export default class Stats extends Component {
           <Image style={styles.styleHeaderImageSelect} source={arrowRight} />
         </TouchableOpacity>
         <SegmentedControlIOS
-          selectedIndex={0}
+          selectedIndex={1}
           style={styles.styleSegmentControl}
           tintColor={secondaryKeyColor}
           values={["Fixtures", "Latest", "Table"]}
@@ -70,16 +81,32 @@ export default class Stats extends Component {
             data={this.state.arrResults}
             renderItem={({ item, index }) => (
               <View style={styles.styleFlatListItemView}>
-              <View style={{height:44, justifyContent:'center'}}>
-                <Text 
-                  style={{ fontSize:12, color:'#8D9396', width: "100%",fontFamily: "Rajdhani-Semibold", textAlign: "center", paddingTop: 10 }}
-                >
-                  123
-                </Text>
+                <View style={{ height: 44, justifyContent: "center" }}>
+                  <Text
+                    style={{
+                      fontSize: 12,
+                      color: "#8D9396",
+                      width: "100%",
+                      fontFamily: "Rajdhani-Semibold",
+                      textAlign: "center",
+                      paddingTop: 10
+                    }}
+                  >
+                    1 month ago
+                  </Text>
                 </View>
                 <TouchableOpacity style={styles.styleFlatListItemButton}>
                   <View style={styles.styleFlatListItem1View}>
-                    <Image style={{height:40, width:40, borderRadius:20,resizeMode:'cover', backgroundColor:'red' }} source={arrowRight} />
+                    <Image
+                      style={{
+                        height: 40,
+                        width: 40,
+                        borderRadius: 20,
+                        resizeMode: "cover",
+                        backgroundColor: "red"
+                      }}
+                      source={arrowRight}
+                    />
                     <Text
                       style={{
                         flex: 0.4,
@@ -105,7 +132,16 @@ export default class Stats extends Component {
                     </Text>
                   </View>
                   <View style={styles.styleFlatListItem1View}>
-                    <Image style={{ height:40, width:40,resizeMode:'cover',}} source={arrowRight} />
+                    <Image
+                      style={{
+                        borderRadius: 20,
+                        height: 40,
+                        width: 40,
+                        resizeMode: "cover",
+                        backgroundColor: "red"
+                      }}
+                      source={arrowRight}
+                    />
                     <Text
                       style={{
                         flex: 0.4,
@@ -126,10 +162,13 @@ export default class Stats extends Component {
                   style={{
                     marginLeft: 10,
                     marginRight: 10,
-                    height: 40,
-                    backgroundColor: "#C8E2E2"
+                    flex: 1,
+                    backgroundColor: "#C8E2E2",
+                    justifyContent: "center"
                   }}
-                />
+                >
+                  <Text style={{ textAlign: "center" }}>FULL TIME</Text>
+                </View>
               </View>
             )}
           />
