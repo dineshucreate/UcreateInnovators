@@ -19,6 +19,11 @@ class Login extends Component {
           />
         ),
       };
+
+    static navigationOptions = {
+        title: 'LOGIN',
+    };
+    
     render() {
         const { navigation } = this.props;
         const { username,password } = this.state;
@@ -52,12 +57,7 @@ class Login extends Component {
                 <Button  style = {styles.buttonStyle}
                 title="Login"
                 onPress ={ () => {
-                    AsyncStorage.setItem('user', username);
-                    AsyncStorage.setItem('pwd', password);
-                    navigation.navigate('Home')
-                        // navigation.navigate('SettingScreen')
-                        //{user :username,pwd :password}
-
+                    navigation.navigate('Home',{user :username,pwd :password})
                 }} 
                 />
             </View>

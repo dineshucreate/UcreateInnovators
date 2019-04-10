@@ -13,12 +13,12 @@ class Home extends Component {
 
      componentDidMount() {
         const {navigation} = this.props
-       // username = navigation.getParam('user','username')
-        //password = navigation.getParam('pwd','password')
-        username =  AsyncStorage.getItem('user');
-        password =  AsyncStorage.getItem('pwd');
-        console.log("user name is : "+ username);
-        console.log("Pwd name is : "+ password);
+       username = navigation.getParam('user','username')
+        password = navigation.getParam('pwd','password')
+        // username =  AsyncStorage.getItem('user');
+        // password =  AsyncStorage.getItem('pwd');
+        // console.log("user name is : "+ username);
+        // console.log("Pwd name is : "+ password);
         this.makeRemoteRequest(username,password);
       }
 
