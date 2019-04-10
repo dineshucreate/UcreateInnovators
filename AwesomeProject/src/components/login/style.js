@@ -41,5 +41,8 @@ export default styles = StyleSheet.create({
         color: 'rgb(32, 53, 70)',
         fontSize: 15,
         fontWeight: 'bold',
-    }
+    },
+    countText: {
+        color: '#FF00FF'
+      }
 })

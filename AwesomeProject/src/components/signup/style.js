@@ -5,7 +5,7 @@ export default signUpStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgb(32, 53, 70)',
-        alignItems :'center'
+        alignItems: 'center'
     },
     uppperView: {
         flex: 0.2,
@@ -42,21 +42,37 @@ export default signUpStyles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         backgroundColor: 'rgba(255,255,255,0.2)',
-        color: '#FFF',
+        color: 'black',
         marginBottom: 20,
         paddingHorizontal: 10,
         borderWidth: 0.2,
         borderRadius: 20
     },
-    buttonContainer:{
+    buttonContainer: {
         backgroundColor: '#f7c744',
         paddingVertical: 15,
-        borderRadius: 20
+        borderRadius: 20,
+        marginLeft: 10,
+        marginRight: 10,
     }, 
-    buttonText:{
+    buttonText: {
         textAlign: 'center',
         color: 'rgb(32, 53, 70)',
         fontSize: 15,
         fontWeight: 'bold',
+    },
+    signInContainer: {
+        flexDirection: 'row',
+        marginTop: 15,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    signIn: {
+        backgroundColor: 'white',
+        marginLeft: 10,
+    }, 
+    signInTextColor: {
+        color: '#f7c744'
     }
 })
