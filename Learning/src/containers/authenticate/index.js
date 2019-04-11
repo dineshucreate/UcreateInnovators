@@ -56,8 +56,7 @@ export default class Authenticate extends Component {
         this.state.loading = true;
         let user = new User(null);
         user.loginUser(this.state.email, this.state.password, response => {
-            this.state.loading = false;
-            this.forceUpdate();
+          this.setState({loading:false})
             saveToAsyncStorage(response, user => {
               const resetAction = StackActions.reset({
                   index: 0,
@@ -71,8 +70,7 @@ export default class Authenticate extends Component {
             });
           },
           error => {
-            this.state.loading = false;
-            this.forceUpdate();
+            this.setState({loading:false})
             alert(error.response.data.message);
           }
         );

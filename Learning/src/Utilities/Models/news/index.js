@@ -1,6 +1,5 @@
 export default class News {
     constructor(response) {
-        alert(JSON.stringify(response))
         if (response != null) {
               this.link = response.link;
               this.title = response.title;

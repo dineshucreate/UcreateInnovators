@@ -53,8 +53,7 @@ export default class FriendList extends Component {
             "Remove",
             "Don't Remove",
             () => {
-              this.state.loading = true;
-              this.forceUpdate();
+              this.setState({loading:true})
               let user = new User(null);
               user.removeFriend(
                 item.userGUID,
@@ -70,8 +69,7 @@ export default class FriendList extends Component {
                     return value;
                   });
                   this.state.text = "";
-                  this.state.loading = false;
-                  this.forceUpdate();
+                  this.setState({loading:false})
                 },
                 error => {
                   alert(JSON.stringify(error));
@@ -88,6 +86,7 @@ export default class FriendList extends Component {
   }
 
   filterUsers(text) {
+    this.setState({ text: text });
     this.state.text = text;
     this.state.arrFiltered = this.state.arrUsers.map(value => {
       return value;
@@ -97,7 +96,6 @@ export default class FriendList extends Component {
         return value.name.toLowerCase().includes(text.toLowerCase());
       });
     }
-    this.forceUpdate();
   }
 
   goBack() {
@@ -115,10 +113,9 @@ export default class FriendList extends Component {
     let user = new User(null);
     user.getFriendList(
       response => {
-        this.state.loading = false;
-        this.state.arrUsers = response;
-        this.state.arrFiltered = response;
-        this.forceUpdate();
+        this.setState({ loading: false });
+        this.setState({ arrUsers: response });
+        this.setState({ arrFiltered: response });
       },
       error => {
         alert(JSON.stringify(error));

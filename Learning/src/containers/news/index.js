@@ -39,8 +39,7 @@ export default class News extends Component {
     let newsCollection = new NewsCollection();
     newsCollection.getNews(
       response => {
-        this.state.arrNews = response;
-        this.forceUpdate();
+        this.setState({arrNews:response})
       },
       error => {
         alert(JSON.stringify(error));

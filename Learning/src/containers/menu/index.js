@@ -58,9 +58,8 @@ export default class Menu extends Component {
   async componentDidMount() {
     const response = await AsyncStorage.getItem("user");
     const user = JSON.parse(response);
-    this.state.user = user;
-    this.state.stickerUrl = user.stickerUrl;
-    this.forceUpdate();
+    this.setState({user:user})
+    this.setState({stickerUrl:user.stickerUrl})
   }
 
   render() {

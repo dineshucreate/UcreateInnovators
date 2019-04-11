@@ -26,8 +26,7 @@ export default class Stats extends Component {
     let statsModel = new StatsModel();
     statsModel.getResultsForActiveTournaments(
       response => {
-        this.state.arrResults = response;
-        this.forceUpdate();
+        this.setState({arrResults:response})
       },
       error => {
         alert(JSON.stringify(error));
