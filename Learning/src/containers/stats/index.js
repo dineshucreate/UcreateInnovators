@@ -9,14 +9,11 @@ import {
   TouchableOpacity,
   SegmentedControlIOS
 } from "react-native";
-import {
-  backgroundImage,
-  menuIcon,
-  arrowRight
-} from "../../assets/images/images";
+import { backgroundImage, arrowRight } from "../../assets/images/images";
 import { primaryKeyColor, secondaryKeyColor } from "../../Utilities/Constants";
 import { FlatList } from "react-native-gesture-handler";
 import StatsModel from "../../Utilities/Models/stats";
+import MenuButton from "../../components/menubutton";
 export default class Stats extends Component {
   constructor() {
     super();
@@ -26,13 +23,16 @@ export default class Stats extends Component {
   }
 
   componentDidMount() {
-    let statsModel = new StatsModel()
-    statsModel.getResultsForActiveTournaments((response) => {
-      this.state.arrResults = response
-      this.forceUpdate()
-    },(error)=> {
-      alert(JSON.stringify(error))
-    })
+    let statsModel = new StatsModel();
+    statsModel.getResultsForActiveTournaments(
+      response => {
+        this.state.arrResults = response;
+        this.forceUpdate();
+      },
+      error => {
+        alert(JSON.stringify(error));
+      }
+    );
   }
 
   headerButtonClicked() {
@@ -48,7 +48,7 @@ export default class Stats extends Component {
             this.headerButtonClicked();
           }}
         >
-          <Image style={styles.styleMenuIcon} source={menuIcon} />
+          <MenuButton />
         </TouchableOpacity>
         <TouchableOpacity style={styles.styleHeaderButtonSelect}>
           <Text style={styles.styleHeaderTextSelect}>Championship</Text>
@@ -90,7 +90,11 @@ export default class Stats extends Component {
                         resizeMode: "cover",
                         backgroundColor: "red"
                       }}
-                      source={item.homeTeamImageUrl ? {uri:item.homeTeamImageUrl} : arrowRight}
+                      source={
+                        item.homeTeamImageUrl
+                          ? { uri: item.homeTeamImageUrl }
+                          : arrowRight
+                      }
                     />
                     <Text
                       style={{
@@ -125,7 +129,11 @@ export default class Stats extends Component {
                         resizeMode: "cover",
                         backgroundColor: "red"
                       }}
-                      source={item.awayTeamImageUrl ? {uri:item.awayTeamImageUrl} : arrowRight}
+                      source={
+                        item.awayTeamImageUrl
+                          ? { uri: item.awayTeamImageUrl }
+                          : arrowRight
+                      }
                     />
                     <Text
                       style={{
@@ -169,10 +177,6 @@ const styles = StyleSheet.create({
   headerButton: {
     paddingLeft: 10,
     paddingTop: 49
-  },
-  styleMenuIcon: {
-    width: 28,
-    height: 28
   },
   styleHeaderButtonSelect: {
     flexDirection: "row",

@@ -8,6 +8,7 @@ export default class Stat {
               this.homeTeamImageUrl = response.homeTeamImageUrl;
               this.homeTeamName = response.homeTeamName;
               this.awayTeamName = response.awayTeamName;
+              this.scheduledDate = response.scheduledDate
         }
     }
 }

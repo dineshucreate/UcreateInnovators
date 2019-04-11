@@ -6,7 +6,8 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-import { backgroundImage, menuIcon } from "../../assets/images/images";
+import { backgroundImage } from "../../assets/images/images";
+import MenuButton from "../../components/menubutton";
 export default class live extends Component {
   headerButtonClicked() {
     this.props.navigation.toggleDrawer();
@@ -21,7 +22,7 @@ export default class live extends Component {
             this.headerButtonClicked();
           }}
         >
-          <Image style={styles.styleMenuIcon} source={menuIcon} />
+          <MenuButton />
         </TouchableOpacity>
       </ImageBackground>
     );
@@ -34,9 +35,5 @@ const styles = StyleSheet.create({
   headerButton: {
     paddingLeft: 10,
     paddingTop: 49
-  },
-  styleMenuIcon: {
-    width: 28,
-    height: 28
   }
 });
