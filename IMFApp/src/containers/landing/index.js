@@ -3,6 +3,10 @@ import { Text, View, Image, ImageBackground, TouchableOpacity } from 'react-nati
 import styles from './style';
 
 export default class Landing extends Component {
+  loginPress = (() => {
+    const { navigation } = this.props;
+    navigation.navigate('login');
+  });
   render() {
     return (
       <ImageBackground style={styles.backgroundImage} source={require('../../assets/images/background.png')}>
@@ -12,7 +16,8 @@ export default class Landing extends Component {
             <Text style={styles.buttonText}>CREATE AN ACCOUNT</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this._onPressButton}>
+        <TouchableOpacity
+          onPress={this.loginPress}>
           <Text style={styles.buttonLoginText}>LOG IN</Text>
         </TouchableOpacity>
       </ImageBackground>
