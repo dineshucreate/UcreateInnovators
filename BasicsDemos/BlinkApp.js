@@ -10,6 +10,8 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ImageBackground, TextInput,Button, Alert, TouchableHighlight,TouchableOpacity,
   TouchableNativeFeedback } from 'react-native';
 import { tsConstructorType } from '@babel/types';
+import { createStackNavigator , createAppContainer} from 'react-navigation';
+import ListScreen from './ListScreen';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,7 +20,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class BinkApp extends Component {
+ class BlinkApp extends Component {
   constructor(props) {
     super(props)
     this.state = { text: '' };
@@ -68,8 +70,20 @@ export default class BinkApp extends Component {
         </View>
         
 
-        <TouchableNativeFeedback
+        {/* <TouchableNativeFeedback
             onPress={this._onPressButton}
+            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''} style={styles.buttons}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>LOG IN</Text>
+          </View>
+        </TouchableNativeFeedback> */}
+<TouchableOpacity onPress={()=>{this.props.navigation.navigate('List')}}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>TouchableOpacity</Text>
+          </View>
+        </TouchableOpacity>
+<TouchableNativeFeedback
+            onPress={()=>{this.props.navigator.navigate('List')}}
             background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''} style={styles.buttons}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>LOG IN</Text>
@@ -84,6 +98,19 @@ export default class BinkApp extends Component {
     );
   }
 }
+
+
+const AppNavigator = createStackNavigator(
+  {
+    Home: BlinkApp,
+    List: ListScreen,
+  },
+  {
+  initialRoute : "Home"
+  }
+);
+
+export default createAppContainer(AppNavigator)
 
 
 const styles = StyleSheet.create({
