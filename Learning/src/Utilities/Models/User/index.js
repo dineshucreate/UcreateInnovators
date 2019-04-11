@@ -1,6 +1,6 @@
-import { saveToAsyncStorage } from "../../AsyncStorage";
+import { saveToAsyncStorage } from "../../asyncstorage";
 import {AsyncStorage} from 'react-native'
-import { consumePostAPI, consumeGetAPI} from "../../ServerRequest";
+import { consumePostAPI, consumeGetAPI} from "../../serverrequest";
 export default class User {
   constructor(response) {
     if (response != null) {

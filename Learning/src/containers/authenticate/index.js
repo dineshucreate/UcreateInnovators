@@ -25,14 +25,14 @@ import {
   emailReg,
   passwordReg,
   phoneReg
-} from "../../Utilities/Regex/Regex";
-import { LoginErrors } from "../../Utilities/ErrorStrings";
-import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
+} from "../../utilities/regex/Regex";
+import { LoginErrors } from "../../utilities/errorstrings";
+import { underDevelopmentAlert } from "../../utilities/commonfunctions";
 import { NavigationActions, StackActions, createDrawerNavigator } from "react-navigation";
-import { consumePostAPI } from "../../Utilities/ServerRequest";
-import { saveToAsyncStorage } from "../../Utilities/AsyncStorage";
+import { consumePostAPI } from "../../utilities/serverrequest";
+import { saveToAsyncStorage } from "../../utilities/asyncstorage";
 import HeaderButton from "../../components/headerbutton";
-import User from "../../Utilities/Models/User";
+import User from "../../utilities/models/User";
 import FriendList from '../../containers/friendlist'
 import Home from '../../containers/home'
 import Axios from "axios";

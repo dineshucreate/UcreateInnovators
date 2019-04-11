@@ -19,11 +19,11 @@ import {
   logoWhite,
   backButton
 } from "../../assets/images/images";
-import { consumeGetAPI } from "../../Utilities/ServerRequest";
+import { consumeGetAPI } from "../../utilities/serverrequest";
 import { TextInput } from "react-native-gesture-handler";
 import { NavigationActions, StackActions } from "react-navigation";
-import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
-import User from "../../Utilities/Models/User";
+import { underDevelopmentAlert } from "../../utilities/commonfunctions";
+import User from "../../utilities/models/User";
 import HeaderButton from "../../components/headerbutton";
 import customAlertView from "../../components/customalertview";
 export default class FriendList extends Component {

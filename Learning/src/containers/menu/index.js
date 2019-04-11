@@ -15,11 +15,11 @@ import {
   friendPlaceHolderImage,
   arrowRight
 } from "../../assets/images/images";
-import User from "../../Utilities/Models/User";
-import { underDevelopmentAlert } from "../../Utilities/CommonFunctions";
+import User from "../../utilities/models/User";
+import { underDevelopmentAlert } from "../../utilities/commonfunctions";
 import { StackActions } from "react-navigation";
 import FriendList from "../../containers/friendlist";
-import {primaryKeyColor, secondaryKeyColor} from '../../Utilities/Constants'
+import {primaryKeyColor, secondaryKeyColor} from '../../utilities/constants'
 export default class Menu extends Component {
   constructor() {
     super();

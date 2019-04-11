@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Image, StyleSheet } from "react-native";
 import { menuIcon } from "../../assets/images/images";
-import {secondaryKeyColor} from '../../Utilities/Constants'
+import {secondaryKeyColor} from '../../utilities/constants'
 export default class MenuButton extends Component {
   render() {
     return <Image style={styles.styleMenuIcon} source={menuIcon} />;

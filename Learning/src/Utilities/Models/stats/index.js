@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { consumeGetAPI } from "../../ServerRequest";
+import { consumeGetAPI } from "../../serverrequest";
 import { AsyncStorage } from "react-native";
-import Stat from "../../Models/stat";
+import Stat from "../stat";
 export default class StatsModel extends Component {
   constructor() {
     super();

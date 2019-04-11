@@ -10,9 +10,9 @@ import {
   SegmentedControlIOS
 } from "react-native";
 import { backgroundImage, arrowRight } from "../../assets/images/images";
-import { primaryKeyColor, secondaryKeyColor } from "../../Utilities/Constants";
+import { primaryKeyColor, secondaryKeyColor } from "../../utilities/constants";
 import { FlatList } from "react-native-gesture-handler";
-import StatsModel from "../../Utilities/Models/stats";
+import StatsModel from "../../utilities/models/stats";
 import MenuButton from "../../components/menubutton";
 export default class Stats extends Component {
   constructor() {
