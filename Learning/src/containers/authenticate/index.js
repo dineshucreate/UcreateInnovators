@@ -32,7 +32,7 @@ import { NavigationActions, StackActions, createDrawerNavigator } from "react-na
 import { consumePostAPI } from "../../utilities/serverrequest";
 import { saveToAsyncStorage } from "../../utilities/asyncstorage";
 import HeaderButton from "../../components/headerbutton";
-import User from "../../utilities/models/User";
+import User from "../../utilities/models/user";
 import FriendList from '../../containers/friendlist'
 import Home from '../../containers/home'
 import Axios from "axios";

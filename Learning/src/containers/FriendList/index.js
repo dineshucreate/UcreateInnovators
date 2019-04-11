@@ -23,7 +23,7 @@ import { consumeGetAPI } from "../../utilities/serverrequest";
 import { TextInput } from "react-native-gesture-handler";
 import { NavigationActions, StackActions } from "react-navigation";
 import { underDevelopmentAlert } from "../../utilities/commonfunctions";
-import User from "../../utilities/models/User";
+import User from "../../utilities/models/user";
 import HeaderButton from "../../components/headerbutton";
 import customAlertView from "../../components/customalertview";
 export default class FriendList extends Component {

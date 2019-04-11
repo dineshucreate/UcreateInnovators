@@ -15,7 +15,7 @@ import {
   friendPlaceHolderImage,
   arrowRight
 } from "../../assets/images/images";
-import User from "../../utilities/models/User";
+import User from "../../utilities/models/user";
 import { underDevelopmentAlert } from "../../utilities/commonfunctions";
 import { StackActions } from "react-navigation";
 import FriendList from "../../containers/friendlist";

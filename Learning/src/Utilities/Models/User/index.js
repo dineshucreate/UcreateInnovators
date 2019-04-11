@@ -1,6 +1,7 @@
 import { saveToAsyncStorage } from "../../asyncstorage";
 import {AsyncStorage} from 'react-native'
 import { consumePostAPI, consumeGetAPI} from "../../serverrequest";
+import {subscriptionKey, apiVersion, contentType} from '../../constants'
 export default class User {
   constructor(response) {
     if (response != null) {
@@ -44,10 +45,10 @@ export default class User {
     const url =
       "https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login";
     // Header params to attach with Request
-    var headerParams = {
-      "Content-Type": "application/json",
-      "ZUMO-API-VERSION": "2.0.0",
-      "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b"
+    const headerParams = {
+      "Content-Type": contentType,
+      "ZUMO-API-VERSION": apiVersion,
+      "Ocp-Apim-Subscription-Key": subscriptionKey
     };
     // Body params to attach with Request
     const loginParams = {
@@ -73,9 +74,9 @@ export default class User {
     const url = "https://footballalbum-prod-api.imfootball.me//UserAPI/api/User/FriendList";
     // Header params to attach with Request
     const headerParams = {
-      "Content-Type": "application/json",
-      "ZUMO-API-VERSION": "2.0.0",
-      "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b",
+      "Content-Type": contentType,
+      "ZUMO-API-VERSION": apiVersion,
+      "Ocp-Apim-Subscription-Key": subscriptionKey,
       "X-ZUMO-AUTH": user.accessToken
     };
     consumeGetAPI(
@@ -96,9 +97,9 @@ export default class User {
     const url = "https://footballalbum-prod-api.imfootball.me//UserAPI/api/Recommendation/UpdateRecommendationStatus";
     // Header params to attach with Request
     const headerParams = {
-      "Content-Type": "application/json",
-      "ZUMO-API-VERSION": "2.0.0",
-      "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b",
+      "Content-Type": contentType,
+      "ZUMO-API-VERSION": apiVersion,
+      "Ocp-Apim-Subscription-Key": subscriptionKey,
       "X-ZUMO-AUTH": user.accessToken
     };
     const parms = [{
