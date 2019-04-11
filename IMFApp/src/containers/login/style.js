@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         marginLeft: 30,
     },
     facbookText: {
-        alignSelf: 'center',
         marginLeft: 40,
         fontFamily: 'rajdhani-semibold',
         fontSize: 22,
