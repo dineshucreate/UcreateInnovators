@@ -21,30 +21,15 @@ export default class Stats extends Component {
   constructor() {
     super();
     this.state = {
-      arrResults: [
-        {
-          awayTeamName: "Liverpoolddddd",
-          homeTeamName: "Arsenal",
-          score: "0 : 2"
-        },
-        {
-          awayTeamName: "Liverpoolsdfsfdsdfsdfdfdfsdfs",
-          homeTeamName: "Arsenal",
-          score: "0 : 2"
-        },
-        { awayTeamName: "Liverpool", homeTeamName: "Arsenal", score: "0 : 2" },
-        { awayTeamName: "Liverpool", homeTeamName: "Arsenal", score: "0 : 2" },
-        { awayTeamName: "Liverpool", homeTeamName: "Arsenal", score: "0 : 2" },
-        { awayTeamName: "Liverpool", homeTeamName: "Arsenal", score: "0 : 2" },
-        { awayTeamName: "Liverpool", homeTeamName: "Arsenal", score: "0 : 2" }
-      ]
+      arrResults: []
     };
   }
 
   componentDidMount() {
     let statsModel = new StatsModel()
     statsModel.getResultsForActiveTournaments((response) => {
-      alert(JSON.stringify(response))
+      this.state.arrResults = response
+      this.forceUpdate()
     },(error)=> {
       alert(JSON.stringify(error))
     })
@@ -105,7 +90,7 @@ export default class Stats extends Component {
                         resizeMode: "cover",
                         backgroundColor: "red"
                       }}
-                      source={arrowRight}
+                      source={item.homeTeamImageUrl ? {uri:item.homeTeamImageUrl} : arrowRight}
                     />
                     <Text
                       style={{
@@ -128,7 +113,7 @@ export default class Stats extends Component {
                         color: "#096b76"
                       }}
                     >
-                      {item.score}
+                      {item.homeScore} - {item.awayScore}
                     </Text>
                   </View>
                   <View style={styles.styleFlatListItem1View}>
@@ -140,7 +125,7 @@ export default class Stats extends Component {
                         resizeMode: "cover",
                         backgroundColor: "red"
                       }}
-                      source={arrowRight}
+                      source={item.awayTeamImageUrl ? {uri:item.awayTeamImageUrl} : arrowRight}
                     />
                     <Text
                       style={{

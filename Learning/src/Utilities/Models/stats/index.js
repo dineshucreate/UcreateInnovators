@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { consumeGetAPI } from "../../ServerRequest";
 import { AsyncStorage } from "react-native";
+import Stat from "../../Models/stat";
 export default class StatsModel extends Component {
   constructor() {
     super();
+    this.state = {
+      arrResults: []
+    };
   }
 
   async getResultsForActiveTournaments(successCallback, errorCallback) {
@@ -22,7 +26,11 @@ export default class StatsModel extends Component {
       url,
       headerParams,
       response => {
-        successCallback(response);
+        response.forEach((dct) => {
+          let stat = new Stat(dct);
+          this.state.arrResults.push(stat);
+        });
+        successCallback(this.state.arrResults);
       },
       error => {
         errorCallback(error);

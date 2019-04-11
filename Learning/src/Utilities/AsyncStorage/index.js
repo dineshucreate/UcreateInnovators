@@ -6,6 +6,5 @@ export const saveToAsyncStorage = async (response, callback) => {
         callback(user)
     }).catch((error)=> {
        alert(error)
-    //    callback(user)
     })
 };
