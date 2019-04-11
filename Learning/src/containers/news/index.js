@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   SegmentedControlIOS,
   Dimensions,
+  Linking,
   FlatList
 } from "react-native";
 import { backgroundImage } from "../../assets/images/images";
@@ -28,6 +29,10 @@ export default class News extends Component {
   }
   headerButtonClicked() {
     this.props.navigation.toggleDrawer();
+  }
+
+  onItemClick(item) {
+    Linking.openURL(item.link) 
   }
 
   componentDidMount() {
@@ -68,7 +73,7 @@ export default class News extends Component {
             data={this.state.arrNews}
             renderItem={({ item, index }) =>
               index == 0 ? (
-                <TouchableOpacity style={styles.styleFlatListItemButton}>
+                <TouchableOpacity style={styles.styleFlatListItemButton} onPress={()=> this.onItemClick(item)}>
                   <Image
                     style={styles.styleFlatListItemImage}
                     source={item.url ? { uri: item.url } : backgroundImage}
@@ -81,19 +86,25 @@ export default class News extends Component {
                   </View>
                 </TouchableOpacity>
               ) : (
-                <View style={styles.styleFlatListItemView3}>
-                  <Image
-                    style={styles.styleFlatListItemImage2}
-                    source={item.url ? { uri: item.url } : backgroundImage}
-                  />
-                  <View style={styles.styleFlatListItemView4}>
-                    <Text style={styles.styleFlatListItemText4}>BBC News</Text>
-                    <Text style={styles.styleFlatListItemText3}>
-                      {item.title}
-                    </Text>
-                    <Text style={styles.styleFlatListItemText4}>BBC News</Text>
+                <TouchableOpacity onPress={()=> this.onItemClick(item)}>
+                  <View style={styles.styleFlatListItemView3}>
+                    <Image
+                      style={styles.styleFlatListItemImage2}
+                      source={item.url ? { uri: item.url } : backgroundImage}
+                    />
+                    <View style={styles.styleFlatListItemView4}>
+                      <Text style={styles.styleFlatListItemText4}>
+                        BBC News
+                      </Text>
+                      <Text style={styles.styleFlatListItemText3}>
+                        {item.title}
+                      </Text>
+                      <Text style={styles.styleFlatListItemText4}>
+                        BBC News
+                      </Text>
+                    </View>
                   </View>
-                </View>
+                </TouchableOpacity>
               )
             }
           />
@@ -178,27 +189,27 @@ const styles = StyleSheet.create({
   },
   styleFlatListItemView4: {
     flex: 1,
-    height:85,
+    height: 85,
     // marginRight: 10,
     marginLeft: 10,
-    marginTop: 10,
+    marginTop: 10
   },
-  styleFlatListItemText3:{
+  styleFlatListItemText3: {
     fontFamily: "Rajdhani-SemiBold",
     fontSize: 17,
     paddingLeft: 10,
     paddingTop: 5,
     paddingRight: 10,
     color: primaryKeyColor,
-    flex:1
+    flex: 1
   },
-  styleFlatListItemText4:{
+  styleFlatListItemText4: {
     fontFamily: "Rajdhani-SemiBold",
     fontSize: 17,
     paddingLeft: 10,
     // paddingTop: 6,
     paddingRight: 10,
     color: secondaryKeyColorRGBA,
-    flex:0.4
+    flex: 0.4
   }
 });
