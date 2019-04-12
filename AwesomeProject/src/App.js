@@ -6,11 +6,11 @@
  * @flow
  */
 
-import React, { } from 'react';
+import React, { Component } from 'react';
 import { createAppContainer } from 'react-navigation';
 import stack from './stack';
 
-export default class NavigationComponentInitial extends React.Component {
+export default class NavigationComponentInitial extends Component {
   render() {
     const Begin = createAppContainer(stack);
     return (

@@ -32,6 +32,10 @@ export default styles = StyleSheet.create({
         marginBottom: 20,
         paddingHorizontal: 10
     },
+    inputError:{
+        borderColor: 'red',
+        borderWidth: 2
+    },
     buttonContainer:{
         backgroundColor: '#f7c744',
         paddingVertical: 15,

@@ -18,10 +18,12 @@
     "@babel/core": "7.4.0",
     "@babel/runtime": "7.4.2",
     "@react-native-community/eslint-config": "0.0.3",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "24.5.0",
     "eslint": "5.15.3",
     "jest": "24.5.0",
     "metro-react-native-babel-preset": "0.53.1",
+    "prettier-eslint": "^8.8.2",
     "react-test-renderer": "16.8.3"
   },
   "jest": {
