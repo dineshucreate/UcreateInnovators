@@ -7,11 +7,15 @@ export default class Landing extends Component {
     const { navigation } = this.props;
     navigation.navigate('login');
   });
+  signupPress = (() => {
+    const { navigation } = this.props;
+    navigation.navigate('signup');
+  });
   render() {
     return (
       <ImageBackground style={styles.backgroundImage} source={require('../../assets/images/background.png')}>
         <Image style={styles.logoImage} source={require('../../assets/images/logoWhite.png')} />
-        <TouchableOpacity onPress={this._onPressButton}>
+        <TouchableOpacity onPress={this.signupPress}>
           <View style={styles.buttonContainer}>
             <Text style={styles.buttonText}>CREATE AN ACCOUNT</Text>
           </View>

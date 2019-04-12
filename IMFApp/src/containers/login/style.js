@@ -3,7 +3,7 @@ const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-    backgroundImage: {
+    backgroundView: {
         flex: 1,
     },
     logoImage: {
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         height: 147,
         borderRadius: 3,
     },
-    emailTextInput: {
+    textInput: {
         height: 24,
         marginVertical: 12,
         marginHorizontal: 24,
