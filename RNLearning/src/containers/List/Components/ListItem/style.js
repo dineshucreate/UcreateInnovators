@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 
   styleMainContainer: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     flexDirection: 'column',
     marginHorizontal: 15,
     marginTop: 15,

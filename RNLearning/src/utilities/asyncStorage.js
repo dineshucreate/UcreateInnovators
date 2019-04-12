@@ -24,7 +24,7 @@ class AsyncStorageUtil {
     return defaultValue || null;
   }
   static async setItemInStorage(key, value) {
-   await  AsyncStorage.setItem(key, JSON.stringify(value));
+   await AsyncStorage.setItem(key, JSON.stringify(value));
   }
   static async clear() {
     AsyncStorage.clear();

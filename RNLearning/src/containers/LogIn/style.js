@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         padding: 10,
-        margin:10,
+        margin: 10,
         borderWidth: 5,
         borderColor: '#3C8DBC',
         borderRadius: 10,
         width: 200
     }
-})
+});
 export default styles;

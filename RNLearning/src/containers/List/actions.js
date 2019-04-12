@@ -3,9 +3,9 @@ import {
     LIST_SUCCESS,
     LOAD_MORE_REQUEST,
     LOAD_MORE_SUCCESS
-} from "./constants";
+} from './constants';
 
-export const listRequest = () =>({
+export const listRequest = () => ({
     type: LIST_REQUEST
 });
 
@@ -18,7 +18,7 @@ export const listSuccess = (data, nextPageToken, pageInfo) =>
     pageInfo
 });
 
-export const loadMoreRequest = (nextPageToken) =>({
+export const loadMoreRequest = (nextPageToken) => ({
     type: LOAD_MORE_REQUEST,
     nextPageToken
 });

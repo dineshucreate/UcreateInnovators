@@ -11,15 +11,12 @@ export const loginRequest = (email, password, navigator) => ({
 
 export const loginSuccess = (data) => (
   {
-    type : REQUEST_SUCCESS,
+    type: REQUEST_SUCCESS,
     data,
   }
-)
+);
 export const loginFail = () => (
   {
-    type : REQUEST_FAIL
+    type: REQUEST_FAIL
   }
-)
-
-
-
+);

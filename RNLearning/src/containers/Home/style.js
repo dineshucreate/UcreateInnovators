@@ -3,24 +3,24 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1, 
-        backgroundColor: "#A4CBF8"
+        backgroundColor: '#A4CBF8'
     },
     viewIn: {
         flex: 1,
-        backgroundColor : "#A4CBF8",
-        alignItems: "center",
+        backgroundColor: '#A4CBF8',
+        alignItems: 'center',
     },
     titleContainer: {
         marginTop: 20,
         paddingHorizontal: 10,
-        justifyContent: "flex-start",
-        alignItems: "center",
+        justifyContent: 'flex-start',
+        alignItems: 'center',
         flex: 0.1,
     },
     photosContainer: {
         paddingHorizontal: 10,
-        justifyContent: "flex-start",
-        alignItems: "center",
+        justifyContent: 'flex-start',
+        alignItems: 'center',
         flex: 0.4,
         flexDirection: 'column',
     },
@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'black'
     },
-    image:{
+    image: {
         width: 300,
         height: 300,
     },
-    buttonStyle:{
+    buttonStyle: {
         marginTop: 10,
         height: 40,
     },
@@ -67,5 +67,5 @@ const styles = StyleSheet.create({
         marginTop: 18,
         margin: 10,
     },
-})
+});
 export default styles;

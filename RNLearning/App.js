@@ -1,8 +1,9 @@
 import React from 'react';
-import Begin from './src/RouterComponent';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import configureStore from './src/configureStore';
+import Begin from './src/RouterComponent';
+
 const { store, persistor } = configureStore();
 
 console.disableYellowBox = true;

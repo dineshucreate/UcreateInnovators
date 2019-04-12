@@ -3,7 +3,6 @@ import { LOGIN_REQUESTED, REQUEST_SUCCESS } from './constants';
 import { API_URL, kServiceAuthentication } from '../../utilities/config';
 import axios from 'axios';
 import { loginFail, loginSuccess } from './actions';
-import AsyncStorageUtil, { LoginData } from '../../utilities/asyncStorage';
 
 function* onLoginRequested({ email, password, navigator }) {
   const url = `${API_URL}` + `${kServiceAuthentication}`;

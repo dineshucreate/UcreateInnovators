@@ -1,148 +1,57 @@
-import React, { PureComponent } from 'react';
-import { View, FlatList, RefreshControl, Alert } from 'react-native';
-import styles from './style';
-import { SafeAreaView } from 'react-navigation';
-import { listRequest, loadMoreRequest } from './actions';
+import React from 'react';
 import { connect } from 'react-redux';
+import { SafeAreaView } from 'react-navigation';
+import { View, FlatList, RefreshControl } from 'react-native';
+import styles from './style';
+import { listRequest, loadMoreRequest } from './actions';
 import ListItem from './Components/ListItem';
-import firebase from 'react-native-firebase';
-import AsyncStorageUtil from '../../utilities/asyncStorage';
+import Notification from './Components/Notification';
 
-class List extends PureComponent {
+class List extends Notification {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             loading: false,
             dataList: [],
             isRefreshing: false,
             nextPageToken: '',
             totalResults: 0,
-            pageInfo: {}
-        }
+            pageInfo: {},
+        };
     }
-
-    renderItem = ({ item, index }) => {
-        return (
-            <View>
-                <ListItem dataItem={item}/>
-            </View>
-        );
-    };
-
     componentDidMount() {
-        const { listRequest } = this.props;
-        listRequest();
-        this.checkPermission();
-        this.createNotificationListeners();
-    }
-
-    componentWillUnmount() {
-        this.notificationListener();
-        this.notificationOpenedListener();
-      }
-
-    async checkPermission() {
-        const enabled = await firebase.messaging().hasPermission();
-        if (enabled) {
-            this.getToken();
-        } else {
-            this.requestPermission();
-        }
-      }
-
-      async getToken() {
-        let fcmToken = await AsyncStorageUtil.getItemFromStorage('fcmToken');
-        if (!fcmToken) {
-            fcmToken = await firebase.messaging().getToken();
-            if (fcmToken) {
-                // user has a device token
-                alert(fcmToken);
-                await AsyncStorageUtil.setItemInStorage('fcmToken', fcmToken);
-            }
-        }
-        alert(`fcmToken ${fcmToken}`);
-      }
-
-      async requestPermission() {
-        try {
-            await firebase.messaging().requestPermission();
-            // User has authorised
-            this.getToken();
-        } catch (error) {
-            // User has rejected permissions
-            console.log('permission rejected');
-        }
-      }
-
-      async createNotificationListeners() {
-        /*
-        * Triggered when a particular notification has been received in foreground
-        * */
-        this.notificationListener = firebase.notifications().onNotification((notification) => {
-            const { title, body } = notification;
-            this.showAlert(title, body);
-        });
-      
-        /*
-        * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
-        * */
-        this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
-            const { title, body } = notificationOpen.notification;
-            this.showAlert(title, body);
-        });
-      
-        /*
-        * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
-        * */
-        const notificationOpen = await firebase.notifications().getInitialNotification();
-        if (notificationOpen) {
-            const { title, body } = notificationOpen.notification;
-            this.showAlert(title, body);
-        }
-        /*
-        * Triggered for data only payload in foreground
-        * */
-        this.messageListener = firebase.messaging().onMessage((message) => {
-          //process data message
-          console.log(JSON.stringify(message));
-        });
-      }
-      
-      showAlert(title, body) {
-        const {navigation} = this.props;
-        Alert.alert(
-          title, body,
-          [
-              { text: 'OK', onPress: () =>  navigation.navigate('home') },
-          ],
-          { cancelable: false },
-        );
-      }
-      
-
-    _onRefresh = () => {
-        this.setState({ isRefreshing: true });
-        const { listRequest } = this.props;
-        listRequest();
+        const { listRequestP } = this.props;
+        listRequestP();
+        super.checkPermission();
+        super.createNotificationListeners();
     }
     shouldComponentUpdate() {
-        const { loading } = this.state
+        const { loading } = this.state;
         if (loading === false) {
-            this.state.isRefreshing = false
+            this.state.isRefreshing = false;
         }
-        return true
+        return true;
     }
     onScrollHandler = () => {
         const { loadMoreRequested, pageInfo, nextPageToken, loading, dataList } = this.props;
-        const tR = pageInfo.totalResults
-        if (tR > dataList.length && nextPageToken != undefined && loading == false) {
+        const tR = pageInfo.totalResults;
+        if (tR > dataList.length && nextPageToken !== undefined && loading === false) {
             loadMoreRequested(nextPageToken);
         }
     }
-
+    onRefresh = () => {
+        this.setState({ isRefreshing: true });
+        const { listRequestP } = this.props;
+        listRequestP();
+    }
+    renderItem = ({ item }) => (
+        <View>
+            <ListItem dataItem={item} />
+        </View>
+    );
     render() {
-        const { dataList } = this.props
+        const { dataList } = this.props;
         return (
             <SafeAreaView style={styles.styleContainer}>
                 <FlatList
@@ -153,7 +62,7 @@ class List extends PureComponent {
                     refreshControl={
                         <RefreshControl
                             refreshing={this.state.isRefreshing}
-                            onRefresh={this._onRefresh}
+                            onRefresh={this.onRefresh}
                             title="Pull to refresh"
                             tintColor="#000000"
                             titleColor="#000000"
@@ -166,19 +75,14 @@ class List extends PureComponent {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
+const mapStateToProps = (state) => ({
         loading: state.flatList.loading,
         dataList: state.flatList.data,
         nextPageToken: state.flatList.nextPageToken,
         pageInfo: state.flatList.pageInfo
-    }
-}
-
+    });
 const mapDispatchToProps = dispatch => ({
-    listRequest: () => dispatch(listRequest()),
+    listRequestP: () => dispatch(listRequest()),
     loadMoreRequested: (nextPageToken) => dispatch(loadMoreRequest(nextPageToken))
-})
-
+});
 module.exports = connect(mapStateToProps, mapDispatchToProps)(List);

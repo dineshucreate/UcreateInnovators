@@ -14,7 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { Colors } from './Colors';
 
 
-var colordef = Colors.colorFFFFFF;
+const colordef = Colors.colorFFFFFF;
 
 const VectorIcons = {
     AntDesign,
@@ -30,11 +30,11 @@ const VectorIcons = {
     SimpleLineIcons 
   };
 
-const VectorIcon = ({groupName, name, size, style,color})=>{
-    let Icon = VectorIcons[groupName];
-    return(
-        <Icon name={name} size ={size} style={style} color = {color!=null?color: colordef} />
+const VectorIcon = ({ groupName, name, size, style, color }) => {
+    const Icon = VectorIcons[groupName];
+    return (
+        <Icon name={name} size={size} style={style} color={color !== null ? color : colordef} />
     );
-}
+};
 
 export default VectorIcon;
