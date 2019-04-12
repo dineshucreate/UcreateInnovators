@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import {
   Login,
@@ -16,4 +16,4 @@ const stackNavigator = createStackNavigator(
     initialRouteName : 'login'
   }
 );
-export default {stackNavigator};
+export default Begin = createAppContainer(stackNavigator);

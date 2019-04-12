@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, ActivityIndicator, Button, Alert, ImageBackground, Image, ScrollView, TextInput, InputAccessoryView, TouchableHighlight, TouchableOpacity, FlatList, AsyncStorage } from 'react-native';
 import styles from './style';
+import { connect } from 'react-redux';
+import { loginSuccess } from './actions';
 
 class Login extends Component {
     constructor(){
@@ -65,4 +67,13 @@ class Login extends Component {
         );
     }
 }
-export default Login;
+const mapStateToProps = (state) => ({
+
+});
+const mapDispatchToProps = (dispatch) => ({
+    loginStatusRequest: () => dispatch(loginSuccess())
+
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+

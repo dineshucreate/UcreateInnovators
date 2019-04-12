@@ -1,14 +1,15 @@
 import React from 'react';
-import { createAppContainer } from 'react-navigation';
-import stack from './src/stack';
-import drawer from './src/drawer';
-import tab from './src/tab';
+import Begin from './src/stack';
+import { Provider } from 'react-redux'
+import store  from './src/store';
 
-export default class NavigationComponentInitial extends React.Component {
+export default class InitialRoot extends React.Component {
   render() {
-    const Begin = createAppContainer(tab);
     return (
-        <Begin />
+      <Provider store={store} >
+          <Begin />
+      </Provider >
     );
   }
 }
+
