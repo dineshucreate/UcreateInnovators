@@ -159,7 +159,7 @@ export default class Stats extends Component {
                     justifyContent: "center"
                   }}
                 >
-                  <Text style={{ textAlign: "center" }}>FULL TIME</Text>
+                  <Text style={{ fontFamily:'Rajdhani-SemiBold',textAlign: "center", color: "#096b76" }}>FULL TIME</Text>
                 </View>
               </View>
             )}
