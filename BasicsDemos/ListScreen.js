@@ -1,32 +1,86 @@
 import React,{Component} from 'react';
-import {Platform, StyleSheet, Text,View,Button} from 'react-native'
+import {Platform, StyleSheet, Text,View,Button,FlatList,SectionList} from 'react-native'
+import { createAppContainer  } from 'react-navigation';
+import SearchBar from './SearchBar';
 
-export default class ListScreen extends React.Component{
+ class ListScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-            <Text style={styles.welcome}>Welcome to React Nativesds!</Text>
-            <Text style={styles.instructions}>To get started, edit App.js</Text>
+            {/* <SectionList
+            sections={[
+              {title:'A', data:['DEV']},
+              {title:'B', data:['aman','amit','karan']},
+            ]
+            }
+            renderItem={({item})=><Text style={styles.item}>{item}</Text>}
+            renderSectionHeader={({section})=><Text style={styles.text}>{section.item}</Text>}
+            keyExtractor = {(item, index)=> index}
+            /> */}
+
+
+
+
+
+         <FlatList
+           data={[
+             {key:"Dev"},
+             {key:"Nitish"},
+             {key:"Amit"},
+             {key:"karan"},
+             {key:"aman"},
+             {key:"modi"},
+             {key:"Dev"},
+             {key:"Nitish"},
+             {key:"Amit"},
+             {key:"karan"},
+             {key:"aman"},
+             {key:"modi"},
+             {key:"Dev"},
+             {key:"Nitish"},
+             {key:"Amit"},
+             {key:"karan"},
+             {key:"aman"},
+             {key:"modi"},
+           ]}
+           renderItem={({item})=> <Text style={styles.text} 
+           onPress={()=>{this.props.navigation.navigate('search')}}>{item.key}</Text>}
+           /> 
+
+           
             </View>
         )
     }
 }
 
+// const AppNavigator = createStackNavigator(
+//   {
+//     lists: ListScreen,
+//     search: SearchBar,
+//   },
+//   {
+//   initialRoute : "lists"
+//   }
+// );
+
+export default ListScreen;
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+      flexDirection:"row",
+      justifyContent:"center",
       backgroundColor: '#F5FCFF',
+     
     },
     welcome: {
       fontSize: 20,
       textAlign: 'center',
       margin: 10,
     },
-    instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
+    text: {
+     fontSize: 20,
+     padding: 10,
+     height:70
     },
   });

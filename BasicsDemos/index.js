@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './BlinkApp';
+import App from './SplashScreen';
 import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => App);
