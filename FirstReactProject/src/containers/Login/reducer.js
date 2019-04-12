@@ -11,8 +11,8 @@ export default loginReducer = (state = INITIAL_STATE, action) => {
     case REQUEST_SUCCESS: {
     return { 
       ...state,
-      loading:false
-    }  
+      loading: false
+    };  
   }
     default:
     return state;

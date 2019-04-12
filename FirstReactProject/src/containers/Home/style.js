@@ -1,7 +1,7 @@
 
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'flex-start',
@@ -14,7 +14,7 @@ export default styles = StyleSheet.create({
       marginTop: 100,
       color: '#3F4E85',
       marginBottom: 60,
-      fontWeight : 'bold'
+      fontWeight: 'bold'
     },
     heading: {
       fontSize: 20,
@@ -30,8 +30,9 @@ export default styles = StyleSheet.create({
       borderWidth: 1,
       padding: 10
    },
-   buttonStyle:{
+   buttonStyle: {
     marginTop: 50,
     color: '#3F4E85',
    }
   });
+  export default styles;

@@ -5,7 +5,7 @@ import styles from './style';
 class profile extends Component {
     render() {
         return (
-            <ScrollView style = {styles.mainView}>
+            <ScrollView style={styles.mainView}>
                 <Text>Profile screen</Text>
             </ScrollView>
         );

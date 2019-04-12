@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
       flex: 1,
       //justifyContent: 'flex-start',
@@ -15,8 +14,8 @@ export default styles = StyleSheet.create({
       marginTop: 20,
       color: '#3F4E85',
       marginBottom: 60,
-      fontWeight : 'bold',
-      height : 80
+      fontWeight: 'bold',
+      height: 80
     },
     heading: {
       fontSize: 20,
@@ -32,7 +31,7 @@ export default styles = StyleSheet.create({
       borderWidth: 1,
       padding: 10
    },
-    buttonStyle:{
+    buttonStyle: {
       fontSize: 30,
       marginTop: 50,
       color: '#3F4E85',
@@ -43,12 +42,12 @@ export default styles = StyleSheet.create({
       height: 24,
     },
 
-    profileImage : {
-      height : 50,
-      width : 50,
+    profileImage: {
+      height: 50,
+      width: 50,
       backgroundColor: '#f00ff0',
-      borderWidth : 2,
-      marginTop :  60
-
+      borderWidth: 2,
+      marginTop: 60
   }
   });
+export default styles;

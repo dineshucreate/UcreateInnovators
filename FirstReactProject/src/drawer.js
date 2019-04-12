@@ -5,7 +5,7 @@ import {
   Home,
 } from './containers';
 
-const drawerNavigator = createDrawerNavigator ( {
+const drawerNavigator = createDrawerNavigator({
   Login: {
     screen: Login,
   },

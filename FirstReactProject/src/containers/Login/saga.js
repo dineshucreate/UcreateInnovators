@@ -1,7 +1,7 @@
-import { REQUEST_SUCCESS } from "./constants";
 import { takeEvery } from 'redux-saga/effects';
+import { REQUEST_SUCCESS } from './constants';
 
-function* onLoginRequested({}){
+function* onLoginRequested() {
     try {
         console.log('Simer...');
     } catch (error) {

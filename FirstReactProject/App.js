@@ -6,7 +6,7 @@ import store  from './src/store';
 export default class InitialRoot extends React.Component {
   render() {
     return (
-      <Provider store={store} >
+      <Provider store = {store} >
           <Begin />
       </Provider >
     );
