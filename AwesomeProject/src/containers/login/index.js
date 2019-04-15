@@ -17,6 +17,7 @@ import styles from './style';
 import { emptyRegex, emailReg, passwordReg } from '../../utilities/regex.js';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { LoginErrors } from '../../utilities/errorStrings';
+import User from '../../models/user';
 
 const height = Dimensions.get('window').height;
 
@@ -29,7 +30,8 @@ export default class login extends Component {
 			emailValid: true,
 			password: 'Tester1',
 			passwordValid: true,
-			user: { email: '', password: '' }
+			user: { email: '', password: '' },
+			url: ''
 		};
 	}
 
@@ -68,13 +70,44 @@ export default class login extends Component {
 		this.validateForm((isDone) => {
 			if (isDone) {
 				this.state.user.email = this.state.email;
-				this.props.navigation.navigate('home', { user: this.state.user });
+
+				const url = 'https://dog.ceo/api/breeds/image/random';
+				let user = new User();
+
+				user.loginUserAPI(
+					this.state.email,
+					this.state.password,
+					(response) => {
+						console.log(response);
+						user.testGetMethod(
+							url,
+							(reponse) => {
+								console.log('dog dog');
+							},
+							(error) => {
+								console.log('oops error occured');
+							}
+						);
+					},
+					(error) => {
+						console.log(error);
+					}
+				);
+				// this.props.navigation.navigate('home', { user: this.state.user });
 			}
 		});
 	};
 
+	componentDidMount() {
+		console.log('componenet did mount called');
+	}
+
 	imageTapped = () => {
 		alert('Image Clicked!!!');
+	};
+
+	passwordInput = (password) => {
+		console.log(password);
 	};
 
 	static navigationOptions = {
@@ -110,8 +143,9 @@ export default class login extends Component {
 									/>
 									<TextInput
 										style={styles.input}
-										onChangeText={(password) => this.setState({ password })}
-										value={this.state.password}
+										onChangeText={(password) => {
+											this.passwordInput(password);
+										}}
 										maxLength={15}
 										placeholder="password"
 										placeholderTextColor="rgba(255, 255, 255, 0.8)"
@@ -124,12 +158,9 @@ export default class login extends Component {
 									<TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
 										<Text style={styles.buttonText}>SIGN IN</Text>
 									</TouchableOpacity>
-									<Text style={[ styles.countText ]}>
-										{this.state.count !== 0 ? this.state.count : null}
-									</Text>
-									<Text style={[ styles.countText ]}>
-										{this.state.name !== '' ? this.state.name : null}
-									</Text>
+									{/* <Text style={[ styles.countText ]}>
+										{this.state.email !== '' ? this.state.email : null}
+									</Text> */}
 								</View>
 							</View>
 						</ScrollView>
