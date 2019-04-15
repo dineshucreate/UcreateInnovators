@@ -1,13 +1,13 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginLeft : 20,
-    marginRight : 20,
-    height : 100,
+    marginLeft: 20,
+    marginRight: 20,
+    height: 100,
     backgroundColor: '#f00ff0',
     borderWidth: 2
   },
@@ -23,28 +23,28 @@ export default styles = StyleSheet.create({
   subContainerViewStyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth : 1,
+    borderWidth: 1,
     backgroundColor: '#0f0ff0'
   },
 
   heading: {
       fontSize: 20,
-      //marginTop: 20,
-      backgroundColor : '#ff00ff'
+      backgroundColor: '#ff00ff'
     },
 
     description: {
         fontSize: 15,
-        //width: 225,
         marginTop: 5,
         backgroundColor: '#0ff000'
       },
 
-    profileImage : {
-        height : 50,
-        width : 50,
+    profileImage: {
+        height: 50,
+        width: 50,
         backgroundColor: '#f00ff0',
-        borderWidth : 2
+        borderWidth: 2
 
     }
   });
+  export default styles;
+

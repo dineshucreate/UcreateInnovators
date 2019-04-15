@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, Button, Image, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, Image, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import styles from './style';
 import { loginSuccess } from './actions';
+import CustomButton from '../../Components/CustomButton';
 
 class Login extends Component {
   
@@ -61,12 +62,11 @@ class Login extends Component {
                     autoCapitalize="none"
                     onChangeText={(text) => this.setState({ password: text })}
                 />
-                <Button
-                    style={styles.buttonStyle}
-                    title="Login"
-                    onPress={() => {
-                         navigation.navigate('home', { user: username, pwd: password });
-                    }} 
+                <CustomButton 
+                    myText='Log In'
+                    myCustomClick={() => {
+                        navigation.navigate('home', { user: username, pwd: password });
+                    }}
                 />
             </View>
             </ScrollView>
