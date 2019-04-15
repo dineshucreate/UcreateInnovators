@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Image, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import styles from './style';
-import { loginSuccess } from './actions';
+import { loginRequest } from './actions';
 import CustomButton from '../../Components/CustomButton';
 
 class Login extends Component {
@@ -30,8 +30,10 @@ class Login extends Component {
     }
     
     render() {
-        const { navigation } = this.props;
+        const { navigation, loginRequestt, loginData } = this.props;
         const { username, password } = this.state;
+        console.log(`Get the data :  ${JSON.stringify(loginData)}`);
+        
         return (
               <ScrollView contentContainerStyle={styles.contentContainer}>
                <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
@@ -65,7 +67,8 @@ class Login extends Component {
                 <CustomButton 
                     myText='Log In'
                     myCustomClick={() => {
-                        navigation.navigate('home', { user: username, pwd: password });
+                        loginRequestt(username, password, navigation);
+                        //navigation.navigate('home', { user: username, pwd: password });
                     }}
                 />
             </View>
@@ -74,14 +77,15 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = (state) => ({
+    loginData: state.login.simi,
 });
 const mapDispatchToProps = (dispatch) => ({
-    loginStatusRequest: () => dispatch(loginSuccess())
+     loginRequestt: (username, password, navigation) => 
+     dispatch(loginRequest(username, password, navigation))
 });
 
 export default connect(
     mapStateToProps,
-     mapDispatchToProps)(Login);
+    mapDispatchToProps)(Login);
 

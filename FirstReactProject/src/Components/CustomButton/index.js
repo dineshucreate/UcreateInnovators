@@ -5,18 +5,17 @@ import myStyle from './style';
 
 class CustomButton extends Component {
 
-    constructor() {
-        super();
-        this.props = {
+    // constructor() {
+    //     super();
+    //     this.props = {
 
-        };
-    }
+    //     };
+    // }
     render() {
         const { myText, myCustomClick } = this.props;
         return (
             <TouchableOpacity 
             style={myStyle.container}
-            title={myText}
             onPress={() => myCustomClick()}
             > 
              <Text>{myText}</Text>
