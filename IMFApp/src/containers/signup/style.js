@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { whileStatement } from '@babel/types';
 
 const styles = StyleSheet.create({
     backgroundView: {

@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation';
 import landing from './containers/landing';
 import login from './containers/login';
 import signup from './containers/signup';
+import home from './containers/home'
 
 const stackNavigator = createStackNavigator(
   {
@@ -17,6 +18,11 @@ const stackNavigator = createStackNavigator(
     },
     signup: {
       screen: signup, navigationOptions: {
+        header: null
+      }
+    },
+    home : {
+      screen: home, navigationOptions: {
         header: null
       }
     }
