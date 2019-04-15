@@ -1,12 +1,15 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-const Button = ({ onPress, children }) => {
+const Button = (props) => {
   const { buttonStyle, textStyle } = styles;
   return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+    <TouchableOpacity
+      style={buttonStyle}
+      onPress = {props.onClick}
+    >
       <Text style={textStyle}>
-        {children}
+        {props.title}
       </Text>
     </TouchableOpacity>
   );
@@ -32,6 +35,6 @@ const styles = {
     paddingRight: 25,
     paddingLeft: 25,
     marginTop: 50,
-    width: 350
+    width: 300
   }
 };
