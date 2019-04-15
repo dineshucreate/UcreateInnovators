@@ -6,8 +6,8 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button, Alert, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, Button, Alert, TouchableOpacity } from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -19,15 +19,28 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
 
-    // Click function defined in JS form.
-    simpleFun(){
-      Alert.alert("You have clicked on simple fuction");
-    }
+  constructor(props) {
+    super(props);
 
-    //Arrow Function.
-    myArrowFun(){
-      Alert.alert("You have clicked on Arrow fuction");
+    this.state = {
+      firstName:'Rohit',
+      lastName:'Sharma',
+      //arr:[{}]
     }
+  }
+  // Click function defined in JS form.
+  simpleFun() {
+    Alert.alert("You have clicked on simple fuction");
+  }
+
+  //Arrow Function.
+  myArrowFun() {
+    Alert.alert("You have clicked on Arrow fuction");
+  }
+
+  updateState = () => {
+    this.setState({firstName:'Karan',lastName:'Nassa'})
+  }
 
   render() {
     return (
@@ -36,39 +49,42 @@ export default class App extends Component<Props> {
         Ref from : https://facebook.github.io/react-native/docs/handling-touches
       */
 
-       <View style={styles.container}>
-       <View style={styles.flexParentContainer}>
-        <Text style={styles.welcome}>Click Event Demo</Text>
-
-        <TouchableOpacity onPress={()=> this.myArrowFun()}>
-          <Text style={{color:'white',
-                        marginTop:15,
-                        fontSize: 25,
-                        backgroundColor: `blue`,
-                        padding: 30,
-                        alignItems: 'stretch',
-                        textAlign: 'center'}}>Click for Arrow Function</Text>
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <View style={styles.flexParentContainer}>
         
-        <View style = {styles.AlignCenter}>
-        <TouchableOpacity onPress={this.simpleFun}>
-            <Text style = {styles.buttonContainer}>Simple Function</Text>
-        </TouchableOpacity>
-        </View>
+          <Text style={styles.welcome}>{this.state.firstName}</Text>
 
-        <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="This looks great!"/>
+          <TouchableOpacity onPress={() => this.myArrowFun()}>
+            <Text style={{
+              color: 'white',
+              marginTop: 15,
+              fontSize: 25,
+              backgroundColor: `blue`,
+              padding: 30,
+              alignItems: 'stretch',
+              textAlign: 'center'
+            }}>Click for Arrow Function</Text>
+          </TouchableOpacity>
 
-          <Button
-            onPress={this._onPressButton}
-            title="OK!"
-            color="#841584" />
+          <View style={styles.AlignCenter}>
+            <TouchableOpacity onPress={this.updateState}>
+              <Text style={styles.buttonContainer}>Simple Function</Text>
+            </TouchableOpacity>
+          </View>
 
+          <View style={styles.alternativeLayoutButtonContainer}>
+            <Button
+              onPress={this._onPressButton}
+              title="This looks great!" />
+
+            <Button
+              onPress={this._onPressButton}
+              title="OK!"
+              color="#841584" />
+
+          </View>
         </View>
-        </View>
-       {
+        {
          /*  Color and backgroundColor properties work differently in
           iOS and Android so try to use different property.
          <Button 
@@ -76,8 +92,8 @@ export default class App extends Component<Props> {
                title = "1 Button Function"
                color= 'blue'
              /> */}
-     </View>
-      
+      </View>
+
     );
   }
 }
@@ -92,31 +108,30 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    padding:15,
-    width:`100%`,
+    padding: 15,
+    width: `100%`,
     backgroundColor: 'red',
     color: 'white',
   },
   buttonContainer: {
     margin: 0,
     fontSize: 20,
-    width:200,
-    padding:10,
+    width: 200,
+    padding: 10,
     textAlign: 'center',
     backgroundColor: `#00ff00`,
   },
-  AlignCenter:{
+  AlignCenter: {
     textAlign: 'center',
     alignItems: 'stretch',
     justifyContent: 'flex-start'
   },
   alternativeLayoutButtonContainer: {
     textAlign: 'center',
-    padding:0,
+    padding: 0,
     marginTop: 100,
-    
     flexDirection: 'row',
-    justifyContent:'center',
+    justifyContent: 'center',
     alignItems: 'stretch',
     //justifyContent: 'space-between'
   },
