@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import styles from './style';
 import { emptyRegex, emailReg, passwordReg } from '../../utilities/regex.js';
+import { NavigationActions, StackActions } from 'react-navigation';
 import { LoginErrors } from '../../utilities/errorStrings';
 
 const height = Dimensions.get('window').height;
@@ -24,29 +25,61 @@ export default class login extends Component {
 		super(props);
 		this.state = {
 			count: 0,
-			email: '',
+			email: 'amit@yopmail.com',
 			emailValid: true,
-			password: '',
-			passwordValid: true
-		};
-		let obj = { person: { name: 'Alex', address: 'CA', dog: { name: 'Bravo', breed: 'german sheffered' } } };
-		const city = {
-			name: 'cityName',
-			state: 'CA'
+			password: 'Tester1',
+			passwordValid: true,
+			user: { email: '', password: '' }
 		};
 	}
 
-	login = () => {
-		console.log(this.state.email);
-		if (emailReg.test(String(this.state.email).toLowerCase()) == true) {
+	validateForm = async (callback) => {
+		let isDone = true;
+		const loginDetails = this.state;
+		mainValidations.forEach((input) => {
+			input.validations.forEach((validation) => {
+				if (!validation.regex.exec(loginDetails[input.propertyName].trim())) {
+					if (isDone) {
+						this.setState((preState) => ({
+							...preState,
+							validationErrors: {
+								...preState.validationErrors,
+								[input.errorPropertyName]: validation.errorMessage
+							}
+						}));
+						alert(validation.errorMessage);
+						isDone = false;
+					}
+				} else {
+					this.setState((preState) => ({
+						...preState,
+						validationErrors: {
+							...preState.validationErrors,
+							[input.errorPropertyName]: ''
+						}
+					}));
+				}
+			});
+		});
+		await callback(isDone);
+	};
 
-		} else {
-			console.log('its correct');
-		}
+	login = () => {
+		this.validateForm((isDone) => {
+			if (isDone) {
+				this.state.user.email = this.state.email;
+				this.props.navigation.navigate('home', { user: this.state.user });
+			}
+		});
+	};
+
+	imageTapped = () => {
+		alert('Image Clicked!!!');
 	};
 
 	static navigationOptions = {
-		title: 'Login'
+		title: 'Login',
+		header: null
 	};
 
 	render() {
@@ -58,13 +91,16 @@ export default class login extends Component {
 						<ScrollView>
 							<View style={[ styles.container, { height: height, marginTop: 100 } ]}>
 								<View style={styles.logoContainer}>
-									<Image source={require('../../assets/0.gif')} style={styles.logo} />
+									<TouchableOpacity onPress={this.imageTapped}>
+										<Image source={require('../../assets/0.gif')} style={styles.logo} />
+									</TouchableOpacity>
 								</View>
 								<View style={styles.infoContainer}>
 									<TextInput
 										style={[ styles.input, !this.state.emailValid ? styles.inputError : null ]}
 										onChangeText={(email) => this.setState({ email })}
-										placeholder="Enter username/email"
+										value={this.state.email}
+										placeholder="Enter an email"
 										placeholderTextColor="rgba(255, 255, 255, 0.8)"
 										keyboardType="email-address"
 										returnKeyType="next"
@@ -75,6 +111,8 @@ export default class login extends Component {
 									<TextInput
 										style={styles.input}
 										onChangeText={(password) => this.setState({ password })}
+										value={this.state.password}
+										maxLength={15}
 										placeholder="password"
 										placeholderTextColor="rgba(255, 255, 255, 0.8)"
 										keyboardType="email-address"
@@ -101,3 +139,22 @@ export default class login extends Component {
 		);
 	}
 }
+
+const mainValidations = [
+	{
+		validations: [
+			{ regex: emptyRegex, errorMessage: LoginErrors.emailEmptyError },
+			{ regex: emailReg, errorMessage: LoginErrors.inValidEmail }
+		],
+		propertyName: 'email',
+		errorPropertyName: 'emailError'
+	},
+	{
+		validations: [
+			{ regex: emptyRegex, errorMessage: LoginErrors.passwordEmptyError },
+			{ regex: passwordReg, errorMessage: LoginErrors.passwordLengthError }
+		],
+		propertyName: 'password',
+		errorPropertyName: 'passwordError'
+	}
+];
