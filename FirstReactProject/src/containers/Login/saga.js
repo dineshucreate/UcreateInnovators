@@ -1,16 +1,17 @@
 import axios from 'axios';
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { REQUEST_CALL_LOGIN_API } from './constants';
-import { loginSuccess } from './actions';
+import { loginSuccess, loginFail } from './actions';
+import config from '../../Config/config';
 
 function* onLoginRequested({ username, password }) {
-    const url = 'https://production-review-tool.herokuapp.com/authentication';
     try {
-        const simerData = yield call(axios.post, url, { username, password });
-        console.log(`Login Data: ${JSON.stringify(simerData)}`);
-        yield put(loginSuccess(simerData));
+        const loginData = yield call(axios.post, config.url, { username, password });
+        console.log(`Login Data: ${JSON.stringify(loginData)}`);
+        yield put(loginSuccess(loginData));
     } catch (error) {
-     console.log(error.log);
+        console.log(JSON.stringify(error.response.status));
+        yield put(loginFail(error.response.status));
     }     
 }
 

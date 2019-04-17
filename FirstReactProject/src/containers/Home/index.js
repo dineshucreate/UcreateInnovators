@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, fetch } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import ListItem from '../../Components/ListItem';
 
 class Home extends Component {
@@ -15,29 +15,31 @@ class Home extends Component {
         const { navigation } = this.props;
         this.username = navigation.getParam('user', 'username');
         this.password = navigation.getParam('pwd', 'password');
-        this.makeRemoteRequest(this.username, this.password);
+        const loginData = navigation.getParam('loginData', 'Data not found');
+        this.setState({ resFromApi: loginData.data.user_info.organizations });
+        //this.makeRemoteRequest(this.username, this.password);
       }
 
-    makeRemoteRequest = (username, password) => {     
-        fetch('https://production-review-tool.herokuapp.com/authentication', {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              username,
-              password,
-            }),
-           }).then((response) => response.json())
-              .then((responseJson) => {
-                console.log(responseJson);
-                this.setState({ resFromApi: responseJson.user_info.organizations });
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-        }
+    // makeRemoteRequest = (username, password) => {     
+    //     fetch('https://production-review-tool.herokuapp.com/authentication', {
+    //         method: 'POST',
+    //         headers: {
+    //           Accept: 'application/json',
+    //           'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //           username,
+    //           password,
+    //         }),
+    //        }).then((response) => response.json())
+    //           .then((responseJson) => {
+    //             console.log(responseJson);
+    //             this.setState({ resFromApi: responseJson.user_info.organizations });
+    //           })
+    //           .catch((error) => {
+    //             console.error(error);
+    //           });
+    //     }
 
     render() {
         const { resFromApi } = this.state;

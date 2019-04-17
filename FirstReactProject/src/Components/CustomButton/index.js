@@ -1,18 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import myStyle from './style';
 
-
-class CustomButton extends Component {
-
-    // constructor() {
-    //     super();
-    //     this.props = {
-
-    //     };
-    // }
-    render() {
-        const { myText, myCustomClick } = this.props;
+const CustomButton = (props) => {
+        const { myText, myCustomClick } = props;
         return (
             <TouchableOpacity 
             style={myStyle.container}
@@ -21,6 +12,5 @@ class CustomButton extends Component {
              <Text>{myText}</Text>
             </TouchableOpacity> 
         );
-    }
-}
+};
 export default CustomButton;
