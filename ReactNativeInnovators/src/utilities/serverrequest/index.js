@@ -21,3 +21,14 @@ export const apiLoginGet=(url,header,successCallback,failureCallback)=>{
         failureCallback(error)
       });
 }
+
+export const apiLoginGetFlatList=(url,successCallback,failureCallback)=>{
+  axios.get(url).then(function (response) {
+      console.log(response);
+      successCallback(response)
+    })
+    .catch(function (error) {
+      console.log(error);
+      failureCallback(error)
+    });
+}

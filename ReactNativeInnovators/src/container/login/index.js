@@ -1,10 +1,14 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, ImageBackground, Button, Alert, TextInput, Image } from 'react-native';
-import Buttonlogin from './styling/Button';
-import Test from './Test';
-import { apiLoginPost } from './utilities/serverrequest'
-class HomeScreen extends React.Component {
+import Buttonlogin from '../../styling/button';
+//import Test from '../Test';
+import { apiLoginPost } from '../../utilities/serverrequest'
+import styles from './style';
+
+
+
+class Login extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -16,16 +20,21 @@ class HomeScreen extends React.Component {
     this.state = {
       name: "Amit Agnihotri",
       textInputLogin: '',
-      textInputPassword: ''
+      textInputPassword: '',
+      apiData: null,
     }
   }
 
   updateState = () => {
     this.setState({ name: "Rohit" });
+    console.log(this.state.name);
   }
 
   successCallbackLogin = (response) => {
-    Alert.alert(JSON.stringify(response));
+    //Alert.alert(JSON.stringify(response.data.user.firstname));
+    this.setState({ apiData: response.data });
+    console.log('NAME: ' + this.state.apiData.user.firstname);
+    this.changeScreen(this.state.apiData.user.firstname)
   }
 
   failureCallbackLogin = (error) => {
@@ -34,10 +43,10 @@ class HomeScreen extends React.Component {
 
 
 
-  changeScreen = () => {
-    this.props.navigation.navigate('Setting', {
-      itemId: 86,
-      otherParam: 'anything you want here',
+  changeScreen = (name) => {
+    this.props.navigation.navigate('PractiseFlatList', {
+      itemId: name
+
     })
   }
 
@@ -60,23 +69,17 @@ class HomeScreen extends React.Component {
   }
   render() {
     const { navigate } = this.props.navigation;
-    console.log('...ender.......  ' + this.props);
+    console.log('...Render.......  ' + this.props);
 
     return (
 
-      <ImageBackground source={require('./assets/global_bg.png')}
+      <ImageBackground source={require('../../assets/global_bg.png')}
         style={styles.containerImage}>
-
-
-        <View>
-          <Test name={this.state.name} update={this.updateState} />
-        </View>
-
-
 
         <View style={{ flex: 0.8, alignItems: 'center', justifyContent: 'center' }}>
           <Image style={{ width: 250, height: 130, resizeMode: 'contain' }}
-            source={require('./assets/ic_im_logo.png')} />
+            source={require('../../assets/ic_im_logo.png')} />
+
           <View style={styles.welcome}>
 
             <TextInput style={styles.input}
@@ -94,7 +97,7 @@ class HomeScreen extends React.Component {
               onChangeText={textInputPassword => this.setState({ textInputPassword })}
             />
             <Text style={styles.titleText}>
-              Forgot Password?</Text>
+              {(this.state.apiData != null) ? this.state.apiData.user.firstname : 'Forgot Password'}</Text>
 
           </View>
           <Buttonlogin title="Login"
@@ -103,66 +106,8 @@ class HomeScreen extends React.Component {
           <Text style={styles.TextShadowStyle}>CREATE AN ACCOUNT</Text>
         </View>
       </ImageBackground>
-
-
-
     );
   }
 }
 
-export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-  },
-  containerImage: {
-    flex: 1
-  },
-  welcome: {
-    flex: 0.8,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    backgroundColor: "#ffffff",
-    width: "90%",
-    marginTop: 30,
-  },
-  buttonStyle: {
-    marginTop: 10,
-    fontSize: 50,
-  },
-  instructionsThird: {
-    //flex: 3,
-    backgroundColor: "#590000",
-    width: 50,
-    height: 50,
-  },
-  input: {
-    margin: 10,
-    height: 40,
-    width: 300,
-  },
-  titleText: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#06878A',
-    marginLeft: 15,
-
-  },
-  TextShadowStyle:
-  {
-    textAlign: 'center',
-    fontSize: 20,
-    textShadowColor: '#05928E',
-    color: '#ffffff',
-    fontWeight: 'bold',
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 8,
-    marginTop: 20,
-
-  },
-});
+export default Login;

@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, ImageBackground,Button,Alert,TextInput,Image} from 'react-native';
-import Buttonlogin from './styling/Button';
 
 class SettingScreen extends React.Component {
     static navigationOptions = {
@@ -31,7 +30,7 @@ class SettingScreen extends React.Component {
            <View style={{flex:0.8, alignItems:'center', justifyContent:'center'}}>
            <Image style={{width: 250, height: 130, resizeMode:'contain'}}
            source={require('./assets/ic_im_logo.png')}/>
-           <Text>itemId: {JSON.stringify(itemId)}</Text>
+           <Text>{itemId}</Text>
             
             </View>
          </ImageBackground>
