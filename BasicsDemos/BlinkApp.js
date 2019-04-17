@@ -36,8 +36,8 @@ export default class BlinkApp extends Component {
 
   state = {
     text: '' ,
-    email:"try27@gmail.com",
-    password:"Android@123",
+    email:"",
+    password:"",
   };
 
   _onPressButton(){
@@ -45,8 +45,9 @@ export default class BlinkApp extends Component {
   }
 
   loginApi= ()=>{
-    Alert.alert("You ")
+   
     try{
+      console.log(this.state.email);
     let data = JSON.stringify({
       email: this.state.email,
       password: this.state.password,
@@ -61,7 +62,14 @@ export default class BlinkApp extends Component {
       }
     }).then(res=>{
       const response = res.data;
+      console.log("error===============res",res);
       alert(JSON.stringify(response));
+      console.log("erro",res.status);
+      if(res.status==200){
+        Alert.alert("You ")
+        console.log("erro",res.status);
+        this.props.navigation.navigate('List');
+      }
     })
   }catch(err){
     console.log("error===============================D",err);
@@ -88,12 +96,12 @@ export default class BlinkApp extends Component {
           <TextInput style={styles.inputStyle}
             placeholder={'Email'}
             underlineColorAndroid='#06878A'
-            onChangeText={(text) => this.setState({ text })}></TextInput>
+            onChangeText={(text) => this.setState({email: text })}></TextInput>
 
             <TextInput style={styles.inputStyle}
             placeholder={"Password"}
             underlineColorAndroid='#06878A'
-            onChangeText={(text)=>this.setState({text})}></TextInput>
+            onChangeText={(text)=>this.setState({password: text})}></TextInput>
 
             <Text style={{color:"#06878A", fontWeight:"bold",margin: 10,fontSize:11}}>Forgot your password?</Text>
 

@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {Platform, StyleSheet, Text,View,Button,FlatList,SectionList} from 'react-native'
 import { createAppContainer  } from 'react-navigation';
 import SearchBar from './SearchBar';
+import CustomRow from './src/ListView/CustomRow';
+import Row from './src/ListView/Row';
 
  class ListScreen extends React.Component{
     render(){
@@ -18,11 +20,37 @@ import SearchBar from './SearchBar';
             keyExtractor = {(item, index)=> index}
             /> */}
 
+<FlatList
+               data={[
+                {key:"Dev"},
+                {key:"Nitish"},
+                {key:"Amit"},
+                {key:"karan"},
+                {key:"aman"},
+                {key:"modi"},
+                {key:"Dev"},
+                {key:"Nitish"},
+                {key:"Amit"},
+                {key:"karan"},
+                {key:"aman"},
+                {key:"modi"},
+                {key:"Dev"},
+                {key:"Nitish"},
+                {key:"Amit"},
+                {key:"karan"},
+                {key:"aman"},
+                {key:"modi"},
+              ]}
+                renderItem={({ item }) => <Row
+                    title={item.key}
+                    description={item.key}
+                    image_url={"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"}
+                />}
+            />
 
 
 
-
-         <FlatList
+         {/* <FlatList
            data={[
              {key:"Dev"},
              {key:"Nitish"},
@@ -45,7 +73,7 @@ import SearchBar from './SearchBar';
            ]}
            renderItem={({item})=> <Text style={styles.text} 
            onPress={()=>{this.props.navigation.navigate('search')}}>{item.key}</Text>}
-           /> 
+           />  */}
 
            
             </View>
