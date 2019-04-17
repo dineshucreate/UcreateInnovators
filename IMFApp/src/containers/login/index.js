@@ -3,8 +3,6 @@ import { Image, TouchableOpacity, Text, TextInput, View, ScrollView, ActivityInd
 import styles from './style';
 import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
-import Axios from 'axios';
-import { consumePOSTAPI } from '../../utilities/serverrequest'
 import User from '../../utilities/models/user'
 export default class login extends Component {
     constructor(props) {
@@ -31,7 +29,7 @@ export default class login extends Component {
             navigation.navigate('home');
         }, (error) => {
             this.setState({ loading: false });
-            alert(JSON.stringify(error))
+            alert('Please enter valid credentials')
         })
     });
     render() {

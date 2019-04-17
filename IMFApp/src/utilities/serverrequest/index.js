@@ -2,9 +2,9 @@ import Axios from "axios";
 
 export const consumeGetAPI = (url, headers, successCallback, failureCallback) => {
     Axios.get(url, { headers: headers }).then((response) => {
-        alert(JSON.stringify(response))
+        successCallback(response)
     }).catch((error) => {
-        alert(JSON.stringify(error))
+        failureCallback(error)
     })
 }
 

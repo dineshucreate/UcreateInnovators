@@ -21,7 +21,7 @@ const stackNavigator = createStackNavigator(
         header: null
       }
     },
-    home : {
+    home: {
       screen: home, navigationOptions: {
         header: null
       }
