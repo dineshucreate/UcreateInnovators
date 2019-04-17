@@ -11,11 +11,11 @@ import {
 	Keyboard,
 	TouchableOpacity,
 	ScrollView,
-	Dimensions
+	Dimensions,
+	AsyncStorage
 } from 'react-native';
 import styles from './style';
 import { emptyRegex, emailReg, passwordReg } from '../../utilities/regex.js';
-import { NavigationActions, StackActions } from 'react-navigation';
 import { LoginErrors } from '../../utilities/errorStrings';
 import User from '../../models/user';
 
@@ -33,7 +33,16 @@ export default class login extends Component {
 			user: { email: '', password: '' },
 			url: ''
 		};
+		this.getUserData();
 	}
+
+	getUserData = async () => {
+		const user = await AsyncStorage.getItem('user');
+		if (user != null) {
+			this.props.navigation.navigate('home', { user: this.state.user });
+		}
+		console.log(user);
+	};
 
 	validateForm = async (callback) => {
 		let isDone = true;
@@ -66,34 +75,27 @@ export default class login extends Component {
 		await callback(isDone);
 	};
 
+	storeUser = async () => {
+		await AsyncStorage.setItem('user', JSON.stringify(this.state.user));
+	};
+
 	login = () => {
 		this.validateForm((isDone) => {
 			if (isDone) {
 				this.state.user.email = this.state.email;
-
-				const url = 'https://dog.ceo/api/breeds/image/random';
 				let user = new User();
-
 				user.loginUserAPI(
 					this.state.email,
 					this.state.password,
 					(response) => {
 						console.log(response);
-						user.testGetMethod(
-							url,
-							(reponse) => {
-								console.log('dog dog');
-							},
-							(error) => {
-								console.log('oops error occured');
-							}
-						);
+						this.storeUser();
+						this.props.navigation.navigate('home', { user: this.state.user });
 					},
 					(error) => {
 						console.log(error);
 					}
 				);
-				// this.props.navigation.navigate('home', { user: this.state.user });
 			}
 		});
 	};
@@ -104,10 +106,6 @@ export default class login extends Component {
 
 	imageTapped = () => {
 		alert('Image Clicked!!!');
-	};
-
-	passwordInput = (password) => {
-		console.log(password);
 	};
 
 	static navigationOptions = {
@@ -143,9 +141,8 @@ export default class login extends Component {
 									/>
 									<TextInput
 										style={styles.input}
-										onChangeText={(password) => {
-											this.passwordInput(password);
-										}}
+										onChangeText={(password) => this.setState({ password })}
+										value={this.state.password}
 										maxLength={15}
 										placeholder="password"
 										placeholderTextColor="rgba(255, 255, 255, 0.8)"
