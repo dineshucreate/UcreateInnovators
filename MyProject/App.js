@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button,Alert} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,12 +18,18 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+   pressMe() {
+    Alert.alert("Hi I'm Here");
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome}>Hello Mandeep{'\n\n\n'} Button and Alert Demo</Text>
+        <Button title = "Press me" 
+                onPress = {this.pressMe}
+                color = "#ff0000"
+               />    
+
       </View>
     );
   }
