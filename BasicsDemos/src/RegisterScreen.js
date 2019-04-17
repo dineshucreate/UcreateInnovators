@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import {Platform, StyleSheet, Text,View,Button,ImageBackground, TextInput, TouchableNativeFeedback} from 'react-native'
-import { createAppContainer  } from 'react-navigation';
+import {Platform, StyleSheet, Text,View,Button,ImageBackground, TextInput, TouchableOpacity} from 'react-native'
+
 
 
 export default class RegisterScreen extends React.Component{
@@ -63,13 +63,12 @@ export default class RegisterScreen extends React.Component{
 
          </TextInput>
 
-<TouchableNativeFeedback style={styles.buttonView}
-background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
+<TouchableOpacity style={styles.buttonView}>
   <View style={styles.button}>
       <Text style={styles.buttonText}>REGISTER</Text>
   </View>
 
-</TouchableNativeFeedback>
+</TouchableOpacity>
          
          </ImageBackground>
             </View>
