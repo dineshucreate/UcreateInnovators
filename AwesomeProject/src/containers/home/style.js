@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+
 const width = Dimensions.get('window').width;
 export default (styles = StyleSheet.create({
 	container: {
@@ -26,7 +27,7 @@ export default (styles = StyleSheet.create({
 		height: 50,
 		marginTop: 5,
 		marginLeft: 10,
-		marginRight: 10
+		marginRight: 10,
 	},
 	itemSeparator: {
 		height: 1,

@@ -41,6 +41,12 @@
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		C07E8637CADA4D37954F205A /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EEB03C031204257AAE67177 /* libRNGestureHandler.a */; };
 		EA70BEEEF4EE432494E65C75 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EA066455D04D4AA9AF6CB6 /* libRNGestureHandler-tvOS.a */; };
+		BF90453D861C4FD4A56CDCB0 /* BEYONDCONTROL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 654ABCB114B24253AB175FD6 /* BEYONDCONTROL.ttf */; };
+		2EDBAC90538C4B3E9FA28568 /* rajdhani-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBBE514F1B3D4FE59006ACDC /* rajdhani-bold.ttf */; };
+		FC6B93A61416454B80FD27C5 /* rajdhani-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7EA7C27D87A4295AAA16602 /* rajdhani-light.ttf */; };
+		97B39E9FFE3F4D758DC6CA16 /* rajdhani-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4026A14A4C24181A048CC28 /* rajdhani-medium.ttf */; };
+		25D0411256044D888DE78EFF /* rajdhani-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 482D8D923F014607AD538B94 /* rajdhani-regular.ttf */; };
+		921B6C6F12284BE99DB186E5 /* rajdhani-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1551D874CF914B09AFE8C872 /* rajdhani-semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -351,6 +357,12 @@
 		1D4B419461654E6AA3974E3A /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		4EEB03C031204257AAE67177 /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		79EA066455D04D4AA9AF6CB6 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		654ABCB114B24253AB175FD6 /* BEYONDCONTROL.ttf */ = {isa = PBXFileReference; name = "BEYONDCONTROL.ttf"; path = "../src/fonts/BEYONDCONTROL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CBBE514F1B3D4FE59006ACDC /* rajdhani-bold.ttf */ = {isa = PBXFileReference; name = "rajdhani-bold.ttf"; path = "../src/fonts/rajdhani-bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E7EA7C27D87A4295AAA16602 /* rajdhani-light.ttf */ = {isa = PBXFileReference; name = "rajdhani-light.ttf"; path = "../src/fonts/rajdhani-light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D4026A14A4C24181A048CC28 /* rajdhani-medium.ttf */ = {isa = PBXFileReference; name = "rajdhani-medium.ttf"; path = "../src/fonts/rajdhani-medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		482D8D923F014607AD538B94 /* rajdhani-regular.ttf */ = {isa = PBXFileReference; name = "rajdhani-regular.ttf"; path = "../src/fonts/rajdhani-regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1551D874CF914B09AFE8C872 /* rajdhani-semibold.ttf */ = {isa = PBXFileReference; name = "rajdhani-semibold.ttf"; path = "../src/fonts/rajdhani-semibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,6 +604,7 @@
 				00E356EF1AD99517003FC87E /* AwesomeProjectTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				D5428260DEDB454F8BF87BBE /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -617,6 +630,20 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		D5428260DEDB454F8BF87BBE /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				654ABCB114B24253AB175FD6 /* BEYONDCONTROL.ttf */,
+				CBBE514F1B3D4FE59006ACDC /* rajdhani-bold.ttf */,
+				E7EA7C27D87A4295AAA16602 /* rajdhani-light.ttf */,
+				D4026A14A4C24181A048CC28 /* rajdhani-medium.ttf */,
+				482D8D923F014607AD538B94 /* rajdhani-regular.ttf */,
+				1551D874CF914B09AFE8C872 /* rajdhani-semibold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1064,6 +1091,12 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				BF90453D861C4FD4A56CDCB0 /* BEYONDCONTROL.ttf in Resources */,
+				2EDBAC90538C4B3E9FA28568 /* rajdhani-bold.ttf in Resources */,
+				FC6B93A61416454B80FD27C5 /* rajdhani-light.ttf in Resources */,
+				97B39E9FFE3F4D758DC6CA16 /* rajdhani-medium.ttf in Resources */,
+				25D0411256044D888DE78EFF /* rajdhani-regular.ttf in Resources */,
+				921B6C6F12284BE99DB186E5 /* rajdhani-semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

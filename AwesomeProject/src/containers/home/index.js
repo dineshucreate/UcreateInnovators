@@ -57,7 +57,7 @@ export default class home extends Component {
 				/>
 				<View style={styles.textView}>
 					<Text style={{ marginTop: 5 }}>{item.employee_name}</Text>
-					<Text style={{ marginTop: 5 }}>{item.employee_salary}</Text>
+					<Text style={{ marginTop: 5, fontFamily: 'Rajdhani-Bold' }}>{item.employee_salary}</Text>
 				</View>
 			</View>
 		</TouchableOpacity>

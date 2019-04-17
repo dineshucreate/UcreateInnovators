@@ -6,7 +6,7 @@ const stackNavigator = createStackNavigator(
 	{
 		login: login,
 		signUp: signUp,
-		home: home
+		home: { screen: home, navigationOptions: { header: null } }
 	},
 	{
 		initialRouteName: 'login'
