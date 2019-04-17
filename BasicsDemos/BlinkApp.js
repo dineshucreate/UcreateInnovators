@@ -14,6 +14,8 @@ import { createStackNavigator , createAppContainer, Header} from 'react-navigati
 import ListScreen from './ListScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import SearchBar from './SearchBar';
+import axios from 'axios';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -23,13 +25,48 @@ const instructions = Platform.select({
 });
 
 export default class BlinkApp extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { text: '' };
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = { 
+  //     text: '' ,
+  //     email:"try27@gmail.com",
+  //     password:"Android@123"};
+    
+  // }
+
+  state = {
+    text: '' ,
+    email:"try27@gmail.com",
+    password:"Android@123",
+  };
 
   _onPressButton(){
     Alert.alert("You have press the button")
+  }
+
+  loginApi= ()=>{
+    Alert.alert("You ")
+    try{
+    let data = JSON.stringify({
+      email: this.state.email,
+      password: this.state.password,
+    });
+
+    axios.post('https://footballalbum-prod-api.imfootball.me/userapi/api/Auth/Login', data,{
+      headers:{
+        'Content-Type' : 'application/json',
+        'ZUMO-API-VERSION': '2.0.0',
+        'Ocp-Apim-Subscription-Key': '6c192d2e80bb49a8b90f6d684cf18b9b',
+
+      }
+    }).then(res=>{
+      const response = res.data;
+      alert(JSON.stringify(response));
+    })
+  }catch(err){
+    console.log("error===============================D",err);
+  }
+
   }
 
   static navigationOptions={
@@ -85,7 +122,8 @@ export default class BlinkApp extends Component {
           </View>
         </TouchableOpacity> */}
 <TouchableNativeFeedback
-            onPress={()=>{this.props.navigation.navigate('List')}}
+               onPress= {this.loginApi}
+            // onPress={()=>{this.props.navigation.navigate('List')}}
             background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''} style={styles.buttons}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>LOG IN</Text>
