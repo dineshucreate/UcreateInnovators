@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList } from 'react-native';
+import { connect } from 'react-redux';
 import ListItem from '../../Components/ListItem';
+import { requestAPI } from './actions';
 
 class Home extends Component {
 
@@ -12,50 +14,24 @@ class Home extends Component {
       }
 
      componentDidMount() {
-        const { navigation } = this.props;
-        this.username = navigation.getParam('user', 'username');
-        this.password = navigation.getParam('pwd', 'password');
-        const loginData = navigation.getParam('loginData', 'Data not found');
-        this.setState({ resFromApi: loginData.data.user_info.organizations });
-        //this.makeRemoteRequest(this.username, this.password);
+        const { apiRequest } = this.props;
+        apiRequest();
       }
 
-    // makeRemoteRequest = (username, password) => {     
-    //     fetch('https://production-review-tool.herokuapp.com/authentication', {
-    //         method: 'POST',
-    //         headers: {
-    //           Accept: 'application/json',
-    //           'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //           username,
-    //           password,
-    //         }),
-    //        }).then((response) => response.json())
-    //           .then((responseJson) => {
-    //             console.log(responseJson);
-    //             this.setState({ resFromApi: responseJson.user_info.organizations });
-    //           })
-    //           .catch((error) => {
-    //             console.error(error);
-    //           });
-    //     }
-
     render() {
-        const { resFromApi } = this.state;
-        const { navigation } = this.props;
+        const { navigation, empData } = this.props;
+        console.log(`empData ${empData}`);
+        
         return (
             <View>
               {
-                resFromApi ?
+                empData ?
                 <FlatList
-                    data={resFromApi}
+                    data={empData}
                     renderItem={({ item }) => (
                       <ListItem
                         dataOne={item} open={() => {
                           navigation.navigate('detail', { detailValues: item });
-                         // navigator.reset([NavigationActions.navigate
-                         //({ routeName: 'Dashboard' })], 0)
                         }}
                       />
                     )}
@@ -67,4 +43,15 @@ class Home extends Component {
         );
         }
 }
-export default Home;
+
+const mapStateToProps = (state) => ({
+  empData: state.home.empData,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  apiRequest: () => dispatch(requestAPI())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps)(Home);

@@ -11,7 +11,7 @@ function* onLoginRequested({ username, password }) {
         yield put(loginSuccess(loginData));
     } catch (error) {
         console.log(JSON.stringify(error.response.status));
-        yield put(loginFail(error.response.status));
+        yield put(loginFail(error.log));
     }     
 }
 
