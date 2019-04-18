@@ -7,6 +7,7 @@
  */
 
 import React, { Component } from "react";
+import {AsyncStorage} from 'react-native'
 import {
   Platform,
   StyleSheet,
@@ -51,8 +52,18 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  async returnInitialRoute() {
+    const response = await AsyncStorage.getItem('user')
+    if(response != null) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   render() {
-    return <AppContainer />;
+    // return (this.returnInitialRoute() ? (<AppContainer2 />) : (<AppContainer1 />))
+    return <AppContainer1 />
   }
 }
 
@@ -151,7 +162,7 @@ const RootDrawerStack = createDrawerNavigator(
 
 
 
-const rootStack = createStackNavigator(
+const rootStack1 = createStackNavigator(
   {
     Login: {
       screen: Login,
@@ -189,10 +200,53 @@ const rootStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: 'Login'
   }
 );
-const AppContainer = createAppContainer(rootStack);
+const rootStack2 = createStackNavigator(
+  {
+    Login: {
+      screen: Login,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Authenticate: {
+      screen: Authenticate,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Home: {
+      screen: Home,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Practice: {
+      screen: Practice,
+      navigationOptions: {
+        header: null
+      }
+    },
+    RootDrawerStack: {
+      screen: RootDrawerStack,
+      navigationOptions: { header: null }
+    },
+    FriendList: {
+      screen: FriendList,
+      navigationOptions: {
+        header: null
+      }
+    }
+  },
+  {
+    initialRouteName: 'RootDrawerStack'
+  }
+);
+
+const AppContainer1 = createAppContainer(rootStack1);
+const AppContainer2 = createAppContainer(rootStack2);
 const styles = StyleSheet.create({
   container: {
     flex: 1
