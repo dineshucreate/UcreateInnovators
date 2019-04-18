@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ImageBackground, Button, Alert, TextInput, Image } from 'react-native';
+import { Platform, StyleSheet, Text, View, ImageBackground, Button, Alert, TextInput, Image,AsyncStorage } from 'react-native';
 import Buttonlogin from '../../styling/button';
 //import Test from '../Test';
 import { apiLoginPost } from '../../utilities/serverrequest'
@@ -34,6 +34,7 @@ class Login extends React.Component {
     //Alert.alert(JSON.stringify(response.data.user.firstname));
     this.setState({ apiData: response.data });
     console.log('NAME: ' + this.state.apiData.user.firstname);
+    this._storeData()
     this.changeScreen(this.state.apiData.user.firstname)
   }
 
@@ -67,6 +68,20 @@ class Login extends React.Component {
     apiLoginPost('https://footballalbum-prod-api.imfootball.me/userapi/api/Auth/Login', bodyValue, headerValue, this.successCallbackLogin, this.failureCallbackLogin)
 
   }
+
+  _storeData = async () => {
+    try {
+      console.log("_storeData:");
+      await AsyncStorage.setItem('LoginDone', 'DONE').then((response)=> {
+        Alert.alert(JSON.stringify(response))
+      }).catch((error)=> {
+Alert.alert(JSON.stringify(error))
+      })
+    } catch (error) {
+      // Error saving data
+    }
+  };
+
   render() {
     const { navigate } = this.props.navigation;
     console.log('...Render.......  ' + this.props);
