@@ -31,9 +31,19 @@ const MainApp = createBottomTabNavigator(
 			tabBarIcon: ({ focused, horizontal, tintColor }) => {
 				const { routeName } = navigation.state;
 				if (routeName === 'Home') {
-					return <Image source={require('./assets/home.png')} style={{ width: 20, height: 20 }} />;
+					return (
+						<Image
+							source={require('./assets/home.png')}
+							style={{ width: 20, height: 20, tintColor: tintColor }}
+						/>
+					);
 				} else {
-					return <Image source={require('./assets/settings.png')} style={{ width: 20, height: 20 }} />;
+					return (
+						<Image
+							source={require('./assets/settings.png')}
+							style={{ width: 20, height: 20, tintColor: tintColor }}
+						/>
+					);
 				}
 			}
 		}),
