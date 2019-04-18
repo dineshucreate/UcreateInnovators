@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList, Text, View, Image, ActivityIndicator } from 'react-native'
+import { FlatList, Text, View, Image, ActivityIndicator, AsyncStorage } from 'react-native'
 import styles from './style'
 import { consumeGetAPI } from '../../utilities/serverrequest';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -14,7 +14,21 @@ export default class Home extends Component {
             loading: true
         }
     }
+    retrieveData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('userData');
+            if (value !== null) {
+                // We have data!!
+                alert(value)
+                console.log(value);
+            }
+        } catch (error) {
+            alert(error)
+            // Error retrieving data
+        }
+    };
     componentDidMount() {
+        this.retrieveData()
         const linkUrl = "https://footballalbum-prod-api.imfootball.me/MatchAPI/api/Results/Get?idTournament=19&lastUpdate=2018-04-01T00:00:00Z"
         var headerParams = {
             "Content-Type": "application/json",
@@ -36,7 +50,8 @@ export default class Home extends Component {
 
     };
     indexSelected = (item) => {
-        alert(item.homeTeamName + '\n' + ' VS ' + '\n' + item.awayTeamName)
+        this.retrieveData()
+        //alert(item.homeTeamName + '\n' + ' VS ' + '\n' + item.awayTeamName)
     };
     renderStatsListItem = ({ item }) => (
         <TouchableOpacity

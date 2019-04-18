@@ -11,6 +11,8 @@ export default class signup extends Component {
         navigation.pop();
     });
     render() {
+
+        const fName = this.props.navigation.getParam('uName')
         return (
             <BackgroundImage>
                 <View style={styles.horizontalView}>
@@ -25,6 +27,7 @@ export default class signup extends Component {
                     <View style={styles.signupView}>
                         <TextInput style={styles.textInput}
                             placeholder="First name"
+                            value={fName}
                             onChangeText={(text) => this.setState({ text })} />
                         <View style={styles.lineView} />
                         <TextInput style={styles.textInput}

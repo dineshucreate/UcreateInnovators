@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, TouchableOpacity, Text, TextInput, View, ScrollView, ActivityIndicator } from 'react-native';
+import { Image, TouchableOpacity, Text, TextInput, View, ScrollView, ActivityIndicator, AsyncStorage } from 'react-native';
 import styles from './style';
 import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
@@ -18,6 +18,15 @@ export default class login extends Component {
         const { navigation } = this.props;
         navigation.pop();
     });
+    storeData = async (data) => {
+        try {
+            await AsyncStorage.setItem('firstName', data.user.firstname);
+            await AsyncStorage.setItem('userData', JSON.stringify(data.user));
+        } catch (error) {
+
+            // Error saving data
+        }
+    };
     LoginPress = (() => {
         this.setState({ loading: true });
         let user = new User(null)
@@ -25,6 +34,9 @@ export default class login extends Component {
             this.setState({ loading: false });
             // console.log(JSON.stringify(response))
             // alert('Username: ' + (response.data.user.firstname) + ' ' + (response.data.user.lastName))
+
+            this.storeData(response.data)
+
             const { navigation } = this.props;
             navigation.navigate('home');
         }, (error) => {

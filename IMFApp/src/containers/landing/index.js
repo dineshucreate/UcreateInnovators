@@ -3,14 +3,20 @@ import { Text, View, Image, ImageBackground, TouchableOpacity } from 'react-nati
 import styles from './style';
 
 export default class Landing extends Component {
-  loginPress = (() => {
+  constructor(props) {
+    super(props)
+    this.state = {
+      firstname: 'Alex bolas'
+    }
+  }
+  loginPress = () => {
     const { navigation } = this.props;
     navigation.navigate('login');
-  });
-  signupPress = (() => {
+  };
+  signupPress = () => {
     const { navigation } = this.props;
-    navigation.navigate('signup');
-  });
+    navigation.navigate('signup', { uName: this.state.firstname });
+  };
   render() {
     return (
       <ImageBackground style={styles.backgroundImage} source={require('../../assets/images/background.png')}>
