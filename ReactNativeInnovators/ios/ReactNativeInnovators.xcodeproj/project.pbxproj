@@ -41,6 +41,7 @@
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		7F3E731595DA4E14A2281BB1 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 737BAFD8E8E84E74A9EA66BF /* libRNGestureHandler.a */; };
 		E23748B3242C4A71A987AA6E /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0928CA6787A74D7D9C418001 /* libRNGestureHandler-tvOS.a */; };
+		D42D345953424EF3B9F7E8C3 /* Rajdhani-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C75A437434F208136913E /* Rajdhani-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -351,6 +352,7 @@
 		92532874010B4B8FA5F7693A /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		737BAFD8E8E84E74A9EA66BF /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		0928CA6787A74D7D9C418001 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		9F0C75A437434F208136913E /* Rajdhani-SemiBold.ttf */ = {isa = PBXFileReference; name = "Rajdhani-SemiBold.ttf"; path = "../src/fonts/Rajdhani-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,6 +594,7 @@
 				00E356EF1AD99517003FC87E /* ReactNativeInnovatorsTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				95B4F771A8724BC6B9EC5EEF /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -617,6 +620,15 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		95B4F771A8724BC6B9EC5EEF /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				9F0C75A437434F208136913E /* Rajdhani-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1064,6 +1076,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				D42D345953424EF3B9F7E8C3 /* Rajdhani-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

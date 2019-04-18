@@ -28,6 +28,7 @@ const stylesList = StyleSheet.create({
     name: {
         fontSize: 18,
         marginLeft: 15,
+        fontFamily:'Rajdhani-SemiBold'
     },
     email: {
         color: 'red',
@@ -45,6 +46,7 @@ const stylesList = StyleSheet.create({
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'flex-start',
+        
     },
 
 });

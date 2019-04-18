@@ -88,17 +88,15 @@ class PractiseFlatList extends React.Component {
         console.log('...Render.......  ' + this.props);
 
         return (
+            <FlatList
+                data={this.state.users}
+                renderItem={this.renderListItem}
+                keyExtractor={item => item.employee_name}
+                numColumns={2}
+            // ItemSeparatorComponent={this.renderSeparator}
+            />
 
-            <ImageBackground source={require('../../assets/global_bg.png')}
-                style={{ flex: 1 }}>
-                <FlatList
-                    data={this.state.users}
-                    renderItem={this.renderListItem}
-                    keyExtractor={item => item.employee_name}
-                // ItemSeparatorComponent={this.renderSeparator}
-                />
 
-            </ImageBackground>
         );
     }
 }

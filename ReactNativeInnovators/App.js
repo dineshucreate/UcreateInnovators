@@ -5,9 +5,10 @@ import PractiseFlatList from './src/container/practiseflatlist';
 
 
 const MainNavigator = createStackNavigator({
+  PractiseFlatList:{screen: PractiseFlatList},
   Login: {screen: Login},
   Setting:{screen: SettingScreen},
-  PractiseFlatList:{screen: PractiseFlatList},
+ 
   
 });
 
