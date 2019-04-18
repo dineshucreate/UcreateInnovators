@@ -14,10 +14,13 @@ export default class RegisterScreen extends React.Component{
         })
     }
     render(){
+        const {navigation} = this.props;
+        const items = navigation.getParam('itemValue', 'Nothing');
+        const titles = navigation.getParam('titleValue', 'No');
         return(
             <View style={styles.container}>
          <ImageBackground source={require('./assets/global_bg.png')} style={styles.container}>
-         <Text style={styles.text}>Register</Text>
+         <Text style={styles.text}>{JSON.stringify(titles)}</Text>
          <TextInput style={styles.textInputs}
          onFocus={()=>this.onFocus()}
          placeholder='FirstName'

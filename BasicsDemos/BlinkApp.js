@@ -15,6 +15,7 @@ import ListScreen from './ListScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import SearchBar from './SearchBar';
 import axios from 'axios';
+import {AsyncStorage} from 'react-native';
 
 
 const instructions = Platform.select({
@@ -63,12 +64,23 @@ export default class BlinkApp extends Component {
     }).then(res=>{
       const response = res.data;
       console.log("error===============res",res);
-      alert(JSON.stringify(response));
+     // alert(JSON.stringify(response));
       console.log("erro",res.status);
       if(res.status==200){
-        Alert.alert("You ")
         console.log("erro",res.status);
-        this.props.navigation.navigate('List');
+        const userId = res.data.user.userGuid
+        
+        const saveUserId = async () =>{
+          try{
+            await AsyncStorage.setItem('userId', userId);
+            this.props.navigation.navigate('List');
+          }catch(error){
+            console.log("Errer  ", error)
+
+          }
+        }
+        console.log("save",saveUserId());
+      //  this.props.navigation.navigate('List');
       }
     })
   }catch(err){
@@ -138,7 +150,11 @@ export default class BlinkApp extends Component {
           </View>
         </TouchableNativeFeedback>
 
-        <Text onPress={()=>{this.props.navigation.navigate('register')} }
+        <Text onPress={()=>{this.props.navigation.navigate('register',{
+          itemValue:25,
+          titleValue:'Register Screens'
+        });
+        }}
         style={{color:"#fff", textShadowColor:'#05928E', shadowRadius: 10 ,fontSize:16,fontWeight:'bold', marginTop: 20}}>CREATE AN ACCOUNT</Text>
 
         </ImageBackground>

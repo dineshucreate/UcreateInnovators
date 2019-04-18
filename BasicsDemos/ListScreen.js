@@ -1,12 +1,41 @@
 import React,{Component} from 'react';
-import {Platform, StyleSheet, Text,View,Button,FlatList,SectionList} from 'react-native'
+import {Platform, StyleSheet, Text,View,Button,FlatList,SectionList, TouchableWithoutFeedback, TouchableOpacity} from 'react-native'
 import { createAppContainer  } from 'react-navigation';
 import SearchBar from './SearchBar';
 import CustomRow from './src/ListView/CustomRow';
 import Row from './src/ListView/Row';
+import axios from 'axios';
 
  class ListScreen extends React.Component{
+ 
+  state = {
+    arrayList:[],
+  }
+  
+  componentDidMount(){
+    
+    axios.get('https://footballalbum-prod-api.imfootball.me/userapi/api/Competitions/Domestic',{
+      headers:{
+        'ZUMO-API-VERSION':'2.0.0',
+        'Ocp-Apim-Subscription-Key':'6c192d2e80bb49a8b90f6d684cf18b9b',
+      }
+    }).then(res => {
+      const response = res.data;
+     
+      console.log('..............   '+ JSON.stringify(response.countries));
+      this.setState({arrayList: response.countries});
+    
+    //  alert(JSON.stringify(response));
+    })
+  }
+
+  actionOnRow(item){
+console.log("Select"+ item)
+  }
     render(){
+      console.log("enter");
+
+      console.log(this.state.arrayList&& this.state.arrayList.length);
         return(
             <View style={styles.container}>
             {/* <SectionList
@@ -19,36 +48,23 @@ import Row from './src/ListView/Row';
             renderSectionHeader={({section})=><Text style={styles.text}>{section.item}</Text>}
             keyExtractor = {(item, index)=> index}
             /> */}
-
+        {
+          this.state.arrayList.length>0 ?
 <FlatList
-               data={[
-                {key:"Dev"},
-                {key:"Nitish"},
-                {key:"Amit"},
-                {key:"karan"},
-                {key:"aman"},
-                {key:"modi"},
-                {key:"Dev"},
-                {key:"Nitish"},
-                {key:"Amit"},
-                {key:"karan"},
-                {key:"aman"},
-                {key:"modi"},
-                {key:"Dev"},
-                {key:"Nitish"},
-                {key:"Amit"},
-                {key:"karan"},
-                {key:"aman"},
-                {key:"modi"},
-              ]}
-                renderItem={({ item }) => <Row
-                    title={item.key}
-                    description={item.key}
+               data={this.state.arrayList}
+                renderItem={({ item }) =>
+                <TouchableOpacity onPress = {()=> this.actionOnRow(item)}>
+                <Row
+                    title={item.country.name}
+                    description={item.country.shortName}
                     image_url={"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"}
-                />}
+                />
+                </TouchableOpacity>}
+                
             />
+            :null
 
-
+        }
 
          {/* <FlatList
            data={[

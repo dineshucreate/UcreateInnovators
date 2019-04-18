@@ -6,13 +6,36 @@ import BlinkApp from './BlinkApp';
 import ListScreen from './ListScreen';
 import SearchBar from './SearchBar';
 import RegisterScreen from './src/RegisterScreen';
+import {AsyncStorage} from 'react-native';
+
 
  class SplashScreen extends React.Component{
 
     constructor(props){
         super(props)
     setTimeout(()=>{
-        this.props.navigation.navigate('Home')
+        let userId='N' ;
+        console.log(userId);
+
+        (async() =>{
+        
+            try{
+            userId = await AsyncStorage.getItem('userId') || 'None';
+            console.log(userId);
+            if(userId!='None'){
+                console.log(userId);
+                this.props.navigation.navigate('List')
+            }else{
+                console.log(userId);
+                this.props.navigation.navigate('Home')
+            }
+            }catch(error){
+                console.log("SplashErrorS", error);
+            }
+            return userId;
+        })();
+       
+       
        },3000);
     }
 
