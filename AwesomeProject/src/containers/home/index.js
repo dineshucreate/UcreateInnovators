@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, FlatList, Image, SafeAreaView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from './style';
 import homeModel from '../../models/home';
+import HeaderView from '../../components/Header';
 
 export default class home extends Component {
 	static navigationOptions = {
@@ -10,6 +11,7 @@ export default class home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			name: '',
 			loading: false,
 			arrList: [],
 			error: null,
@@ -19,6 +21,15 @@ export default class home extends Component {
 
 	componentDidMount() {
 		this.makeRemoteRequest();
+		setTimeout(() => {
+			this.setState({
+				name: 'halip'
+			});
+		}, 30000);
+	}
+
+	componentDidUpdate() {
+		console.log('componentDidUpdate');
 	}
 
 	makeRemoteRequest() {
@@ -72,9 +83,7 @@ export default class home extends Component {
 		const user = navigation.getParam('user', 'no user');
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
-				<View style={{ height: 60, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' }}>
-					<Text style={{ fontFamily: 'Rajdhani-Bold', fontSize: 24 }}>Home</Text>
-				</View>
+				<HeaderView headerTitle={'Home'} />
 				<View style={{ flex: 1, justifyContent: 'center' }}>
 					<FlatList
 						data={this.state.arrList}

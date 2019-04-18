@@ -39,7 +39,7 @@ export default class login extends Component {
 	getUserData = async () => {
 		const user = await AsyncStorage.getItem('user');
 		if (user != null) {
-			this.props.navigation.navigate('home', { user: this.state.user });
+			this.props.navigation.navigate('MainApp', { user: this.state.user });
 		}
 		console.log(user);
 	};

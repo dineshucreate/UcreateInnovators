@@ -1,6 +1,6 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import { login, signUp, home } from './containers';
+import { login, signUp, home, settings } from './containers';
 
 const stackNavigator = createStackNavigator(
 	{
@@ -12,4 +12,5 @@ const stackNavigator = createStackNavigator(
 		initialRouteName: 'login'
 	}
 );
-export default stackNavigator;
+
+

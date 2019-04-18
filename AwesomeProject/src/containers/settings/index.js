@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
+import styles from '../profile/style';
+import HeaderView from '../../components/Header';
+
+export default class settings extends Component {
+	componentWillUnmount() {
+		console.log('componentWillUnmount');
+	}
+	onPress = () => {
+		console.log('callled me');
+	};
+
+	render() {
+		return (
+			<SafeAreaView style={{ flex: 1 }}>
+				<HeaderView headerTitle={'Settings'} />
+				<View style={styles.container}>
+					<Text> textInComponent </Text>
+				</View>
+			</SafeAreaView>
+		);
+	}
+}
