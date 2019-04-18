@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-navigation';
-import { View, FlatList, RefreshControl } from 'react-native';
+import { View, FlatList, RefreshControl, AsyncStorage, TouchableOpacity, Text } from 'react-native';
 import styles from './style';
 import { listRequest, loadMoreRequest } from './actions';
 import ListItem from './Components/ListItem';
@@ -19,7 +19,15 @@ class List extends Notification {
             totalResults: 0,
             pageInfo: {},
         };
+        this.setData();
     }
+
+    setData = async () => {
+        await AsyncStorage.setItem('imgDrawer', 'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png');
+        const uri = await AsyncStorage.getItem('imgDrawer');
+        console.log(`URI: ${JSON.stringify(uri)}`);
+    }
+
     componentDidMount() {
         const { listRequestP } = this.props;
         listRequestP();
@@ -54,6 +62,13 @@ class List extends Notification {
         const { dataList } = this.props;
         return (
             <SafeAreaView style={styles.styleContainer}>
+                <View style={styles.topBarContainer}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.toggleDrawer()}
+                    >
+                        <Text style={styles.titleText}>App</Text>
+                    </TouchableOpacity>
+                </View>
                 <FlatList
                     keyExtractor={(item, index) => index.toString()}
                     data={dataList}

@@ -1,51 +1,78 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+
+import { createStackNavigator, 
+         createAppContainer,  
+         createSwitchNavigator, 
+         createDrawerNavigator } from 'react-navigation';
 import Home from './containers/Home';
 import Login from './containers/LogIn';
 import List from './containers/List';
 import { Colors } from './utilities/Colors';
+import CustomDrawer from './containers/CustomDrawer';
+
+const Components = {
+    login: {
+        screen: Login,
+        navigationOptions: () => ({
+            header: null,
+        })
+    },
+    flatList: {
+        screen: List,
+        navigationOptions: () => ({
+            title: 'FlatList',
+            headerStyle: {
+                backgroundColor: Colors.baseColor
+            },
+            headerLeft: null,
+            headerTintColor: 'white',
+            headerTitleStyle: {
+                color: 'white',
+                alignSelf: 'center',
+                textAlign: 'center'
+            },
+        })
+    },
+    home: {
+        screen: Home,
+        navigationOptions: () => ({
+            title: 'Learning',
+            headerStyle: {
+                backgroundColor: Colors.baseColor
+            },
+            headerTintColor: 'white',
+            headerTitleStyle: {
+                color: 'white',
+                alignSelf: 'center',
+                textAlign: 'center'
+            },
+        })
+    },
+};
 
 const AuthStack = createStackNavigator(
     {
-        home: {
-            screen: Home,
-            navigationOptions: ({ navigation }) => ({
-                 title: 'Learning',
-                 headerStyle: {
-                    backgroundColor: Colors.baseColor
-                 },
-                 headerTintColor: 'white',
-                 headerTitleStyle: {
-                    color: 'white',
-                    alignSelf: 'center',
-                    textAlign: 'center'
-                 },
-            })
-        },
-        flatList: {
-            screen: List,
-            navigationOptions: ({ navigation }) => ({
-                 title: 'FlatList',
-                 headerStyle: {
-                    backgroundColor: Colors.baseColor
-                 },
-                 headerLeft: null,
-                 headerTintColor: 'white',
-                 headerTitleStyle: {
-                    color: 'white',
-                    alignSelf: 'center',
-                    textAlign: 'center'
-                 },
-            })
-        },
-        login: {
-            screen: Login,
-            navigationOptions: ({ navigation }) => ({
-                header: null,
-            })
-        },
+        ...Components,
+    },
+);
+
+const Drawer = createDrawerNavigator(
+    {
+        ...Components
     },
     {
-      initialRouteName : 'flatList'
+      drawerBackgroundColor: 'white',
+      contentOptions: {
+        activeBackgroundColor: Colors.drawerSelected
+      },
+      contentComponent: CustomDrawer,
+      drawerWidth: 200
     }
-);
-export default Begin = createAppContainer(AuthStack);
+  );
+  
+  const SwitchNavigator = createSwitchNavigator({
+    drawer: Drawer,
+    onboard: AuthStack,
+  });
+
+export default createAppContainer(SwitchNavigator);
+

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../utilities/Colors';
 
 const styles = StyleSheet.create({
     styleContainer: {
@@ -7,6 +8,19 @@ const styles = StyleSheet.create({
     },
     styleList: {
         flex: 1
-    }
+    },
+    topBarContainer: {
+        backgroundColor: Colors.baseColor,
+        padding: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        height: 56,
+        flexDirection: 'row'
+    },
+    titleText: {
+        fontSize: 20,
+        color: 'white',
+        paddingLeft: 18
+    },
 });
 export default styles;
