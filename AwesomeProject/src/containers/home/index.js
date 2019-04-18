@@ -72,6 +72,9 @@ export default class home extends Component {
 		const user = navigation.getParam('user', 'no user');
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
+				<View style={{ height: 60, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' }}>
+					<Text style={{ fontFamily: 'Rajdhani-Bold', fontSize: 24 }}>Home</Text>
+				</View>
 				<View style={{ flex: 1, justifyContent: 'center' }}>
 					<FlatList
 						data={this.state.arrList}

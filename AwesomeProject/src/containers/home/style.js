@@ -11,6 +11,7 @@ export default (styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 		height: 80,
+		alignItems: 'center',
 		width: width / 2 - 20,
 		margin: 5
 	},
@@ -18,7 +19,6 @@ export default (styles = StyleSheet.create({
 		width: 50,
 		height: 50,
 		marginLeft: 10,
-		marginTop: 5,
 		backgroundColor: 'gray',
 		borderRadius: 25
 	},
@@ -27,7 +27,7 @@ export default (styles = StyleSheet.create({
 		height: 50,
 		marginTop: 5,
 		marginLeft: 10,
-		marginRight: 10,
+		marginRight: 10
 	},
 	itemSeparator: {
 		height: 1,
