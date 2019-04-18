@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    backgroundColor: '#0f0ff0'
   },
 
   heading: {
@@ -35,15 +34,14 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 15,
         marginTop: 5,
-        backgroundColor: '#0ff000'
       },
 
     profileImage: {
         height: 50,
         width: 50,
         backgroundColor: '#f00ff0',
-        borderWidth: 2
-
+        borderWidth: 2,
+        borderRadius: 15
     }
   });
   export default styles;

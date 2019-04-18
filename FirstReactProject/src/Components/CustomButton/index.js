@@ -6,10 +6,9 @@ const CustomButton = (props) => {
         const { myText, myCustomClick } = props;
         return (
             <TouchableOpacity 
-            style={myStyle.container}
-            onPress={() => myCustomClick()}
+                onPress={() => myCustomClick()}
             > 
-             <Text>{myText}</Text>
+             <Text style={myStyle.container}>{myText}</Text>
             </TouchableOpacity> 
         );
 };

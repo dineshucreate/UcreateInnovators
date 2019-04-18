@@ -24,5 +24,24 @@
     //           });
     //     }
 
-//3. 
+//3. Drawer :
+
+// static navigationOptions = {
+    //     drawerLabel: 'Login',
+    //     drawerIcon: ({ tintColor }) => (
+    //       <Image 
+    //         source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+    //         style={[styles.icon, { tintColor }]}
+    //       />
+    //     ),
+    //   };
+
+      { /* <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
+                    <View>
+                        <Image
+                            style={styles.profileImage}
+                            source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        />
+                    </View>
+                </TouchableOpacity> */ }
 

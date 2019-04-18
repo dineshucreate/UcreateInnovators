@@ -11,7 +11,6 @@ class ListItem extends Component {
 
     render() {
         const data = this.props && this.props.dataOne;
-        const dataId = data ? data.id : 'Heading';
         const { open } = this.props;
         return (
            <TouchableOpacity onPress={open} >
@@ -23,11 +22,11 @@ class ListItem extends Component {
                             />
                     </View>
                         <View style={[styles.subContainerFlex2, styles.subContainerViewStyle]}> 
-                            <Text style={styles.heading}>{dataId}</Text> 
-                            <Text style={styles.description}>description</Text>
+                            <Text style={styles.heading}>{data.id}</Text> 
+                            <Text style={styles.description}>{data.employee_name}</Text>
                     </View>
                     <View style={[styles.subContainerFlex1, styles.subContainerViewStyle]}> 
-                        <Text style={styles.description}>Date</Text>
+                        <Text style={styles.description}>{data.employee_salary}</Text>
                     </View>
                 </View>
            </TouchableOpacity>
