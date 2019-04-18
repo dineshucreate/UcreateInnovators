@@ -1,4 +1,4 @@
-import { View, ImageBackground, Image, ToastAndroid,Alert } from 'react-native';
+import { View, ImageBackground, Image, ToastAndroid, Alert } from 'react-native';
 import splash from './../splash/style';
 import { AsyncStorage } from 'react-native';
 import React, { Component } from 'react';
@@ -13,19 +13,26 @@ class SplashScreen extends React.Component {
     _retrieveData = async () => {
         try {
             const value = await AsyncStorage.getItem('LoginDone');
-            console.log("_retrieveData:"+value);
-            if (value != null) {
-                // We have data!!
-                console.log("_retrieveData:"+value);
-                this.listScreen()
-            }
-            else {
-                this.loginScreen()
-            }
+            console.log("_retrieveData:" + value);
+            setTimeout(() => {
+                this.moveScreen(value);
+            },4000);
+
         } catch (error) {
             // Error retrieving data
         }
     };
+
+    moveScreen = (value) => {
+        if (value != null) {
+            // We have data!!
+            this.listScreen()
+            console.log("_retrieveData:" + value);
+        }
+        else {
+            this.loginScreen()
+        }
+    }
 
     componentDidMount() {
         this._retrieveData()
