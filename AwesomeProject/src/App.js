@@ -7,17 +7,62 @@
  */
 
 import React, { Component } from 'react';
-import { createAppContainer } from 'react-navigation';
+import { Image } from 'react-native';
+import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import stack from './stack';
+import { login, home, settings } from './containers';
 
 export default class NavigationComponentInitial extends Component {
-  render() {
-    const Begin = createAppContainer(stack);
-    return (
-        <Begin />
-    );
-  }
+	render() {
+		const Begin = createAppContainer(LoginTab);
+		return <Begin />;
+	}
 }
+
+const MainApp = createBottomTabNavigator(
+	{
+		Home: {
+			screen: home
+		},
+		Settings: settings
+	},
+	{
+		defaultNavigationOptions: ({ navigation }) => ({
+			tabBarIcon: ({ focused, horizontal, tintColor }) => {
+				const { routeName } = navigation.state;
+				if (routeName === 'Home') {
+					return <Image source={require('./assets/home.png')} style={{ width: 20, height: 20 }} />;
+				} else {
+					return <Image source={require('./assets/settings.png')} style={{ width: 20, height: 20 }} />;
+				}
+			}
+		}),
+		tabBarOptions: {
+			activeTintColor: '#FF6F00',
+			inactiveTintColor: '#263238'
+		}
+	}
+);
+const LoginTab = createStackNavigator({
+	Login: {
+		screen: login
+	},
+	MainApp: {
+		screen: MainApp,
+		navigationOptions: () => ({
+			header: null
+		})
+	}
+});
+
+// const stackNavigator = createStackNavigator(
+// 	{
+// 		login: login,
+// 	},
+// 	{
+// 		initialRouteName: 'login'
+// 	}
+// );
 
 // export default class App extends Component {
 
@@ -137,7 +182,7 @@ export default class NavigationComponentInitial extends Component {
 //           <View style={styles.logoContainer}>
 //             <Image source={require('./assets/0.gif')} style={styles.imageLogo}></Image>
 //           </View>
-        
+
 //         {/* <View style={styles.textViewContainer}>
 //             <TextInput
 //               style={{ height: 40, borderColor: 'gray', borderWidth: 1, padding: 10 }}
