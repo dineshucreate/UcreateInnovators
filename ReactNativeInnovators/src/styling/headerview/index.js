@@ -9,8 +9,7 @@ const TextHeader = (props) => {
         {props.title}
       </Text>
       </View>
-   
-  );
+   );
 };
 
 export default TextHeader;
