@@ -60,7 +60,8 @@ console.log("Select"+ item)
                     image_url={"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"}
                 />
                 </TouchableOpacity>}
-                
+                numColumns = {3}
+                keyExtractor = {item => item.id}
             />
             :null
 

@@ -15,14 +15,17 @@ const Row = ({title, description,image_url})=>(
 
 export default Row;
 
+
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        flexDirection:"row",
+        flexDirection:"column",
         margin:1,
         elevation:2,
         borderRadius:5,
-        padding:10
+        padding:10,
+       
+
     },
     container_text:{
         flex:1,
