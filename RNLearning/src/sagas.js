@@ -1,4 +1,4 @@
-import {fork} from 'redux-saga/effects';
+import { fork } from 'redux-saga/effects';
 import sagaLogin from './containers/LogIn/saga';
 import sagaFlatList from './containers/List/saga';
 

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../utilities/Colors';
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -66,6 +67,19 @@ const styles = StyleSheet.create({
     switchContainer: {
         marginTop: 18,
         margin: 10,
+    },
+    topBarContainer: {
+        backgroundColor: Colors.baseColor,
+        padding: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        height: 56,
+        flexDirection: 'row'
+    },
+    title: {
+        fontSize: 20,
+        color: 'white',
+        paddingLeft: 18
     },
 });
 export default styles;

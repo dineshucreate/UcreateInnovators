@@ -1,23 +1,23 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
-import { LOGIN_REQUESTED, REQUEST_SUCCESS } from './constants';
-import { API_URL, kServiceAuthentication } from '../../utilities/config';
 import axios from 'axios';
+import { Alert } from 'react-native';
+import { takeEvery, put, call } from 'redux-saga/effects';
+import { LOGIN_REQUESTED } from './constants';
+import { API_URL, kServiceAuthentication } from '../../utilities/config';
 import { loginFail, loginSuccess } from './actions';
 
 function* onLoginRequested({ email, password, navigator }) {
-  const url = `${API_URL}` + `${kServiceAuthentication}`;
+  const url = `${API_URL}${kServiceAuthentication}`;
   try {
-    const loginData = yield call(axios.post, url, { username: email, password: password });
+    const loginData = yield call(axios.post, url, { username: email, password });
     if (loginData.data.success === true) {
       yield put(loginSuccess(loginData.data));
       navigator.navigate('flatList');
     } else {
-      yield put(loginFail(error));
-      alert(loginData.data.message);
+      Alert.alert(loginData.data.message);
     }
   } catch (error) {
     yield put(loginFail(error));
-    alert(`login failed: ${error}`);
+    Alert.alert(`login failed: ${error}`);
   }
 }
 

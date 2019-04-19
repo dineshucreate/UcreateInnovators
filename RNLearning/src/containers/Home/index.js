@@ -1,24 +1,24 @@
 import React, { PureComponent } from 'react';
 import { Text, View, Image, TouchableOpacity, Switch } from 'react-native';
-import styles from './style';
 import { SafeAreaView } from 'react-navigation';
 import ImagePicker from 'react-native-image-crop-picker';
-import DatePicker from 'react-native-datepicker'
+import DatePicker from 'react-native-datepicker';
+import styles from './style';
 
 class Home extends PureComponent {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             loading: false,
             photos: [],
-            path: "",
+            path: '',
             date: '',
             isSwitchOn: false,
-        }
+        };
     }
 
-    _handleOpenLibrary = () => {
+    handleOpenLibrary = () => {
         ImagePicker.openPicker({
             width: 300,
             height: 400,
@@ -28,7 +28,7 @@ class Home extends PureComponent {
         });
     };
 
-    _handleOpenCamera = () => {
+    handleOpenCamera = () => {
         ImagePicker.openCamera({
             width: 300,
             height: 400,
@@ -39,9 +39,16 @@ class Home extends PureComponent {
     };
 
     render() {
-        const {path, isSwitchOn} = this.state
+        const { path, isSwitchOn } = this.state;
         return (
             <SafeAreaView style={styles.mainContainer}>
+                <View style={styles.topBarContainer}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.toggleDrawer()}
+                    >
+                        <Text style={styles.title}>App</Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.viewIn}>
                     <View style={styles.datePickerContainer}>
                         <DatePicker
@@ -59,25 +66,32 @@ class Home extends PureComponent {
                                 dateInput: styles.dateInput,
                                 placeholderText: styles.datePlaceholderText,
                             }}
-                            onDateChange={(date) => { this.setState({ date: date }) }}
-                            /> 
+                            onDateChange={(date) => { this.setState({ date }); }}
+                        /> 
                             
                     </View>
                     <View style={styles.switchContainer}>
                         <Switch
-                            onValueChange={(value) => { this.setState({ isSwitchOn: value }) }}
-                            value = {isSwitchOn}
-                            ios_backgroundColor = 'blue'
-                            tintColor = 'blue'
-                            trackColor = 'blue'
-                            thumbColor = 'grey' />
+                            onValueChange={(value) => { this.setState({ isSwitchOn: value }); }}
+                            value={isSwitchOn}
+                            ios_backgroundColor='blue'
+                            tintColor='blue'
+                            trackColor='blue'
+                            thumbColor='grey'
+                        />
                     </View>
                     { isSwitchOn &&
                     <View style={styles.photosContainer}>
-                        <TouchableOpacity style={styles.buttonStyle} onPress={this._handleOpenLibrary} >
+                        <TouchableOpacity 
+                            style={styles.buttonStyle} 
+                            onPress={this.handleOpenLibrary} 
+                        >
                             <Text style={styles.buttonText} >Open Gallery</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttonStyle} onPress={this._handleOpenCamera} >
+                        <TouchableOpacity 
+                            style={styles.buttonStyle} 
+                            onPress={this.handleOpenCamera} 
+                        >
                             <Text style={styles.buttonText} >Open Camera</Text>
                         </TouchableOpacity>
                     </View>

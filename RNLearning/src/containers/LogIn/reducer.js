@@ -1,6 +1,6 @@
 import {
-    LOGIN_REQUESTED, REQUEST_SUCCESS, REQUEST_FAIL
-  } from './constants';
+  LOGIN_REQUESTED, REQUEST_SUCCESS, REQUEST_FAIL
+} from './constants';
 
 const INITIAL_STATE = {
   loginData: null,
@@ -19,16 +19,16 @@ export default (state = INITIAL_STATE, action) => {
         loading: true,
       };
     case REQUEST_SUCCESS:
-    return{
-      ...state,
-      loading:false,
-      loginData: action.data
-    }  
+      return {
+        ...state,
+        loading: false,
+        loginData: action.data
+      };
     case REQUEST_FAIL:
-    return{
-      ...state,
-      loading:false
-    }  
+      return {
+        ...state,
+        loading: false
+      };
     default:
       return state;
   }
