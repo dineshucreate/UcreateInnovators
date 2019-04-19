@@ -4,12 +4,13 @@ import styles from './style';
 import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
 import User from '../../utilities/models/user'
+
 export default class login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
+            email: 'y@y.co',
+            password: 'Ios@1234',
             TotalValue: '',
             loading: false
         }
@@ -38,7 +39,7 @@ export default class login extends Component {
             this.storeData(response.data)
 
             const { navigation } = this.props;
-            navigation.navigate('home');
+            navigation.navigate('tab');
         }, (error) => {
             this.setState({ loading: false });
             alert('Please enter valid credentials')

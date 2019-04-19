@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Rajdhani-Bold',
         color: 'white',
     },
-    textListHeader: { 
+    textListHeader: {
         marginTop: 10,
         color: 'gray',
         fontFamily: 'rajdhani-semibold',

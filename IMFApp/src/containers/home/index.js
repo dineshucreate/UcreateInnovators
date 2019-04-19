@@ -28,7 +28,6 @@ export default class Home extends Component {
         }
     };
     componentDidMount() {
-        this.retrieveData()
         const linkUrl = "https://footballalbum-prod-api.imfootball.me/MatchAPI/api/Results/Get?idTournament=19&lastUpdate=2018-04-01T00:00:00Z"
         var headerParams = {
             "Content-Type": "application/json",
@@ -50,8 +49,7 @@ export default class Home extends Component {
 
     };
     indexSelected = (item) => {
-        this.retrieveData()
-        //alert(item.homeTeamName + '\n' + ' VS ' + '\n' + item.awayTeamName)
+        alert(item.homeTeamName + '\n' + ' VS ' + '\n' + item.awayTeamName)
     };
     renderStatsListItem = ({ item }) => (
         <TouchableOpacity

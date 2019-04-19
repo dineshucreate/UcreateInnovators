@@ -1,8 +1,14 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import landing from './containers/landing';
 import login from './containers/login';
 import signup from './containers/signup';
 import home from './containers/home'
+
+
+const tab = createBottomTabNavigator({
+  Login: login,
+  Home: home
+})
 
 const stackNavigator = createStackNavigator(
   {
@@ -21,14 +27,14 @@ const stackNavigator = createStackNavigator(
         header: null
       }
     },
-    home: {
-      screen: home, navigationOptions: {
+    tab: {
+      screen: tab,
+      navigationOptions: {
         header: null
       }
-    }
-  },
-  {
-    initialRouteName: 'landing'
+    },
   }
 );
+
+
 export default stackNavigator
