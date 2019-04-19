@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ImageBackground, Button, Alert, TextInput, Image, FlatList, ToastAndroid, TouchableOpacity } from 'react-native';
-import { apiLoginGetFlatList } from '../../utilities/serverrequest'
-import stylesList from './style';
+import { Text, View, Alert, Image, FlatList, TouchableOpacity } from 'react-native';
+import { apiLoginGetFlatList } from '../../../utilities/serverrequest/index'
+import stylesLive from './style';
+import TextHeader from './../../../styling/headerview/index';
 
 
 
-
-class PractiseFlatList extends React.Component {
+class Live extends React.Component {
     static navigationOptions = {
         header: null
     };
@@ -28,12 +28,7 @@ class PractiseFlatList extends React.Component {
 
     successCallbackLogin = (response) => {
         // Alert.alert(JSON.stringify(response.data));
-
         this.setState({ users: response.data });
-        // for (let i = 0; i < response.data.length; i++) {
-        //     console.log("EMP:" + response.data[i].employee_name);
-        // }
-
     }
 
     failureCallbackLogin = (error) => {
@@ -68,15 +63,15 @@ class PractiseFlatList extends React.Component {
 
     renderListItem = ({ item }) => (
         <TouchableOpacity onPress={() => this.itemOnPress(item.employee_name)}>
-            <View style={stylesList.containerMain}>
+            <View style={stylesLive.containerMain}>
                 <Image
-                    style={stylesList.userImage}
+                    style={stylesLive.userImage}
                     source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                 />
 
-                <View style={stylesList.textView}>
-                    <Text style={stylesList.name}>{item.employee_name}</Text>
-                    <Text style={stylesList.email}>{item.employee_salary}</Text>
+                <View style={stylesLive.textView}>
+                    <Text style={stylesLive.name}>{item.employee_name}</Text>
+                    <Text style={stylesLive.email}>{item.employee_salary}</Text>
                 </View>
             </View>
 
@@ -88,17 +83,15 @@ class PractiseFlatList extends React.Component {
         console.log('...Render.......  ' + this.props);
 
         return (
-            <FlatList
-                data={this.state.users}
-                renderItem={this.renderListItem}
-                keyExtractor={item => item.employee_name}
-               // numColumns={2}
-            // ItemSeparatorComponent={this.renderSeparator}
-            />
-
-
+            <View >
+                <TextHeader title='LIVE'/>
+                <FlatList
+                    data={this.state.users}
+                    renderItem={this.renderListItem}
+                    keyExtractor={item => item.employee_name}/>
+            </View>
         );
     }
 }
 
-export default PractiseFlatList;
+export default Live;

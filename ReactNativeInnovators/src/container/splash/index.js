@@ -16,7 +16,7 @@ class SplashScreen extends React.Component {
             console.log("_retrieveData:" + value);
             setTimeout(() => {
                 this.moveScreen(value);
-            },4000);
+            },1000);
 
         } catch (error) {
             // Error retrieving data
@@ -26,12 +26,17 @@ class SplashScreen extends React.Component {
     moveScreen = (value) => {
         if (value != null) {
             // We have data!!
-            this.listScreen()
+            this.tabScreen()
             console.log("_retrieveData:" + value);
         }
         else {
-            this.loginScreen()
+            this.tabScreen()
         }
+    }
+    MainApp
+
+    tabScreen = () => {
+        this.props.navigation.navigate('MainApp')
     }
 
     componentDidMount() {
