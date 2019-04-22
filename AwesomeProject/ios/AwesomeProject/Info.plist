@@ -55,7 +55,6 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>BEYONDCONTROL.ttf</string>
 		<string>rajdhani-bold.ttf</string>
 		<string>rajdhani-light.ttf</string>
 		<string>rajdhani-medium.ttf</string>
