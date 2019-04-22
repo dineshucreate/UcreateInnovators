@@ -5,4 +5,4 @@ import { name as appName } from './app.json';
 import FlexboxExample from './src/containers/Flexbox';
 import NativeCall from './src/containers/nativecall';
 
-AppRegistry.registerComponent(appName, () => NativeCall);
+AppRegistry.registerComponent(appName, () => Te);

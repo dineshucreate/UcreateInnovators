@@ -15,6 +15,7 @@ class NativeCall extends React.PureComponent {
         return (
             <View style={{ backgroundColor: 'white', marginTop: 40 }}>
                 <Text>{this.state.value}</Text>
+                
                 <TouchableOpacity
                     onPress={() => RNReactNativeCalc.sum(10, 10, (sum) => {
                         this.setState({ value: sum })
