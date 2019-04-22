@@ -15,10 +15,10 @@ export default class login extends Component {
             loading: false
         }
     }
-    backPress = (() => {
+    backPress = () => {
         const { navigation } = this.props;
         navigation.pop();
-    });
+    };
     storeData = async (data) => {
         try {
             await AsyncStorage.setItem('firstName', data.user.firstname);
@@ -28,7 +28,7 @@ export default class login extends Component {
             // Error saving data
         }
     };
-    LoginPress = (() => {
+    LoginPress = () => {
         this.setState({ loading: true });
         let user = new User(null)
         user.loginUser(this.state.email, this.state.password, (response) => {
@@ -39,12 +39,12 @@ export default class login extends Component {
             this.storeData(response.data)
 
             const { navigation } = this.props;
-            navigation.navigate('tab');
+            navigation.navigate('Home');
         }, (error) => {
             this.setState({ loading: false });
             alert('Please enter valid credentials')
         })
-    });
+    };
     render() {
         return (
             <BackgroundImage>

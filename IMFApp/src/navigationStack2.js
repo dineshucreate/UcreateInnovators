@@ -1,27 +1,47 @@
 import React from 'react'
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 import { Image } from 'react-native';
 import landing from './containers/landing';
 import login from './containers/login';
 import signup from './containers/signup';
 import home from './containers/home'
+import news from './containers/news';
+import stats from './containers/stats';
+
+
+
 
 const tab = createBottomTabNavigator(
     {
-        Login: login,
-        Home: home
+        Home: home,
+        Stats: stats,
+        News: news
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({
-            header: null,
             tabBarIcon: ({ focused, horizontal, tintColor }) => {
                 const { routeName } = navigation.state;
-                if (routeName === 'login') {
-
-                    return <Image source={require('./assets/images/live-tabbar.png')} style={{ width: 20, height: 20, tintColor: tintColor, marginTop: 10 }} />;
+                if (routeName === 'Home') {
+                    return (
+                        <Image
+                            source={require('./assets/images/live-tabbar.png')}
+                            style={{ width: 20, height: 20, tintColor: tintColor }}
+                        />
+                    );
+                } else if (routeName === 'Stats') {
+                    return (
+                        <Image
+                            source={require('./assets/images/stats-tabbar.png')}
+                            style={{ width: 20, height: 20, tintColor: tintColor }}
+                        />
+                    );
                 } else {
-
-                    return <Image source={require('./assets/images/stats-tabbar.png')} style={{ width: 20, height: 20, tintColor: tintColor, marginTop: 10 }} />;
+                    return (
+                        <Image
+                            source={require('./assets/images/news-tabbar.png')}
+                            style={{ width: 20, height: 20, tintColor: tintColor }}
+                        />
+                    );
                 }
             }
         }),
@@ -30,21 +50,20 @@ const tab = createBottomTabNavigator(
             inactiveTintColor: '#FFFFFF',
             style: {
                 backgroundColor: '#096B76'
-            },
-            labelStyle: {
-                fontSize: 16,
-                fontFamily: 'rajdhani-bold',
             }
         }
     }
 );
 
+const sidePanel = createDrawerNavigator({
+    Tab: tab
+}
+);
 
 const stackNavigator2 = createStackNavigator(
     {
-        tab: {
-            screen: tab,
-            navigationOptions: {
+        sidePanel: {
+            screen: sidePanel, navigationOptions: {
                 header: null
             }
         },
@@ -62,7 +81,7 @@ const stackNavigator2 = createStackNavigator(
             screen: signup, navigationOptions: {
                 header: null
             }
-        }
+        },
     }
 );
 
