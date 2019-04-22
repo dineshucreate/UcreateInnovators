@@ -1,12 +1,14 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, ImageBackground  } from 'react-native';
-import { createStackNavigator , createAppContainer, Header} from 'react-navigation';
+import { createStackNavigator , createAppContainer, Header,NavigationActions,StackActions} from 'react-navigation';
 import BlinkApp from './BlinkApp';
 import ListScreen from './ListScreen';
 import SearchBar from './SearchBar';
 import RegisterScreen from './src/RegisterScreen';
 import {AsyncStorage} from 'react-native';
+import BottomScreen from './src/Bottom/BottomScreen';
+
 
 
  class SplashScreen extends React.Component{
@@ -24,7 +26,9 @@ import {AsyncStorage} from 'react-native';
             console.log(userId);
             if(userId!='None'){
                 console.log(userId);
-                this.props.navigation.navigate('List')
+                console.log("navigateToOtherBefore", "navigateToOtherBefore");
+                this.navigateToOther();
+               // this.props.navigation.navigate('List')
             }else{
                 console.log(userId);
                 this.props.navigation.navigate('Home')
@@ -38,6 +42,22 @@ import {AsyncStorage} from 'react-native';
        
        },3000);
     }
+
+
+    navigateToOther(){
+
+        console.log("navigateToOther", "navigateToOther");
+        const resetAction = StackActions.reset({
+          index: 0,
+          actions: [
+           // NavigationActions.navigate({ routeName: 'Splash' }),
+            NavigationActions.navigate({ routeName: 'bottom' })
+          ]
+        });
+    
+        this.props.navigation.dispatch(resetAction);
+      }
+    
 
     static navigationOptions = {
         header: null
@@ -61,6 +81,7 @@ const AppNavigator = createStackNavigator(
     List: ListScreen,
     search: SearchBar,
     register: RegisterScreen,
+    bottom: BottomScreen,
   },
   {
   initialRoute : "Splash"

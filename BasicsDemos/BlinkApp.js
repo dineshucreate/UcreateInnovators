@@ -40,7 +40,7 @@ export default class BlinkApp extends Component {
     email:"",
     password:"",
   };
-
+   aray =[];
   _onPressButton(){
     Alert.alert("You have press the button")
   }
@@ -74,6 +74,7 @@ export default class BlinkApp extends Component {
           try{
             await AsyncStorage.setItem('userId', userId);
             this.props.navigation.navigate('List');
+          //  navigateToOther();
           }catch(error){
             console.log("Errer  ", error)
 
@@ -92,6 +93,18 @@ export default class BlinkApp extends Component {
   static navigationOptions={
     header:null
   };
+
+  navigateToOther(){
+    const resetAction = NavigationActions.reset({
+      index: 1,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({ routeName: 'List' })
+      ]
+    });
+
+    this.props.navigation.dispatch(resetAction);
+  }
 
   render() {
     let pic = {
