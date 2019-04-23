@@ -2,18 +2,16 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import {
   Login,
-  Home,
-  Detail
 } from './containers';
+import drawerNavigator from './drawer';
 
 const stackNavigator = createStackNavigator(
   {
-    login: Login,
-    home: Home,
-    detail: Detail
+    login: { screen: Login, navigationOptions: { header: null } },
+    drawer: { screen: drawerNavigator, navigationOptions: { header: null } },
   },
   {
     initialRouteName: 'login'
   }
 );
-export default Begin = createAppContainer(stackNavigator);
+export default createAppContainer(stackNavigator);

@@ -15,7 +15,7 @@ const loginReducer = (state = INITIAL_STATE, action) => {
       return {  
         ...state,
         accessDataInIndex: action.loginData1,
-        loading: true,
+        loading: false,
       };  
     }
     case REQUEST_CALL_LOGIN_API: {

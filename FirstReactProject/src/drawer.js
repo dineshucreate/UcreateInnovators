@@ -1,16 +1,23 @@
 import { createDrawerNavigator } from 'react-navigation';
-
+import { Dimensions } from 'react-native';
 import {
-  Login,
-  Home,
+  setting,
+  profile,
 } from './containers';
+import tabNavigator from './tab';
 
 const drawerNavigator = createDrawerNavigator({
-  Login: {
-    screen: Login,
+  tab: {
+    screen: tabNavigator,
   },
-  Home: {
-    screen: Home,
+  temp: {
+    screen: profile,
+  }
   },
-});
+  {
+    initialRouteName: 'tab',
+    drawerWidth: Dimensions.get('window').width - 100,
+    contentComponent: setting
+  }
+);
 export default drawerNavigator;

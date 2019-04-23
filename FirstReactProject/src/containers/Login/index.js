@@ -19,10 +19,9 @@ class Login extends Component {
 
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.loginData && nextProps.loginData.status === 200) {
-             nextProps.navigation.navigate('home', 
+             nextProps.navigation.navigate('drawer', 
             { user: prevState.username, pwd: prevState.password, loginData: nextProps.loginData });
         }
-
         if (nextProps.someValue !== prevState.someValue) {
             return { someState: nextProps.someValue };
         }
