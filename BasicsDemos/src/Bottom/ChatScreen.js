@@ -2,11 +2,11 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 
-export default class StatsScreen extends React.Component {
+export default class ChatScreen extends React.Component {
     render() {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>StatsScreen!</Text>
+          <Text>ChatScreen!</Text>
         </View>
       );
     }
