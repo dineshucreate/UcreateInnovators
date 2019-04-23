@@ -8,62 +8,65 @@
 
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
-import stack from './stack';
-import { login, home, settings } from './containers';
+import { createAppContainer } from 'react-navigation';
+import router from './router';
+// import { login, home, settings } from './containers';
 
 export default class NavigationComponentInitial extends Component {
 	render() {
-		const Begin = createAppContainer(LoginTab);
+		const Begin = createAppContainer(router);
 		return <Begin />;
 	}
 }
 
-const MainApp = createBottomTabNavigator(
-	{
-		Home: {
-			screen: home
-		},
-		Settings: settings
-	},
-	{
-		defaultNavigationOptions: ({ navigation }) => ({
-			tabBarIcon: ({ focused, horizontal, tintColor }) => {
-				const { routeName } = navigation.state;
-				if (routeName === 'Home') {
-					return (
-						<Image
-							source={require('./assets/home.png')}
-							style={{ width: 20, height: 20, tintColor: tintColor }}
-						/>
-					);
-				} else {
-					return (
-						<Image
-							source={require('./assets/settings.png')}
-							style={{ width: 20, height: 20, tintColor: tintColor }}
-						/>
-					);
-				}
-			}
-		}),
-		tabBarOptions: {
-			activeTintColor: '#FF6F00',
-			inactiveTintColor: '#263238'
-		}
-	}
-);
-const LoginTab = createStackNavigator({
-	Login: {
-		screen: login
-	},
-	MainApp: {
-		screen: MainApp,
-		navigationOptions: () => ({
-			header: null
-		})
-	}
-});
+// const { container } = createAppContainer(LoginTab);
+// export default container;
+
+// const MainApp = createBottomTabNavigator(
+// 	{
+// 		Home: {
+// 			screen: home
+// 		},
+// 		Settings: settings
+// 	},
+// 	{
+// 		defaultNavigationOptions: ({ navigation }) => ({
+// 			tabBarIcon: ({ focused, horizontal, tintColor }) => {
+// 				const { routeName } = navigation.state;
+// 				if (routeName === 'Home') {
+// 					return (
+// 						<Image
+// 							source={require('./assets/home.png')}
+// 							style={{ width: 20, height: 20, tintColor: tintColor }}
+// 						/>
+// 					);
+// 				} else {
+// 					return (
+// 						<Image
+// 							source={require('./assets/settings.png')}
+// 							style={{ width: 20, height: 20, tintColor: tintColor }}
+// 						/>
+// 					);
+// 				}
+// 			}
+// 		}),
+// 		tabBarOptions: {
+// 			activeTintColor: '#FF6F00',
+// 			inactiveTintColor: '#263238'
+// 		}
+// 	}
+// );
+// const LoginTab = createStackNavigator({
+// 	Login: {
+// 		screen: login
+// 	},
+// 	MainApp: {
+// 		screen: MainApp,
+// 		navigationOptions: () => ({
+// 			header: null
+// 		})
+// 	}
+// });
 
 // const stackNavigator = createStackNavigator(
 // 	{
