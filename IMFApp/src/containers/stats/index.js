@@ -79,9 +79,13 @@ export default class Stats extends Component {
             <SafeAreaView style={{ flex: 1, backgroundColor: '#06878A' }}>
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
                     <View style={styles.headerVIew}>
-                        <View style={{ position: 'absolute', width: '100%', justifyContent: 'center' }}>
-                            <Text style={styles.headerText}>Stats</Text>
-                        </View>
+                        <TouchableOpacity style={styles.menuButton} onPress={() => {
+                            this.props.navigation.toggleDrawer();
+                        }}>
+                            <Image style={styles.facebookIcon} source={require('../../assets/images/stats-tabbar.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.headerText}>Stats</Text>
+                        <Text style={styles.blankText}>aa</Text>
                     </View>
                     <FlatList
                         data={this.state.arrData}

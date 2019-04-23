@@ -79,6 +79,23 @@ const styles = StyleSheet.create({
         height: 80,
         marginRight: 10,
         marginTop: 10
+    },
+    menuButton: {
+        height: 44,
+        width: 44,
+        justifyContent: 'center'
+    },
+    facebookIcon: {
+        height: 24,
+        width: 24,
+        alignSelf: 'center',
+    },
+    blankText: {
+        textAlign: 'center',
+        marginTop: 0,
+        fontSize: 28,
+        fontFamily: 'Rajdhani-Bold',
+        color: '#06878A',
     }
 });
 export default styles;

@@ -14,25 +14,23 @@ const styles = StyleSheet.create({
         fontFamily: 'Rajdhani-Bold',
         color: 'white',
     },
-    facebookButton: {
-        marginVertical: 22,
-        marginHorizontal: 10,
-        height: 48,
-        flexDirection: 'row',
-        backgroundColor: 'white',
-        borderRadius: 3,
-        alignItems: 'center',
+    menuButton: {
+        height: 44,
+        width: 44,
+        justifyContent: 'center'
     },
     facebookIcon: {
         height: 24,
         width: 24,
-        marginLeft: 30,
+        alignSelf: 'center',
     },
-    facbookText: {
-        marginLeft: 40,
-        fontFamily: 'rajdhani-semibold',
-        fontSize: 17,
-        color: '#3b5998',
-    }
+    blankText: {
+        textAlign: 'center',
+        marginTop: 0,
+        fontSize: 28,
+        fontFamily: 'Rajdhani-Bold',
+        color: '#06878A',
+    },
+
 });
 export default styles;

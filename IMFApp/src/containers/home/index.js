@@ -9,16 +9,14 @@ export default class Home extends Component {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: '#06878A' }}>
                 <BackgroundImage>
-                    <TouchableOpacity style={styles.facebookButton} onPress={() => {
-                        this.props.navigation.toggleDrawer();
-                    }}>
-                        <Image style={styles.facebookIcon} source={require('../../assets/images/FbIcon.png')} />
-                        <Text style={styles.facbookText}>LOG IN WITH FACEBOOK</Text>
-                    </TouchableOpacity>
                     <View style={styles.headerVIew}>
-                        <View style={{ position: 'absolute', width: '100%', justifyContent: 'center' }}>
-                            <Text style={styles.headerText}>Home</Text>
-                        </View>
+                        <TouchableOpacity style={styles.menuButton} onPress={() => {
+                            this.props.navigation.toggleDrawer();
+                        }}>
+                            <Image style={styles.facebookIcon} source={require('../../assets/images/stats-tabbar.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.headerText}>Home</Text>
+                        <Text style={styles.blankText}>aa</Text>
                     </View>
                 </BackgroundImage>
             </SafeAreaView >
