@@ -1,24 +1,17 @@
-import { LOGIN_USER, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from "./types";
+import {
+  LOGIN_USER,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILURE,
+  ON_CHANGE_EMAIL,
+  ON_CHANGE_PASSWORD
+} from "./types";
 import User from "../../utils/models/user";
 
-export const loginAPI = () => {
-  return dispatch => {
-    let user = new User();
-    dispatch(loginUserAction());
-    user.loginUser(
-      response => {
-        dispatch(loginUserSuccessAction(response));
-      },
-      error => {
-        dispatch(loginUserFailureAction(error));
-      }
-    );
-  };
-};
-
-export const loginUserAction = () => {
+export const loginAPI = (email, password) => {
   return {
-    type: LOGIN_USER
+    type: LOGIN_USER,
+    email:email,
+    password:password
   };
 };
 
@@ -33,5 +26,19 @@ export const loginUserFailureAction = error => {
   return {
     type: LOGIN_USER_FAILURE,
     error
+  };
+};
+
+export const onChangeEmailAction = email => {
+  return {
+    type: ON_CHANGE_EMAIL,
+    email
+  };
+};
+
+export const onChangePasswordAction = password => {
+  return {
+    type: ON_CHANGE_PASSWORD,
+    password
   };
 };

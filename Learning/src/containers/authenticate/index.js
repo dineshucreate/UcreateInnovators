@@ -321,7 +321,6 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   styleActivityIndicatorView: {
-    width: "100%",
     height: "100%",
     position: "absolute",
     alignSelf: "center",

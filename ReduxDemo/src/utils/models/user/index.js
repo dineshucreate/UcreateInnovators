@@ -1,12 +1,10 @@
 import { consumePostApi } from "../../serverrequest";
-import * as constants from '../../../constants'
+import * as constants from "../../../constants";
 export default class User {
-    constructor(response) {
-        // if(response != null) {
-            this.email = 'y@y.co'
-            this.password = 'Ios@1234'
-        // }
-    }
+  constructor(email, password) {
+    this.email = email;
+    this.password = password;
+  }
   loginUser = (successCallback, failureCallback) => {
     const url =
       "https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login";
