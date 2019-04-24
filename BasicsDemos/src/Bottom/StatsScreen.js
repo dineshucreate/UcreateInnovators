@@ -15,7 +15,7 @@ const TabScreen = createMaterialTopTabNavigator({
     swipeEnabled: true,
     animationEnabled: true,
     tabBarOptions:{
-      activeTintColor: '#AEE675',
+      activeTintColor: '#FFFFFF',
       inactiveTintColor: '#fff',
       style:{
         backgroundColor:'#096B76'
@@ -30,11 +30,21 @@ const StatsScreen = createStackNavigator({
     screen: TabScreen,
     navigationOptions:{
       headerStyle:{
-        backgroundColor:'#633689',
+        backgroundColor:'#096B76',
+        textAlign:'center',
+        textAlign:'center',
+       
       },
       headerTintColor: '#FFFFFF',
-      title:'TABExample'
+      title:'Premiew League',
+    
+      tabBarOptions:'center',
+      alignItems:'center',
+      textAlign:'center',
+      alignSelf:'center',
     },
+  
+
   },
 });
 

@@ -25,6 +25,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const userId;
 export default class BlinkApp extends Component {
   // constructor(props) {
   //   super(props)
@@ -68,18 +69,9 @@ export default class BlinkApp extends Component {
       console.log("erro",res.status);
       if(res.status==200){
         console.log("erro",res.status);
-        const userId = res.data.user.userGuid
-        
-        const saveUserId = async () =>{
-          try{
-            await AsyncStorage.setItem('userId', userId);
-            this.props.navigation.navigate('List');
-          //  navigateToOther();
-          }catch(error){
-            console.log("Errer  ", error)
-
-          }
-        }
+       userId = res.data.user.userGuid
+        this.saveUserId();
+       this.navigateToOther();
         console.log("save",saveUserId());
       //  this.props.navigation.navigate('List');
       }
@@ -90,6 +82,18 @@ export default class BlinkApp extends Component {
 
   }
 
+   saveUserId = async () =>{
+    try{
+      await AsyncStorage.setItem('userId', userId);
+    //  navigateToOther();
+    }catch(error){
+      console.log("Errer  ", error)
+
+    }
+  }
+
+
+
   static navigationOptions={
     header:null
   };
@@ -98,7 +102,7 @@ export default class BlinkApp extends Component {
     const resetAction = NavigationActions.reset({
       index: 1,
       actions: [
-        NavigationActions.navigate({ routeName: 'Home' }),
+      //  NavigationActions.navigate({ routeName: 'Home' }),
         NavigationActions.navigate({ routeName: 'List' })
       ]
     });
