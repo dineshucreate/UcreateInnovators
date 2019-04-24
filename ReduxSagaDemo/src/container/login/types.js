@@ -1,0 +1,3 @@
+export const ADD_CLICKED = "ADD_CLICKED"
+export const DELETE_CLICKED = "DELETE_CLICKED"
+export const ON_TEXT_CHANGE = "ON_TEXT_CHANGE"
