@@ -81,9 +81,9 @@ const AppNavigator = createStackNavigator(
     List: ListScreen,
     search: SearchBar,
     register: RegisterScreen,
-    bottom: BottomScreen,
-  },
-  {
+    bottom: BottomScreen
+  },{
+    headerMode: 'none',
   initialRoute : "Splash"
   }
 );

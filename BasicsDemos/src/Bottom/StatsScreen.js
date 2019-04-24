@@ -25,6 +25,7 @@ const TabScreen = createMaterialTopTabNavigator({
 )
 
 const StatsScreen = createStackNavigator({
+ 
   TabScreen: {
     screen: TabScreen,
     navigationOptions:{

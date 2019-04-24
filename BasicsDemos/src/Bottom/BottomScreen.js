@@ -7,6 +7,10 @@ import ChatScreen from './ChatScreen';
 import NewsScreen from './NewsScreen';
 
 class LiveScreen extends React.Component {
+  
+  static navigationOptions = {
+    header: null // !!! Hide Header
+  }
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -18,13 +22,17 @@ class LiveScreen extends React.Component {
 
 
 const TabNavigator = createBottomTabNavigator({
-    Live: { screen: LiveScreen },
+    Live: { screen: LiveScreen,navigationOptions:{
+      header:null
+    } },
     Stats: { screen: StatsScreen },
     Chat:{screen:ChatScreen},
     News:{screen: NewsScreen},
   },
+ 
   {
     defaultNavigationOptions: ({ navigation }) => ({
+    
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
         let IconComponent = Ionicons;
@@ -34,6 +42,7 @@ const TabNavigator = createBottomTabNavigator({
           // Sometimes we want to add badges to some icons. 
           // You can check the implementation below.
         //  IconComponent = HomeIconWithBadge; 
+        
         return <Image source={require('../assets/ic_live.png')} style={{width:30, height:26, tintColor:tintColor}} />;
      
         } else if (routeName === 'Stats') {
@@ -47,12 +56,16 @@ const TabNavigator = createBottomTabNavigator({
         // You can return any component that you like here!
        
       },
+      navigationOptions:{ header:{ visible:false }}
     }),
     tabBarOptions: {
       activeTintColor: '#AEE675',
       inactiveTintColor: '#fff',
     style:{
       backgroundColor:'#096B76'
+    },
+    navigationOptions:{
+      header:{visible:false}
     }
     },
   });
