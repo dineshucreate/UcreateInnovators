@@ -7,8 +7,9 @@ import signup from './containers/signup';
 import home from './containers/home'
 import news from './containers/news';
 import stats from './containers/stats';
-
-
+import friends from './containers/friends';
+import fanmojies from './containers/fanmojies';
+import SidePanel from './containers/sidePanel';
 
 
 const tab = createBottomTabNavigator(
@@ -55,15 +56,32 @@ const tab = createBottomTabNavigator(
     }
 );
 
-const sidePanel = createDrawerNavigator({
-    Tab: tab
-}
+const sidePanelDrawer = createDrawerNavigator(
+    {
+        Tab: {
+            screen: tab,
+        },
+        Fanmojies: {
+            screen: fanmojies,
+        },
+        Friends: {
+            screen: friends,
+        },
+        Landing: {
+            screen: landing,
+        }
+    },
+    {
+        drawerWidth: 300,
+        contentComponent: SidePanel,
+
+    }
 );
 
 const stackNavigator2 = createStackNavigator(
     {
-        sidePanel: {
-            screen: sidePanel, navigationOptions: {
+        sidePanelDrawer: {
+            screen: sidePanelDrawer, navigationOptions: {
                 header: null
             }
         },

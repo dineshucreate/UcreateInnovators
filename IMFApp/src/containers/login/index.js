@@ -24,7 +24,6 @@ export default class login extends Component {
             await AsyncStorage.setItem('firstName', data.user.firstname);
             await AsyncStorage.setItem('userData', JSON.stringify(data.user));
         } catch (error) {
-
             // Error saving data
         }
     };
@@ -33,11 +32,7 @@ export default class login extends Component {
         let user = new User(null)
         user.loginUser(this.state.email, this.state.password, (response) => {
             this.setState({ loading: false });
-            // console.log(JSON.stringify(response))
-            // alert('Username: ' + (response.data.user.firstname) + ' ' + (response.data.user.lastName))
-
             this.storeData(response.data)
-
             const { navigation } = this.props;
             navigation.navigate('Home');
         }, (error) => {

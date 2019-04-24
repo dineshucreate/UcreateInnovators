@@ -4,9 +4,12 @@ import { Image } from 'react-native';
 import landing from './containers/landing';
 import login from './containers/login';
 import signup from './containers/signup';
-import home from './containers/home';
+import home from './containers/home'
+import news from './containers/news';
 import stats from './containers/stats';
-import news from './containers/news'
+import friends from './containers/friends';
+import fanmojies from './containers/fanmojies';
+import SidePanel from './containers/sidePanel';
 
 const tab = createBottomTabNavigator(
   {
@@ -40,9 +43,26 @@ const tab = createBottomTabNavigator(
   }
 );
 
-const sidePanel = createDrawerNavigator({
-  Tab: tab
-}
+const sidePanelDrawer = createDrawerNavigator(
+  {
+    Tab: {
+      screen: tab,
+    },
+    Fanmojies: {
+      screen: fanmojies,
+    },
+    Friends: {
+      screen: friends,
+    },
+    Landing: {
+      screen: landing,
+    }
+  },
+  {
+    drawerWidth: 300,
+    contentComponent: SidePanel,
+
+  }
 );
 
 const stackNavigator = createStackNavigator(
@@ -62,7 +82,11 @@ const stackNavigator = createStackNavigator(
         header: null
       }
     },
-    sidePanel,
+    sidePanelDrawer: {
+      screen: sidePanelDrawer, navigationOptions: {
+        header: null
+      }
+    }
   }
 );
 
