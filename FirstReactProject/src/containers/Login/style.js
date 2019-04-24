@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     welcome: {
       fontSize: 30,
       textAlign: 'center',
-      marginTop: 20,
+      marginTop: 100,
       color: '#3F4E85',
       marginBottom: 60,
       fontWeight: 'bold',

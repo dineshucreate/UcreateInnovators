@@ -7,12 +7,12 @@ import {
 import tabNavigator from './tab';
 
 const drawerNavigator = createDrawerNavigator({
-  tab: {
-    screen: tabNavigator,
-  },
-  temp: {
-    screen: profile,
-  }
+    tab: {
+      screen: tabNavigator,
+    },
+    profile: {
+      screen: profile,
+    },
   },
   {
     initialRouteName: 'tab',

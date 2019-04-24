@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import styles from './style';
+import CustomButton from '../../Components/CustomButton';
 
 class setting extends Component {
     componentDidMount() {
@@ -9,7 +10,25 @@ class setting extends Component {
     render() {
         return (
             <ScrollView style={styles.mainView}>
-                <Text>Setting scren</Text>
+               <View style={{ height: 400, width: 400, marginTop: 100 }}>
+                   <View style={styles.subView}>
+                   <CustomButton
+                        customStyle={styles.contentStyle}
+                        myText='Profile'
+                        myCustomClick={() => {
+                            this.props.navigation.navigate('profile');
+                        }}
+                   />
+
+                   <CustomButton
+                        customStyle={styles.contentStyle}
+                        myText='My team'
+                        myCustomClick={() => {
+                            this.props.navigation.navigate('tab');
+                        }}
+                   />
+                   </View>
+               </View>
             </ScrollView>
         );
     }

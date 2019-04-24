@@ -46,7 +46,7 @@ class Login extends Component {
                 <ScrollView style={{ backgroundColor: '#D3D3D3', flex: 1 }}>
                     <View style={styles.container}>
                         <Text style={styles.welcome}>LOGIN SCREEN</Text>
-                        <Text style={styles.heading}>Login</Text>
+                        <Text style={styles.heading}>Login : </Text>
                         <TextInput
                             style={styles.input}
                             underlineColorAndroid="transparent"
@@ -55,7 +55,7 @@ class Login extends Component {
                             autoCapitalize="none"
                             onChangeText={(text) => this.setState({ username: text })}
                         />
-                        <Text style={styles.heading}>Password</Text>
+                        <Text style={styles.heading}>Password : </Text>
                         <TextInput
                             style={styles.input}
                             underlineColorAndroid="transparent"
