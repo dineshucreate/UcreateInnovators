@@ -12,5 +12,31 @@ exports[`App Snapshot rendering  1`] = `
     Sum Value is 
     0
   </Text>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Username"
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Password"
+    underlineColorAndroid="transparent"
+  />
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "backgroundColor": "blue",
+        "padding": 10,
+      }
+    }
+  >
+    <Text>
+      Submit
+    </Text>
+  </TouchableOpacity>
 </View>
 `;
