@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
 import styles from '../profile/style';
 export default class Profile extends Component {
 	constructor(props) {

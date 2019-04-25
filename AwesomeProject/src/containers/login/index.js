@@ -18,6 +18,7 @@ import styles from './style';
 import { emptyRegex, emailReg, passwordReg } from '../../utilities/regex.js';
 import { LoginErrors } from '../../utilities/errorStrings';
 import User from '../../models/user';
+import SplashScreen from 'react-native-splash-screen';
 
 const height = Dimensions.get('window').height;
 
@@ -36,10 +37,14 @@ export default class login extends Component {
 		this.getUserData();
 	}
 
+	componentDidMount() {
+		SplashScreen.hide();
+	}
+
 	getUserData = async () => {
 		const user = await AsyncStorage.getItem('user');
 		if (user != null) {
-			this.props.navigation.navigate('MainApp', { user: this.state.user });
+			this.props.navigation.navigate('Home', { user: this.state.user });
 		}
 		console.log(user);
 	};
@@ -100,10 +105,6 @@ export default class login extends Component {
 		});
 	};
 
-	componentDidMount() {
-		console.log('componenet did mount called');
-	}
-
 	imageTapped = () => {
 		alert('Image Clicked!!!');
 	};
@@ -116,7 +117,7 @@ export default class login extends Component {
 	render() {
 		return (
 			<SafeAreaView style={styles.container}>
-				<StatusBar barStyle="light-content" />
+				<StatusBar barStyle="dark-content" />
 				<KeyboardAvoidingView behavior="padding" style={styles.container}>
 					<TouchableWithoutFeedback style={styles.container} onPress={Keyboard.dismiss}>
 						<ScrollView>

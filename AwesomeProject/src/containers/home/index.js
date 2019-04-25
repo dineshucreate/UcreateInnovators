@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, FlatList, Image, SafeAreaView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from './style';
 import homeModel from '../../models/home';
-import HeaderView from '../../components/Header';
+import HeaderView from '../../components/HeaderView/Header';
+import SplashScreen from 'react-native-splash-screen';
 
 export default class home extends Component {
 	static navigationOptions = {
@@ -20,6 +21,7 @@ export default class home extends Component {
 	}
 
 	componentDidMount() {
+		SplashScreen.hide();
 		this.makeRemoteRequest();
 		setTimeout(() => {
 			this.setState({
@@ -57,6 +59,10 @@ export default class home extends Component {
 		alert(`Item pressed + ${item.employee_name}`);
 	};
 
+	drawerOpen = () => {
+		this.props.navigation.openDrawer();
+	};
+
 	_keyExtractor = (item, index) => item.id;
 
 	renderListItem = ({ item }) => (
@@ -82,30 +88,33 @@ export default class home extends Component {
 		const { navigation } = this.props;
 		const user = navigation.getParam('user', 'no user');
 		return (
-			<SafeAreaView style={{ flex: 1 }}>
-				<HeaderView headerTitle={'Home'} />
-				<View style={{ flex: 1, justifyContent: 'center' }}>
-					<FlatList
-						data={this.state.arrList}
-						renderItem={this.renderListItem}
-						keyExtractor={this._keyExtractor}
-						ItemSeparatorComponent={this.renderSeparator}
-						numColumns={2}
-					/>
-					{this.state.loading && (
-						<ActivityIndicator
-							style={{
-								top: 0,
-								bottom: 0,
-								left: 0,
-								right: 0,
-								position: 'absolute'
-							}}
-							size="large"
+			<View style={{ flex: 1 }}>
+				<SafeAreaView style={{ flex: 0, backgroundColor: 'white' }} />
+				<SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+					<HeaderView headerTitle={'Home'} onClickIcon={this.drawerOpen} />
+					<View style={{ flex: 1, justifyContent: 'center', backgroundColor: 'white' }}>
+						<FlatList
+							data={this.state.arrList}
+							renderItem={this.renderListItem}
+							keyExtractor={this._keyExtractor}
+							ItemSeparatorComponent={this.renderSeparator}
+							numColumns={2}
 						/>
-					)}
-				</View>
-			</SafeAreaView>
+						{this.state.loading && (
+							<ActivityIndicator
+								style={{
+									top: 0,
+									bottom: 0,
+									left: 0,
+									right: 0,
+									position: 'absolute'
+								}}
+								size="large"
+							/>
+						)}
+					</View>
+				</SafeAreaView>
+			</View>
 		);
 	}
 }

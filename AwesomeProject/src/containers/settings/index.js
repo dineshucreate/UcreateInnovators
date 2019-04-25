@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from '../profile/style';
-import HeaderView from '../../components/Header';
+import HeaderView from '../../components/HeaderView/Header';
 
 export default class settings extends Component {
 	componentWillUnmount() {

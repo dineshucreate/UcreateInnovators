@@ -57,6 +57,9 @@ const LoginTab = createStackNavigator(
 		Profile: {
 			screen: profile
 		},
+		home: {
+			screen: home
+		},
 		drawer: {
 			screen: MyDrawerNavigator,
 			navigationOptions: {
