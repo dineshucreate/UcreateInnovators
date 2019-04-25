@@ -52,7 +52,8 @@ const tab = createBottomTabNavigator(
             style: {
                 backgroundColor: '#096B76'
             }
-        }
+        },
+        initialRouteName: 'Stats'
     }
 );
 

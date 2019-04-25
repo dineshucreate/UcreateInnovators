@@ -18,10 +18,28 @@ const styles = StyleSheet.create({
         color: 'white',
         marginTop: 10
     },
-    optionsView: {
+    sectionOneView: {
         marginLeft: 10,
         marginRight: 10,
-        height: '34%',
+        height: '15%',
+        backgroundColor: 'white',
+        borderRadius: 3,
+        justifyContent: 'flex-start'
+    },
+    sectionTwoView: {
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        height: '22%',
+        backgroundColor: 'white',
+        borderRadius: 3,
+        justifyContent: 'flex-start'
+    },
+    sectionThreeView: {
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        height: '7%',
         backgroundColor: 'white',
         borderRadius: 3,
         justifyContent: 'flex-start'
@@ -34,7 +52,7 @@ const styles = StyleSheet.create({
     },
     textButtons: {
         color: 'gray',
-        fontSize: 22,
+        fontSize: 18,
         fontFamily: 'Rajdhani-semibold',
         alignSelf: 'center'
     },

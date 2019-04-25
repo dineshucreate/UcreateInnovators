@@ -14,8 +14,15 @@ export default class SidePanel extends Component {
   };
   homePress = () => {
     const { navigation } = this.props;
-    navigation.navigate('Tab');
-
+    navigation.navigate('Home');
+  };
+  statsPress = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Stats');
+  };
+  newsPress = () => {
+    const { navigation } = this.props;
+    navigation.navigate('News');
   };
   friendsPress = () => {
     const { navigation } = this.props;
@@ -40,12 +47,7 @@ export default class SidePanel extends Component {
             <Image style={styles.userIcon} source={require('../../assets/images/Placeholder_Sticker_Image.png')} />
             <Text style={styles.userName}>Jaspreet Singh</Text>
           </View>
-          <View style={styles.optionsView}>
-            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.homePress}>
-              <Text style={styles.textButtons}>Home</Text>
-              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
-            </TouchableOpacity>
-            <View style={styles.lineView} />
+          <View style={styles.sectionOneView} >
             <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.friendsPress}>
               <Text style={styles.textButtons}>Friends</Text>
               <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
@@ -55,7 +57,25 @@ export default class SidePanel extends Component {
               <Text style={styles.textButtons}>Fanmojies</Text>
               <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
             </TouchableOpacity>
+
+          </View>
+          <View style={styles.sectionTwoView}>
+            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.homePress}>
+              <Text style={styles.textButtons}>Home</Text>
+              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+            </TouchableOpacity>
             <View style={styles.lineView} />
+            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.statsPress}>
+              <Text style={styles.textButtons}>Stats</Text>
+              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+            </TouchableOpacity>
+            <View style={styles.lineView} />
+            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.newsPress}>
+              <Text style={styles.textButtons}>News</Text>
+              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.sectionThreeView}>
             <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.logoutPress}>
               <Text style={styles.textButtons}>Logout</Text>
               <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />

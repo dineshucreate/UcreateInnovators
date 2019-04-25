@@ -91,12 +91,13 @@ export default class Stats extends Component {
                         data={this.state.arrData}
                         renderItem={this.renderStatsListItem}
                     />
+                    {this.state.loading ?
+                        <View style={{ width: '100%', height: '100%', justifyContent: 'center', backgroundColor: 'white' }}>
+                            <ActivityIndicator style={{ alignSelf: 'center' }} size='large' />
+                        </View> : null
+                    }
                 </View>
-                {this.state.loading ?
-                    <View style={{ width: '100%', height: '100%', position: 'absolute', justifyContent: 'center' }}>
-                        <ActivityIndicator style={{ alignSelf: 'center' }} size='large' />
-                    </View> : null
-                }
+
             </SafeAreaView>
         );
     }
