@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import { Text, View, Alert, Image, FlatList, TouchableOpacity } from 'react-native';
 import { apiLoginGetFlatList } from '../../../utilities/serverrequest/index'
 import stylesStats from './style';
-import TextHeader from './../../../styling/headerview/index';
+import TextHeaderDrawer from './../../../styling/headerviewdrawer/index';
 
 
 
 class Stats extends React.Component {
     static navigationOptions = {
-        header: null
+        header: null,
+        drawerLabel: 'Stats'
     };
     constructor(props) {
         super(props);
@@ -77,14 +78,21 @@ class Stats extends React.Component {
 
         </TouchableOpacity>
     );
-
+    drawerOpen = () => {
+        this.props.navigation.openDrawer();
+    }
     render() {
         const { navigate } = this.props.navigation;
         console.log('...Render.......  ' + this.props);
 
         return (
             <View >
-                <TextHeader title='STATS'/>
+
+<TextHeaderDrawer  onClickIcon={this.drawerOpen}
+            source={require('../../../assets/ic_menu.png')} />
+               {/* <TextHeader title='STATS'
+                onClickHeader={this.drawerOpen}
+                /> */}
                 <FlatList
                     data={this.state.users}
                     renderItem={this.renderListItem}

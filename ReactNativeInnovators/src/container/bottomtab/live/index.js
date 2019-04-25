@@ -1,15 +1,16 @@
 
 import React, { Component } from 'react';
-import { Text, View, Alert, Image, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, Alert, Image, FlatList, TouchableOpacity,Dimensions} from 'react-native';
 import { apiLoginGetFlatList } from '../../../utilities/serverrequest/index'
 import stylesLive from './style';
-import TextHeader from './../../../styling/headerview/index';
+import TextHeaderDrawer from './../../../styling/headerviewdrawer/index';
 
 
 
 class Live extends React.Component {
     static navigationOptions = {
-        header: null
+        header: null,
+        drawerLabel: 'Live'
     };
     constructor(props) {
         super(props);
@@ -77,18 +78,25 @@ class Live extends React.Component {
 
         </TouchableOpacity>
     );
+    drawerOpen = () => {
+        this.props.navigation.openDrawer();
+    }
 
     render() {
         const { navigate } = this.props.navigation;
         console.log('...Render.......  ' + this.props);
-
-        return (
+      return (
             <View >
-                <TextHeader title='LIVE'/>
+
+<TextHeaderDrawer  onClickIcon={this.drawerOpen}
+            source={require('../../../assets/ic_menu.png')} />
+               
                 <FlatList
                     data={this.state.users}
                     renderItem={this.renderListItem}
-                    keyExtractor={item => item.employee_name}/>
+                    keyExtractor={item => item.employee_name}
+                    numColumns={2}
+                    />
             </View>
         );
     }

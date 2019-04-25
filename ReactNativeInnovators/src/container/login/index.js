@@ -1,11 +1,12 @@
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ImageBackground, Button, Alert, TextInput, Image,AsyncStorage } from 'react-native';
+import { Platform, StyleSheet, Text, View, ImageBackground, Button, Alert, TextInput, Image, AsyncStorage, ActivityIndicator } from 'react-native';
 import Buttonlogin from '../../styling/button';
 //import Test from '../Test';
 import { apiLoginPost } from '../../utilities/serverrequest'
 import styles from './style';
-
+import SplashScreen from 'react-native-splash-screen'
+import Loader from '../loader/index';
 
 
 class Login extends React.Component {
@@ -21,9 +22,50 @@ class Login extends React.Component {
       name: "Amit Agnihotri",
       textInputLogin: '',
       textInputPassword: '',
+      loading: false,
       apiData: null,
     }
   }
+
+
+  _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('LoginDone');
+      console.log("_retrieveData:" + value);
+      setTimeout(() => {
+        this.moveScreen(value);
+      }, 1000);
+
+    } catch (error) {
+      // Error retrieving data
+    }
+  };
+
+  moveScreen = (value) => {
+    if (value != null) {
+      // We have data!!
+      SplashScreen.hide();
+      this.drawerScreen()
+      console.log("_retrieveData:" + value);
+    }
+    else {
+      SplashScreen.hide();
+      //this.loginScreen()
+    }
+  }
+
+
+  tabScreen = () => {
+    this.props.navigation.navigate('MainApp')
+  }
+  drawerScreen = () => {
+    this.props.navigation.navigate('MyDrawerNavigator')
+  }
+
+  componentDidMount() {
+    this._retrieveData()
+  }
+
 
   updateState = () => {
     this.setState({ name: "Rohit" });
@@ -34,21 +76,21 @@ class Login extends React.Component {
     //Alert.alert(JSON.stringify(response.data.user.firstname));
     this.setState({ apiData: response.data });
     console.log('NAME: ' + this.state.apiData.user.firstname);
+    this.setState({ loading: false });
     this._storeData()
-    this.changeScreen(this.state.apiData.user.firstname)
+    this.changeScreen()
   }
 
   failureCallbackLogin = (error) => {
     Alert.alert(JSON.stringify(error));
   }
 
+  tabScreen = () => {
+    this.props.navigation.navigate('MainApp')
+  }
 
-
-  changeScreen = (name) => {
-    this.props.navigation.navigate('PractiseFlatList', {
-      itemId: name
-
-    })
+  changeScreen = () => {
+    this.drawerScreen()
   }
 
 
@@ -65,6 +107,7 @@ class Login extends React.Component {
       'ZUMO-API-VERSION': '2.0.0',
       'Ocp-Apim-Subscription-Key': '6c192d2e80bb49a8b90f6d684cf18b9b'
     }
+    this.setState({ loading: true });
     apiLoginPost('https://footballalbum-prod-api.imfootball.me/userapi/api/Auth/Login', bodyValue, headerValue, this.successCallbackLogin, this.failureCallbackLogin)
 
   }
@@ -72,10 +115,10 @@ class Login extends React.Component {
   _storeData = async () => {
     try {
       console.log("_storeData:");
-      await AsyncStorage.setItem('LoginDone', 'DONE').then((response)=> {
-        Alert.alert(JSON.stringify(response))
-      }).catch((error)=> {
-Alert.alert(JSON.stringify(error))
+      await AsyncStorage.setItem('LoginDone', 'DONE').then((response) => {
+        // Alert.alert(JSON.stringify(response))
+      }).catch((error) => {
+        // Alert.alert(JSON.stringify(error))
       })
     } catch (error) {
       // Error saving data
@@ -119,6 +162,13 @@ Alert.alert(JSON.stringify(error))
             onClick={this.GetValueFunction}
           />
           <Text style={styles.TextShadowStyle}>CREATE AN ACCOUNT</Text>
+
+          {this.state.loading && (
+             <Loader
+             loading={this.state.loading} />
+          )}
+
+
         </View>
       </ImageBackground>
     );

@@ -5,7 +5,9 @@ const TextHeader = (props) => {
   const { viewStyle,textStyle } = styles;
   return (
       <View style={viewStyle}>
-    <Text style={textStyle}>
+    <Text style={textStyle}
+    onPress = {props.onClickHeader}
+    >
         {props.title}
       </Text>
       </View>

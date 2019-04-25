@@ -2,9 +2,9 @@ import { View, ImageBackground, Image, ToastAndroid, Alert } from 'react-native'
 import splash from './../splash/style';
 import { AsyncStorage } from 'react-native';
 import React, { Component } from 'react';
+import SplashScreen from 'react-native-splash-screen'
 
-
-class SplashScreen extends React.Component {
+class FirstScreen extends React.Component {
     static navigationOptions = {
         header: null
     };
@@ -15,6 +15,7 @@ class SplashScreen extends React.Component {
             const value = await AsyncStorage.getItem('LoginDone');
             console.log("_retrieveData:" + value);
             setTimeout(() => {
+                SplashScreen.hide();
                 this.moveScreen(value);
             },1000);
 
@@ -30,14 +31,19 @@ class SplashScreen extends React.Component {
             console.log("_retrieveData:" + value);
         }
         else {
-            this.tabScreen()
+            this.loginScreen()
         }
     }
-    MainApp
+    
 
     tabScreen = () => {
         this.props.navigation.navigate('MainApp')
     }
+    drawerScreen = () => {
+        this.props.navigation.navigate('MyDrawerNavigator')
+    }
+
+    
 
     componentDidMount() {
         this._retrieveData()
@@ -54,16 +60,17 @@ class SplashScreen extends React.Component {
         console.log('...Render.......  ' + this.props);
 
         return (
-            <ImageBackground source={require('../../assets/global_bg.png')}
-                style={splash.containerImage}>
+            // <ImageBackground source={require('../../assets/global_bg.png')}
+            //     style={splash.containerImage}>
 
-                <View style={{ flex: 0.8, alignItems: 'center', justifyContent: 'center' }}>
-                    <Image style={{ width: 250, height: 130, resizeMode: 'contain' }}
-                        source={require('../../assets/ic_im_logo.png')} />
-                </View>
-            </ImageBackground>
+            //     <View style={{ flex: 0.8, alignItems: 'center', justifyContent: 'center' }}>
+            //         <Image style={{ width: 250, height: 130, resizeMode: 'contain' }}
+            //             source={require('../../assets/ic_im_logo.png')} />
+            //     </View>
+                <View>
+            </View>
 
         );
     }
 }
-export default SplashScreen;
+export default FirstScreen;

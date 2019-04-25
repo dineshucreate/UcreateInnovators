@@ -1,5 +1,5 @@
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet,Dimensions} from 'react-native';
 
 const stylesLive = StyleSheet.create({
     container: {
@@ -10,10 +10,9 @@ const stylesLive = StyleSheet.create({
 
     },
     containerMain: {
-        flexDirection:'row',
-        marginTop: 50,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
+        width: Dimensions.get('window').width/2
         
     },
 

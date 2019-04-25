@@ -1,11 +1,25 @@
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator ,createDrawerNavigator} from 'react-navigation';
 import Login from './src/container/login';
 
-import SplashScreen from './src/container/splash';
+import FirstScreen from './src/container/splash';
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import Live from './src/container/bottomtab/live';
 import Stats from './src/container/bottomtab/stats';
+
+
+
+
+const MyDrawerNavigator = createDrawerNavigator({
+  Live: {
+    screen: Live,
+  },
+  Stats: {
+    screen: Stats,
+  },
+});
+
+
 const MainApp = createBottomTabNavigator(
   {
     // PractiseFlatList: {
@@ -40,12 +54,12 @@ const MainApp = createBottomTabNavigator(
 
 
 const LoginTab = createStackNavigator({
-  SplashScreen: {
-    screen: SplashScreen
-  },
+  // FirstScreen: {
+  //   screen: FirstScreen
+  // },
   Login:{screen: Login},
-  MainApp: {
-    screen: MainApp,
+  MyDrawerNavigator: {
+    screen: MyDrawerNavigator,
     navigationOptions: () => ({
       header: null
     })
