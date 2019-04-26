@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Dimensions } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 import { login, signUp, home, settings, profile } from './containers';
-
+import sidePanel from './components/SidePanel';
 // You should not have the drawer in tab
 const tab = createBottomTabNavigator(
 	{
@@ -40,14 +40,20 @@ const tab = createBottomTabNavigator(
 );
 
 // Pass the tabs in Drawer or Stack
-const MyDrawerNavigator = createDrawerNavigator({
-	Home: {
-		screen: tab
+const MyDrawerNavigator = createDrawerNavigator(
+	{
+		Home: {
+			screen: tab
+		},
+		Profile: {
+			screen: profile
+		}
 	},
-	Profile: {
-		screen: profile
+	{
+		contentComponent: sidePanel,
+		drawerWidth: 300
 	}
-});
+);
 
 const LoginTab = createStackNavigator(
 	{
@@ -58,7 +64,10 @@ const LoginTab = createStackNavigator(
 			screen: profile
 		},
 		home: {
-			screen: home
+			screen: home,
+			navigationOptions: {
+				header: null
+			}
 		},
 		drawer: {
 			screen: MyDrawerNavigator,
