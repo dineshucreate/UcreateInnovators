@@ -37,8 +37,10 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>AwesomeProject wants to access your camera for profile picture</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>AwesomeProject wants to access your profile for profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>rajdhani-bold.ttf</string>

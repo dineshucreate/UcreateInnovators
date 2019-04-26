@@ -13,15 +13,7 @@ export default (styles = StyleSheet.create({
 		height: 100,
 		borderRadius: 50
 	},
-	home: {
-		marginLeft: 16,
-		marginTop: 12
-	},
-	profile: {
-		marginLeft: 16,
-		marginTop: 12
-	},
-	logout: {
+	buttonText: {
 		marginLeft: 16,
 		marginTop: 12
 	},
