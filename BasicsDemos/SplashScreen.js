@@ -8,6 +8,7 @@ import SearchBar from './SearchBar';
 import RegisterScreen from './src/RegisterScreen';
 import {AsyncStorage} from 'react-native';
 import BottomScreen from './src/Bottom/BottomScreen';
+import SignUpAndLoginScreen from './src/sign_up/SignUpAndLoginScreen';
 
 
 
@@ -31,7 +32,9 @@ import BottomScreen from './src/Bottom/BottomScreen';
                // this.props.navigation.navigate('List')
             }else{
                 console.log(userId);
-                this.props.navigation.navigate('Home')
+                this.props.navigation.navigate('createAccount')
+               // this.props.navigation.navigate('Home')
+                
             }
             }catch(error){
                 console.log("SplashErrorS", error);
@@ -81,7 +84,8 @@ const AppNavigator = createStackNavigator(
     List: ListScreen,
     search: SearchBar,
     register: RegisterScreen,
-    bottom: BottomScreen
+    bottom: BottomScreen,
+    createAccount: SignUpAndLoginScreen,
   },{
     headerMode: 'none',
   initialRoute : "Splash"

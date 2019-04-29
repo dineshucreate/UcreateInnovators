@@ -25,7 +25,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const userId;
+var userId="";
 export default class BlinkApp extends Component {
   // constructor(props) {
   //   super(props)
