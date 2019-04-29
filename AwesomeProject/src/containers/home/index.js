@@ -60,7 +60,7 @@ export default class home extends Component {
 	};
 
 	drawerOpen = () => {
-		this.props.navigation.openDrawer();
+		this.props.navigation.toggleDrawer();
 	};
 
 	_keyExtractor = (item, index) => item.id;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Image, Dimensions } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Image, Dimensions, AsyncStorage } from 'react-native';
 import styles from './style';
 import ImagePicker from 'react-native-image-picker';
 
@@ -22,14 +22,22 @@ export default class index extends Component {
 	}
 	home = () => {
 		const { navigation } = this.props.navigation;
+		this.props.navigate('Home');
 	};
 
 	profile = () => {
 		const { navigation } = this.props.navigation;
+		this.props.navigate('profile');
 	};
 
 	logout = () => {
-		const { navigation } = this.props.navigation;
+		this.clearUserData();
+		const { navigation } = this.props;
+		navigation.navigate('Login');
+	};
+
+	clearUserData = async () => {
+		await AsyncStorage.removeItem('user');
 	};
 
 	openImagePicker = () => {
