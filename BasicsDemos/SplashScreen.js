@@ -9,6 +9,7 @@ import RegisterScreen from './src/RegisterScreen';
 import {AsyncStorage} from 'react-native';
 import BottomScreen from './src/Bottom/BottomScreen';
 import SignUpAndLoginScreen from './src/sign_up/SignUpAndLoginScreen';
+import SelectWorldCupTeamScreen from './src/sign_up/SelectWorldCupTeamScreen';
 
 
 
@@ -86,6 +87,7 @@ const AppNavigator = createStackNavigator(
     register: RegisterScreen,
     bottom: BottomScreen,
     createAccount: SignUpAndLoginScreen,
+    worldcup: SelectWorldCupTeamScreen,
   },{
     headerMode: 'none',
   initialRoute : "Splash"

@@ -133,31 +133,9 @@ export default class BlinkApp extends Component {
             onChangeText={(text)=>this.setState({password: text})}></TextInput>
 
             <Text style={{color:"#06878A", fontWeight:"bold",margin: 10,fontSize:11}}>Forgot your password?</Text>
-
-          {/* <Text style={{ height: 40, padding: 10, fontSize: 40 }}>{this.state.text} </Text> */}
-          
-          {/* <View style={styles.button}>
-            <Button onPress={this._onPressButton} style={styles.button}
-            title = "LOG IN"/>
-           
-          </View> */}
-
           
         </View>
-        
-
-        {/* <TouchableNativeFeedback
-            onPress={this._onPressButton}
-            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''} style={styles.buttons}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>LOG IN</Text>
-          </View>
-        </TouchableNativeFeedback> */}
-{/* <TouchableOpacity onPress={()=>{this.props.navigation.navigate('List')}}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableOpacity</Text>
-          </View>
-        </TouchableOpacity> */}
+      
 <TouchableNativeFeedback
                onPress= {this.loginApi}
             // onPress={()=>{this.props.navigation.navigate('List')}}
