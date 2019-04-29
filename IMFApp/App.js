@@ -3,7 +3,9 @@ import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import { AsyncStorage } from 'react-native'
 import stack from './src/navigationStack';
 import stack2 from './src/navigationStack2';
-import SplashScreen from 'react-native-splash-screen'
+import SplashScreen from 'react-native-splash-screen';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 export default class NavigationComponentInitial extends React.Component {
   constructor() {
@@ -28,8 +30,11 @@ export default class NavigationComponentInitial extends React.Component {
     SplashScreen.hide();
   }
   render() {
-    return (this.state.value === '' ?
-      (<Begin1 />) : (<Begin2 />)
+    return (
+      <Provider store={store}>
+        {this.state.value === '' ?
+          (<Begin1 />) : (<Begin2 />)}
+      </Provider>
     );
   }
 }

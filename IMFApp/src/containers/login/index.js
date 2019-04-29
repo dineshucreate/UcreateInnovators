@@ -5,7 +5,7 @@ import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
 import User from '../../utilities/models/user'
 
-export default class login extends Component {
+class login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -83,3 +83,16 @@ export default class login extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        loading: state.login.loading,
+        loginData: state.login.loginData,
+    };
+};
+const mapDispatchToProps = (dispatch) => ({
+    loginRequest: (email, password, navigator) => dispatch(loginRequest(email, password, navigator))
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(login);
