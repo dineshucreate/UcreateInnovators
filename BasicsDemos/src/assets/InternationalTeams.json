@@ -1,0 +1,325 @@
+{
+  "competition": {
+    "id": 2,
+    "name": "International Teams",
+    "shortName": "INT_TEMP",
+    "order": null
+  },
+  "teams": [
+    {
+      "id": 110,
+      "name": "England",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/110/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "ENG"
+    },
+    {
+      "id": 93,
+      "name": "Scotland",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/93/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "SCO"
+    },
+    {
+      "id": 99,
+      "name": "Wales",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/99/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "WAL"
+    },
+    {
+      "id": 187,
+      "name": "USA",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/187/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "USA"
+    },
+    {
+      "id": 230,
+      "name": "Argentina",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/230/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "ARG"
+    },
+    {
+      "id": 225,
+      "name": "Australia",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/225/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "AUS"
+    },
+    {
+      "id": 114,
+      "name": "Belgium",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/114/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "BEL"
+    },
+    {
+      "id": 226,
+      "name": "Brazil",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/226/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "BRA"
+    },
+    {
+      "id": 231,
+      "name": "Colombia",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/231/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "COL"
+    },
+    {
+      "id": 190,
+      "name": "Costa Rica",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/190/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "CRC"
+    },
+    {
+      "id": 112,
+      "name": "Croatia",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/112/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "CRO"
+    },
+    {
+      "id": 81,
+      "name": "Denmark",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/81/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "DEN"
+    },
+    {
+      "id": 150,
+      "name": "Egypt",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/150/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "EGY"
+    },
+    {
+      "id": 95,
+      "name": "Spain",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/95/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "ESP"
+    },
+    {
+      "id": 86,
+      "name": "France",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/86/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "FRA"
+    },
+    {
+      "id": 108,
+      "name": "Germany",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/108/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "GER"
+    },
+    {
+      "id": 227,
+      "name": "Iran",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/227/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "IRI"
+    },
+    {
+      "id": 105,
+      "name": "Iceland",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/105/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "ISL"
+    },
+    {
+      "id": 228,
+      "name": "Japan",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/228/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "JPN"
+    },
+    {
+      "id": 224,
+      "name": "Republic of Korea",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/224/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "KOR"
+    },
+    {
+      "id": 232,
+      "name": "Saudi Arabia",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/232/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "KSA"
+    },
+    {
+      "id": 157,
+      "name": "Morocco",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/157/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "MAR"
+    },
+    {
+      "id": 192,
+      "name": "Mexico",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/192/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "MEX"
+    },
+    {
+      "id": 161,
+      "name": "Nigeria",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/161/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "NGR"
+    },
+    {
+      "id": 198,
+      "name": "Panama",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/198/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "PAN"
+    },
+    {
+      "id": 229,
+      "name": "Peru",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/229/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "PER"
+    },
+    {
+      "id": 100,
+      "name": "Poland",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/100/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "POL"
+    },
+    {
+      "id": 101,
+      "name": "Portugal",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/101/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "POR"
+    },
+    {
+      "id": 222,
+      "name": "Russia",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/222/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "RUS"
+    },
+    {
+      "id": 143,
+      "name": "Senegal",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/143/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "SEN"
+    },
+    {
+      "id": 130,
+      "name": "Serbia",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/130/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "SRB"
+    },
+    {
+      "id": 96,
+      "name": "Switzerland",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/96/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "SUI"
+    },
+    {
+      "id": 90,
+      "name": "Sweden",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/90/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "SWE"
+    },
+    {
+      "id": 138,
+      "name": "Tunisia",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/138/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "TUN"
+    },
+    {
+      "id": 223,
+      "name": "Uruguay",
+      "shortName": null,
+      "order": null,
+      "imageUrl": "https://footballalbumprod.azureedge.net/stickers/shirt/223/original_shirt_home.png",
+      "internationalTeam": true,
+      "abbreviation": "URU"
+    }
+  ]
+}
