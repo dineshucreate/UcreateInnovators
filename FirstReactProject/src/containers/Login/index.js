@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 import {
     Text,
     View,
@@ -16,7 +17,7 @@ class Login extends Component {
     static navigationOptions = {
         title: 'LOGIN',
     };
-
+    
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.loginData && nextProps.loginData.status === 200) {
              nextProps.navigation.navigate('drawer', 
@@ -35,6 +36,9 @@ class Login extends Component {
             password: config.password,
             loader: false,
         };
+    }
+    componentDidMount() {
+        SplashScreen.hide();
     }
 
     render() {

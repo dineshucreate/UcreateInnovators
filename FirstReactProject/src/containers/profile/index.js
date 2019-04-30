@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, ScrollView } from 'react-native';
+import { Text, ScrollView, SafeAreaView } from 'react-native';
 import styles from './style';
 
 class profile extends Component {
@@ -10,9 +10,11 @@ class profile extends Component {
 
     render() {
         return (
-            <ScrollView style={styles.mainView}>
-                <Text>Profile screen</Text>
-            </ScrollView>
+            <SafeAreaView style={{ backgroundColor: 'red' }}>
+                <ScrollView style={styles.mainView}>
+                    <Text style={{ backgroundColor: 'blue', height: 100 }}>Profile screen</Text>
+                </ScrollView>
+            </SafeAreaView>
         );
     }
 }

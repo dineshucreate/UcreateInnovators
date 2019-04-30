@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import ListItem from '../../Components/ListItem';
 import { requestAPI } from './actions';
@@ -23,7 +23,8 @@ class Home extends Component {
         console.log(`empData ${empData}`);
         
         return (
-            <View>
+          <SafeAreaView style={{ backgroundColor: 'red' }}>
+            <View style={{ backgroundColor: 'green' }}>
               {
                 empData ?
                 <FlatList
@@ -40,6 +41,7 @@ class Home extends Component {
                     </View>
               }
             </View>
+           </SafeAreaView>
         );
         }
 }
