@@ -8,10 +8,9 @@ export const loginRequest = (email, password, navigator) => ({
     navigator,
 });
 
-export const loginSuccess = (data) => (
+export const loginSuccess = () => (
     {
         type: REQUEST_SUCCESS,
-        data,
     }
 );
 export const loginFail = () => (

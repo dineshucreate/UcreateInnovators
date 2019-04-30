@@ -4,7 +4,7 @@ export default class User {
     }
 
 
-    loginUser = (email, password, successCallback, errorCallback) => {
+    loginUser = async (email, password) => {
         const url =
             "https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login";
         // Header params to attach with Request
@@ -19,10 +19,11 @@ export default class User {
             email: email,
             password: password
         };
-        consumePOSTAPI(url, loginParams, headerParams, (response) => {
-            successCallback(response)
-        }, (error) => {
-            errorCallback(error)
-        })
+        try {
+            const responce = await consumePOSTAPI(url, loginParams, headerParams);
+            return responce;
+        } catch (error) {
+            return error;
+        }
     }
 }

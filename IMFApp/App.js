@@ -7,6 +7,10 @@ import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import store from './src/store';
 
+
+const Begin1 = createAppContainer(stack);
+const Begin2 = createAppContainer(stack2);
+
 export default class NavigationComponentInitial extends React.Component {
   constructor() {
     super()
@@ -38,6 +42,3 @@ export default class NavigationComponentInitial extends React.Component {
     );
   }
 }
-
-const Begin1 = createAppContainer(stack);
-const Begin2 = createAppContainer(stack2);

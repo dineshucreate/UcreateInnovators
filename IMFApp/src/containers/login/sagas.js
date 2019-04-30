@@ -1,24 +1,38 @@
-import axios from 'axios';
-import { Alert } from 'react-native';
-import { takeEvery, put, call } from 'redux-saga/effects';
+import Axios from "axios";
+import { AsyncStorage } from 'react-native';
+import { takeEvery, put } from 'redux-saga/effects';
 import { LOGIN_REQUESTED } from './constants';
-//import { API_URL, kServiceAuthentication } from '../../utilities/config';
 import { loginFail, loginSuccess } from './actions';
+import { kSubscriptionKey } from './../../utilities/config'
 
 function* onLoginRequested({ email, password, navigator }) {
-    // const url = `${API_URL}${kServiceAuthentication}`;
-    // try {
-    //     const loginData = yield call(axios.post, url, { username: email, password });
-    //     if (loginData.data.success === true) {
-    //         yield put(loginSuccess(loginData.data));
-    //         navigator.navigate('flatList');
-    //     } else {
-    //         Alert.alert(loginData.data.message);
-    //     }
-    // } catch (error) {
-    //     yield put(loginFail(error));
-    //     Alert.alert(`login failed: ${error}`);
-    // }
+    const url = `https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login`;
+    try {
+        const config = {
+            method: 'post',
+            headers: {
+                'ZUMO-API-VERSION': '2.0.0',
+                'Content-Type': 'application/json',
+                'Ocp-Apim-Subscription-Key': kSubscriptionKey,
+            },
+            url,
+            responseType: 'json',
+            data: { email: email, password: password },
+        };
+        const loginData = yield Axios(config);
+        console.log('LoginData: ' + JSON.stringify(loginData));
+        if (loginData.status === 200) {
+            yield AsyncStorage.setItem('userData', JSON.stringify(loginData.data.user))
+            yield put(loginSuccess())
+            navigator.navigate('Home');
+        } else {
+            yield put(loginFail())
+            alert('please enter valid credentials')
+        }
+    } catch (error) {
+        yield put(loginFail())
+        alert(JSON.stringify(error.response.data.message));
+    }
 }
 
 function* sagaLogin() {

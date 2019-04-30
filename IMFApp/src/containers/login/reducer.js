@@ -22,8 +22,7 @@ export default (state = INITIAL_STATE, action) => {
         case REQUEST_SUCCESS:
             return {
                 ...state,
-                loading: false,
-                loginData: action.data
+                loading: false
             };
         case REQUEST_FAIL:
             return {

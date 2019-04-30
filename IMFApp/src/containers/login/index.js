@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Image, TouchableOpacity, Text, TextInput, View, ScrollView, ActivityIndicator, AsyncStorage } from 'react-native';
 import styles from './style';
 import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
-import User from '../../utilities/models/user'
+import { loginRequest } from './actions'
 
 class login extends Component {
     constructor(props) {
@@ -19,26 +20,10 @@ class login extends Component {
         const { navigation } = this.props;
         navigation.pop();
     };
-    storeData = async (data) => {
-        try {
-            await AsyncStorage.setItem('firstName', data.user.firstname);
-            await AsyncStorage.setItem('userData', JSON.stringify(data.user));
-        } catch (error) {
-            // Error saving data
-        }
-    };
     LoginPress = () => {
-        this.setState({ loading: true });
-        let user = new User(null)
-        user.loginUser(this.state.email, this.state.password, (response) => {
-            this.setState({ loading: false });
-            this.storeData(response.data)
-            const { navigation } = this.props;
-            navigation.navigate('Home');
-        }, (error) => {
-            this.setState({ loading: false });
-            alert('Please enter valid credentials')
-        })
+        const { loginRequest, navigation } = this.props;
+        const { email, password } = this.state
+        loginRequest(email, password, navigation);
     };
     render() {
         return (
@@ -74,7 +59,7 @@ class login extends Component {
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
-                {this.state.loading ?
+                {this.props.loading ?
                     <View style={{ width: '100%', height: '100%', position: 'absolute', justifyContent: 'center' }}>
                         <ActivityIndicator style={{ alignSelf: 'center' }} size='large' />
                     </View> : null
