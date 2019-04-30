@@ -4,8 +4,9 @@ import styles from './style';
 import homeModel from '../../models/home';
 import HeaderView from '../../components/HeaderView/Header';
 import SplashScreen from 'react-native-splash-screen';
+import { connect } from 'react-redux';
 
-export default class home extends Component {
+class home extends Component {
 	static navigationOptions = {
 		title: 'Home'
 	};
@@ -118,3 +119,11 @@ export default class home extends Component {
 		);
 	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		loading: state.login.loading
+	};
+};
+const mapDispatchToProps = (dispatch) => ({});
+export default connect(mapStateToProps, mapDispatchToProps)(home);

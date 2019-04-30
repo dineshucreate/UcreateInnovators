@@ -21,13 +21,13 @@ export default class index extends Component {
 		};
 	}
 	home = () => {
-		const { navigation } = this.props.navigation;
-		this.props.navigate('Home');
+		const { navigation } = this.props;
+		navigation.navigate('Home');
 	};
 
 	profile = () => {
-		const { navigation } = this.props.navigation;
-		this.props.navigate('profile');
+		const { navigation } = this.props;
+		navigation.navigate('Profile');
 	};
 
 	logout = () => {

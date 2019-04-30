@@ -89,6 +89,6 @@ const LoginTab = createStackNavigator(
 	}
 );
 
-const Begin = createAppContainer(LoginTab);
+// const Begin = createAppContainer(LoginTab);
 
-export default Begin;
+export default LoginTab;

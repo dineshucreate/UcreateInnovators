@@ -20,7 +20,8 @@ export default (styles = StyleSheet.create({
 	profileImage: {
 		alignSelf: 'center',
 		width: 100,
-		height: 100
+		height: 100,
+		borderRadius: 50
 	},
 	sideMenuButtons: {
 		height: 45

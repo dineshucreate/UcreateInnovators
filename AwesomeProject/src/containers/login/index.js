@@ -91,9 +91,10 @@ class login extends Component {
 	login = () => {
 		this.validateForm((isDone) => {
 			if (isDone) {
-				const { loginRequest } = this.props;
-				const { email, password, loading } = this.state;
-				loginRequest(email, password);
+				const { loginRequest, navigation } = this.props;
+				const { email, password } = this.state;
+				// this.props.navigation.navigate('home');
+				loginRequest(email, password, navigation);
 				// this.state.user.email = this.state.email;
 				// let user = new User();
 				// user.loginUserAPI(
@@ -183,7 +184,7 @@ const mapStateToProps = (state) => {
 	};
 };
 const mapDispatchToProps = (dispatch) => ({
-	loginRequest: (email, password) => dispatch(loginRequest(email, password))
+	loginRequest: (email, password, navigation) => dispatch(loginRequest(email, password, navigation))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(login);

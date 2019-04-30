@@ -7,16 +7,18 @@
  */
 
 import React, { Component } from 'react';
-// import router from './router';
 import { Provider } from 'react-redux';
 import store from './store';
 import Begin from './router';
+import { createAppContainer } from 'react-navigation';
+
+const AppContainer = createAppContainer(Begin);
 
 export default class NavigationComponentInitial extends Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<Begin />
+				<AppContainer />
 			</Provider>
 		);
 	}

@@ -3,7 +3,7 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 import { LOGIN_REQUESTED } from './constants';
 import { loginSuccess, loginFail } from './actions';
 
-function* onLoginRequest({ email, password }) {
+function* onLoginRequest({ email, password, navigation }) {
 	console.log('Saga');
 
 	const bodyValue = {
@@ -20,6 +20,8 @@ function* onLoginRequest({ email, password }) {
 	try {
 		const loginData = yield call(axios.post, url, bodyValue, { headers: headerValue });
 		yield put(loginSuccess(loginData.data));
+		console.log(loginData.data);
+		navigation.navigate('Home');
 		// Alert(JSON.stringify(loginData.data));
 		//	navigator.navigate('dashboard');
 		// if (loginData.data.success === true) {
