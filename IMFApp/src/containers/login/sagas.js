@@ -1,15 +1,15 @@
 import Axios from "axios";
 import { AsyncStorage } from 'react-native';
 import { takeEvery, put } from 'redux-saga/effects';
-import { LOGIN_REQUESTED } from './constants';
+import { LOGIN_REQUESTED } from './types';
 import { loginFail, loginSuccess } from './actions';
-import { kSubscriptionKey } from './../../utilities/config'
+import { kSubscriptionKey, kMethodPostKey } from './../../utilities/config'
 
 function* onLoginRequested({ email, password, navigator }) {
     const url = `https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login`;
     try {
         const config = {
-            method: 'post',
+            method: kMethodPostKey,
             headers: {
                 'ZUMO-API-VERSION': '2.0.0',
                 'Content-Type': 'application/json',

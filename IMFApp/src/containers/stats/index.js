@@ -1,47 +1,18 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { FlatList, Text, View, Image, ActivityIndicator, AsyncStorage } from 'react-native'
 import styles from './style'
-import { consumeGetAPI } from '../../utilities/serverrequest';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-navigation';
+import { getResultsRequested } from './actions';
 
-export default class Stats extends Component {
+class Stats extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            arrList: [{ key: 'Zacggk' }, { key: 'John' }],
-            arrData: null,
-            loading: true
-        }
     }
-    retrieveData = async () => {
-        try {
-            const value = await AsyncStorage.getItem('userData');
-            if (value !== null) {
-                // We have data!!
-                alert(value)
-                console.log(value);
-            }
-        } catch (error) {
-            alert(error)
-            // Error retrieving data
-        }
-    };
     componentDidMount() {
-        const linkUrl = "https://footballalbum-prod-api.imfootball.me/MatchAPI/api/Results/Get?idTournament=19&lastUpdate=2018-04-01T00:00:00Z"
-        var headerParams = {
-            "Content-Type": "application/json",
-            "ZUMO-API-VERSION": "2.0.0",
-            "X-ZUMO-AUTH": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJZZXMgU2luZ2gpIiwiZ2l2ZW5fbmFtZSI6IlllcyIsImZhbWlseV9uYW1lIjoiU2luZ2giLCJlbWFpbCI6InlAeS5jbyIsIlVzZXJHVUlEIjoiNzczYTdlMWItMGE3MC00N2MxLTk3NmQtNjI5ZTY0MTZkNTBjIiwidmVyIjoiMyIsImlzcyI6Imh0dHBzOi8vZm9vdGJhbGxhbGJ1bS1pbnQuYXp1cmV3ZWJzaXRlcy5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9mb290YmFsbGFsYnVtLWludC5henVyZXdlYnNpdGVzLm5ldC8iLCJleHAiOjE1NTgwNzU5MDQsIm5iZiI6MTU1NTQ4MzkwNH0.SbLJCoBpsgbOSmk-GHtd53TsCKB0-Qte52eU7QKYB_4",
-            "Ocp-Apim-Subscription-Key": "6c192d2e80bb49a8b90f6d684cf18b9b"
-        }
-        consumeGetAPI(linkUrl, headerParams, (response) => {
-            this.setState({ arrData: response.data, loading: false })
-            //    this.setState({ loading: false });
-        }, (error) => {
-            alert(JSON.stringify(error))
-            this.setState({ loading: false });
-        })
+        const { getResultsRequested } = this.props;
+        getResultsRequested();
     }
     backPress = () => {
         const { navigation } = this.props
@@ -88,18 +59,32 @@ export default class Stats extends Component {
                         <Text style={styles.blankText}>aa</Text>
                     </View>
                     <FlatList
-                        data={this.state.arrData}
+                        data={this.props.resultsData}
                         renderItem={this.renderStatsListItem}
                     />
-                    {this.state.loading ?
+                    {this.props.loading ?
                         <View style={{ width: '100%', height: '100%', justifyContent: 'center', backgroundColor: 'white' }}>
                             <ActivityIndicator style={{ alignSelf: 'center' }} size='large' />
                         </View> : null
                     }
                 </View>
-
             </SafeAreaView>
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        loading: state.stats.loading,
+        resultsData: state.stats.resultsData
+    };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    getResultsRequested: () => dispatch(getResultsRequested())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stats);
+
+
 
