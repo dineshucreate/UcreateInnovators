@@ -28,7 +28,7 @@ const WorldCupRow  = ({title,des,image}) =>(
      <Image style={styles.photo} source={{uri:image}}></Image>
      <View style={styles.containerText}>
       <Text style={styles.titleText}>{title}</Text>
-      <Text style={styles.titleText}>{des}</Text>
+      {/* <Text style={styles.titleText}>{des}</Text> */}
 
      </View>
 

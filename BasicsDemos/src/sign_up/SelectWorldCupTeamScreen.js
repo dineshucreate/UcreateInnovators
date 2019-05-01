@@ -11,9 +11,21 @@ export default class SelectWorldCupTeamScreen extends React.Component{
     
     constructor(props){
         super(props)
+       
         console.log("Hello11-----------------")
      customData = require('../assets/InternationalTeams.json');
+  //   this.setState({arrryList: customData.teams});
    console.log(JSON.stringify(customData))
+}
+state={
+    arrryList:[],
+}
+
+componentDidMount(){
+  //  customData = require('../assets/InternationalTeams.json');
+  console.log("componentDidMount-----------------")
+    this.setState({arrryList: customData.teams});
+    console.log(JSON.stringify(this.state.arrryList))
 }
 
 call= ()=>{
@@ -25,26 +37,33 @@ call= ()=>{
 
 
     render(){
+        console.log(JSON.stringify(this.state.arrryList))
         return(
+            <View style={{flex:1,flexDirection:'row',}}>
+                 <ImageBackground source= {require('../assets/global_bg.png')} style={{width:"100%",height:"100%"}}> 
             <View style={styles.container}>
+
+           
            
            <FlatList
-           data={[ {key:"Dev"},{key:"Amit"},{key:"Aman"},{key:"Karan"},{key:"Modi"}]}
+           data={this.state.arrryList}
         
            renderItem= {({item})=>
            <TouchableOpacity onPress={this.call}>
            <WorldCupRow 
-           title={item.key}
+           title={item.name}
            des = {"item.key"}
-           image = {"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"}>
+           image = {item.imageUrl}>
 
            </WorldCupRow>
            </TouchableOpacity>}
            
            />
            
-           
+          
          
+           </View>
+           </ImageBackground>
            </View>
         );
     }
@@ -56,7 +75,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         flexDirection:'row',
         margin:10,
-        backgroundColor:'#890'
+        backgroundColor:'#fff'
 
     }
 })
