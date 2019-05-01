@@ -24,6 +24,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1B82C415554941508C3B5075 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0184406DADB64FD182D294EE /* libRNGestureHandler.a */; };
+		2BC23497543A8236B43AB369 /* libPods-FirstReactProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800C333CAE00D7DC7DE3390 /* libPods-FirstReactProject-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -38,6 +39,12 @@
 		2DCD954D1E0B4F2C00145EB5 /* FirstReactProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FirstReactProjectTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		35192E9F2276DCE1006E5C12 /* fill-eezy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35192E9E2276DCE1006E5C12 /* fill-eezy@3x.png */; };
+		35309C5A22796292009AEB61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35309C3122796292009AEB61 /* GoogleService-Info.plist */; };
+		35ACDBE82278553B00BCCEAC /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ACDBE72278553B00BCCEAC /* UserNotifications.framework */; };
+		35ACDBE92278555800BCCEAC /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35ACDBE4227854ED00BCCEAC /* libRNFirebase.a */; };
+		3CCBD5AD5DA687060410C9BC /* libPods-FirstReactProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 406D9A5A33C779EA1A836349 /* libPods-FirstReactProjectTests.a */; };
+		49839E9A1DD9BF072707AA58 /* libPods-FirstReactProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E70676D78BA26105B5E85D1 /* libPods-FirstReactProject-tvOSTests.a */; };
+		4E85B25E4A8AFC5EF83BB0C0 /* libPods-FirstReactProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B0D8F20FC12EE36DD8CD3C /* libPods-FirstReactProject.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C9DC2CE55CE945288625C83C /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3EC01266EB4796A8FA52D6 /* libSplashScreen.a */; };
@@ -198,6 +205,13 @@
 			remoteGlobalIDString = 3D7682761D8E76B80014119E;
 			remoteInfo = SplashScreen;
 		};
+		35ACDBE3227854ED00BCCEAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35ACDBBA227854ED00BCCEAC /* RNFirebase.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFirebase;
+		};
 		35ED9E86222E41F0002B7685 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C1BB0CF164154D4FB9F9C181 /* RNGestureHandler.xcodeproj */;
@@ -354,17 +368,33 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FirstReactProject/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FirstReactProject/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		1709AA89C8BE867271DEACC1 /* Pods-FirstReactProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-FirstReactProjectTests/Pods-FirstReactProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2800C333CAE00D7DC7DE3390 /* libPods-FirstReactProject-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FirstReactProject-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* FirstReactProject-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirstReactProject-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* FirstReactProject-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FirstReactProject-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F4BE572A7C6394C0C561BCF /* Pods-FirstReactProject-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProject-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-FirstReactProject-tvOSTests/Pods-FirstReactProject-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		35192E9E2276DCE1006E5C12 /* fill-eezy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fill-eezy@3x.png"; sourceTree = "<group>"; };
+		35309C3122796292009AEB61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35ACDB9D2278503F00BCCEAC /* FirstReactProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = FirstReactProject.entitlements; path = FirstReactProject/FirstReactProject.entitlements; sourceTree = "<group>"; };
+		35ACDBBA227854ED00BCCEAC /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
+		35ACDBE72278553B00BCCEAC /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		3E3EC01266EB4796A8FA52D6 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
+		3E70676D78BA26105B5E85D1 /* libPods-FirstReactProject-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FirstReactProject-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		406D9A5A33C779EA1A836349 /* libPods-FirstReactProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FirstReactProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC0482ACF9F2ED85A3AD5B9 /* Pods-FirstReactProject-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProject-tvOS.release.xcconfig"; path = "Target Support Files/Pods-FirstReactProject-tvOS/Pods-FirstReactProject-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		5F141F3B6A2241A95AEF20B0 /* Pods-FirstReactProject-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProject-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-FirstReactProject-tvOSTests/Pods-FirstReactProject-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7C45DC4EA5D0F43BC55AADA8 /* Pods-FirstReactProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProject.debug.xcconfig"; path = "Target Support Files/Pods-FirstReactProject/Pods-FirstReactProject.debug.xcconfig"; sourceTree = "<group>"; };
+		7F97AC238B1D0B407440092A /* Pods-FirstReactProject-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProject-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-FirstReactProject-tvOS/Pods-FirstReactProject-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		A1E1CDE07529C039CB7018DA /* Pods-FirstReactProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProjectTests.release.xcconfig"; path = "Target Support Files/Pods-FirstReactProjectTests/Pods-FirstReactProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B5B1E5EAEC454A47AE61323E /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		C1BB0CF164154D4FB9F9C181 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		D3B0D8F20FC12EE36DD8CD3C /* libPods-FirstReactProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FirstReactProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F85EAA88D721B9BE508E2FFF /* Pods-FirstReactProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstReactProject.release.xcconfig"; path = "Target Support Files/Pods-FirstReactProject/Pods-FirstReactProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				3CCBD5AD5DA687060410C9BC /* libPods-FirstReactProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +411,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35ACDBE92278555800BCCEAC /* libRNFirebase.a in Frameworks */,
+				35ACDBE82278553B00BCCEAC /* UserNotifications.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -394,6 +427,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				1B82C415554941508C3B5075 /* libRNGestureHandler.a in Frameworks */,
 				C9DC2CE55CE945288625C83C /* libSplashScreen.a in Frameworks */,
+				4E85B25E4A8AFC5EF83BB0C0 /* libPods-FirstReactProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +443,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
+				2BC23497543A8236B43AB369 /* libPods-FirstReactProject-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+				49839E9A1DD9BF072707AA58 /* libPods-FirstReactProject-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +541,8 @@
 		13B07FAE1A68108700A75B9A /* FirstReactProject */ = {
 			isa = PBXGroup;
 			children = (
+				35309C3122796292009AEB61 /* GoogleService-Info.plist */,
+				35ACDB9D2278503F00BCCEAC /* FirstReactProject.entitlements */,
 				35192E9E2276DCE1006E5C12 /* fill-eezy@3x.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -543,7 +581,12 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35ACDBE72278553B00BCCEAC /* UserNotifications.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				D3B0D8F20FC12EE36DD8CD3C /* libPods-FirstReactProject.a */,
+				2800C333CAE00D7DC7DE3390 /* libPods-FirstReactProject-tvOS.a */,
+				3E70676D78BA26105B5E85D1 /* libPods-FirstReactProject-tvOSTests.a */,
+				406D9A5A33C779EA1A836349 /* libPods-FirstReactProjectTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -552,6 +595,14 @@
 			isa = PBXGroup;
 			children = (
 				35192E682276D888006E5C12 /* libSplashScreen.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		35ACDBBB227854ED00BCCEAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				35ACDBE4227854ED00BCCEAC /* libRNFirebase.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -594,6 +645,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				35ACDBBA227854ED00BCCEAC /* RNFirebase.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -630,6 +682,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				35ED9E5D222E41EB002B7685 /* Recovered References */,
+				E007A27D076155AAE2C03C97 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -656,6 +709,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E007A27D076155AAE2C03C97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C45DC4EA5D0F43BC55AADA8 /* Pods-FirstReactProject.debug.xcconfig */,
+				F85EAA88D721B9BE508E2FFF /* Pods-FirstReactProject.release.xcconfig */,
+				7F97AC238B1D0B407440092A /* Pods-FirstReactProject-tvOS.debug.xcconfig */,
+				4CC0482ACF9F2ED85A3AD5B9 /* Pods-FirstReactProject-tvOS.release.xcconfig */,
+				5F141F3B6A2241A95AEF20B0 /* Pods-FirstReactProject-tvOSTests.debug.xcconfig */,
+				2F4BE572A7C6394C0C561BCF /* Pods-FirstReactProject-tvOSTests.release.xcconfig */,
+				1709AA89C8BE867271DEACC1 /* Pods-FirstReactProjectTests.debug.xcconfig */,
+				A1E1CDE07529C039CB7018DA /* Pods-FirstReactProjectTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -663,6 +731,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FirstReactProjectTests" */;
 			buildPhases = (
+				49AE6F1C67A8977D2174609E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -681,6 +750,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FirstReactProject" */;
 			buildPhases = (
+				5F96A41D15957DB0751070FE /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
@@ -699,6 +769,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FirstReactProject-tvOS" */;
 			buildPhases = (
+				7EA3EAEAF6CB487BC2650086 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
@@ -717,6 +788,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FirstReactProject-tvOSTests" */;
 			buildPhases = (
+				EB8ABF157CB7AC6F73F308B0 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -742,15 +814,22 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = RP7W82UC8V;
+						DevelopmentTeam = 5796Z84ZBE;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = RP7W82UC8V;
+						DevelopmentTeam = 5796Z84ZBE;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = RP7W82UC8V;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
@@ -820,6 +899,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 35ACDBBB227854ED00BCCEAC /* Products */;
+					ProjectRef = 35ACDBBA227854ED00BCCEAC /* RNFirebase.xcodeproj */;
 				},
 				{
 					ProductGroup = 35ED9E83222E41EF002B7685 /* Products */;
@@ -981,6 +1064,13 @@
 			remoteRef = 35192E672276D888006E5C12 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		35ACDBE4227854ED00BCCEAC /* libRNFirebase.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFirebase.a;
+			remoteRef = 35ACDBE3227854ED00BCCEAC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		35ED9E87222E41F0002B7685 /* libRNGestureHandler.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1129,6 +1219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35192E9F2276DCE1006E5C12 /* fill-eezy@3x.png in Resources */,
+				35309C5A22796292009AEB61 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -1179,6 +1270,94 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		49AE6F1C67A8977D2174609E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirstReactProjectTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F96A41D15957DB0751070FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirstReactProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EA3EAEAF6CB487BC2650086 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirstReactProject-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB8ABF157CB7AC6F73F308B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirstReactProject-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1247,9 +1426,10 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1709AA89C8BE867271DEACC1 /* Pods-FirstReactProjectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = RP7W82UC8V;
+				DEVELOPMENT_TEAM = 5796Z84ZBE;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1279,10 +1459,11 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1E1CDE07529C039CB7018DA /* Pods-FirstReactProjectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = RP7W82UC8V;
+				DEVELOPMENT_TEAM = 5796Z84ZBE;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
@@ -1308,15 +1489,18 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C45DC4EA5D0F43BC55AADA8 /* Pods-FirstReactProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FirstReactProject/FirstReactProject.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = RP7W82UC8V;
+				DEVELOPMENT_TEAM = 5796Z84ZBE;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = FirstReactProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1325,7 +1509,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eezy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.circlecidemo;
 				PRODUCT_NAME = FirstReactProject;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1333,14 +1517,17 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F85EAA88D721B9BE508E2FFF /* Pods-FirstReactProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FirstReactProject/FirstReactProject.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RP7W82UC8V;
+				DEVELOPMENT_TEAM = 5796Z84ZBE;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = FirstReactProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1349,7 +1536,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eezy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.circlecidemo;
 				PRODUCT_NAME = FirstReactProject;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1357,6 +1544,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F97AC238B1D0B407440092A /* Pods-FirstReactProject-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1365,7 +1553,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = RP7W82UC8V;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1384,7 +1572,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.FirstReactProject-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.circlecidemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1394,6 +1582,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CC0482ACF9F2ED85A3AD5B9 /* Pods-FirstReactProject-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1403,7 +1592,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = RP7W82UC8V;
+				DEVELOPMENT_TEAM = "";
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1421,7 +1610,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.FirstReactProject-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.circlecidemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1431,6 +1620,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F141F3B6A2241A95AEF20B0 /* Pods-FirstReactProject-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1467,6 +1657,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F4BE572A7C6394C0C561BCF /* Pods-FirstReactProject-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
