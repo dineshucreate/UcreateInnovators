@@ -13,7 +13,7 @@ import {
 import { backgroundImage, logoWhite } from "../../assets/images/images";
 import CustomText from "../../components/text/customtext";
 import styles from "../../assets/Styles/styles";
-import {NavigationActions, StackActions} from 'react-navigation'
+import { NavigationActions, StackActions } from "react-navigation";
 export default class Login extends Component {
   constructor() {
     super();
@@ -30,16 +30,16 @@ export default class Login extends Component {
   }
 
   async componentDidMount() {
-    const response = await AsyncStorage.getItem('user')
-    if(response != null) {
-      const resetAction = StackActions.reset({
-        index: 0,
-        key: null, 
-        actions: [NavigationActions.navigate({ routeName: 'RootDrawerStack' })],
-      })
-      this.props.navigation.dispatch(resetAction);
-      // this.props.navigation.navigate('FriendList')
-    }
+    // const response = await AsyncStorage.getItem("user");
+    // if (response != null) {
+    //   const resetAction = StackActions.reset({
+    //     index: 0,
+    //     key: null,
+    //     actions: [NavigationActions.navigate({ routeName: "RootDrawerStack" })]
+    //   });
+    //   this.props.navigation.dispatch(resetAction);
+    //   // this.props.navigation.navigate('FriendList')
+    // }
   }
 
   render() {

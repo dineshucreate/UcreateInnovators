@@ -1,20 +1,21 @@
-import Axios from 'axios'
-export const consumePostAPI = (url, headerParams, loginParams, successHandler, errorHandler) => {
-  Axios.post(url, loginParams, { headers: headerParams })
-    .then(response => {
-        successHandler(response.data)
-    })
-    .catch(error => {
-        errorHandler(error)
-    });
+import Axios from "axios";
+export const consumePostAPI = async (url, body, headerParams) => {
+  try {
+    console.log('url is ' + url)
+    console.log('body is ' + JSON.stringify(body))
+    console.log('headerParams is ' + JSON.stringify(headerParams))
+    const response = await Axios.post(url, body, { headers: headerParams });
+    return response;
+  } catch (error) {
+    return error;
+  }
 };
 
-export const consumeGetAPI = (url, headerParams, successHandler, errorHandler) => {
-    Axios.get(url, { headers: headerParams })
-      .then(response => {
-        successHandler(response.data)
-      })
-      .catch(error => {
-          errorHandler(error)
-      });
-  };
+export const consumeGetAPI = async (url, headerParams) => {
+  try {
+    const response = await Axios.get(url, { headers: headerParams });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

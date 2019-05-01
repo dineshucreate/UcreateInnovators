@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import styles from "./styles";
+import {emailTextChanged, passwordTextChanged, loginClicked} from './actions'
+import {connect} from 'react-redux'
 import {
   AsyncStorage,
   Platform,
@@ -28,49 +31,48 @@ import {
 } from "../../utilities/regex/Regex";
 import { LoginErrors } from "../../utilities/errorstrings";
 import { underDevelopmentAlert } from "../../utilities/commonfunctions";
-import { NavigationActions, StackActions, createDrawerNavigator } from "react-navigation";
+import {
+  NavigationActions,
+  StackActions,
+  createDrawerNavigator
+} from "react-navigation";
 import { consumePostAPI } from "../../utilities/serverrequest";
 import { saveToAsyncStorage } from "../../utilities/asyncstorage";
 import HeaderButton from "../../components/headerbutton";
 import User from "../../utilities/models/user";
-import FriendList from '../../containers/friendlist'
-import Home from '../../containers/home'
+import FriendList from "../../containers/friendlist";
+import Home from "../../containers/home";
 import Axios from "axios";
-export default class Authenticate extends Component {
+class Authenticate extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // email: "y@y.co",
-      // password: "Ios@1234",
-      email: "1@test.com",
-      password: "Ios12345",
-      // email: "",
-      // password: "",
-      loading: false
-    };
   }
-
   loginClicked() {
     this.validateForm(isDone => {
       if (isDone) {
-        this.state.loading = true;
+        this.props.loading = true;
         let user = new User(null);
-        user.loginUser(this.state.email, this.state.password, response => {
-          this.setState({loading:false})
+        user.loginUser(
+          this.state.email,
+          this.state.password,
+          response => {
+            this.setState({ loading: false });
             saveToAsyncStorage(response, user => {
               const resetAction = StackActions.reset({
-                  index: 0,
-                  key: null, 
-                  actions: [NavigationActions.navigate({ routeName: 'RootDrawerStack' })],
-                })
-                this.props.navigation.dispatch(resetAction);
+                index: 0,
+                key: null,
+                actions: [
+                  NavigationActions.navigate({ routeName: "RootDrawerStack" })
+                ]
+              });
+              this.props.navigation.dispatch(resetAction);
               // this.props.navigation.navigate("FriendList", {
               //   response: response
               // });
             });
           },
           error => {
-            this.setState({loading:false})
+            this.setState({ loading: false });
             alert(error.response.data.message);
           }
         );
@@ -116,7 +118,10 @@ export default class Authenticate extends Component {
   render() {
     return (
       <ImageBackground source={backgroundImage} style={styles.backgroundIimage}>
-        <HeaderButton onPress={() => this.goBack()} style={styles.headerButton}></HeaderButton>
+        <HeaderButton
+          onPress={() => this.goBack()}
+          style={styles.headerButton}
+        />
         <ScrollView contentContainerStyle={styles.scrlVw}>
           <View style={styles.view}>
             <Image source={logoWhite} style={styles.image} />
@@ -130,7 +135,7 @@ export default class Authenticate extends Component {
             <View style={styles.innerView}>
               <TextInput
                 onChangeText={text => {
-                  this.state.email = text;
+                  this.props.emailTextChangedLocal(text)
                 }}
                 autoCapitalize="none"
                 placeholder="email address"
@@ -140,7 +145,7 @@ export default class Authenticate extends Component {
               <View style={styles.innerView1} />
               <TextInput
                 onChangeText={text => {
-                  this.state.password = text;
+                  this.props.passwordTextChangedLocal(text)
                 }}
                 secureTextEntry={true}
                 style={styles.styleTextInput}
@@ -157,7 +162,7 @@ export default class Authenticate extends Component {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.styleLogin}
-                onPress={() => this.loginClicked()}
+                onPress={() => this.props.loginClickedLocal(this.props.email, this.props.password)}
               >
                 <Text style={styles.btnLogin}>LOG IN</Text>
               </TouchableOpacity>
@@ -170,7 +175,7 @@ export default class Authenticate extends Component {
             </View>
           </View>
         </ScrollView>
-        {this.state.loading ? (
+        {this.props.loading ? (
           <View style={styles.styleActivityIndicatorView}>
             <ActivityIndicator
               size="large"
@@ -202,131 +207,20 @@ const mainValidations = [
   }
 ];
 
-const styles = StyleSheet.create({
-  backgroundIimage: {
-    flex: 1,
-    justifyContent: "center",
-    resizeMode: "contain",
-    justifyContent: "flex-start"
-  },
-  scrlVw: {
-    flex: 1
-  },
-  view: {
-    flex: 1,
-    alignItems: "center"
-  },
-  image: {
-    width: 100,
-    height: 100,
-    resizeMode: "contain",
-    marginTop: 50
-  },
-  fbButton: {
-    backgroundColor: "white",
-    width: "95%",
-    // justifyContent:'center',
-    alignItems: "center",
-    marginTop: 30,
-    height: 48,
-    flexDirection: "row"
-  },
-  headerButton: {
-    width: 30,
-    height: 30,
-    marginLeft: 10,
-    marginTop: 40
-  },
-  fbIcon: {
-    width: 25,
-    height: 25,
-    marginLeft: 20
-  },
-  fbText: {
-    flex: 0.85,
-    alignSelf: "center",
-    fontFamily: "Rajdhani-Bold",
-    color: "#4266b2",
-    textAlign: "center"
-  },
-  button: {
-    marginLeft: 20,
-    marginTop: 30
-  },
-  innerView: {
-    width: "95%",
-    height: 140,
-    backgroundColor: "white",
-    marginTop: 15
-  },
-  styleTextInputPlaceHolder: {
-    marginLeft: 20,
-    marginTop: 5,
-    height: 30,
-    color: "#c6c6cb",
-    fontSize: 17,
-    marginTop: 10
-  },
-  styleTextInput: {
-    marginLeft: 20,
-    marginTop: 5,
-    height: 30,
-    color: "black",
-    fontSize: 17,
-    marginTop: 10,
-    fontFamily: "Rajdhani-SemiBold"
-  },
-  innerView1: {
-    width: "90%",
-    backgroundColor: "#d5dee3",
-    height: 0.5,
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 5
-  },
-  btnForgot: {
-    textAlign: "center",
-    fontFamily: "Rajdhani-SemiBold",
-    fontSize: 12,
-    marginTop: 20,
-    color: "#096b76"
-  },
-  styleLogin: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 30,
-    height: 48,
-    width: "100%",
-    backgroundColor: "#06878a"
-  },
-  btnLogin: {
-    textAlign: "center",
-    fontFamily: "Rajdhani-Bold",
-    fontSize: 17,
-    color: "white",
-    alignSelf: "center"
-  },
-  styleCreate: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 10,
-    height: 48,
-    width: "100%"
-  },
-  btnCreate: {
-    textAlign: "center",
-    fontFamily: "Rajdhani-Bold",
-    fontSize: 17,
-    color: "#096b76",
-    alignSelf: "center"
-  },
-  styleActivityIndicatorView: {
-    height: "100%",
-    position: "absolute",
-    alignSelf: "center",
-    justifyContent: "center"
-  },
-  styleActivityIndicator: {
-    // backgroundColor:'red'
-  }
-});
+const mapStateToProps = state => {
+  return {
+    email: state.login.email,
+    password: state.login.password,
+    loading:state.login.loading
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    emailTextChangedLocal: (email) => dispatch(emailTextChanged(email)),
+    passwordTextChangedLocal: (password) => dispatch(passwordTextChanged(password)),
+    loginClickedLocal : (email, password) => dispatch(loginClicked(email, password))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps) (Authenticate)

@@ -43,13 +43,14 @@ import {
   newsTabbarActive,
   newsTabbarInActive
 } from "./src/assets/images/images";
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
-
+import {Provider} from 'react-redux'
+import {createStore, applyMiddleware} from 'redux'
+import rootReducer from './src/reducers'
+import createSagaMiddleware from 'redux-saga'
+import NavigationService from './src/utilities/navigationservice'
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
+import rootSaga from './src/sagas'
 type Props = {};
 export default class App extends Component<Props> {
   async returnInitialRoute() {
@@ -63,10 +64,13 @@ export default class App extends Component<Props> {
 
   render() {
     // return (this.returnInitialRoute() ? (<AppContainer2 />) : (<AppContainer1 />))
-    return <AppContainer1 />
+    return <Provider store={store}><AppContainer1 ref={(navigatorRef) => {
+      NavigationService.setTopLevelNavigator(navigatorRef)
+    }}
+    /></Provider>
   }
 }
-
+sagaMiddleware.run(rootSaga)
 const TabNavigator = createBottomTabNavigator(
   {
     Live: {
@@ -289,3 +293,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#096B76"
   }
 });
+

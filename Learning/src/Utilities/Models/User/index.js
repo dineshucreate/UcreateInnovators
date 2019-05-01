@@ -1,10 +1,11 @@
 import { saveToAsyncStorage } from "../../asyncstorage";
-import {AsyncStorage} from 'react-native'
-import { consumePostAPI, consumeGetAPI} from "../../serverrequest";
-import {subscriptionKey, apiVersion, contentType} from '../../constants'
+import { AsyncStorage } from "react-native";
+import { consumePostAPI, consumeGetAPI } from "../../serverrequest";
+import { subscriptionKey, apiVersion, contentType } from "../../constants";
 export default class User {
   constructor(response) {
     if (response != null) {
+      console.log('aya')
       if (response.user) {
         this.accessToken = response.access_token;
         this.firstName = response.user.firstname;
@@ -16,8 +17,8 @@ export default class User {
             this.domesticTeamId = dct.teamId;
             this.domesticTeamName = dct.teamName;
             this.domesticTeamIconUrl = dct.teamIconUrl;
-            if(dct.teamStickers.length > 0) {
-              this.stickerUrl = dct.teamStickers[0].stickerUrl
+            if (dct.teamStickers.length > 0) {
+              this.stickerUrl = dct.teamStickers[0].stickerUrl;
             }
           } else {
             this.internationalTeamId = dct.teamId;
@@ -37,11 +38,11 @@ export default class User {
         this.internationalTeamId = response.teamId;
         this.internationalTeamName = response.teamName;
         this.internationalTeamIconUrl = response.teamIconUrl;
-        this.stickerUrl = response.stickerUrl
+        this.stickerUrl = response.stickerUrl;
       }
     }
   }
-  loginUser(email, password, successCallback, errorCallback) {
+  loginUser = async (email, password) => {
     const url =
       "https://footballalbum-prod-api.imfootball.me/UserAPI/api/Auth/Login";
     // Header params to attach with Request
@@ -55,23 +56,15 @@ export default class User {
       email: email,
       password: password
     };
-    consumePostAPI(
-      url,
-      headerParams,
-      loginParams,
-      response => {
-        successCallback(response);
-      },
-      error => {
-        errorCallback(error);
-      }
-    );
-  }
+    const response = await consumePostAPI(url, loginParams, headerParams);
+    return response;
+  };
 
   async getFriendList(successCallback, errorCallback) {
-    const response = await AsyncStorage.getItem('user')
-    const user = JSON.parse(response)
-    const url = "https://footballalbum-prod-api.imfootball.me//UserAPI/api/User/FriendList";
+    const response = await AsyncStorage.getItem("user");
+    const user = JSON.parse(response);
+    const url =
+      "https://footballalbum-prod-api.imfootball.me//UserAPI/api/User/FriendList";
     // Header params to attach with Request
     const headerParams = {
       "Content-Type": contentType,
@@ -83,18 +76,19 @@ export default class User {
       url,
       headerParams,
       response => {
-        successCallback(response)
+        successCallback(response);
       },
       error => {
-        errorCallback(error)
+        errorCallback(error);
       }
     );
   }
 
   async removeFriend(userGUID, successCallback, errorCallback) {
-    const response = await AsyncStorage.getItem('user')
-    const user = JSON.parse(response)
-    const url = "https://footballalbum-prod-api.imfootball.me//UserAPI/api/Recommendation/UpdateRecommendationStatus";
+    const response = await AsyncStorage.getItem("user");
+    const user = JSON.parse(response);
+    const url =
+      "https://footballalbum-prod-api.imfootball.me//UserAPI/api/Recommendation/UpdateRecommendationStatus";
     // Header params to attach with Request
     const headerParams = {
       "Content-Type": contentType,
@@ -102,10 +96,12 @@ export default class User {
       "Ocp-Apim-Subscription-Key": subscriptionKey,
       "X-ZUMO-AUTH": user.accessToken
     };
-    const parms = [{
-      recommendationStatusTypeId: '2',
-      userGuid: userGUID
-    }];
+    const parms = [
+      {
+        recommendationStatusTypeId: "2",
+        userGuid: userGUID
+      }
+    ];
     consumePostAPI(
       url,
       headerParams,

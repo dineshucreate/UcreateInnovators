@@ -11,7 +11,7 @@ export default class StatsModel extends Component {
     };
   }
 
-  async getResultsForActiveTournaments(successCallback, errorCallback) {
+  async getResultsForActiveTournaments() {
     const response = await AsyncStorage.getItem("user");
     const user = JSON.parse(response);
     const url =
@@ -23,19 +23,7 @@ export default class StatsModel extends Component {
       "Ocp-Apim-Subscription-Key": subscriptionKey,
       "X-ZUMO-AUTH": user.accessToken
     };
-    consumeGetAPI(
-      url,
-      headerParams,
-      response => {
-        response.forEach((dct) => {
-          let stat = new Stat(dct);
-          this.state.arrResults.push(stat);
-        });
-        successCallback(this.state.arrResults);
-      },
-      error => {
-        errorCallback(error);
-      }
-    );
+    const responseObj = await consumeGetAPI(url, headerParams)
+    return responseObj
   }
 }

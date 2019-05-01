@@ -22,16 +22,10 @@ export default class Stats extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     let statsModel = new StatsModel();
-    statsModel.getResultsForActiveTournaments(
-      response => {
-        this.setState({arrResults:response})
-      },
-      error => {
-        alert(JSON.stringify(error));
-      }
-    );
+    const response = await statsModel.getResultsForActiveTournaments()
+    this.setState({arrResults:response.data})
   }
 
   headerButtonClicked() {
