@@ -1,6 +1,7 @@
-import { GETUSERLIST, USERLISTSUCCESS, USERLISTFAILURE } from './constant';
+import { GETUSERLISTREQUEST, USERLISTSUCCESS, USERLISTFAILURE } from './constant';
+
 export const getUserList = () => ({
-	type: GETUSERLIST
+	type: GETUSERLISTREQUEST
 });
 
 export const userListSuccess = (data) => ({

@@ -5,6 +5,8 @@ import homeModel from '../../models/home';
 import HeaderView from '../../components/HeaderView/Header';
 import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
+import Loader from '../../loader/loader';
+import { getUserList } from './action';
 
 class home extends Component {
 	static navigationOptions = {
@@ -36,24 +38,26 @@ class home extends Component {
 	}
 
 	makeRemoteRequest() {
-		let home = new homeModel();
-		this.setState({
-			loading: true
-		});
-		home.getEmployeeList(
-			(response) => {
-				this.setState({
-					arrList: response.data,
-					loading: false
-				});
-			},
-			(error) => {
-				this.setState({
-					error: error,
-					loading: false
-				});
-			}
-		);
+		const { getUserList } = this.props;
+		getUserList();
+		// let home = new homeModel();
+		// this.setState({
+		// 	loading: true
+		// });
+		// home.getEmployeeList(
+		// 	(response) => {
+		// 		this.setState({
+		// 			arrList: response.data,
+		// 			loading: false
+		// 		});
+		// 	},
+		// 	(error) => {
+		// 		this.setState({
+		// 			error: error,
+		// 			loading: false
+		// 		});
+		// 	}
+		// );
 	}
 
 	onPress = (item) => {
@@ -87,7 +91,7 @@ class home extends Component {
 
 	render() {
 		const { navigation } = this.props;
-		const user = navigation.getParam('user', 'no user');
+		// const user = navigation.getParam('user', 'no user');
 		return (
 			<View style={{ flex: 1 }}>
 				<SafeAreaView style={{ flex: 0, backgroundColor: 'white' }} />
@@ -95,7 +99,7 @@ class home extends Component {
 					<HeaderView headerTitle={'Home'} onClickIcon={this.drawerOpen} />
 					<View style={{ flex: 1, justifyContent: 'center', backgroundColor: 'white' }}>
 						<FlatList
-							data={this.state.arrList}
+							data={this.props.data}
 							renderItem={this.renderListItem}
 							keyExtractor={this._keyExtractor}
 							ItemSeparatorComponent={this.renderSeparator}
@@ -114,6 +118,7 @@ class home extends Component {
 							/>
 						)}
 					</View>
+					{this.props.loading && <Loader loading={this.props.loading} />}
 				</SafeAreaView>
 			</View>
 		);
@@ -122,8 +127,11 @@ class home extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		loading: state.login.loading
+		loading: state.home.loading,
+		data: state.home.data
 	};
 };
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+	getUserList: () => dispatch(getUserList())
+});
 export default connect(mapStateToProps, mapDispatchToProps)(home);

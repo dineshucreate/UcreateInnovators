@@ -1,4 +1,4 @@
-import { GETUSERLIST, USERLISTSUCCESS, USERLISTFAILURE } from './constant';
+import { GETUSERLISTREQUEST, USERLISTSUCCESS, USERLISTFAILURE } from './constant';
 const INITIALSTATE = {
 	loading: false,
 	data: [],
@@ -7,7 +7,7 @@ const INITIALSTATE = {
 
 export default (state = INITIALSTATE, action) => {
 	switch (action.type) {
-		case GETUSERLIST:
+		case GETUSERLISTREQUEST:
 			return {
 				...state,
 				loading: true
@@ -15,6 +15,7 @@ export default (state = INITIALSTATE, action) => {
 		case USERLISTSUCCESS:
 			return {
 				...state,
+				data: action.data,
 				loading: false
 			};
 		case USERLISTFAILURE:
