@@ -17,6 +17,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import SecondScreen from './SecondScreen';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -24,15 +27,20 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component {
+ class LoginScreen extends Component {
+
+  myArrowFun = () =>{
+    this.props.navigation.navigate('Details')
+  }
+  
   render() {
     return (
       <View style={styles.MainContainer}>
 
         <View style={styles.ImageContainer}>
           <Image style={{ width: 250, height: "50%", resizeMode: 'contain' }}
-            source={require('./src/assets/ic_home_golfclub.png')} />
+            source={require('../../assets/ic_home_golfclub.png')}
+            />
         </View>
 
         <View style={styles.container}>
@@ -59,7 +67,7 @@ export default class App extends Component {
             style={styles.TextInputStyle}
             maxLength={15} />
 
-          <TouchableOpacity onPress={() => this.myArrowFun()}
+          <TouchableOpacity onPress={ this.myArrowFun}
             style={styles.TouchableOpacityStyle}>
             <Text
               style={{
@@ -90,6 +98,18 @@ export default class App extends Component {
     );
   }
 }
+
+const Apps = createStackNavigator(
+  {
+    Home: LoginScreen,
+    Details: SecondScreen,
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+export default createAppContainer(Apps);
 
 const styles = StyleSheet.create({
   MainContainer: {
