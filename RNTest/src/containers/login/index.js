@@ -2,8 +2,18 @@ import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 export default class Login extends Component {
   sumOfNumber = (a, b) => {
-    return a + b
-  }
+    return a + b;
+  };
+
+  sumOfNumberAsync = (a, b) => {
+    return new Promise((resolve, reject) => {
+      if (true) {
+        resolve(a + b);
+      } else {
+        reject(a + b);
+      }
+    });
+  };
   render() {
     return (
       <View>

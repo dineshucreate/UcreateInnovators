@@ -3,11 +3,15 @@ import Login from "../src/containers/login";
 import renderer from "react-test-renderer";
 describe("Login Screen", () => {
   let wrapper = renderer.create(<Login />)
+  let instance = wrapper.getInstance();
   it("Login", () => {
     expect(wrapper).toMatchSnapshot();
   });
   it("Sum of two numbers", () => {
-    let instance = wrapper.getInstance();
-    expect(instance.sumOfNumber(2, 3)).toBe(5);
+    expect(instance.sumOfNumber(2, 3)).toEqual(5)
   });
+
+  it("Sum of numbers async", () => {
+    return (instance.sumOfNumberAsync(2, 3).then((data) => expect(data).toEqual(5)))
+  })
 });
