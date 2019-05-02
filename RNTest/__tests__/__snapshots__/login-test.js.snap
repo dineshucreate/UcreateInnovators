@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Screen Login 1`] = `
+<View>
+  <View>
+    <Text>
+      1234
+    </Text>
+  </View>
+  <View>
+    <Text>
+      123
+    </Text>
+  </View>
+  <View>
+    <Text>
+      123
+    </Text>
+  </View>
+  <View>
+    <Text>
+      123
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text>
+      Click
+    </Text>
+  </View>
+</View>
+`;
