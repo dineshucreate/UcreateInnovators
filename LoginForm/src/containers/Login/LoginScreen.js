@@ -27,12 +27,16 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
- class LoginScreen extends Component {
+class LoginScreen extends Component {
 
-  myArrowFun = () =>{
-    this.props.navigation.navigate('Details')
+  myArrowFun = () => {
+    /* 1. Navigate to the Details route with params */
+    this.props.navigation.navigate('Details', {
+      itemId: 40,
+      otherParam: 'anything you want here',
+    });
   }
-  
+
   render() {
     return (
       <View style={styles.MainContainer}>
@@ -40,7 +44,7 @@ const instructions = Platform.select({
         <View style={styles.ImageContainer}>
           <Image style={{ width: 250, height: "50%", resizeMode: 'contain' }}
             source={require('../../assets/ic_home_golfclub.png')}
-            />
+          />
         </View>
 
         <View style={styles.container}>
@@ -67,7 +71,7 @@ const instructions = Platform.select({
             style={styles.TextInputStyle}
             maxLength={15} />
 
-          <TouchableOpacity onPress={ this.myArrowFun}
+          <TouchableOpacity onPress={this.myArrowFun}
             style={styles.TouchableOpacityStyle}>
             <Text
               style={{
@@ -90,7 +94,7 @@ const instructions = Platform.select({
             style={{
               justifyContent: 'center',
               color: '#000000',
-        
+
             }}>© 2019 Open Solutions International Ltd</Text>
         </View>
 
