@@ -7,9 +7,10 @@ export const loginRequest = (email, password, navigator) => ({
     navigator,
 });
 
-export const loginSuccess = () => (
+export const loginSuccess = (gifsData) => (
     {
-        type: REQUEST_SUCCESS
+        type: REQUEST_SUCCESS,
+        gifsData
     }
 );
 export const loginFail = () => (

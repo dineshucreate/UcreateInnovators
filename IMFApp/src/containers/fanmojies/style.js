@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     headerText: {
         textAlign: 'center',
         marginTop: 0,
-        fontSize: 28,
+        fontSize: 24,
         fontFamily: 'Rajdhani-Bold',
         color: 'white',
     },

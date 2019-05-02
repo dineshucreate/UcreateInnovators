@@ -19,10 +19,7 @@ function* onGetResultsRequest() {
             responseType: 'json'
         };
         const resultsData = yield Axios(config);
-        console.log('ResultData: ' + JSON.stringify(resultsData));
-
         yield put(getResutlsSuccess(resultsData.data));
-
     } catch (error) {
         yield put(getResutlsFail())
         alert(JSON.stringify(error.response.data.message));

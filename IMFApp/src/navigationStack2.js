@@ -53,7 +53,7 @@ const tab = createBottomTabNavigator(
                 backgroundColor: '#096B76'
             }
         },
-        initialRouteName: 'Stats'
+        initialRouteName: 'News'
     }
 );
 

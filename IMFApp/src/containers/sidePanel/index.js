@@ -54,7 +54,7 @@ export default class SidePanel extends Component {
             </TouchableOpacity>
             <View style={styles.lineView} />
             <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.fanmojiesPress}>
-              <Text style={styles.textButtons}>Fanmojies</Text>
+              <Text style={styles.textButtons}>Fan Gif's</Text>
               <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
             </TouchableOpacity>
 

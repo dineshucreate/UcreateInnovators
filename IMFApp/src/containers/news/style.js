@@ -30,6 +30,22 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontFamily: 'Rajdhani-Bold',
         color: '#06878A',
-    }
+    },
+    newsHeaderText: {
+        textAlign: 'left',
+        marginTop: 0,
+        fontSize: 18,
+        fontFamily: 'Rajdhani-bold',
+        color: 'black',
+        height: 46
+    },
+    newsTittleText: {
+        textAlign: 'left',
+        marginTop: 5,
+        fontSize: 14,
+        fontFamily: 'Rajdhani-regular',
+        color: 'black',
+        height: 80
+    },
 });
 export default styles;
