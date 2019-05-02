@@ -54,5 +54,61 @@ const styles = StyleSheet.create({
       marginTop: 20,
   
     },
+    Alert_Main_View:{
+ 
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor : "#ffffff", 
+      height: 200 ,
+      width: '90%',
+      borderWidth: 1,
+      borderColor: '#fff',
+      borderRadius:7,
+     
+    },
+     
+    Alert_Title:{
+     
+      fontSize: 25, 
+      color: "#000",
+      textAlign: 'center',
+      padding: 10,
+      height: '28%'
+     
+    },
+     
+    Alert_Message:{
+     
+        fontSize: 22, 
+        color: "#000",
+        textAlign: 'center',
+        padding: 10,
+        height: '42%'
+       
+      },
+     
+    buttonStyle: {
+        
+        width: '50%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
+     
+    },
+       
+    TextStyle:{
+        color:'#000',
+        textAlign:'center',
+        fontSize: 22,
+        marginTop: -5
+    },
+    MainContainer :{
+    
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+     
+      
+     },
   });
   export default styles;

@@ -6,6 +6,7 @@ import { createStackNavigator,
 
     import login from './containers/Login/index'
     import dashboard from './containers/dasboard/index'
+    import modelExample from './containers/modelPractise/index'
 
     const AuthStack = createStackNavigator(
         {
@@ -14,6 +15,12 @@ import { createStackNavigator,
                 navigationOptions: () => ({
                     header: null,
                 })
+            },
+            modelExample:{
+               screen: modelExample,
+               navigationOptions: () => ({
+                header: null,
+            })
             },
             dashboard: {
                 screen: dashboard,
