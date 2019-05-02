@@ -12,7 +12,8 @@ import {
 	TouchableOpacity,
 	ScrollView,
 	Dimensions,
-	AsyncStorage
+	AsyncStorage,
+	Button
 } from 'react-native';
 import styles from './style';
 import { emptyRegex, emailReg, passwordReg } from '../../utilities/regex.js';
@@ -22,10 +23,12 @@ import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
 import Loader from '../../loader/loader';
 import { loginRequest } from './actions';
+import Modal from 'react-native-modal';
+// import CustomDialogue from '../../loader/CustomDialogue';
 
 const height = Dimensions.get('window').height;
 
-class login extends Component {
+class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -36,10 +39,16 @@ class login extends Component {
 			passwordValid: true,
 			user: { email: '', password: '' },
 			url: '',
-			loading: false
+			loading: false,
+			showModal: false,
+			isModalVisible: false
 		};
 		// this.getUserData();
 	}
+
+	toggleModal = () => {
+		this.setState({ isModalVisible: !this.state.isModalVisible });
+	};
 
 	componentDidMount() {
 		SplashScreen.hide();
@@ -88,27 +97,16 @@ class login extends Component {
 		await AsyncStorage.setItem('user', JSON.stringify(this.state.user));
 	};
 
+	termsAndConditions = () => {
+		this.toggleModal();
+	};
+
 	login = () => {
 		this.validateForm((isDone) => {
 			if (isDone) {
 				const { loginRequest, navigation } = this.props;
 				const { email, password } = this.state;
-				// this.props.navigation.navigate('home');
 				loginRequest(email, password, navigation);
-				// this.state.user.email = this.state.email;
-				// let user = new User();
-				// user.loginUserAPI(
-				// 	this.state.email,
-				// 	this.state.password,
-				// 	(response) => {
-				// 		console.log(response);
-				// 		this.storeUser();
-				// 		this.props.navigation.navigate('home', { user: this.state.user });
-				// 	},
-				// 	(error) => {
-				// 		console.log(error);
-				// 	}
-				// );
 			}
 		});
 	};
@@ -164,10 +162,25 @@ class login extends Component {
 									<TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
 										<Text style={styles.buttonText}>SIGN IN</Text>
 									</TouchableOpacity>
+									<TouchableOpacity
+										style={{ marginTop: 10, backgroundColor: 'red' }}
+										onPress={this.termsAndConditions}
+									>
+										<Text style={{ color: 'white' }}>Terms&Conditions</Text>
+									</TouchableOpacity>
+
 									{/* <Text style={[ styles.countText ]}>
 										{this.state.email !== '' ? this.state.email : null}
 									</Text> */}
 									{this.props.loading && <Loader loading={this.props.loading} />}
+									<Modal isVisible={this.state.isModalVisible}>
+										<View style={styles.container}>
+											<View style={{ flex: 1 }}>
+												<Text>Hello!</Text>
+												<Button title="Hide modal" onPress={this.toggleModal} />
+											</View>
+										</View>
+									</Modal>
 								</View>
 							</View>
 						</ScrollView>
@@ -187,7 +200,7 @@ const mapDispatchToProps = (dispatch) => ({
 	loginRequest: (email, password, navigation) => dispatch(loginRequest(email, password, navigation))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 
 const mainValidations = [
 	{

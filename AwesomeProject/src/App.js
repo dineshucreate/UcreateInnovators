@@ -9,10 +9,10 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import Begin from './router';
+import Router from './router';
 import { createAppContainer } from 'react-navigation';
 
-const AppContainer = createAppContainer(Begin);
+const AppContainer = createAppContainer(Router);
 
 export default class NavigationComponentInitial extends Component {
 	render() {

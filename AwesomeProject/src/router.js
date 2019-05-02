@@ -1,17 +1,18 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
-import { login, signUp, home, settings, profile } from './containers';
+import { Login, Home, Settings, Profile } from './containers';
 import sidePanel from './components/SidePanel';
 import signup from './containers/signup';
-import { createAppContainer } from 'react-navigation';
 // You should not have the drawer in tab
-const tab = createBottomTabNavigator(
+const Tab = createBottomTabNavigator(
 	{
-		Home: {
-			screen: home
+		home: {
+			screen: Home
 		},
-		Settings: settings
+		settings: {
+			screen: Settings
+		}
 	},
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
@@ -42,19 +43,16 @@ const tab = createBottomTabNavigator(
 );
 
 // Pass the tabs in Drawer or Stack
-const MyDrawerNavigator = createDrawerNavigator(
+const drawerNavigator = createDrawerNavigator(
 	{
-		Home: {
-			screen: tab
+		tabs: {
+			screen: Tab
 		},
-		Profile: {
-			screen: profile
+		profile: {
+			screen: Profile
 		},
-		Login: {
-			screen: login
-		},
-		SignUp: {
-			screen: signup
+		home: {
+			screen: Home
 		}
 	},
 	{
@@ -63,32 +61,27 @@ const MyDrawerNavigator = createDrawerNavigator(
 	}
 );
 
-const LoginTab = createStackNavigator(
+const stack = createStackNavigator(
 	{
-		Login: {
-			screen: login
+		login: {
+			screen: Login
 		},
-		Profile: {
-			screen: profile
-		},
-		home: {
-			screen: home,
+		drawer: {
+			screen: drawerNavigator,
 			navigationOptions: {
 				header: null
 			}
 		},
-		drawer: {
-			screen: MyDrawerNavigator,
+		home: {
+			screen: Home,
 			navigationOptions: {
 				header: null
 			}
 		}
 	},
 	{
-		initialRouteName: 'Login'
+		initialRouteName: 'login'
 	}
 );
 
-// const Begin = createAppContainer(LoginTab);
-
-export default LoginTab;
+export default stack;

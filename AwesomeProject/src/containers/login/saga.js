@@ -21,15 +21,7 @@ function* onLoginRequest({ email, password, navigation }) {
 		const loginData = yield call(axios.post, url, bodyValue, { headers: headerValue });
 		yield put(loginSuccess(loginData.data));
 		console.log(loginData.data);
-		navigation.navigate('Home');
-		// Alert(JSON.stringify(loginData.data));
-		//	navigator.navigate('dashboard');
-		// if (loginData.data.success === true) {
-		//     yield put(loginSuccess(loginData.data));
-		//    // navigator.navigate('flatList');
-		//   } else {
-		//     Alert.alert(loginData.data.message);
-		//   }
+		navigation.navigate('drawer');
 	} catch (error) {
 		yield put(loginFail(error));
 		Alert.alert(`login failed: ${error}`);

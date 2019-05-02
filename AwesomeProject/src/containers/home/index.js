@@ -7,8 +7,9 @@ import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
 import Loader from '../../loader/loader';
 import { getUserList } from './action';
+import { createAppContainer, DrawerActions } from 'react-navigation';
 
-class home extends Component {
+class Home extends Component {
 	static navigationOptions = {
 		title: 'Home'
 	};
@@ -26,11 +27,6 @@ class home extends Component {
 	componentDidMount() {
 		SplashScreen.hide();
 		this.makeRemoteRequest();
-		setTimeout(() => {
-			this.setState({
-				name: 'halip'
-			});
-		}, 30000);
 	}
 
 	componentDidUpdate() {
@@ -40,24 +36,6 @@ class home extends Component {
 	makeRemoteRequest() {
 		const { getUserList } = this.props;
 		getUserList();
-		// let home = new homeModel();
-		// this.setState({
-		// 	loading: true
-		// });
-		// home.getEmployeeList(
-		// 	(response) => {
-		// 		this.setState({
-		// 			arrList: response.data,
-		// 			loading: false
-		// 		});
-		// 	},
-		// 	(error) => {
-		// 		this.setState({
-		// 			error: error,
-		// 			loading: false
-		// 		});
-		// 	}
-		// );
 	}
 
 	onPress = (item) => {
@@ -134,4 +112,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
 	getUserList: () => dispatch(getUserList())
 });
-export default connect(mapStateToProps, mapDispatchToProps)(home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

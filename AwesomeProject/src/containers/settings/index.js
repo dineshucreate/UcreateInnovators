@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from '../profile/style';
 import HeaderView from '../../components/HeaderView/Header';
 
-export default class settings extends Component {
+export default class Settings extends Component {
 	componentWillUnmount() {
 		console.log('componentWillUnmount');
 	}
