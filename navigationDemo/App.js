@@ -6,17 +6,17 @@
  * @flow
  */
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import FirstScreen from './src/containers/First/FirstScreen';
-import ThirdScreen from "./src/containers/Third/ThirdScreen";
+import SplashScreen from "./src/containers/Splash/SplashScreen";
+import HomeScreen from "./src/containers/Home/HomeScreen";
 
 const Apps = createStackNavigator(
   {
-    Home: FirstScreen,
-    third: ThirdScreen,
+    Loading: SplashScreen,
+    Home: HomeScreen
   },
-  // },
   {
-    initialRouteName: 'Home'
+
+    initialRouteName: 'Loading'
   }
 );
 
