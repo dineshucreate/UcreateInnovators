@@ -1,26 +1,40 @@
-import React, {Component} from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity
+} from 'react-native';
 
-class FirstScreen extends Component{
-    launchNext = () => {
-        
-    } 
+export default class FirstScreen extends Component {
 
-    render(){
-        return(
-            <View style = {Styles.container}>
-            <Text>First Screen</Text>
-            <TouchableOpacity 
-                onPress = {() => this.launchNext() }
-            >Open Second Screen</TouchableOpacity>
-            </View>
-        );
-    }
+
+  launchNext = () => {
+    this.props.navigation.navigate('third');
+  }
+
+  render() {
+    return (
+      <View style={myStyles.MainContainer}>
+        <Text>Karan Nassa Ucreate</Text>
+        <TouchableOpacity onPress={this.launchNext}>
+          <Text>Click </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
-const Styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        flexDirection: row
-    }
+const myStyles = StyleSheet.create({
+  MainContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#f1f1f0',
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    textAlign: 'center',
+    backgroundColor: '#ff0000',
+  }
 });
