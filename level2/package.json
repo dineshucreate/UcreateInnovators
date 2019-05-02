@@ -1,5 +1,5 @@
 {
-  "name": "Level2Tasks",
+  "name": "level2",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -18,7 +18,7 @@
     "@babel/runtime": "7.4.4",
     "babel-jest": "24.7.1",
     "jest": "24.7.1",
-    "metro-react-native-babel-preset": "0.53.1",
+    "metro-react-native-babel-preset": "0.54.0",
     "react-test-renderer": "16.8.3"
   },
   "jest": {
