@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Text, View, Image, TouchableOpacity, Switch } from 'react-native';
+import { Text, View, TouchableOpacity, Switch } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import ImagePicker from 'react-native-image-crop-picker';
 import DatePicker from 'react-native-datepicker';
+import ImageViewer from 'react-native-image-zoom-viewer';
+// import ImageZoom from 'react-native-image-pan-zoom';
 import styles from './style';
 
 class Home extends PureComponent {
@@ -12,7 +14,7 @@ class Home extends PureComponent {
         this.state = {
             loading: false,
             photos: [],
-            path: '',
+            path: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460',
             date: '',
             isSwitchOn: false,
         };
@@ -40,6 +42,18 @@ class Home extends PureComponent {
 
     render() {
         const { path, isSwitchOn } = this.state;
+        const images = [{
+            width: 300,
+            height: 300,
+            props: {
+                source: { uri: path },
+            }
+        },
+        {
+            url: 'http://v1.qzone.cc/avatar/201407/07/00/24/53b9782c444ca987.jpg!200x200.jpg',
+            width: 300,
+            height: 300,
+        }];
         return (
             <SafeAreaView style={styles.mainContainer}>
                 <View style={styles.topBarContainer}>
@@ -67,8 +81,7 @@ class Home extends PureComponent {
                                 placeholderText: styles.datePlaceholderText,
                             }}
                             onDateChange={(date) => { this.setState({ date }); }}
-                        /> 
-                            
+                        />
                     </View>
                     <View style={styles.switchContainer}>
                         <Switch
@@ -80,26 +93,36 @@ class Home extends PureComponent {
                             thumbColor='grey'
                         />
                     </View>
-                    { isSwitchOn &&
-                    <View style={styles.photosContainer}>
-                        <TouchableOpacity 
-                            style={styles.buttonStyle} 
-                            onPress={this.handleOpenLibrary} 
-                        >
-                            <Text style={styles.buttonText} >Open Gallery</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity 
-                            style={styles.buttonStyle} 
-                            onPress={this.handleOpenCamera} 
-                        >
-                            <Text style={styles.buttonText} >Open Camera</Text>
-                        </TouchableOpacity>
-                    </View>
+                    {isSwitchOn &&
+                        <View style={styles.photosContainer}>
+                            <TouchableOpacity
+                                style={styles.buttonStyle}
+                                onPress={this.handleOpenLibrary}
+                            >
+                                <Text style={styles.buttonText} >Open Gallery</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={styles.buttonStyle}
+                                onPress={this.handleOpenCamera}
+                            >
+                                <Text style={styles.buttonText} >Open Camera</Text>
+                            </TouchableOpacity>
+                            <View style={styles.image}>
+                                <ImageViewer style={styles.image} imageUrls={images} />
+                            </View>
+                            {/* <ImageZoom 
+                                cropWidth={300}
+                                cropHeight={300}
+                                imageWidth={300}
+                                imageHeight={300}
+                            >
+                                <Image
+                                    style={styles.image}
+                                    source={{ uri: path }}
+                                />
+                            </ImageZoom> */}
+                        </View>
                     }
-                    <Image
-                        style={styles.image}
-                        source={{ uri: path }}
-                    />
                 </View>
             </SafeAreaView >
         );
