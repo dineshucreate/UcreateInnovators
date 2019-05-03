@@ -1,7 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-navigation';
-import { View, FlatList, RefreshControl, AsyncStorage, TouchableOpacity, Text } from 'react-native';
+import { View, 
+         FlatList, 
+         RefreshControl, 
+         AsyncStorage, 
+         TouchableOpacity, 
+         Text, 
+         Switch } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 import styles from './style';
 import { listRequest, loadMoreRequest } from './actions';
 import ListItem from './Components/ListItem';
@@ -13,11 +20,15 @@ class List extends Notification {
         super(props);
         this.state = {
             loading: false,
-            dataList: [],
+            dataListState: [],
+            dataListSearch: [],
+            searchText: '',
+            isSearching: false,
             isRefreshing: false,
             nextPageToken: '',
             totalResults: 0,
             pageInfo: {},
+            isSwitchOn: false,
         };
         this.setData();
     }
@@ -39,6 +50,11 @@ class List extends Notification {
         if (loading === false) {
             this.state.isRefreshing = false;
         }
+        const { dataList } = this.props;
+        this.state.dataListSearch = dataList;
+        if (!this.state.isSearching) {
+            this.state.dataListState = dataList;
+        }
         return true;
     }
     onScrollHandler = () => {
@@ -55,11 +71,32 @@ class List extends Notification {
     }
     renderItem = ({ item }) => (
         <View>
-            <ListItem dataItem={item} />
+            <ListItem dataItem={item} isGrid={this.state.isSwitchOn} />
         </View>
     );
+    searchFilterFunction = text => { 
+        this.setState({ searchText: text, isSearching: true }); 
+        const { dataListSearch } = this.state;  
+        const newData = dataListSearch.filter(item => {      
+            const itemData = `${item.snippet.title.toUpperCase()}`;
+            const textData = text.toUpperCase();
+            return itemData.indexOf(textData) > -1;    
+        });    
+        this.setState({ dataListState: newData });  
+      };
+    renderHeader = () => (      
+          <SearchBar        
+            placeholder="Type Here..."        
+            lightTheme        
+            round        
+            onChangeText={text => this.searchFilterFunction(text)}
+            autoCorrect={false}
+            value={this.state.searchText}   
+            onCancel={() => { this.setState({ isSearching: false }); }}         
+          />    
+        );
     render() {
-        const { dataList } = this.props;
+        const { dataListState, isSwitchOn } = this.state;
         return (
             <SafeAreaView style={styles.styleContainer}>
                 <View style={styles.topBarContainer}>
@@ -68,10 +105,21 @@ class List extends Notification {
                     >
                         <Text style={styles.titleText}>App</Text>
                     </TouchableOpacity>
+                    <Switch
+                            onValueChange={(value) => { this.setState({ isSwitchOn: value }); }}
+                            value={isSwitchOn}
+                            ios_backgroundColor='blue'
+                            tintColor='blue'
+                            trackColor='blue'
+                            thumbColor='grey'
+                            style={styles.switch}
+                    />
                 </View>
                 <FlatList
                     keyExtractor={(item, index) => index.toString()}
-                    data={dataList}
+                    data={dataListState}
+                    numColumns={isSwitchOn ? 2 : 1}
+                    key={isSwitchOn ? 2 : 1}
                     style={styles.styleList}
                     renderItem={this.renderItem}
                     refreshControl={
@@ -85,6 +133,7 @@ class List extends Notification {
                     }
                     onEndReached={this.onScrollHandler}
                     onEndThreshold={0}
+                    ListHeaderComponent={this.renderHeader}
                 />
             </SafeAreaView>
         );

@@ -22,5 +22,9 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingLeft: 18
     },
+    switch: {
+        position: 'absolute',
+        right: 10
+    },
 });
 export default styles;
