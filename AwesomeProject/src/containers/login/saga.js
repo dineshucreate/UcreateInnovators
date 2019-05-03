@@ -20,7 +20,6 @@ function* onLoginRequest({ email, password, navigation }) {
 	try {
 		const loginData = yield call(axios.post, url, bodyValue, { headers: headerValue });
 		yield put(loginSuccess(loginData.data));
-		console.log(loginData.data);
 		navigation.navigate('drawer');
 	} catch (error) {
 		yield put(loginFail(error));

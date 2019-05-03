@@ -24,6 +24,7 @@ import { connect } from 'react-redux';
 import Loader from '../../loader/loader';
 import { loginRequest } from './actions';
 import Modal from 'react-native-modal';
+
 // import CustomDialogue from '../../loader/CustomDialogue';
 
 const height = Dimensions.get('window').height;
@@ -162,16 +163,6 @@ class Login extends Component {
 									<TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
 										<Text style={styles.buttonText}>SIGN IN</Text>
 									</TouchableOpacity>
-									<TouchableOpacity
-										style={{ marginTop: 10, backgroundColor: 'red' }}
-										onPress={this.termsAndConditions}
-									>
-										<Text style={{ color: 'white' }}>Terms&Conditions</Text>
-									</TouchableOpacity>
-
-									{/* <Text style={[ styles.countText ]}>
-										{this.state.email !== '' ? this.state.email : null}
-									</Text> */}
 									{this.props.loading && <Loader loading={this.props.loading} />}
 									<Modal isVisible={this.state.isModalVisible}>
 										<View style={styles.container}>

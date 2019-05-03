@@ -8,8 +8,6 @@ function* userList({}) {
 	try {
 		const userListData = yield axios.get(url);
 		yield put(userListSuccess(userListData.data));
-		console.log(userListData.data);
-		// Alert(JSON.stringify(loginData.data));
 	} catch (error) {
 		yield put(userListFailure(error));
 	}
