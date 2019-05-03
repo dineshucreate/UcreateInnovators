@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image, ActivityIndicator, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ActivityIndicator, FlatList, Linking } from 'react-native';
 import styles from './style';
 import { SafeAreaView } from 'react-navigation';
 import { getNewsRequest } from './actions';
@@ -8,22 +8,32 @@ import { connect } from 'react-redux';
 class News extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            showWebview: false,
+            videoId: ''
+        }
     }
     componentDidMount() {
         const { getNewsRequest } = this.props;
         getNewsRequest();
     }
 
-    renderListItems = ({ item }) => (
-        <View style={{ height: 150, flexDirection: 'row', flex: 1 }}>
-            <Image style={{ height: 130, width: 100, marginTop: 10, marginLeft: 10, flex: 0.3 }}
-                source={{ uri: item.snippet.thumbnails.medium.url }} />
-            <View style={{ height: 130, margin: 10, flexDirection: 'column', flex: 0.7 }}>
-                <Text style={styles.newsHeaderText}>{item.snippet.title}</Text>
-                <Text style={styles.newsTittleText}>{item.snippet.description}</Text>
+    indexSelected = (item) => (
+        Linking.openURL(`https://www.youtube.com/embed/${item.id.videoId}?rel=0&autoplay=0&showinfo=0&controls=0`)
+    );
 
+    renderListItems = ({ item }) => (
+        <TouchableOpacity onPress={() => this.indexSelected(item)}>
+            <View style={{ height: 150, flexDirection: 'row', flex: 1 }}>
+                <Image style={{ height: 130, width: 100, marginTop: 10, marginLeft: 10, flex: 0.3 }}
+                    source={{ uri: item.snippet.thumbnails.medium.url }} />
+                <View style={{ height: 130, margin: 10, flexDirection: 'column', flex: 0.7 }}>
+                    <Text style={styles.newsHeaderText}>{item.snippet.title}</Text>
+                    <Text style={styles.newsTittleText}>{item.snippet.description}</Text>
+
+                </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 
     render() {
