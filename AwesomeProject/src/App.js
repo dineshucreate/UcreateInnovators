@@ -15,6 +15,7 @@ import { createAppContainer } from 'react-navigation';
 const AppContainer = createAppContainer(Router);
 
 export default class NavigationComponentInitial extends Component {
+
 	render() {
 		return (
 			<Provider store={store}>

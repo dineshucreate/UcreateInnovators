@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'react-native-firebase';
 import {
 	Image,
 	View,
@@ -13,7 +14,8 @@ import {
 	ScrollView,
 	Dimensions,
 	AsyncStorage,
-	Button
+	Button,
+	Alert
 } from 'react-native';
 import styles from './style';
 import { emptyRegex, emailReg, passwordReg } from '../../utilities/regex.js';
@@ -24,7 +26,7 @@ import { connect } from 'react-redux';
 import Loader from '../../loader/loader';
 import { loginRequest } from './actions';
 import Modal from 'react-native-modal';
-
+import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
 // import CustomDialogue from '../../loader/CustomDialogue';
 
 const height = Dimensions.get('window').height;
@@ -42,7 +44,8 @@ class Login extends Component {
 			url: '',
 			loading: false,
 			showModal: false,
-			isModalVisible: false
+			isModalVisible: false,
+			token: ''
 		};
 		// this.getUserData();
 	}
@@ -51,16 +54,142 @@ class Login extends Component {
 		this.setState({ isModalVisible: !this.state.isModalVisible });
 	};
 
+	// Push Notifications Methods
+	// ******************************************************
 	componentDidMount() {
 		SplashScreen.hide();
+		this.checkPermission();
+		this.createNotificationListeners();
+		console.log('My name is Gurpreet');
 	}
 
+	componentWillUnmount() {
+		this.notificationListener();
+		this.notificationOpenedListener();
+	}
+
+	//Push Notification:
+
+	// 3
+	async getToken() {
+		let fcmToken = await AsyncStorage.getItem('fcmToken');
+		// this.setState({ username: fcmToken });
+		if (!fcmToken) {
+			fcmToken = await firebase.messaging().getToken();
+			//this.setState({ username: fcmToken });
+			if (fcmToken) {
+				// user has a device token
+				console.log('Device Tokem = ', fcmToken);
+				await AsyncStorage.setItem('fcmToken', fcmToken);
+			}
+		}
+	}
+
+	1;
+	async checkPermission() {
+		const enabled = await firebase.messaging().hasPermission();
+		if (enabled) {
+			this.getToken();
+		} else {
+			this.requestPermission();
+		}
+	}
+
+	2;
+	async requestPermission() {
+		try {
+			await firebase.messaging().requestPermission();
+			// User has authorised
+			this.getToken();
+		} catch (error) {
+			// User has rejected permissions
+			console.log('permission rejected');
+		}
+	}
+
+	async createNotificationListeners() {
+		/*
+        * Triggered when a particular notification has been received in foreground
+        * */
+		this.notificationListener = firebase.notifications().onNotification((notification) => {
+			const { title, body } = notification;
+			this.showAlert(title, body);
+		});
+
+		/*
+        * If your app is in background, you can listen for when a notification is clicked 
+        / tapped / opened as follows:
+        * */
+		this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+			const { title, body } = notificationOpen.notification;
+			this.showAlert(title, body);
+		});
+
+		/*
+        * If your app is closed, you can check if it was opened by
+         a notification being clicked / tapped / opened as follows:
+        * */
+		const notificationOpen = await firebase.notifications().getInitialNotification();
+		if (notificationOpen) {
+			const { title, body } = notificationOpen.notification;
+			this.showAlert(title, body);
+		}
+		/*
+        * Triggered for data only payload in foreground
+        * */
+		this.messageListener = firebase.messaging().onMessage((message) => {
+			//process data message
+			console.log(JSON.stringify(message));
+		});
+	}
+
+	showAlert(title, body) {
+		Alert.alert(title, body, [ { text: 'OK', onPress: () => console.log('OK Pressed') } ], { cancelable: false });
+	}
+	/*----------------------------------------------------------------------------------*/
+
+	//******************************************************* */
 	getUserData = async () => {
 		const user = await AsyncStorage.getItem('user');
 		if (user != null) {
 			this.props.navigation.navigate('Home', { user: this.state.user });
 		}
 		console.log(user);
+	};
+
+	loginClicked = () => {
+		const { navigation } = this.props;
+		LoginManager.logInWithReadPermissions([ 'public_profile', 'email' ]).then(
+			(result) => {
+				if (result.isCancelled) {
+					Alert.alert('Login was cancelled');
+				} else {
+					AccessToken.getCurrentAccessToken().then(() => {
+						const responseInfoCallback = (error, result2) => {
+							if (error) {
+								Alert.alert(`Error fetching data: ${error.toString()}`);
+							} else {
+								console.log(JSON.stringify(result2));
+								Alert.alert('Welcome', result2.name);
+								// navigation.navigate('fb', {
+								// 	name: result2.name,
+								// 	avatar: result2.picture.data.url
+								// });
+							}
+						};
+						const infoRequest = new GraphRequest(
+							'/me?fields=name,email,picture.type(large)',
+							null,
+							responseInfoCallback
+						);
+						new GraphRequestManager().addRequest(infoRequest).start();
+					});
+				}
+			},
+			(error) => {
+				Alert.alert(`Login failed with error: ${error}`);
+			}
+		);
 	};
 
 	validateForm = async (callback) => {
@@ -137,8 +266,8 @@ class Login extends Component {
 								<View style={styles.infoContainer}>
 									<TextInput
 										style={[ styles.input, !this.state.emailValid ? styles.inputError : null ]}
-										onChangeText={(email) => this.setState({ email })}
-										value={this.state.email}
+										// onChangeText={(email) => this.setState({ token })}
+										value={this.state.token}
 										placeholder="Enter an email"
 										placeholderTextColor="rgba(255, 255, 255, 0.8)"
 										keyboardType="email-address"
@@ -160,7 +289,7 @@ class Login extends Component {
 										clearButtonMode="while-editing"
 										ref={'txtPassword'}
 									/>
-									<TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
+									<TouchableOpacity style={styles.buttonContainer} onPress={this.loginClicked}>
 										<Text style={styles.buttonText}>SIGN IN</Text>
 									</TouchableOpacity>
 									{this.props.loading && <Loader loading={this.props.loading} />}
