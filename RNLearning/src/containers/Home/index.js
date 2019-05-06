@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-navigation';
 import ImagePicker from 'react-native-image-crop-picker';
 import DatePicker from 'react-native-datepicker';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import Modal from 'react-native-modalbox';
 // import ImageZoom from 'react-native-image-pan-zoom';
 import styles from './style';
 
@@ -54,8 +55,28 @@ class Home extends PureComponent {
             width: 300,
             height: 300,
         }];
+        
         return (
             <SafeAreaView style={styles.mainContainer}>
+                <Modal
+                    style={styles.modal}
+                    position={'center'}
+                    entry='bottom'
+                    swipeToClose={false}
+                    backButtonClose={false}
+                    backdropPressToClose={false}
+                    animationDuration={200}
+                    ref={'loaderView'}
+                >
+                    <View style={{ flex: 1 }}>
+                        <Text style={styles.modalText}>Singh</Text>
+                        <TouchableOpacity
+                        onPress={() => this.refs.loaderView.close()}
+                        >
+                        <Text style={styles.modalText}>Close</Text>
+                    </TouchableOpacity>
+                    </View>
+                </Modal>
                 <View style={styles.topBarContainer}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.toggleDrawer()}
@@ -85,7 +106,14 @@ class Home extends PureComponent {
                     </View>
                     <View style={styles.switchContainer}>
                         <Switch
-                            onValueChange={(value) => { this.setState({ isSwitchOn: value }); }}
+                            onValueChange={(value) => { 
+                                this.setState({ isSwitchOn: value });
+                                if (value === true) {
+                                    this.refs.loaderView.open();
+                                } else {
+                                    this.refs.loaderView.close();
+                                }                  
+                            }}
                             value={isSwitchOn}
                             ios_backgroundColor='blue'
                             tintColor='blue'

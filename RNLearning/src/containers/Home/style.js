@@ -81,5 +81,16 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingLeft: 18
     },
+    modal: { height: 200, 
+        width: 200, 
+        padding: 5, 
+        borderRadius: 10, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+    },
+    modalText: { 
+        color: Colors.baseColor, 
+        alignSelf: 'center' 
+    }
 });
 export default styles;
