@@ -5,7 +5,9 @@ import styles from './style';
 import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
 import { loginRequest } from './actions'
-
+import {
+    LoginManager, AccessToken, GraphRequest, GraphRequestManager
+} from 'react-native-fbsdk';
 class login extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +27,42 @@ class login extends Component {
         const { email, password } = this.state
         loginRequest(email, password, navigation);
     };
+    loginFacebookClicked = () => {
+        const { navigation } = this.props;
+        LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+            (result) => {
+                if (result.isCancelled) {
+                    Alert.alert('Login was cancelled');
+                } else {
+                    AccessToken.getCurrentAccessToken().then(
+                        () => {
+                            const responseInfoCallback = (error, result2) => {
+                                if (error) {
+                                    Alert.alert(`Error fetching data: ${error.toString()}`);
+                                } else {
+                                    console.log(JSON.stringify(result2));
+                                    alert(result2.name)
+                                    // navigation.navigate('fb', {
+                                    //     name: result2.name,
+                                    //     avatar: result2.picture.data.url
+                                    // });
+                                }
+                            };
+                            const infoRequest = new GraphRequest(
+                                '/me?fields=name,email,picture.type(large)',
+                                null,
+                                responseInfoCallback
+                            );
+                            new GraphRequestManager().addRequest(infoRequest).start();
+                        }
+                    );
+                }
+            },
+            (error) => {
+                Alert.alert(`Login failed with error: ${error}`);
+            }
+        );
+    }
     render() {
         return (
             <BackgroundImage>
@@ -32,7 +70,8 @@ class login extends Component {
                 <ScrollView contentContainerStyle={styles.backgroundView}>
                     <View style={styles.backgroundView}>
                         <Image style={styles.logoImage} source={require('../../assets/images/logoWhite.png')} />
-                        <TouchableOpacity style={styles.facebookButton}>
+                        <TouchableOpacity style={styles.facebookButton}
+                            onPress={this.loginFacebookClicked}>
                             <Image style={styles.facebookIcon} source={require('../../assets/images/FbIcon.png')} />
                             <Text style={styles.facbookText}>LOG IN WITH FACEBOOK</Text>
                         </TouchableOpacity>

@@ -61,5 +61,26 @@
 		<string>rajdhani-regular.ttf</string>
 		<string>rajdhani-semibold.ttf</string>
 	</array>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb2112722785514044</string>
+      </array>
+    </dict>
+  </array>
+  <key>FacebookAppID</key>
+  <string>2112722785514044</string>
+  <key>FacebookDisplayName</key>
+  <string>jaspreet_RN</string>
+  
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-share-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+  </array>
 </dict>
 </plist>

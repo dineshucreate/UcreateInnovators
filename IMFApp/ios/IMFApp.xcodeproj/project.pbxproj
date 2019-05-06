@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -37,11 +38,23 @@
 		2DCD954D1E0B4F2C00145EB5 /* IMFAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* IMFAppTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		3DAF8E8318FE41CFA8AEB7F3 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4BABC3F13E49019C35575D /* libRNGestureHandler-tvOS.a */; };
+		48AD40E69A8E4E86B78E594B /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84621CA0AE7348CE981C5CA1 /* libRCTFBSDK.a */; };
 		5CFFCDD52B164098ACF2E28C /* rajdhani-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C942C9BEB92144AF848D8535 /* rajdhani-medium.ttf */; };
 		623087A7561246EEA8C33324 /* rajdhani-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15B0C0B80B134269AC03EC8F /* rajdhani-bold.ttf */; };
 		740BB8D958DD474485CC1C9C /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54942F696A414E23B2E74898 /* libRNGestureHandler.a */; };
 		7897CD32921D4F798225392D /* rajdhani-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FE41B789F9D4383B1274134 /* rajdhani-regular.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		87634F9E22805114004C3A0F /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87634F9322805111004C3A0F /* AccountKit.framework */; };
+		87634F9F22805114004C3A0F /* AccountKitStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87634F9422805111004C3A0F /* AccountKitStrings.bundle */; };
+		87634FA022805114004C3A0F /* FBSDKMarketingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87634F9522805111004C3A0F /* FBSDKMarketingKit.framework */; };
+		87634FA122805114004C3A0F /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87634F9622805112004C3A0F /* FacebookSDKStrings.bundle */; };
+		87634FA222805114004C3A0F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87634F9722805112004C3A0F /* FBSDKShareKit.framework */; };
+		87634FA322805114004C3A0F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87634F9822805113004C3A0F /* README.txt */; };
+		87634FA422805114004C3A0F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87634F9922805113004C3A0F /* FBSDKLoginKit.framework */; };
+		87634FA522805114004C3A0F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87634F9A22805113004C3A0F /* Bolts.framework */; };
+		87634FA622805114004C3A0F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87634F9B22805113004C3A0F /* LICENSE.txt */; };
+		87634FA722805114004C3A0F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87634F9C22805114004C3A0F /* FBSDKCoreKit.framework */; };
+		87634FA822805114004C3A0F /* FBSDKPlacesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87634F9D22805114004C3A0F /* FBSDKPlacesKit.framework */; };
 		89008DBAA50A47938CB676DC /* rajdhani-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65D76C51252F47C6BC3CFE97 /* rajdhani-semibold.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		E5F9ABD537994997A01D2A15 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92474B398BE04C64B16F626A /* libSplashScreen.a */; };
@@ -330,6 +343,13 @@
 			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
 			remoteInfo = "RNGestureHandler-tvOS";
 		};
+		87634F9022805070004C3A0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2761630DCEE49B49E12A58E /* RCTFBSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
+			remoteInfo = RCTFBSDK;
+		};
 		87B358B32271E88800CC7C79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E34BB6F746D74CE2B4C4F4A1 /* SplashScreen.xcodeproj */;
@@ -378,9 +398,22 @@
 		65D76C51252F47C6BC3CFE97 /* rajdhani-semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rajdhani-semibold.ttf"; path = "../src/assets/fonts/rajdhani-semibold.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		84621CA0AE7348CE981C5CA1 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
+		87634F9322805111004C3A0F /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AccountKit.framework; sourceTree = "<group>"; };
+		87634F9422805111004C3A0F /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AccountKitStrings.bundle; sourceTree = "<group>"; };
+		87634F9522805111004C3A0F /* FBSDKMarketingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMarketingKit.framework; sourceTree = "<group>"; };
+		87634F9622805112004C3A0F /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
+		87634F9722805112004C3A0F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		87634F9822805113004C3A0F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		87634F9922805113004C3A0F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		87634F9A22805113004C3A0F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		87634F9B22805113004C3A0F /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		87634F9C22805114004C3A0F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		87634F9D22805114004C3A0F /* FBSDKPlacesKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKPlacesKit.framework; sourceTree = "<group>"; };
 		92474B398BE04C64B16F626A /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		BB4BABC3F13E49019C35575D /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
+		C2761630DCEE49B49E12A58E /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		C942C9BEB92144AF848D8535 /* rajdhani-medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rajdhani-medium.ttf"; path = "../src/assets/fonts/rajdhani-medium.ttf"; sourceTree = "<group>"; };
 		E34BB6F746D74CE2B4C4F4A1 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -402,8 +435,13 @@
 			files = (
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
+				87634FA422805114004C3A0F /* FBSDKLoginKit.framework in Frameworks */,
+				87634FA722805114004C3A0F /* FBSDKCoreKit.framework in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
+				87634FA822805114004C3A0F /* FBSDKPlacesKit.framework in Frameworks */,
+				87634FA022805114004C3A0F /* FBSDKMarketingKit.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
+				87634FA522805114004C3A0F /* Bolts.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -411,10 +449,13 @@
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
+				87634FA222805114004C3A0F /* FBSDKShareKit.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				740BB8D958DD474485CC1C9C /* libRNGestureHandler.a in Frameworks */,
 				E5F9ABD537994997A01D2A15 /* libSplashScreen.a in Frameworks */,
+				87634F9E22805114004C3A0F /* AccountKit.framework in Frameworks */,
+				48AD40E69A8E4E86B78E594B /* libRCTFBSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +660,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				20D3EF8042A64BA495785810 /* RNGestureHandler.xcodeproj */,
 				E34BB6F746D74CE2B4C4F4A1 /* SplashScreen.xcodeproj */,
+				C2761630DCEE49B49E12A58E /* RCTFBSDK.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -635,6 +677,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				87634F92228050C4004C3A0F /* facebook */,
 				13B07FAE1A68108700A75B9A /* IMFApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* IMFAppTests */,
@@ -665,6 +708,7 @@
 				54942F696A414E23B2E74898 /* libRNGestureHandler.a */,
 				BB4BABC3F13E49019C35575D /* libRNGestureHandler-tvOS.a */,
 				92474B398BE04C64B16F626A /* libSplashScreen.a */,
+				84621CA0AE7348CE981C5CA1 /* libRCTFBSDK.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -676,6 +720,32 @@
 				871C76AC226855CA0070EE32 /* libRNGestureHandler-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		87634F8D22805070004C3A0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87634F9122805070004C3A0F /* libRCTFBSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87634F92228050C4004C3A0F /* facebook */ = {
+			isa = PBXGroup;
+			children = (
+				87634F9322805111004C3A0F /* AccountKit.framework */,
+				87634F9422805111004C3A0F /* AccountKitStrings.bundle */,
+				87634F9A22805113004C3A0F /* Bolts.framework */,
+				87634F9622805112004C3A0F /* FacebookSDKStrings.bundle */,
+				87634F9C22805114004C3A0F /* FBSDKCoreKit.framework */,
+				87634F9922805113004C3A0F /* FBSDKLoginKit.framework */,
+				87634F9522805111004C3A0F /* FBSDKMarketingKit.framework */,
+				87634F9D22805114004C3A0F /* FBSDKPlacesKit.framework */,
+				87634F9722805112004C3A0F /* FBSDKShareKit.framework */,
+				87634F9B22805113004C3A0F /* LICENSE.txt */,
+				87634F9822805113004C3A0F /* README.txt */,
+			);
+			path = facebook;
 			sourceTree = "<group>";
 		};
 		87B358B02271E88800CC7C79 /* Products */ = {
@@ -820,6 +890,10 @@
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
 					ProjectRef = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
+				},
+				{
+					ProductGroup = 87634F8D22805070004C3A0F /* Products */;
+					ProjectRef = C2761630DCEE49B49E12A58E /* RCTFBSDK.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -1143,6 +1217,13 @@
 			remoteRef = 871C76AB226855CA0070EE32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		87634F9122805070004C3A0F /* libRCTFBSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBSDK.a;
+			remoteRef = 87634F9022805070004C3A0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		87B358B42271E88800CC7C79 /* libSplashScreen.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1171,13 +1252,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87634FA622805114004C3A0F /* LICENSE.txt in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				623087A7561246EEA8C33324 /* rajdhani-bold.ttf in Resources */,
 				256C8695CD1647DCA8C3E95B /* rajdhani-light.ttf in Resources */,
+				87634FA322805114004C3A0F /* README.txt in Resources */,
 				5CFFCDD52B164098ACF2E28C /* rajdhani-medium.ttf in Resources */,
 				7897CD32921D4F798225392D /* rajdhani-regular.ttf in Resources */,
+				87634FA122805114004C3A0F /* FacebookSDKStrings.bundle in Resources */,
 				89008DBAA50A47938CB676DC /* rajdhani-semibold.ttf in Resources */,
+				87634F9F22805114004C3A0F /* AccountKitStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1304,12 +1389,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = IMFAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1333,12 +1420,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = IMFAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1360,11 +1449,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 32THPE2RE7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/facebook",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = IMFApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1385,11 +1479,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 32THPE2RE7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/facebook",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = IMFApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1420,11 +1519,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = "IMFApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1457,11 +1558,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = "IMFApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1493,11 +1596,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = "IMFApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1529,11 +1634,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = "IMFApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
