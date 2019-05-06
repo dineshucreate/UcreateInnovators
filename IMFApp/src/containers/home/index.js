@@ -3,8 +3,15 @@ import { TouchableOpacity, Text, View, Image } from 'react-native'
 import styles from './style'
 import BackgroundImage from '../../component/backgroundImage'
 import { SafeAreaView } from 'react-navigation';
+import Modal from "react-native-modal";
 
 export default class Home extends Component {
+    state = {
+        isModalVisible: true
+    };
+    toggleModal = () => {
+        this.setState({ isModalVisible: !this.state.isModalVisible });
+    };
     render() {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: '#06878A' }}>
@@ -19,6 +26,17 @@ export default class Home extends Component {
                         <Text style={styles.blankText}>aa</Text>
                     </View>
                 </BackgroundImage>
+                <Modal isVisible={this.state.isModalVisible}>
+                    <View style={styles.modalView}>
+                        <Text style={styles.welcomeText}>Welcome to IMF app {'\n'} Click start button to use awesome features!</Text >
+                        <TouchableOpacity
+                            style={styles.startButton}
+                            onPress={this.toggleModal}
+                            activeOpacity={0.7} >
+                            <Text style={styles.startButtonText}>Start</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Modal>
             </SafeAreaView >
         );
     }

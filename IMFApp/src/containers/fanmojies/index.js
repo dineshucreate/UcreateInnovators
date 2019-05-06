@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, Image, FlatList, Dimensions, ActivityIndicator } from 'react-native'
+import { TouchableOpacity, Text, View, Image, FlatList, Dimensions, ActivityIndicator, Linking } from 'react-native'
 import styles from './style'
 import BackgroundImage from '../../component/backgroundImage';
 import { SafeAreaView } from 'react-navigation';
@@ -23,9 +23,12 @@ class Fanmojies extends Component {
         const { navigation } = this.props;
         navigation.toggleDrawer();
     };
+    indexSelected = (item) => (
+        Linking.openURL(item.images.fixed_height_still.url)
+    );
     renderListItem = ({ item }) => (
-        <TouchableOpacity >
-            <View style={{ backgroundColor: 'gray', height: 130, width: (width / 2) - 10, margin: 5, }}>
+        <TouchableOpacity onPress={() => this.indexSelected(item)}>
+            <View style={{ height: 130, width: (width / 2) - 10, margin: 5, }}>
                 <Image style={{ backgroundColor: 'gray', height: 130 }}
                     resizeMode={'contain'}
                     source={{ uri: item.images.fixed_height_still.url }} />

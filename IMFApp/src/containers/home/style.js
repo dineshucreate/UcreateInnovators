@@ -31,6 +31,30 @@ const styles = StyleSheet.create({
         fontFamily: 'Rajdhani-Bold',
         color: '#06878A',
     },
+    modalView: {
+        height: 120,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        borderRadius: 4
+    },
+    welcomeText: {
+        textAlign: 'center'
+    },
+    startButton: {
+        backgroundColor: '#06878A',
+        height: 30,
+        width: 80,
+        marginTop: 20,
+        justifyContent: 'center',
+        borderRadius: 4,
+        alignItems: 'center'
+    },
+    startButtonText: {
+        fontSize: 22,
+        fontFamily: 'Rajdhani-Bold',
+        color: 'white'
+    }
 
 });
 export default styles;
