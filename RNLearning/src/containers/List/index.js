@@ -50,11 +50,6 @@ class List extends Notification {
         if (loading === false) {
             this.state.isRefreshing = false;
         }
-        const { dataList } = this.props;
-        this.state.dataListSearch = dataList;
-        if (!this.state.isSearching) {
-            this.state.dataListState = dataList;
-        }
         return true;
     }
     onScrollHandler = () => {
@@ -96,6 +91,11 @@ class List extends Notification {
           />    
         );
     render() {
+        const { dataList } = this.props;
+        this.state.dataListSearch = dataList;
+        if (!this.state.isSearching) {
+            this.state.dataListState = dataList;
+        }
         const { dataListState, isSwitchOn } = this.state;
         return (
             <SafeAreaView style={styles.styleContainer}>
