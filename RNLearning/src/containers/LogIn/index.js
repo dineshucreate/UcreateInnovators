@@ -72,7 +72,7 @@ class Login extends Component {
                 {
                     toValue: 1,
                     duration: 1000,
-                    delay: 2000,
+                    delay: 1000,
                     easing: Easing.ease
                 }),
             Animated.timing(this.animationlogo,

@@ -2,6 +2,8 @@
 import { createStackNavigator, 
          createAppContainer, 
          createDrawerNavigator } from 'react-navigation';
+import React from 'react';
+import { connect } from 'react-redux';
 import Home from './containers/Home';
 import Login from './containers/LogIn';
 import List from './containers/List';
@@ -90,12 +92,43 @@ const AuthStackLogin = createStackNavigator(
         ...Components,
     },
 );
+
 const AuthStack = createStackNavigator(
     {
         ...Components,
+        login: {
+            screen: Login,
+            navigationOptions: () => ({
+                header: null,
+            })
+        },
     },
 );
 
-export const StackLogin = createAppContainer(AuthStackLogin);
-export const Stack = createAppContainer(AuthStack);
+let Stack = {};
+class StackChooser extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        if (this.props.loginData) {
+            Stack = AuthStack;
+        } else {
+            Stack = AuthStackLogin;
+        }
+    }
+
+    render() {
+        const StackLogin = 
+createAppContainer(Stack);
+        return (
+        <StackLogin />
+        );
+    }
+}
+
+const mapStateToProps = (state) => ({
+    loginData: state.login.loginData,
+});
+
+export default connect(mapStateToProps)(StackChooser);
 
