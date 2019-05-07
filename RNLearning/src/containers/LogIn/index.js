@@ -1,86 +1,67 @@
 import React, { Component } from 'react';
-import { Text, View, Animated, Image, AsyncStorage, Easing, Alert, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View, Animated, Easing, TouchableOpacity, Dimensions, Alert } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
+import { connect } from 'react-redux';
 import { TextField } from 'react-native-material-textfield';
 import { Colors } from '../../utilities/Colors';
-import { Button } from 'react-native-elements';
 import LoadingView from '../../utilities/loaderView';
 import styles from './style.js';
 import VectorIcon from '../../utilities/vectorIcons';
-import { SafeAreaView } from 'react-navigation';
-import { connect } from 'react-redux';
 import { loginRequest } from './actions';
-import PropTypes from 'prop-types';
+
 
 const erremail = 'Email is required.';
 const errpassword = 'Password is required.';
-const DeviceHeight = Dimensions.get('window').height
+const DeviceHeight = Dimensions.get('window').height;
 
 
 class Login extends Component {
-    static propTypes = {
-        loginRequest: PropTypes.func,
-        navigation: PropTypes.object,
-        loginData: PropTypes.object,
-        loading: PropTypes.bool
-      }
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             username: '',
             password: '',
             loading: false,
             erremail: '',
             errpassword: ''
-        }
+        };
         this.animationlogo = new Animated.Value(0);
         this.imageHeight = new Animated.Value(0);
         this.animationreviewtext = new Animated.Value(0.3);
-        this.showHideLoader = this.showHideLoader.bind(this)
-    }
-
-    componentDidMount() {
+        this.showHideLoader = this.showHideLoader.bind(this);
         this.screenChange();
-    }
-
-    screenChange = () => {
-        setTimeout(() => {
-            this.screenChangeLogic();
-        }, 1000);
     }
 
     componentDidUpdate() {
         this.state.loading ?
             this.showHideLoader(true)
-            : (this.refs.loader != undefined ? this.showHideLoader(false) : null)
-    }
-
-    async screenChangeLogic() {
-        try {
-            const { loginData } = this.props;
-            if (loginData) {
-                this.showHideLoader(false)
-                this.props.navigation.navigate('flatList')
-            } else {
-              this.sequenceAnimations();
-            }
-        } catch (error) {
-            console.log(`error: ${error}`);
-        }
+            : (this.refs.loader != undefined ? this.showHideLoader(false) : null);
     }
 
     onSignInPress = () => {
-        this.showHideLoader(true)
-        const { loginRequest, navigation } = this.props;
-        const { username, password, loading } = this.state
-        loginRequest(username, password, navigation);
+        this.showHideLoader(true);
+        const { loginRequestP, navigation } = this.props;
+        const { username, password, } = this.state;
+        loginRequestP(username, password, navigation);
     }
 
-    renderLoadingView() {
-        return (
-            <LoadingView ref={'loader'} message='Logging In...' parentList={this} />
-        );
+    screenChangeLogic() {
+        const { loginData } = this.props;
+        if (loginData) {
+            this.props.navigation.navigate('drawer', { animation: null, duration: 0 });
+        } else {
+            this.sequenceAnimations();
+        }
     }
+
+    screenChange = () => {
+        setTimeout(() => {
+            this.screenChangeLogic();
+        }, 0);
+    }
+
+    
     showHideLoader = (isShow) => {
         isShow ? this.refs.loader.showModalView() : this.refs.loader.hideModalView();
     }
@@ -105,29 +86,35 @@ class Login extends Component {
 
     validate() {
         if (this.state.username.length === 0) {
-            this.setState({ erremail: erremail })
+            this.setState({ erremail });
             return false;
         }
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (reg.test(this.state.username) === false) {
-            this.setState({ erremail: 'Email is not correct' })
+            this.setState({ erremail: 'Email is not correct' });
             return false;
         }
         if (this.state.password.length === 0) {
-            this.setState({ erremail: '', errpassword: errpassword })
+            this.setState({ erremail: '', errpassword });
             return false;
         }
         if (this.state.password.length > 30) {
-            this.setState({ erremail: '', errpassword: 'Password must be of maximum 30 characters' })
+            this.setState({ erremail: '', 
+            errpassword: 'Password must be of maximum 30 characters' });
             return false;
         }
 
-        this.setState({ erremail: '', errpassword: '' })
+        this.setState({ erremail: '', errpassword: '' });
         return true;
     }
 
-    render() {
+    renderLoadingView() {
+        return (
+            <LoadingView ref={'loader'} message='Logging In...' parentList={this} />
+        );
+    }
 
+    render() {
         const increaseSize = this.animationlogo.interpolate(
             {
                 inputRange: [0, 0.5, 1],
@@ -153,9 +140,9 @@ class Login extends Component {
             }
         );
 
-        const { username, password, loading } = this.state
+        const { username, password } = this.state;
 
-        this.state.loading = this.props.loading
+        this.state.loading = this.props.loading;
 
 
         return (
@@ -225,11 +212,15 @@ class Login extends Component {
                                 error={this.state.errpassword}
                             />
                         </View>
-                        <TouchableOpacity onPress={this.onSignInPress} style={styles.viewLoginButton}>
+                        <TouchableOpacity 
+                            onPress={this.onSignInPress} 
+                            style={styles.viewLoginButton}
+                        >
                             <View style={styles.viewLoginButtonWrapper}>
                                 <Text
                                     color={Colors.colorFFFFFF}
-                                    buttonStyle={{ backgroundColor: Colors.baseColor }}>LOGIN
+                                    buttonStyle={{ backgroundColor: Colors.baseColor }}
+                                >LOGIN
                                 </Text>
                             </View>
                         </TouchableOpacity>
@@ -244,14 +235,13 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
+const mapStateToProps = (state) => ({
         loading: state.login.loading,
         loginData: state.login.loginData,
-    };
-};
+    });
 const mapDispatchToProps = (dispatch) => ({
-    loginRequest: (email, password, navigator) => dispatch(loginRequest(email, password, navigator))
+    loginRequestP: (email, password, navigator) => 
+    dispatch(loginRequest(email, password, navigator))
 
 });
 
