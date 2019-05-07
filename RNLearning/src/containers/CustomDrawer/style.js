@@ -21,12 +21,14 @@ const styles = StyleSheet.create({
         flex: 1, 
         width: 200 
     },
+    imageContainer: {
+        width: 100, 
+        height: 100, 
+        marginTop: 50, 
+        marginLeft: 20,
+    },
     image: { 
         flex: 1, 
-        width: 100, 
-        height: 200, 
-        marginTop: 50, 
-        marginLeft: 20, 
         borderRadius: 50 
     },
     itemsContainer: {

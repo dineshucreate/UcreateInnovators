@@ -1,17 +1,45 @@
 
 import { createStackNavigator, 
-         createAppContainer,  
-         createSwitchNavigator, 
+         createAppContainer, 
          createDrawerNavigator } from 'react-navigation';
 import Home from './containers/Home';
 import Login from './containers/LogIn';
 import List from './containers/List';
+import TabBar from './containers/TabBar';
 import { Colors } from './utilities/Colors';
 import CustomDrawer from './containers/CustomDrawer';
 
+const Drawer = createDrawerNavigator(
+    {
+        FlatList: {
+            screen: TabBar,
+            navigationOptions: () => ({
+                header: null
+           })
+        },
+        Learning: {
+            screen: Home,
+            navigationOptions: () => ({
+                header: null
+            })
+        },
+    },
+    {
+      drawerBackgroundColor: 'white',
+      contentOptions: {
+        activeBackgroundColor: 'blue',
+        inactiveBackgroundColor: 'white',
+        activeTintColor: 'white',
+        inactiveTintColor: 'blue',
+      },
+      contentComponent: CustomDrawer,
+      drawerWidth: 200
+    }
+  );
+
 const Components = {
-    login: {
-        screen: Login,
+    drawer: {
+        screen: Drawer,
         navigationOptions: () => ({
             header: null,
         })
@@ -25,6 +53,7 @@ const Components = {
             },
             headerLeft: null,
             headerTintColor: 'white',
+            key: 'flatList',
             headerTitleStyle: {
                 color: 'white',
                 alignSelf: 'center',
@@ -36,6 +65,7 @@ const Components = {
         screen: Home,
         navigationOptions: () => ({
             title: 'Learning',
+            key: 'home',
             headerStyle: {
                 backgroundColor: Colors.baseColor
             },
@@ -49,30 +79,23 @@ const Components = {
     },
 };
 
+const AuthStackLogin = createStackNavigator(
+    {
+        login: {
+            screen: Login,
+            navigationOptions: () => ({
+                header: null,
+            })
+        },
+        ...Components,
+    },
+);
 const AuthStack = createStackNavigator(
     {
         ...Components,
     },
 );
 
-const Drawer = createDrawerNavigator(
-    {
-        ...Components
-    },
-    {
-      drawerBackgroundColor: 'white',
-      contentOptions: {
-        activeBackgroundColor: Colors.drawerSelected
-      },
-      contentComponent: CustomDrawer,
-      drawerWidth: 200
-    }
-  );
-  
-  const SwitchNavigator = createSwitchNavigator({
-    drawer: Drawer,
-    onboard: AuthStack,
-  });
-
-export default createAppContainer(SwitchNavigator);
+export const StackLogin = createAppContainer(AuthStackLogin);
+export const Stack = createAppContainer(AuthStack);
 

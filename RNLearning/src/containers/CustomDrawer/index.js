@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, View, Image, AsyncStorage } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { View, Image, AsyncStorage } from 'react-native';
+import { connect } from 'react-redux';
+import { SafeAreaView, DrawerItems } from 'react-navigation';
 import styles from './style';
 
 class CustomDrawer extends Component {
@@ -13,7 +14,6 @@ class CustomDrawer extends Component {
         };
     }
     componentDidMount() {
-        this.getData();
     }
     getData = async () => {
         const uri = await AsyncStorage.getItem('imgDrawer');
@@ -22,17 +22,20 @@ class CustomDrawer extends Component {
         }
     }
     render() {
-        const { imageURI, itemColor } = this.state;
+        const { dataList } = this.props;
         return (
             <SafeAreaView style={styles.safeAreaView}>
+                <View style={styles.imageContainer}>
                 {
-                    imageURI !== '' ?
+                  dataList.length > 0 && dataList[0].snippet.thumbnails.high.url !== '' ?
                         <Image
                             style={styles.image}
-                            source={{ uri: imageURI }}
+                            source={{ uri: dataList[0].snippet.thumbnails.high.url }}
                         /> : null
                 }
-                <View style={styles.itemsContainer}>
+                </View>
+                <DrawerItems {...this.props} />
+                {/* <View style={styles.itemsContainer}>
                     <TouchableOpacity 
                         style={
                             itemColor === 'flatList' ? 
@@ -57,11 +60,14 @@ class CustomDrawer extends Component {
                     >
                         <Text style={styles.text}>Home</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
             </SafeAreaView>
         );
     }
 }
 
-export default CustomDrawer;
+const mapStateToProps = (state) => ({
+    dataList: state.flatList.data
+});
+module.exports = connect(mapStateToProps)(CustomDrawer);
 

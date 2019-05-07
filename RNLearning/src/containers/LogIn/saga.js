@@ -11,7 +11,7 @@ function* onLoginRequested({ email, password, navigator }) {
     const loginData = yield call(axios.post, url, { username: email, password });
     if (loginData.data.success === true) {
       yield put(loginSuccess(loginData.data));
-      navigator.navigate('flatList');
+      navigator.navigate('drawer');
     } else {
       Alert.alert(loginData.data.message);
     }
