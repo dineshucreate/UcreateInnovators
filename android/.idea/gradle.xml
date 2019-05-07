@@ -10,7 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-bridge-testing/android" />
-            <option value="$PROJECT_DIR$/../node_modules/react-native-react-native-calc/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-location-switch/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-maps/lib/android" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
