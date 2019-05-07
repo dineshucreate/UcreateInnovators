@@ -27,6 +27,7 @@ import Loader from '../../loader/loader';
 import { loginRequest } from './actions';
 import Modal from 'react-native-modal';
 import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+
 // import CustomDialogue from '../../loader/CustomDialogue';
 
 const height = Dimensions.get('window').height;
@@ -289,7 +290,7 @@ class Login extends Component {
 										clearButtonMode="while-editing"
 										ref={'txtPassword'}
 									/>
-									<TouchableOpacity style={styles.buttonContainer} onPress={this.loginClicked}>
+									<TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
 										<Text style={styles.buttonText}>SIGN IN</Text>
 									</TouchableOpacity>
 									{this.props.loading && <Loader loading={this.props.loading} />}

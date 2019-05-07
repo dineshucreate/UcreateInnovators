@@ -45,14 +45,14 @@ const Tab = createBottomTabNavigator(
 // Pass the tabs in Drawer or Stack
 const drawerNavigator = createDrawerNavigator(
 	{
-		tabs: {
+		Home: {
 			screen: Tab
 		},
-		profile: {
+		Profile: {
 			screen: Profile
 		},
-		home: {
-			screen: Home
+		Settings: {
+			screen: Settings
 		}
 	},
 	{
@@ -77,6 +77,9 @@ const stack = createStackNavigator(
 			navigationOptions: {
 				header: null
 			}
+		},
+		settings: {
+			screen: Settings
 		}
 	},
 	{

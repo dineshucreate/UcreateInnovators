@@ -3,11 +3,6 @@ import { Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native'
 import styles from './style';
 
 export default class Header extends Component {
-	burgerItemTap = () => {
-		console.log('menu tapped');
-		// this.props.navigation.toggleDrawer();
-	};
-
 	render() {
 		return (
 			<View

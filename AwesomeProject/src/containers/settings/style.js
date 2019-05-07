@@ -14,5 +14,13 @@ export default (styles = StyleSheet.create({
 		color: 'rgb(32, 53, 70)',
 		fontSize: 15,
 		fontWeight: 'bold'
+	},
+	button: {
+		height: 40,
+		width: 40,
+		backgroundColor: 'red',
+		position: 'absolute',
+		top: 300,
+		left: 200
 	}
 }));
