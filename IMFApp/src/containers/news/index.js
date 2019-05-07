@@ -4,24 +4,46 @@ import styles from './style';
 import { SafeAreaView } from 'react-navigation';
 import { getNewsRequest } from './actions';
 import { connect } from 'react-redux';
+import { SearchBar } from 'react-native-elements';
 
 class News extends Component {
     constructor(props) {
         super(props)
         this.state = {
             showWebview: false,
-            videoId: ''
+            videoId: '',
+            isSearching: false,
+            filteredState: []
         }
     }
     componentDidMount() {
         const { getNewsRequest } = this.props;
         getNewsRequest();
     }
-
     indexSelected = (item) => (
         Linking.openURL(`https://www.youtube.com/embed/${item.id.videoId}?rel=0&autoplay=0&showinfo=0&controls=0`)
     );
-
+    searchFilterFunction = text => {
+        this.setState({ searchText: text, isSearching: true });
+        const { dataListSearch } = this.state;
+        const newData = dataListSearch.filter(item => {
+            const itemData = `${item.snippet.title.toUpperCase()}`;
+            const textData = text.toUpperCase();
+            return itemData.indexOf(textData) > -1;
+        });
+        this.setState({ dataListState: newData });
+    };
+    renderHeader = () => (
+        <SearchBar
+            placeholder="Type Here..."
+            lightTheme
+            round
+            onChangeText={text => this.searchFilterFunction(text)}
+            autoCorrect={false}
+            value={this.state.searchText}
+            onCancel={() => { this.setState({ isSearching: false }); }}
+        />
+    );
     renderListItems = ({ item }) => (
         <TouchableOpacity onPress={() => this.indexSelected(item)}>
             <View style={{ height: 150, flexDirection: 'row', flex: 1 }}>
@@ -38,7 +60,6 @@ class News extends Component {
 
     render() {
         console.log('NewsData: ' + JSON.stringify(this.props.newsData));
-
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: '#06878A' }}>
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -54,6 +75,7 @@ class News extends Component {
                     <FlatList
                         data={this.props.newsData}
                         renderItem={this.renderListItems}
+                        ListHeaderComponent={this.renderHeader}
                     />
                     {this.props.loading ?
                         <View style={{ width: '100%', height: '100%', justifyContent: 'center', backgroundColor: 'white' }}>

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, Text, View, Image } from 'react-native'
+import { TouchableOpacity, Text, View, Image, Dimensions } from 'react-native'
 import styles from './style'
 import BackgroundImage from '../../component/backgroundImage'
 import { SafeAreaView } from 'react-navigation';
 import Modal from "react-native-modal";
 import ImagePicker from 'react-native-image-picker';
+import ImageZoom from 'react-native-image-pan-zoom';
+
 
 const options = {
     title: 'Select Avatar',
@@ -14,6 +16,8 @@ const options = {
         path: 'images',
     },
 };
+
+const imageSize = (Dimensions.get('window').width) - 50
 
 export default class Home extends Component {
 
@@ -61,8 +65,16 @@ export default class Home extends Component {
                             <Image style={styles.facebookIcon} source={require('../../assets/images/camera_icon.png')} />
                         </TouchableOpacity>
                     </View>
-                    <Image style={{ height: 200, width: 200, marginTop: 50, alignSelf: 'center' }}
-                        source={this.state.avatarSource} />
+
+                    <ImageZoom style={{ marginTop: 40, alignSelf: 'center' }} cropWidth={imageSize}
+                        cropHeight={imageSize}
+                        imageWidth={imageSize}
+                        imageHeight={imageSize}  >
+                        <Image style={{ width: imageSize - 80, height: imageSize - 80, alignSelf: 'center', marginTop: 40, }}
+                            source={this.state.avatarSource} />
+                    </ImageZoom>
+                    {/* <Image style={{ height: 200, width: 200, marginTop: 50, alignSelf: 'center' }}
+                        source={this.state.avatarSource} /> */}
                 </BackgroundImage>
                 <Modal isVisible={this.state.isModalVisible}>
                     <View style={styles.modalView}>
