@@ -1,6 +1,10 @@
 rootProject.name = 'SamplesReact'
-include ':react-native-react-native-calc'
-project(':react-native-react-native-calc').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-react-native-calc/android')
+include ':react-native-geocoder'
+project(':react-native-geocoder').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-geocoder/android')
+include ':react-native-location-switch'
+project(':react-native-location-switch').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-location-switch/android')
+include ':react-native-maps'
+project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/lib/android')
 include ':react-native-bridge-testing'
 project(':react-native-bridge-testing').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bridge-testing/android')
 

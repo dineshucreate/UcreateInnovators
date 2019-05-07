@@ -1,6 +1,9 @@
 package com.samplesreact;
 
+import android.content.Intent;
+
 import com.facebook.react.ReactActivity;
+import org.pweitz.reactnative.locationswitch.LocationSwitch;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +15,10 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "SamplesReact";
     }
+
+    @Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    LocationSwitch.getInstance().onActivityResult(requestCode, resultCode);
+}
 }

@@ -7,12 +7,17 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
+    "haversine": "^1.1.1",
     "lodash": "^4.17.11",
     "react": "16.6.3",
     "react-dom": "^16.8.6",
-    "react-native": "0.58.6",
+    "react-native": "^0.58.6",
     "react-native-bridge-testing": "github:amanpreet-ucreate/react-native-bridge-testing",
-    "react-native-react-native-calc": "^1.0.1"
+    "react-native-geocoder": "^0.5.0",
+    "react-native-geocoding": "^0.3.0",
+    "react-native-location-switch": "^0.1.0",
+    "react-native-maps": "^0.24.2",
+    "react-native-maps-directions": "^1.6.0"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
@@ -39,7 +44,8 @@
       "enzyme-to-json/serializer"
     ],
     "setupFilesAfterEnv": [
-      "./setupTests.js"
+      "./setupTests.js",
+      "jest-extended"
     ],
     "setupFiles": [
       "./setupTests.js"

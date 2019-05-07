@@ -1,41 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Snapshot rendering  1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <Text>
-    Sum Value is 
-    0
-  </Text>
+exports[`Login Flow create snapshot 1`] = `
+<View>
   <TextInput
     allowFontScaling={true}
     onChangeText={[Function]}
     placeholder="Username"
+    testID="login-email"
     underlineColorAndroid="transparent"
   />
   <TextInput
     allowFontScaling={true}
     onChangeText={[Function]}
     placeholder="Password"
+    testID="login-password"
     underlineColorAndroid="transparent"
   />
   <TouchableOpacity
     activeOpacity={0.2}
     onPress={[Function]}
-    style={
-      Object {
-        "backgroundColor": "blue",
-        "padding": 10,
-      }
-    }
+    testID="submit"
   >
     <Text>
-      Submit
+      Sumbit
     </Text>
   </TouchableOpacity>
 </View>
