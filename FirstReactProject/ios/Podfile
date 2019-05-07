@@ -10,6 +10,8 @@ target 'FirstReactProject' do
 
   # Pods for FirstReactProject
 
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+
   target 'FirstReactProjectTests' do
     inherit! :search_paths
     # Pods for testing

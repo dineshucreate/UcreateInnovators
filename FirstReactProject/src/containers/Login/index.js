@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+    LoginManager, AccessToken, GraphRequest, GraphRequestManager
+  } from 'react-native-fbsdk';
 import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 import firebase from 'react-native-firebase';
@@ -15,7 +18,6 @@ import { loginRequest } from './actions';
 import CustomButton from '../../Components/CustomButton';
 import CustomLoader from '../../Components/CustomLoader';
 import config from '../../Config/config';
-
 
 class Login extends Component {
     static navigationOptions = {
@@ -139,6 +141,41 @@ class Login extends Component {
       }
     /*----------------------------------------------------------------------------------*/
 
+    loginClicked = () => {
+        const { navigation } = this.props;
+        LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+          (result) => {
+            if (result.isCancelled) {
+                Alert.alert('Login was cancelled');
+            } else {
+                AccessToken.getCurrentAccessToken().then(
+                    () => {
+                      const responseInfoCallback = (error, result2) => {
+                        if (error) {
+                          Alert.alert(`Error fetching data: ${error.toString()}`);
+                        } else {
+                          console.log(JSON.stringify(result2));
+                          Alert.alert('Hey', result2.name);
+                        //   navigation.navigate('fb', { name: result2.name, 
+                        //     avatar: result2.picture.data.url });
+                        }
+                      };
+                      const infoRequest = new GraphRequest(
+                        '/me?fields=name,email,picture.type(large)',
+                        null,
+                        responseInfoCallback
+                      );
+                      new GraphRequestManager().addRequest(infoRequest).start();
+                    }
+                  );
+            }
+          },
+          (error) => {
+            Alert.alert(`Login failed with error: ${error}`);
+          }
+        );
+      }
+    
     render() {
         const { loginRequestt, loginData } = this.props;
         const { username, password } = this.state;
@@ -170,7 +207,8 @@ class Login extends Component {
                         <CustomButton
                             myText='Log In'
                             myCustomClick={() => {
-                                loginRequestt(username, password);
+                                this.loginClicked();
+                                // loginRequestt(username, password);
                             }}
                         />
                     </View>

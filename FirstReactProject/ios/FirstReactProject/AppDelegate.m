@@ -14,17 +14,15 @@
 @import UserNotifications;
 #import "RNFirebaseNotifications.h"
 #import "RNFirebaseMessaging.h"
-
 #import "RNSplashScreen.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 @end
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSURL *jsCodeLocation;
   
   //Firebase:
@@ -32,14 +30,17 @@
   [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
   [FIRMessaging messaging].delegate = self;
   [RNFirebaseNotifications configure];
-
+/*---------------------------------------------------------------*/
+  
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"FirstReactProject"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+  
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                           didFinishLaunchingWithOptions:launchOptions];
   [RNSplashScreen show];
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
@@ -49,8 +50,23 @@
   return YES;
 }
 
-//Push Notification :
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  
+  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                openURL:url
+                                                      sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                             annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                  ];
+  // Add any custom logic here.
+  return handled;
+}
+  
+
+  
+//Push Notification :
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo
 fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler{
   [[RNFirebaseNotifications instance] didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
@@ -65,34 +81,5 @@ fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHand
   [[RNFirebaseMessaging instance] didReceiveRemoteNotification:response.notification.request.content.userInfo];
   completionHandler();
 }
-
-- (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  [FIRMessaging messaging].APNSToken = deviceToken;
-  const char *data = [deviceToken bytes];
-  NSMutableString *token = [NSMutableString string];
-  
-  for (NSUInteger i = 0; i < [deviceToken length]; i++) {
-    [token appendFormat:@"%02.2hhX", data[i]];
-  }
-  NSLog(@"Device token: %@",token);
-//  NSDictionary *dataDict = [NSDictionary dictionaryWithObject:token forKey:@"token"];
-//  [[NSNotificationCenter defaultCenter] postNotificationName:
-//   @"FCMToken" object:nil userInfo:dataDict];
-}
-
-- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
-  NSLog(@"FCM registration token: %@", fcmToken);
-  // Notify about received token.
-//  NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
-//  [[NSNotificationCenter defaultCenter] postNotificationName:
-//   @"FCMToken" object:nil userInfo:dataDict];
-  // TODO: If necessary send token to application server.
-  // Note: This callback is fired at each app startup and whenever a new token is generated.
-}
-
-
-//
-
 
 @end
