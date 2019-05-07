@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Image, Dimensions, AsyncStorage } from 'react-native';
+import {
+	Text,
+	View,
+	TouchableOpacity,
+	SafeAreaView,
+	ScrollView,
+	Image,
+	Dimensions,
+	AsyncStorage,
+	Alert
+} from 'react-native';
 import styles from './style';
 import ImagePicker from 'react-native-image-picker';
-
+import { DrawerItems } from 'react-navigation';
 const height = Dimensions.get('window').height;
 const options = {
 	title: 'Select Avatar',
@@ -20,25 +30,6 @@ export default class index extends Component {
 			avatarSource: null
 		};
 	}
-	home = () => {
-		const { navigation } = this.props;
-		navigation.navigate('Home');
-	};
-
-	profile = () => {
-		const { navigation } = this.props;
-		navigation.navigate('Profile');
-	};
-
-	logout = () => {
-		this.clearUserData();
-		const { navigation } = this.props;
-		navigation.navigate('Login');
-	};
-
-	clearUserData = async () => {
-		await AsyncStorage.removeItem('user');
-	};
 
 	openImagePicker = () => {
 		ImagePicker.showImagePicker(options, (response) => {
@@ -77,17 +68,7 @@ export default class index extends Component {
 									</View>
 								</View>
 							</TouchableOpacity>
-							<TouchableOpacity onPress={this.home} style={styles.sideMenuButtons}>
-								<Text style={styles.buttonText}>Home</Text>
-							</TouchableOpacity>
-							<View style={styles.separatorsView} />
-							<TouchableOpacity onPress={this.profile} style={styles.sideMenuButtons}>
-								<Text style={styles.buttonText}>Profile</Text>
-							</TouchableOpacity>
-							<View style={styles.separatorsView} />
-							<TouchableOpacity onPress={this.logout} style={styles.sideMenuButtons}>
-								<Text style={styles.buttonText}>Logout</Text>
-							</TouchableOpacity>
+							<DrawerItems {...this.props} />
 						</View>
 					</ScrollView>
 				</SafeAreaView>
