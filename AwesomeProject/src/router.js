@@ -53,6 +53,9 @@ const drawerNavigator = createDrawerNavigator(
 		},
 		Settings: {
 			screen: Settings
+		},
+		Profile: {
+			screen: Profile
 		}
 	},
 	{

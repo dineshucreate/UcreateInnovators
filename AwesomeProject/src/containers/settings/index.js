@@ -3,12 +3,14 @@ import { Text, View, TouchableOpacity, SafeAreaView, Button } from 'react-native
 import styles from './style';
 import HeaderView from '../../components/HeaderView/Header';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import moment from 'moment';
 
 export default class Settings extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isDateTimePickerVisible: false
+			isDateTimePickerVisible: false,
+			selectedDate: new Date()
 		};
 	}
 	componentWillUnmount() {
@@ -27,6 +29,9 @@ export default class Settings extends Component {
 	};
 
 	handleDatePicked = (date) => {
+		this.setState({
+			selectedDate: date
+		});
 		console.log('A date has been picked: ', date);
 		this.hideDateTimePicker();
 	};
@@ -36,12 +41,16 @@ export default class Settings extends Component {
 	};
 
 	render() {
+		const day = moment(this.state.selectedDate).format('dddd');
+		const date = moment(this.state.selectedDate).format('MMMM D, YYYY');
+
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
 				<HeaderView headerTitle={'Settings'} onClickIcon={this.drawerOpen} />
 				<View style={styles.container}>
-					<Text> Settings </Text>
-					<Button style={styles.button} title="Show DatePicker" onPress={this.showDateTimePicker} />
+					<Text>{day} </Text>
+					<Text>{date} </Text>
+					<Button style={styles.button} title="Change Date" onPress={this.showDateTimePicker} />
 					<DateTimePicker
 						isVisible={this.state.isDateTimePickerVisible}
 						onConfirm={this.handleDatePicked}
