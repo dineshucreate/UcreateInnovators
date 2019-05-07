@@ -45,5 +45,11 @@ const styles = StyleSheet.create({
       marginTop: 60
    },
 
+   modal: {
+     width: 100,
+     height: 100
+   }
+
+
   });
 export default styles;

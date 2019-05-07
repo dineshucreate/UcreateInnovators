@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Modal from 'react-native-modalbox';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 import {
     LoginManager, AccessToken, GraphRequest, GraphRequestManager
   } from 'react-native-fbsdk';
@@ -11,7 +13,8 @@ import {
     ScrollView,
     TextInput,
     AsyncStorage,
-    Alert
+    Alert,
+    TouchableOpacity
 } from 'react-native';
 import styles from './style';
 import { loginRequest } from './actions';
@@ -181,7 +184,27 @@ class Login extends Component {
         const { username, password } = this.state;
         console.log(`Get the data :  ${JSON.stringify(loginData)}`);
         return (
+            
             <View style={{ flex: 1 }}>
+                <Modal
+                    style={styles.modal}
+                    position={'center'}
+                    entry='bottom'
+                    swipeToClose={false}
+                    backButtonClose={false}
+                    backdropPressToClose={false}
+                    animationDuration={200}
+                    ref={'loaderView'}
+                >
+                    <View style={{ flex: 1 }}>
+                        <Text style={styles.modalText}>Singh</Text>
+                        <TouchableOpacity
+                            onPress={() => this.refs.loaderView.close()}
+                        >
+                        <Text style={styles.modalText}>Close</Text>
+                    </TouchableOpacity>
+                    </View>
+                </Modal>
                 <ScrollView style={{ backgroundColor: '#D3D3D3', flex: 1 }}>
                     <View style={styles.container}>
                         <Text style={styles.welcome}>LOGIN SCREEN</Text>
@@ -207,8 +230,9 @@ class Login extends Component {
                         <CustomButton
                             myText='Log In'
                             myCustomClick={() => {
-                                this.loginClicked();
-                                // loginRequestt(username, password);
+                                //this.loginClicked(); //FB integration
+                                // loginRequestt(username, password); //Redux call
+                                this.refs.loaderView.open(); // Open the Modal
                             }}
                         />
                     </View>
