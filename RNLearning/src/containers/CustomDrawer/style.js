@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     buttonStyle: {
         flexDirection: 'row',
         marginTop: 10,
-        alignItems: 'center'
+        alignSelf: 'center'
     },
     buttonStyleWithColor: {
         flexDirection: 'row',
@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
     },
     text: {
         color: Colors.black,
-        marginLeft: 8,
+        fontSize: 16,
+        fontWeight: 'bold',
     },
     safeAreaView: { 
         flex: 1, 

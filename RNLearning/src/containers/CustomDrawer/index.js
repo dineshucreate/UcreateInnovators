@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, Image, AsyncStorage } from 'react-native';
+import { View, Image, AsyncStorage, TouchableOpacity, Text, Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { SafeAreaView, DrawerItems } from 'react-navigation';
+import { SafeAreaView, DrawerItems, StackActions, NavigationActions } from 'react-navigation';
 import styles from './style';
+import configureStore from '../../configureStore';
+import { onLogOut } from './action';
 
 class CustomDrawer extends Component {
 
@@ -10,17 +12,37 @@ class CustomDrawer extends Component {
         super(props);
         this.state = {
             imageURI: '',
-            itemColor: 'flatList',
         };
     }
-    componentDidMount() {
-    }
+    
     getData = async () => {
         const uri = await AsyncStorage.getItem('imgDrawer');
         if (uri != null) {
             this.setState({ imageURI: uri });
         }
     }
+
+    showLogoutAlert = (props) => {
+        Alert.alert(
+            'Message', 'Are you sure to logout?',
+            [
+                { text: 'Yes', 
+                    onPress: () => {
+                        const { store } = configureStore();
+                        store.dispatch(onLogOut(props.navigation));
+                        const resetAction = StackActions.reset({
+                            index: 0,
+                            actions: [NavigationActions.navigate({ routeName: 'login' })],
+                        });
+                        this.props.navigation.dispatch(resetAction);
+                    },
+                },
+                { text: 'No' },
+            ],
+            { cancelable: false },
+        );
+    }
+
     render() {
         const { dataList } = this.props;
         return (
@@ -35,6 +57,14 @@ class CustomDrawer extends Component {
                 }
                 </View>
                 <DrawerItems {...this.props} />
+                <TouchableOpacity 
+                    style={styles.buttonStyle}
+                    onPress={() => {
+                        this.showLogoutAlert(this.props);
+                    }}
+                >
+                    <Text style={styles.text}>Logout</Text>
+                </TouchableOpacity>
                 {/* <View style={styles.itemsContainer}>
                     <TouchableOpacity 
                         style={
