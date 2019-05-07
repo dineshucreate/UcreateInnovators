@@ -99,13 +99,14 @@ class List extends Notification {
         const { dataListState, isSwitchOn } = this.state;
         return (
             <SafeAreaView style={styles.styleContainer}>
-                <View style={styles.topBarContainer}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.toggleDrawer()}
-                    >
-                        <Text style={styles.titleText}>App</Text>
-                    </TouchableOpacity>
-                    <Switch
+                <View style={styles.mainView}>
+                    <View style={styles.topBarContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.toggleDrawer()}
+                        >
+                            <Text style={styles.titleText}>App</Text>
+                        </TouchableOpacity>
+                        <Switch
                             onValueChange={(value) => { this.setState({ isSwitchOn: value }); }}
                             value={isSwitchOn}
                             ios_backgroundColor='blue'
@@ -113,28 +114,29 @@ class List extends Notification {
                             trackColor='blue'
                             thumbColor='grey'
                             style={styles.switch}
+                        />
+                    </View>
+                    <FlatList
+                        keyExtractor={(item, index) => index.toString()}
+                        data={dataListState}
+                        numColumns={isSwitchOn ? 2 : 1}
+                        key={isSwitchOn ? 2 : 1}
+                        style={styles.styleList}
+                        renderItem={this.renderItem}
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={this.state.isRefreshing}
+                                onRefresh={this.onRefresh}
+                                title="Pull to refresh"
+                                tintColor="#000000"
+                                titleColor="#000000"
+                            />
+                        }
+                        onEndReached={this.onScrollHandler}
+                        onEndThreshold={0}
+                        ListHeaderComponent={this.renderHeader}
                     />
                 </View>
-                <FlatList
-                    keyExtractor={(item, index) => index.toString()}
-                    data={dataListState}
-                    numColumns={isSwitchOn ? 2 : 1}
-                    key={isSwitchOn ? 2 : 1}
-                    style={styles.styleList}
-                    renderItem={this.renderItem}
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.state.isRefreshing}
-                            onRefresh={this.onRefresh}
-                            title="Pull to refresh"
-                            tintColor="#000000"
-                            titleColor="#000000"
-                        />
-                    }
-                    onEndReached={this.onScrollHandler}
-                    onEndThreshold={0}
-                    ListHeaderComponent={this.renderHeader}
-                />
             </SafeAreaView>
         );
     }

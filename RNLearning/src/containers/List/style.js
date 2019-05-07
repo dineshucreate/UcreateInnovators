@@ -4,6 +4,10 @@ import { Colors } from '../../utilities/Colors';
 const styles = StyleSheet.create({
     styleContainer: {
         flex: 1,
+        backgroundColor: Colors.baseColor,
+    },
+    mainView: {
+        flex: 1,
         backgroundColor: '#A4CBF8'
     },
     styleList: {

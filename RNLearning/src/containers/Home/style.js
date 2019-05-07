@@ -4,7 +4,11 @@ import { Colors } from '../../utilities/Colors';
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1, 
-        backgroundColor: '#A4CBF8'
+        backgroundColor: '#A4CBF8',
+    },
+    safeArea: {
+        flex: 0, 
+        backgroundColor: Colors.baseColor,
     },
     viewIn: {
         flex: 1,
