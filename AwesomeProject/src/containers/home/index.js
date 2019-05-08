@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Loader from '../../loader/loader';
 import { getUserList } from './action';
 import { createAppContainer, DrawerActions } from 'react-navigation';
+import { SearchBar } from 'react-native-elements';
 
 class Home extends Component {
 	static navigationOptions = {
@@ -20,7 +21,10 @@ class Home extends Component {
 			loading: false,
 			arrList: [],
 			error: null,
-			employeeObject: { name: 'Rohhiitt', age: '30', salary: '500000' }
+			employeeObject: { name: 'Rohhiitt', age: '30', salary: '500000' },
+			isSearching: false,
+			searchText: '',
+			searchArray: []
 		};
 	}
 
@@ -67,8 +71,37 @@ class Home extends Component {
 		return <View style={styles.itemSeparator} />;
 	};
 
+	searchFilterFunction = (text) => {
+		this.setState({ searchText: text, isSearching: true });
+		const newData = this.props.data.filter((item) => {
+			const itemData = `${item.employee_name.toUpperCase()}`;
+			const textData = text.toUpperCase();
+			return itemData.indexOf(textData) > -1;
+		});
+		this.setState({ searchArray: newData });
+	};
+	renderHeader = () => (
+		<SearchBar
+			placeholder="Type Here..."
+			lightTheme
+			round
+			onChangeText={(text) => this.searchFilterFunction(text)}
+			autoCorrect={false}
+			value={this.state.searchText}
+			onCancel={() => {
+				this.setState({ isSearching: false });
+			}}
+		/>
+	);
+
 	render() {
 		const { navigation } = this.props;
+
+		const { data } = this.props;
+		if (!this.state.isSearching) {
+			this.state.searchArray = data;
+		}
+
 		// const user = navigation.getParam('user', 'no user');
 		return (
 			<View style={{ flex: 1 }}>
@@ -77,10 +110,11 @@ class Home extends Component {
 					<HeaderView headerTitle={'Home'} onClickIcon={this.drawerOpen} />
 					<View style={{ flex: 1, justifyContent: 'center', backgroundColor: 'white' }}>
 						<FlatList
-							data={this.props.data}
+							data={this.state.searchArray}
 							renderItem={this.renderListItem}
 							keyExtractor={this._keyExtractor}
 							ItemSeparatorComponent={this.renderSeparator}
+							ListHeaderComponent={this.renderHeader}
 							numColumns={2}
 						/>
 						{this.state.loading && (
