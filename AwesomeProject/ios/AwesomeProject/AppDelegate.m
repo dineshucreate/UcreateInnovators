@@ -16,6 +16,7 @@
 #import "RNFirebaseNotifications.h"
 #import "RNFirebaseMessaging.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 @end
@@ -37,13 +38,17 @@
   [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
   [FIRMessaging messaging].delegate = self;
   
+  [GMSServices provideAPIKey:@"AIzaSyAK-X1xG-aaYBdKRlkWnjeier0c14ERU7I"];
+  
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
+  
   [RNSplashScreen show]; // Should be at the end
   return YES;
 }

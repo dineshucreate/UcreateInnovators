@@ -4,30 +4,63 @@
 target 'AwesomeProject' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
-
-	pod 'Firebase/Core'
-   	pod 'Firebase/Messaging'
-
-  # Pods for FirstReactProject
-
-  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+  
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  
+  # Google Maps
+  rn_path = '../node_modules/react-native'
+  rn_maps_path = '../node_modules/react-native-maps'
+  
+  # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+  pod 'React', path: rn_path, subspecs: [
+  'Core',
+  'CxxBridge',
+  'DevSupport',
+  'RCTActionSheet',
+  'RCTAnimation',
+  'RCTGeolocation',
+  'RCTImage',
+  'RCTLinkingIOS',
+  'RCTNetwork',
+  'RCTSettings',
+  'RCTText',
+  'RCTVibration',
+  'RCTWebSocket',
+  ]
+  
+  # React Native third party dependencies podspecs
+  pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
+  pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"
+  # If you are using React Native <0.54, you will get the following error:
+  # "The name of the given podspec `GLog` doesn't match the expected one `glog`"
+  # Use the following line instead:
+  #pod 'GLog', :podspec => "#{rn_path}/third-party-podspecs/GLog.podspec"
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+  pod 'react-native-maps', path: rn_maps_path
+  pod 'react-native-google-maps', path: rn_maps_path
+  
+  
+  
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'AwesomeProjectTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
 end
 
 target 'AwesomeProject-tvOS' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
-
+  
   # Pods for FirstReactProject-tvOS
-
+  
   target 'AwesomeProject-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
 end
