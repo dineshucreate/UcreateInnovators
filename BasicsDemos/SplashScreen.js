@@ -10,6 +10,7 @@ import {AsyncStorage} from 'react-native';
 import BottomScreen from './src/Bottom/BottomScreen';
 import SignUpAndLoginScreen from './src/sign_up/SignUpAndLoginScreen';
 import SelectWorldCupTeamScreen from './src/sign_up/SelectWorldCupTeamScreen';
+import loginredux from './src/reduxLogin/index'
 
 
 
@@ -88,6 +89,7 @@ const AppNavigator = createStackNavigator(
     bottom: BottomScreen,
     createAccount: SignUpAndLoginScreen,
     worldcup: SelectWorldCupTeamScreen,
+    loginredux: loginredux
   },{
     headerMode: 'none',
   initialRoute : "Splash"
