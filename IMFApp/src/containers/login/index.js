@@ -5,9 +5,8 @@ import styles from './style';
 import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
 import { loginRequest } from './actions'
-import {
-    LoginManager, AccessToken, GraphRequest, GraphRequestManager
-} from 'react-native-fbsdk';
+import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+
 class login extends Component {
     constructor(props) {
         super(props);

@@ -75,7 +75,6 @@ const sidePanelDrawer = createDrawerNavigator(
     {
         drawerWidth: 300,
         contentComponent: SidePanel,
-
     }
 );
 

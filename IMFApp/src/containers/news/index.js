@@ -13,7 +13,7 @@ class News extends Component {
             showWebview: false,
             videoId: '',
             isSearching: false,
-            filteredState: []
+            filteredNews: []
         }
     }
     componentDidMount() {
@@ -25,13 +25,12 @@ class News extends Component {
     );
     searchFilterFunction = text => {
         this.setState({ searchText: text, isSearching: true });
-        const { dataListSearch } = this.state;
-        const newData = dataListSearch.filter(item => {
+        const newData = this.props.newsData.filter(item => {
             const itemData = `${item.snippet.title.toUpperCase()}`;
             const textData = text.toUpperCase();
             return itemData.indexOf(textData) > -1;
         });
-        this.setState({ dataListState: newData });
+        this.setState({ filteredNews: newData });
     };
     renderHeader = () => (
         <SearchBar
@@ -60,6 +59,10 @@ class News extends Component {
 
     render() {
         console.log('NewsData: ' + JSON.stringify(this.props.newsData));
+        const { newsData } = this.props;
+        if (!this.state.isSearching) {
+            this.state.filteredNews = newsData;
+        }
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: '#06878A' }}>
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -73,7 +76,7 @@ class News extends Component {
                         <Text style={styles.blankText}>aa</Text>
                     </View>
                     <FlatList
-                        data={this.props.newsData}
+                        data={this.state.filteredNews}
                         renderItem={this.renderListItems}
                         ListHeaderComponent={this.renderHeader}
                     />
