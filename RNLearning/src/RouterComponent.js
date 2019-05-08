@@ -105,23 +105,16 @@ const AuthStack = createStackNavigator(
     },
 );
 
-let Stack = {};
 class StackChooser extends React.Component {
-    
-    constructor(props) {
-        super(props);
-        if (this.props.loginData) {
-            Stack = AuthStack;
-        } else {
-            Stack = AuthStackLogin;
-        }
-    }
 
     render() {
-        const StackLogin = 
-createAppContainer(Stack);
+        const StackLogin =
+            createAppContainer(AuthStackLogin);
+        const Stack =
+            createAppContainer(AuthStack);
         return (
-        <StackLogin />
+            this.props.loginData ? <Stack /> : <StackLogin />
+
         );
     }
 }

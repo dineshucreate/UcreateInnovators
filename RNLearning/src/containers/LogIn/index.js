@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Animated, Easing, TouchableOpacity, Dimensions, Alert } from 'react-native';
+import { Text, View, Animated, Easing, TouchableOpacity, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { connect } from 'react-redux';
 import { TextField } from 'react-native-material-textfield';
@@ -13,6 +13,7 @@ import { loginRequest } from './actions';
 const erremail = 'Email is required.';
 const errpassword = 'Password is required.';
 const DeviceHeight = Dimensions.get('window').height;
+const image = require('../../assets/logolarge.png');
 
 
 class Login extends Component {
@@ -34,9 +35,11 @@ class Login extends Component {
     }
 
     componentDidUpdate() {
-        this.state.loading ?
-            this.showHideLoader(true)
-            : (this.refs.loader != undefined ? this.showHideLoader(false) : null);
+        if (this.state.loading === true) {
+            this.showHideLoader(true);
+        } else if (this.refs.loader !== undefined) {
+            this.showHideLoader(false);  
+        }
     }
 
     onSignInPress = () => {
@@ -61,9 +64,12 @@ class Login extends Component {
         }, 0);
     }
 
-    
     showHideLoader = (isShow) => {
-        isShow ? this.refs.loader.showModalView() : this.refs.loader.hideModalView();
+        if (isShow === true) {
+            this.refs.loader.showModalView();
+        } else {
+            this.refs.loader.hideModalView();
+        }
     }
     sequenceAnimations = () => {
         Animated.sequence([
@@ -152,7 +158,7 @@ class Login extends Component {
 
                     <Animated.Image
                         style={[styles.logoimage, { width: increaseSize, height: increaseSize }]}
-                        source={require('../../assets/logolarge.png')}
+                        source={image}
                     />
                     <Animated.Text
                         style={[styles.reviewtooltext, { fontSize: opacitytext }]}
