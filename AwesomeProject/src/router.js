@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
-import { Login, Home, Settings, Profile } from './containers';
+import { Login, Home, Settings, Profile, Maps } from './containers';
 import sidePanel from './components/SidePanel';
 import signup from './containers/signup';
 // You should not have the drawer in tab
@@ -56,6 +56,9 @@ const drawerNavigator = createDrawerNavigator(
 		},
 		Profile: {
 			screen: Profile
+		},
+		Maps: {
+			screen: Maps
 		}
 	},
 	{
