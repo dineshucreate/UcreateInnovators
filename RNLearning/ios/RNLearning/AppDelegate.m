@@ -14,6 +14,7 @@
 @import UserNotifications;
 #import "RNFirebaseNotifications.h"
 #import "RNFirebaseMessaging.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 @end
@@ -23,6 +24,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [GMSServices provideAPIKey:@"AIzaSyAK-X1xG-aaYBdKRlkWnjeier0c14ERU7I"];
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"RNLearning"

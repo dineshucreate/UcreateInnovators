@@ -104,7 +104,7 @@ class List extends Notification {
                         <TouchableOpacity
                             onPress={() => this.props.navigation.toggleDrawer()}
                         >
-                            <Text style={styles.titleText}>App</Text>
+                            <Text style={styles.titleText}>Menu</Text>
                         </TouchableOpacity>
                         <Switch
                             onValueChange={(value) => { this.setState({ isSwitchOn: value }); }}

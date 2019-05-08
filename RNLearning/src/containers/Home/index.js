@@ -81,7 +81,7 @@ class Home extends PureComponent {
                     <TouchableOpacity
                         onPress={() => this.props.navigation.toggleDrawer()}
                     >
-                        <Text style={styles.title}>App</Text>
+                        <Text style={styles.title}>Menu</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.viewIn}>
