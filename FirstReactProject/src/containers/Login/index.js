@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-native-modalbox';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import moment from 'moment';
+import ImagePicker from 'react-native-image-picker';
 import {
     LoginManager, AccessToken, GraphRequest, GraphRequestManager
   } from 'react-native-fbsdk';
@@ -22,10 +24,21 @@ import CustomButton from '../../Components/CustomButton';
 import CustomLoader from '../../Components/CustomLoader';
 import config from '../../Config/config';
 
+const options = {
+    title: 'Select Avatar',
+    customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+  };
+
+
 class Login extends Component {
     static navigationOptions = {
         title: 'LOGIN',
     };
+    
     
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.loginData && nextProps.loginData.status === 200) {
@@ -44,6 +57,9 @@ class Login extends Component {
             username: config.username,
             password: config.password,
             loader: false,
+            isDateTimePickerVisible: false,
+            dateTime: '12/12/12',
+            avatarSource: null
         };
     }
     componentDidMount() {
@@ -143,7 +159,7 @@ class Login extends Component {
         );
       }
     /*----------------------------------------------------------------------------------*/
-
+      //Modal : 
     loginClicked = () => {
         const { navigation } = this.props;
         LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
@@ -178,10 +194,57 @@ class Login extends Component {
           }
         );
       }
+
+    /*------------------------------------------------------------------------------------------*/
+    //Date Picker :
+    showDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: true });
+    };
     
+    hideDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: false });
+    };
+    
+    handleDatePicked = date => {
+        const momentObj = moment(date);
+        const momentString = momentObj.format('YYYY-MM-DD');
+        this.setState({ dateTime: momentString });
+        console.log('A date has been picked: ', date);
+
+        this.hideDateTimePicker();
+    };
+
+    /*-------------------------------------------------------------------------------------------*/
+    //Image Picker :
+
+    imagePickerOpen = () => {
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+          
+            if (response.didCancel) {
+              console.log('User cancelled image picker');
+            } else if (response.error) {
+              console.log('ImagePicker Error: ', response.error);
+            } else if (response.customButton) {
+              console.log('User tapped custom button: ', response.customButton);
+            } else {
+              const source = { uri: response.uri };
+          
+              // You can also display the image using data:
+              // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+          
+              this.setState({
+                avatarSource: source,
+              });
+            }
+          });
+    }
+
+      /*-------------------------------------------------------------------------------------------*/
+
     render() {
         const { loginRequestt, loginData } = this.props;
-        const { username, password } = this.state;
+        const { username, password, dateTime } = this.state;
         console.log(`Get the data :  ${JSON.stringify(loginData)}`);
         return (
             
@@ -225,6 +288,7 @@ class Login extends Component {
                             placeholder="Password"
                             placeholderTextColor="#9a73ef"
                             autoCapitalize="none"
+                            value={dateTime}
                             //onChangeText={(text) => this.setState({ password: text })}
                         />
                         <CustomButton
@@ -232,8 +296,15 @@ class Login extends Component {
                             myCustomClick={() => {
                                 //this.loginClicked(); //FB integration
                                 // loginRequestt(username, password); //Redux call
-                                this.refs.loaderView.open(); // Open the Modal
+                                //this.refs.loaderView.open(); // Open the Modal
+                                //this.showDateTimePicker(); //Open date picker
+                                this.imagePickerOpen();
                             }}
+                        />
+                        <DateTimePicker
+                            isVisible={this.state.isDateTimePickerVisible}
+                            onConfirm={this.handleDatePicked}
+                            onCancel={this.hideDateTimePicker}
                         />
                     </View>
                 </ScrollView>
