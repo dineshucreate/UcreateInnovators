@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker, OverlayComponent } from 'react-native-maps';
 import styles from './style';
 import HeaderView from '../../components/HeaderView/Header';
 
@@ -12,8 +12,12 @@ export default class Maps extends Component {
 				{
 					latitude: 30.7046,
 					longitude: 76.7179,
-					title: 'Foo Place',
-					subtitle: '1234 Foo Drive'
+					title: 'Amit',
+					subtitle: '1234 Foo Drive',
+					coordinate: {
+						latitude: 30.7046,
+						longitude: 76.7179
+					}
 				}
 			]
 		};
@@ -40,12 +44,14 @@ export default class Maps extends Component {
 					>
 						{this.state.markers.map((marker) => (
 							<Marker
-								coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
+								draggable
+								coordinate={marker.coordinate}
+								onDragEnd={(e) => this.setState({ x: e.nativeEvent.coordinate })}
 								title={marker.title}
-								description={marker.description}
 							/>
 						))}
 					</MapView>
+					<OverlayComponent style={{ position: 'absolute', bottom: 50 }} />
 				</View>
 			</SafeAreaView>
 		);
