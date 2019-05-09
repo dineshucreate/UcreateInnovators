@@ -6,27 +6,40 @@ import { SafeAreaView } from 'react-navigation';
 import Modal from "react-native-modal";
 import ImagePicker from 'react-native-image-picker';
 import ImageZoom from 'react-native-image-pan-zoom';
-
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import moment from 'moment';
 
 const options = {
     title: 'Select Avatar',
-    // customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
-    storageOptions: {
-        skipBackup: true,
-        path: 'images',
-    },
 };
 
 const imageSize = (Dimensions.get('window').width) - 50
 
 export default class Home extends Component {
-
     state = {
         isModalVisible: true,
-        avatarSource: ''
+        avatarSource: '',
+        dateTime: '',
+        isDateTimePickerVisible: false
     };
     toggleModal = () => {
         this.setState({ isModalVisible: !this.state.isModalVisible });
+    };
+    //Date Picker :
+    showDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: true });
+    };
+
+    hideDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: false });
+    };
+    handleDatePicked = date => {
+        const momentObj = moment(date);
+        const momentString = momentObj.format('YYYY-MM-DD');
+        this.setState({ dateTime: momentString });
+        console.log('A date has been picked: ', date);
+
+        this.hideDateTimePicker();
     };
     openCamera = () => {
         ImagePicker.showImagePicker(options, (response) => {
@@ -39,10 +52,6 @@ export default class Home extends Component {
                 console.log('User tapped custom button: ', response.customButton);
             } else {
                 const source = { uri: response.uri };
-
-                // You can also display the image using data:
-                // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-
                 this.setState({
                     avatarSource: source,
                 });
@@ -65,16 +74,22 @@ export default class Home extends Component {
                             <Image style={styles.facebookIcon} source={require('../../assets/images/camera_icon.png')} />
                         </TouchableOpacity>
                     </View>
-
-                    <ImageZoom style={{ marginTop: 40, alignSelf: 'center' }} cropWidth={imageSize}
+                    <View style={{ height: 44, marginTop: 20, flexDirection: 'row', }}>
+                        <TouchableOpacity style={{ alignSelf: 'center', marginLeft: 20, }} onPress={this.showDateTimePicker}>
+                            <Text style={{ fontSize: 22, fontFamily: 'Rajdhani-Bold', color: 'white' }}>Select Date :</Text>
+                        </TouchableOpacity>
+                        <Text style={{
+                            alignSelf: 'center', fontSize: 18, fontFamily: 'Rajdhani-semibold',
+                            color: 'white', marginLeft: 10, width: (Dimensions.get('window').width) - 120
+                        }}>{this.state.dateTime}</Text>
+                    </View>
+                    <ImageZoom style={{ marginTop: 20, alignSelf: 'center' }} cropWidth={imageSize}
                         cropHeight={imageSize}
                         imageWidth={imageSize}
                         imageHeight={imageSize}  >
                         <Image style={{ width: imageSize - 80, height: imageSize - 80, alignSelf: 'center', marginTop: 40, }}
                             source={this.state.avatarSource} />
                     </ImageZoom>
-                    {/* <Image style={{ height: 200, width: 200, marginTop: 50, alignSelf: 'center' }}
-                        source={this.state.avatarSource} /> */}
                 </BackgroundImage>
                 <Modal isVisible={this.state.isModalVisible}>
                     <View style={styles.modalView}>
@@ -87,10 +102,17 @@ export default class Home extends Component {
                         </TouchableOpacity>
                     </View>
                 </Modal>
+                <DateTimePicker
+                    isVisible={this.state.isDateTimePickerVisible}
+                    onConfirm={this.handleDatePicked}
+                    onCancel={this.hideDateTimePicker}
+                />
             </SafeAreaView >
         );
     }
 }
+
+
 
 
 
