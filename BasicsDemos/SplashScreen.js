@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, ImageBackground  } from 'react-native';
 import { createStackNavigator , createAppContainer, Header,NavigationActions,StackActions} from 'react-navigation';
-import BlinkApp from './BlinkApp';
-import ListScreen from './ListScreen';
+import BlinkApp from './src/reduxPractice/BlinkApp';
+import ListScreen from './src/ListView/ListScreen';
 import SearchBar from './SearchBar';
 import RegisterScreen from './src/RegisterScreen';
 import {AsyncStorage} from 'react-native';

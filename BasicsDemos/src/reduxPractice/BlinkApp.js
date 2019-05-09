@@ -11,11 +11,14 @@ import { Platform, StyleSheet, Text, View, Image, ImageBackground, TextInput,But
   TouchableNativeFeedback } from 'react-native';
 import { tsConstructorType } from '@babel/types';
 import { createStackNavigator , createAppContainer, Header} from 'react-navigation';
-import ListScreen from './ListScreen';
+import ListScreen from '../ListView/ListScreen';
 import { ScrollView } from 'react-native-gesture-handler';
-import SearchBar from './SearchBar';
+import SearchBar from '../../SearchBar';
 import axios from 'axios';
 import {AsyncStorage} from 'react-native';
+
+import{connect} from 'react-redux'
+import {loginRequest} from './action'
 
 
 const instructions = Platform.select({
@@ -26,7 +29,7 @@ const instructions = Platform.select({
 });
 
 var userId="";
-export default class BlinkApp extends Component {
+ class BlinkApp extends Component {
   // constructor(props) {
   //   super(props)
   //   this.state = { 
@@ -36,10 +39,20 @@ export default class BlinkApp extends Component {
     
   // }
 
+
+apiCall = () =>{
+    const {loginRequest, navigation} = this.props;
+    const {email, password, loading} = this.state;
+    loginRequest(email, password, navigation);
+}
+
   state = {
     text: '' ,
-    email:"",
-    password:"",
+    email: '',
+    password: '',
+    loading: false,
+    erremail:'',
+    errpassword:'',
   };
    aray =[];
   _onPressButton(){
@@ -102,6 +115,8 @@ export default class BlinkApp extends Component {
     const resetAction = NavigationActions.reset({
       index: 1,
       actions: [
+
+        
       //  NavigationActions.navigate({ routeName: 'Home' }),
         NavigationActions.navigate({ routeName: 'List' })
       ]
@@ -118,9 +133,9 @@ export default class BlinkApp extends Component {
     return (
      
       <View style={styles.container}>
-        <ImageBackground source={require('./src/assets/global_bg.png')} style={styles.container}>
-         
-            <Image source={require('./src/assets/ic_im_logo.png')} style={{width:175,height:155, marginTop:30}}></Image>
+        <ImageBackground source={require('../assets/global_bg.png')} style={styles.container}>
+        
+            <Image source={require('../assets/ic_im_logo.png')} style={{width:175,height:155, marginTop:30}}></Image>
         <View style={{width:320,height:180, backgroundColor: '#fff', borderRadius:3, marginTop:20}}>
           <TextInput style={styles.inputStyle}
             placeholder={'Email'}
@@ -137,7 +152,7 @@ export default class BlinkApp extends Component {
         </View>
       
 <TouchableNativeFeedback
-               onPress= {this.loginApi}
+               onPress= {this.apiCall}
             // onPress={()=>{this.props.navigation.navigate('List')}}
             background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''} style={styles.buttons}>
           <View style={styles.button}>
@@ -160,20 +175,18 @@ export default class BlinkApp extends Component {
   }
 }
 
-
-
-// const AppNavigator = createStackNavigator(
-//   {
-//     Home: BlinkApp,
-//     List: ListScreen,
-//     search: SearchBar,
-//   },
-//   {
-//   initialRoute : "Home"
-//   }
-// );
-
-// export default createAppContainer(AppNavigator)
+const mapDispatchToProps = (dispatch) =>({
+  loginRequest:(email,password,navigator) => dispatch(loginRequest(email,password,navigator)) 
+  })
+  
+  const mapStateToProps = (state) =>{
+      return{
+          loading:state.login.loading,
+          loginData: state.login.loginData,
+      };
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps) (BlinkApp);
 
 
 const styles = StyleSheet.create({

@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
 import {Platform, StyleSheet, Text,View,Button,FlatList,SectionList, TouchableWithoutFeedback, TouchableOpacity} from 'react-native'
 import { createAppContainer  } from 'react-navigation';
-import SearchBar from './SearchBar';
-import CustomRow from './src/ListView/CustomRow';
-import Row from './src/ListView/Row';
+import SearchBar from '../../SearchBar';
+import CustomRow from './CustomRow';
+import Row from './Row';
 import axios from 'axios';
+
+import {connect} from 'react-redux';
+import {domasticRequest} from './action';
 
  class ListScreen extends React.Component{
  
@@ -13,20 +16,23 @@ import axios from 'axios';
   }
   
   componentDidMount(){
+
+    const {domasticRequest} = this.props;
+    domasticRequest();
     
-    axios.get('https://footballalbum-prod-api.imfootball.me/userapi/api/Competitions/Domestic',{
-      headers:{
-        'ZUMO-API-VERSION':'2.0.0',
-        'Ocp-Apim-Subscription-Key':'6c192d2e80bb49a8b90f6d684cf18b9b',
-      }
-    }).then(res => {
-      const response = res.data;
+    // axios.get('https://footballalbum-prod-api.imfootball.me/userapi/api/Competitions/Domestic',{
+    //   headers:{
+    //     'ZUMO-API-VERSION':'2.0.0',
+    //     'Ocp-Apim-Subscription-Key':'6c192d2e80bb49a8b90f6d684cf18b9b',
+    //   }
+    // }).then(res => {
+    //   const response = res.data;
      
-      console.log('..............   '+ JSON.stringify(response.countries));
-      this.setState({arrayList: response.countries});
+    //   console.log('..............   '+ JSON.stringify(response.countries));
+    //   this.setState({arrayList: response.countries});
     
-    //  alert(JSON.stringify(response));
-    })
+    // //  alert(JSON.stringify(response));
+    // })
   }
 
   actionOnRow(item){
@@ -108,7 +114,20 @@ console.log("Select"+ item)
 //   }
 // );
 
-export default ListScreen;
+
+
+const mapStateToProps = (state)=>{
+  return{
+   // loading: state.domastic.loading,
+    domasticData: state.domastic.domasticData
+  };
+
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  domasticRequest: () => dispatch(domasticRequest())
+})
+export default connect(mapStateToProps,mapDispatchToProps) (ListScreen);
 
 const styles = StyleSheet.create({
     container: {

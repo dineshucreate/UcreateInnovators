@@ -5,7 +5,7 @@ import {Text,ImageBackground, Image,View, StyleSheet,TouchableNativeFeedback,Ale
 export default class SignUpAndLoginScreen extends Component{
 
     navigat= ()=>{
-        this.props.navigation.navigate('List')
+        this.props.navigation.navigate('Home')
     }
     loginApi= ()=>{
         this.props.navigation.navigate('worldcup')

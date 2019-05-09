@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 import Begin from './RouteCompount';
+import Splash from './SplashScreen'
 
 
 
@@ -13,7 +14,7 @@ export default class RouterComponent extends React.Component {
  render() {
    return (
      <Provider store={store} >
-       <Begin/>
+       <Splash/>
      </Provider >
    );
  }

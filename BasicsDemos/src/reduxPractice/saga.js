@@ -5,7 +5,7 @@ import {LOGIN_REQUESTED} from './constants';
 import {loginSuccess, loginFail} from './action'
 
 
-function * onLoginRequest({email, password, navigator}){
+function* onLoginRequest({email, password, navigator}){
     const bodyValue={
         'email': email,
         'password': password
@@ -18,18 +18,22 @@ function * onLoginRequest({email, password, navigator}){
     const url = "https://footballalbum-prod-api.imfootball.me/userapi/api/Auth/Login";
    
     try{
+        console.log("Login----------- ")
         const loginData = yield call(axios.post, url, bodyValue,{headers:headerValue});
         yield put(loginSuccess(loginData.data));
-        alert(JSON.stringify(loginData.data));
+        navigator.navigate('List');
+        console.log("Login----------- " +loginData.data)
+      //  alert(JSON.stringify(loginData.data));
        // Alert.alert(JSON.stringify(loginData.data));
 
-    }catch{
+    }catch(error){
         yield put(loginFail(error));
-        Alert.alert(`login failed: ${error}`)
+        console.log("ErrorLogin----------- " +error)
+       // Alert.alert(`login failed: ${error}`)
     }
 }
 
-function * sagaLogin(){
+function* sagaLogin(){
     yield takeEvery(LOGIN_REQUESTED, onLoginRequest);
 }
 export default sagaLogin;
