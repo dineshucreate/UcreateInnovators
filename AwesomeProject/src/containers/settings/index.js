@@ -54,7 +54,6 @@ export default class Settings extends Component {
 		this.setState({
 			selectedDate: date
 		});
-		console.log('A date has been picked: ', date);
 		this.hideDateTimePicker();
 	};
 
