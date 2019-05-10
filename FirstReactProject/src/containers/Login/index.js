@@ -16,7 +16,7 @@ import {
     TextInput,
     AsyncStorage,
     Alert,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
 import styles from './style';
 import { loginRequest } from './actions';
@@ -32,10 +32,10 @@ const options = {
       path: 'images',
     },
   };
+  
 
-
-class Login extends Component {
-    static navigationOptions = {
+    class Login extends Component {
+      static navigationOptions = {
         title: 'LOGIN',
     };
     
@@ -59,7 +59,8 @@ class Login extends Component {
             loader: false,
             isDateTimePickerVisible: false,
             dateTime: '12/12/12',
-            avatarSource: null
+            avatarSource: null,
+            refreshing: false,
         };
     }
     componentDidMount() {
@@ -78,10 +79,10 @@ class Login extends Component {
    // 3
     async getToken() {
         let fcmToken = await AsyncStorage.getItem('fcmToken');
-        this.setState({ username: fcmToken });
+        //this.setState({ username: fcmToken });
         if (!fcmToken) {
             fcmToken = await firebase.messaging().getToken();
-            this.setState({ username: fcmToken });
+            //this.setState({ username: fcmToken });
             if (fcmToken) {
                 // user has a device token
                 console.log('Device Tokem = ', fcmToken);
@@ -239,15 +240,13 @@ class Login extends Component {
             }
           });
     }
-
-      /*-------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------*/
 
     render() {
         const { loginRequestt, loginData } = this.props;
         const { username, password, dateTime } = this.state;
         console.log(`Get the data :  ${JSON.stringify(loginData)}`);
         return (
-            
             <View style={{ flex: 1 }}>
                 <Modal
                     style={styles.modal}
@@ -264,8 +263,8 @@ class Login extends Component {
                         <TouchableOpacity
                             onPress={() => this.refs.loaderView.close()}
                         >
-                        <Text style={styles.modalText}>Close</Text>
-                    </TouchableOpacity>
+                            <Text style={styles.modalText}>Close</Text>
+                        </TouchableOpacity>
                     </View>
                 </Modal>
                 <ScrollView style={{ backgroundColor: '#D3D3D3', flex: 1 }}>
@@ -278,8 +277,8 @@ class Login extends Component {
                             placeholder="Email"
                             placeholderTextColor="#9a73ef"
                             autoCapitalize="none"
-                            value={username}
-                           // onChangeText={(text) => this.setState({ username: text })}
+                           // value={username}
+                            onChangeText={(text) => this.setState({ username: text })}
                         />
                         <Text style={styles.heading}>Password : </Text>
                         <TextInput
@@ -288,17 +287,17 @@ class Login extends Component {
                             placeholder="Password"
                             placeholderTextColor="#9a73ef"
                             autoCapitalize="none"
-                            value={dateTime}
-                            //onChangeText={(text) => this.setState({ password: text })}
+                           // value={dateTime}
+                            onChangeText={(text) => this.setState({ password: text })}
                         />
                         <CustomButton
                             myText='Log In'
                             myCustomClick={() => {
                                 //this.loginClicked(); //FB integration
-                                // loginRequestt(username, password); //Redux call
+                                 loginRequestt(username, password); //Redux call
                                 //this.refs.loaderView.open(); // Open the Modal
                                 //this.showDateTimePicker(); //Open date picker
-                                this.imagePickerOpen();
+                                //this.imagePickerOpen(); //Open the options to get the image
                             }}
                         />
                         <DateTimePicker

@@ -14,12 +14,14 @@ const homeReducer = (state = INITIAL_STATE, action) => {
         case REQUEST_API: {
             return {
                 ...state,
+                loading: true,
             };
         }
         case REQUEST_SUCCESS: {
             return {
                 ...state,
                 empData: action.empDataList,
+                loading: false,
             };
         }
         case REQUEST_FAIL: {
