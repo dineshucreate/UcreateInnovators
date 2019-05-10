@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     sectionOneView: {
         marginLeft: 10,
         marginRight: 10,
-        height: '15%',
+        height: 90,
         backgroundColor: 'white',
         borderRadius: 3,
         justifyContent: 'flex-start'
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 10,
-        height: '22%',
+        height: 135,
         backgroundColor: 'white',
         borderRadius: 3,
         justifyContent: 'flex-start'
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 10,
-        height: '7%',
+        height: 45,
         backgroundColor: 'white',
         borderRadius: 3,
         justifyContent: 'flex-start'

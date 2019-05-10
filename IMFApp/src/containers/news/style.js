@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontFamily: 'Rajdhani-bold',
         color: 'black',
-        height: 46
+        height: 46,
     },
     newsTittleText: {
         textAlign: 'left',
@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'Rajdhani-regular',
         color: 'black',
-        height: 80
+        // height: 80,
+        flexWrap: 'wrap',
     },
 });
 export default styles;

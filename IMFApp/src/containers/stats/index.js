@@ -29,7 +29,7 @@ class Stats extends Component {
             <View style={styles.teamsContainer}>
                 <View style={styles.viewTeam1}>
                     <Image style={styles.logoImageTeam1}
-                        source={{ uri: item.homeTeamImageUrl }} />
+                        source={{ uri: item.homeTeamImageUrl !== null ? item.homeTeamImageUrl : '' }} />
                     <Text style={styles.textTeamName1}> {item.homeTeamName}</Text>
                 </View>
                 <View style={styles.viewCenter}>
@@ -38,7 +38,7 @@ class Stats extends Component {
                 </View>
                 <View style={styles.viewTeam2}>
                     <Image style={styles.logoImageTeam1}
-                        source={{ uri: item.awayTeamImageUrl }} />
+                        source={{ uri: item.awayTeamImageUrl !== null ? item.awayTeamImageUrl : '' }} />
                     <Text style={styles.textTeamName1}> {item.awayTeamName}</Text>
                 </View>
             </View>

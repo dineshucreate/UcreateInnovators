@@ -50,7 +50,9 @@ class News extends Component {
                     source={{ uri: item.snippet.thumbnails.medium.url }} />
                 <View style={{ height: 130, margin: 10, flexDirection: 'column', flex: 0.7 }}>
                     <Text style={styles.newsHeaderText}>{item.snippet.title}</Text>
-                    <Text style={styles.newsTittleText}>{item.snippet.description}</Text>
+                    <Text style={styles.newsTittleText}
+                        numberOfLines={4}
+                    >{item.snippet.description}</Text>
 
                 </View>
             </View>

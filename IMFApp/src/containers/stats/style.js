@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
     backgroundView: {
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         resizeMode: 'center',
-        backgroundColor: 'gray',
-        borderRadius: 25,
+        // borderRadius: 25,
+        borderRadius: Platform.OS === 'ios' ? 25 : 250,
         alignSelf: 'center',
         marginTop: 10
     },

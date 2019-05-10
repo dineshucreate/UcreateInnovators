@@ -42,46 +42,47 @@ export default class SidePanel extends Component {
   render() {
     return (
       <BackgroundImage>
-        <SafeAreaView>
-          <View style={styles.userView}>
-            <Image style={styles.userIcon} source={require('../../assets/images/Placeholder_Sticker_Image.png')} />
-            <Text style={styles.userName}>Jaspreet Singh</Text>
-          </View>
-          <View style={styles.sectionOneView} >
-            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.friendsPress}>
-              <Text style={styles.textButtons}>Friends</Text>
-              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
-            </TouchableOpacity>
-            <View style={styles.lineView} />
-            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.fanmojiesPress}>
-              <Text style={styles.textButtons}>Fan Gif's</Text>
-              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
-            </TouchableOpacity>
-
-          </View>
-          <View style={styles.sectionTwoView}>
-            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.homePress}>
-              <Text style={styles.textButtons}>Home</Text>
-              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
-            </TouchableOpacity>
-            <View style={styles.lineView} />
-            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.statsPress}>
-              <Text style={styles.textButtons}>Stats</Text>
-              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
-            </TouchableOpacity>
-            <View style={styles.lineView} />
-            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.newsPress}>
-              <Text style={styles.textButtons}>News</Text>
-              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.sectionThreeView}>
-            <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.logoutPress}>
-              <Text style={styles.textButtons}>Logout</Text>
-              <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+        {/* <SafeAreaView> */}
+        {/* <View > */}
+        <View style={styles.userView}>
+          <Image style={styles.userIcon} source={require('../../assets/images/Placeholder_Sticker_Image.png')} />
+          <Text style={styles.userName}>Jaspreet Singh</Text>
+        </View>
+        <View style={styles.sectionOneView} >
+          <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.friendsPress}>
+            <Text style={styles.textButtons}>Friends</Text>
+            <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+          </TouchableOpacity>
+          <View style={styles.lineView} />
+          <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.fanmojiesPress}>
+            <Text style={styles.textButtons}>Fan Gif's</Text>
+            <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.sectionTwoView}>
+          <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.homePress}>
+            <Text style={styles.textButtons}>Home</Text>
+            <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+          </TouchableOpacity>
+          <View style={styles.lineView} />
+          <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.statsPress}>
+            <Text style={styles.textButtons}>Stats</Text>
+            <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+          </TouchableOpacity>
+          <View style={styles.lineView} />
+          <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.newsPress}>
+            <Text style={styles.textButtons}>News</Text>
+            <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.sectionThreeView}>
+          <TouchableOpacity style={styles.touchableOpacityStyle} onPress={this.logoutPress}>
+            <Text style={styles.textButtons}>Logout</Text>
+            <Image style={styles.arrowImage} source={require('../../assets/images/frontArrow.png')} />
+          </TouchableOpacity>
+        </View>
+        {/* </View> */}
+        {/* </SafeAreaView> */}
       </BackgroundImage>
 
     )
