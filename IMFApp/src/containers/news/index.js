@@ -13,7 +13,8 @@ class News extends Component {
             showWebview: false,
             videoId: '',
             isSearching: false,
-            filteredNews: []
+            filteredNews: [],
+            refreshing: false
         }
     }
     componentDidMount() {
@@ -58,7 +59,13 @@ class News extends Component {
             </View>
         </TouchableOpacity>
     );
+    handleRefresh = () => {
+        this.setState({ refreshing: true });
 
+        setTimeout(() => {
+            this.setState({ refreshing: false });
+        }, 2000)
+    }
     render() {
         console.log('NewsData: ' + JSON.stringify(this.props.newsData));
         const { newsData } = this.props;
@@ -81,6 +88,8 @@ class News extends Component {
                         data={this.state.filteredNews}
                         renderItem={this.renderListItems}
                         ListHeaderComponent={this.renderHeader}
+                        refreshing={this.state.refreshing}
+                        onRefresh={this.handleRefresh}
                     />
                     {this.props.loading ?
                         <View style={{ width: '100%', height: '100%', justifyContent: 'center', backgroundColor: 'white' }}>
