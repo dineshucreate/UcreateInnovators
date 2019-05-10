@@ -39,11 +39,12 @@ import {domasticRequest} from './action';
 console.log("Select"+ item)
   }
     render(){
-      console.log("enter");
+      console.log("enter---------------------Dev"+  +JSON.stringify(this.props.domasticData));
 
       console.log(this.state.arrayList&& this.state.arrayList.length);
         return(
             <View style={styles.container}>
+
             {/* <SectionList
             sections={[
               {title:'A', data:['DEV']},
@@ -119,7 +120,8 @@ console.log("Select"+ item)
 const mapStateToProps = (state)=>{
   return{
    // loading: state.domastic.loading,
-    domasticData: state.domastic.domasticData
+    domasticData: state.domastic.domasticData,
+   
   };
 
 };
