@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+import { StackActions, NavigationActions } from 'react-navigation';
 import {
   TextInput,
   Image,
@@ -6,16 +8,65 @@ import {
   Alert,
   Text,
   StyleSheet,
-  View
+  View,
+  AsyncStorage
 } from 'react-native'
 
 export default class Login extends Component {
+
+  static navigationOptions = {
+    title: 'Login'
+  };
 
   constructor(props) {
     super(props)
     this.state = {
       TextInputValueHolder: '',
-      textValue: 'Forgot password?'
+      textValue: 'Forgot password?',
+      email: 'try27@gmail.com',
+      password: 'Android@123'
+    }
+  }
+
+
+  loginApi = () => {
+
+    try {
+      console.log(this.state.email);
+      console.log(this.state.password);
+      let data = JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+      });
+
+      axios.post('https://footballalbum-prod-api.imfootball.me/userapi/api/Auth/Login', data, {
+        headers: {
+          'Content-Type': 'application/json',
+          'ZUMO-API-VERSION': '2.0.0',
+          'Ocp-Apim-Subscription-Key': '6c192d2e80bb49a8b90f6d684cf18b9b',
+
+        }
+      }).then(res => {
+        const response = res.data;
+        if (res.status == 200) {
+          userId = res.data.user.userGuid
+          this.saveUserId();
+          this.navigateToOther();
+        }
+      })
+    } catch (err) {
+      console.log("error===============================D", err);
+    }
+
+  }
+
+  saveUserId = async () => {
+    try {
+      console.log("+++++++++ userID ", userId);
+      await AsyncStorage.setItem('userId', userId);
+    } catch (error) {
+      console.log("Errer  ", error)
+
     }
   }
 
@@ -24,15 +75,20 @@ export default class Login extends Component {
     Alert.alert(TextInputValueHolder)
   }
 
-  _onPress = () => {
-    const { navigate } = this.props.navigation;
-    navigate('Home');
-  };
+  navigateToOther() {
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'MyFlatList', params: { name: 'Ruchi' } })
+      ]
+    });
+
+    this.props.navigation.dispatch(resetAction);
+  }
 
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.centerBox}>
           <Image style={styles.stretch}
             source={require('../../../assets/icon.png')}
@@ -41,29 +97,31 @@ export default class Login extends Component {
           <TextInput style={styles.input}
             placeholder="Email"
             underlineColorAndroid="transparent"
-            autoCapitalize="words"
-            // onChangeText={TextInputValueHolder => this.setState({ TextInputValueHolder })}
+            onChangeText={email => this.setState({ email })}
+          // onChangeText={TextInputValueHolder => this.setState({ TextInputValueHolder })}
           />
           <TextInput style={styles.password_input}
             placeholder="Password"
             underlineColorAndroid="transparent"
+            onChangeText={password => this.setState({ password })}
           />
 
           <Text>{this.state.textValue}</Text>
 
           <Button style={styles.button}
             title="Login"
-            onPress={() => this.setState({ textValue: 'Done' })}
-            // {this.GetValueFunction}
-            // {this._onPress}
+            onPress={this.loginApi}
+          // {() => this.setState({ textValue: 'Done' })}
+          // {this.GetValueFunction}
+          // {this._onPress}
           >
-
-            </Button>
+          </Button>
         </View>
       </View>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {

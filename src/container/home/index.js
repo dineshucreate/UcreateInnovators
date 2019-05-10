@@ -21,22 +21,8 @@ export default class Home extends Component {
   }
   render() {
     return (
-
-      // <View
-      //   style={{
-      //     flexDirection: 'row',
-      //     height: 100,
-      //     padding: 20,
-      //   }}>
-      //   <View style={{backgroundColor: 'blue', flex: 0.3}} />
-      //   <View style={{backgroundColor: 'red', flex: 0.5}} />
-      //   <Text>Hello World!</Text>
-      // </View>
       <View style={homeStyles.container}>
-
         <View style={homeStyles.centerBox}>
-      
-
       <Picker selectedValue = {this.state.user} onValueChange = {this.updateUser}>
                <Picker.Item label = "Steve" value = "steve" />
                <Picker.Item label = "Ellen" value = "ellen" />
