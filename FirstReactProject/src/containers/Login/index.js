@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-native-modalbox';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
+import { MapView, Marker } from 'react-native-maps';
 import ImagePicker from 'react-native-image-picker';
 import {
     LoginManager, AccessToken, GraphRequest, GraphRequestManager
@@ -248,6 +249,33 @@ const options = {
         console.log(`Get the data :  ${JSON.stringify(loginData)}`);
         return (
             <View style={{ flex: 1 }}>
+                 {/* <MapView
+                    style={styles.map}
+                    initialRegion={{
+                    latitude: 37.78825,
+                    longitude: -122.4324,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                    }}
+                 /> */}
+
+                 <MapView
+                    style={styles.map}
+                    initialRegion={{
+                    latitude: 37.78825,
+                    longitude: -122.4324,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                    }}
+                 >
+                {this.state.markers.map(marker => (
+                    <Marker
+                    coordinate={marker.latlng}
+                    title={marker.title}
+                    description={marker.description}
+                    />
+                ))}
+                </MapView>
                 <Modal
                     style={styles.modal}
                     position={'center'}

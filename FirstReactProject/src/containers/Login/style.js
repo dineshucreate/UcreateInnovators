@@ -48,6 +48,12 @@ const styles = StyleSheet.create({
    modal: {
      width: 100,
      height: 100
+   },
+
+   map: {
+       marginTop: 100,
+       height: 400,
+       width: 400,
    }
 
 

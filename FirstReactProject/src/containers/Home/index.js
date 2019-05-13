@@ -4,7 +4,7 @@ import { SearchBar } from 'react-native-elements';
 import { connect } from 'react-redux';
 import ListItem from '../../Components/ListItem';
 import { requestAPI } from './actions';
-import { State } from 'react-native-gesture-handler';
+//import { State } from 'react-native-gesture-handler';
 
 
 class Home extends Component {
@@ -26,9 +26,12 @@ class Home extends Component {
 
       shouldComponentUpdate() {
         const { loader } = this.props;
-        if (loader === false) {
-          this.setState({ refreshing: false });
-        }
+        setTimeout(() => {
+          if (loader === false) {
+            this.setState({ refreshing: false });
+          }
+        }, 5000);
+        return true;
       }
        /*-------------------------------------------------------------------*/
        onRefresh = () => {
@@ -48,20 +51,17 @@ class Home extends Component {
             this.setState({ searchEmpData: newData });
          };
       /*-------------------------------------------------------------------*/
-  
-         renderHeader = () => (
-            <SearchBar
-                placeholder="Type Here..."
-                lightTheme
-                round
-                onChangeText={text => this.searchFilterFunction(text)}
-                autoCorrect={false}
-                value={this.state.searchText}
-                onCancel={() => { this.setState({ isSearching: false }); }}
-            />
+      renderHeader = () => (
+         <SearchBar
+            placeholder="Type Here..."
+            lightTheme
+            round
+            onChangeText={text => this.searchFilterFunction(text)}
+            autoCorrect={false}
+            value={this.state.searchText}
+            onCancel={() => { this.setState({ isSearching: false }); }}
+         />
       );
-      
-
       /*--------------------------------------------------------------------*/
     render() {
         const { navigation, empData } = this.props;
@@ -72,12 +72,6 @@ class Home extends Component {
          }
         return (
           <SafeAreaView style={{ backgroundColor: 'red' }}>
-          {/* refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.onRefresh}
-            />
-          } */}
             <View style={{ backgroundColor: 'green' }}>
               {
                 empData ?
