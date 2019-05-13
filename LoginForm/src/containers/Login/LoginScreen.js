@@ -8,7 +8,6 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
@@ -17,24 +16,36 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import {
+  StackActions,
+  NavigationActions,
+  createStackNavigator,
+  createAppContainer
+} from 'react-navigation';
 import SecondScreen from './SecondScreen';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 class LoginScreen extends Component {
 
   myArrowFun = () => {
     /* 1. Navigate to the Details route with params */
-    this.props.navigation.navigate('Details', {
-      itemId: 40,
-      otherParam: 'anything you want here',
+    // this.props.navigation.navigate('Details', {
+    //   itemId: 40,
+    //   otherParam: 'anything you want here',
+    // });
+
+    //Remove app screen from stack navigator.
+    const resetAction = StackActions.reset({
+      index: 0,
+      //https://reactnavigation.org/docs/en/stack-actions.html#reset
+      actions: [NavigationActions.navigate({
+        routeName: 'Details',
+        params: {
+          itemId: 40,
+          otherParam: 'KARAN NASSA',
+        },
+      })],
     });
+    this.props.navigation.dispatch(resetAction);
   }
 
   render() {
