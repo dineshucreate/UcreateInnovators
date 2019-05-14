@@ -5,6 +5,7 @@ import { createStackNavigator,
 import React from 'react';
 import { connect } from 'react-redux';
 import Home from './containers/Home';
+import Contacts from './containers/Contacts';
 import Login from './containers/LogIn';
 import List from './containers/List';
 import TabBar from './containers/TabBar';
@@ -28,6 +29,18 @@ const Drawer = createDrawerNavigator(
         },
         Learning: {
             screen: Home,
+            navigationOptions: () => ({
+                header: null,
+                drawerIcon: () => (
+                    <VectorIcon
+                      name={'table'}
+                      groupName={'AntDesign'}
+                    />
+                  ),
+            })
+        },
+        Contacts: {
+            screen: Contacts,
             navigationOptions: () => ({
                 header: null,
                 drawerIcon: () => (
