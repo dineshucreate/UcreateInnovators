@@ -26,7 +26,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.MainContainer}>
  
-         <View style={styles.ImageContainer}>
+         <View style={styles.ImageContainerSettings}>
             <Image style={{ width: '60%', height: "50%", resizeMode: 'contain' }}
            source={require('./src/assets/logo.png')} />
          </View>
@@ -49,7 +49,7 @@ export default class App extends Component<Props> {
     flex: 1,
     flexDirection: 'column',
   },
-  ImageContainer:{
+  ImageContainerSettings:{
     flex: 0.4,
     alignItems: 'center',
     justifyContent: 'center'
