@@ -66,6 +66,10 @@ class News extends Component {
             this.setState({ refreshing: false });
         }, 2000)
     }
+    onScrollEndHandler = () => {
+        const { getNewsRequest } = this.props;
+        getNewsRequest();
+    }
     render() {
         console.log('NewsData: ' + JSON.stringify(this.props.newsData));
         const { newsData } = this.props;
@@ -90,6 +94,8 @@ class News extends Component {
                         ListHeaderComponent={this.renderHeader}
                         refreshing={this.state.refreshing}
                         onRefresh={this.handleRefresh}
+                        onEndReached={this.onScrollEndHandler}
+                        onEndThreshold={0}
                     />
                     {this.props.loading ?
                         <View style={{ width: '100%', height: '100%', justifyContent: 'center', backgroundColor: 'white' }}>

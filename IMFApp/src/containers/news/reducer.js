@@ -14,7 +14,7 @@ export default (state = INITIAL_STATE, action) => {
         case GET_NEWS_REQUEST_SUCCESS: return {
             ...state,
             loading: false,
-            newsData: action.newsData
+            newsData: [...state.newsData, ...action.newsData],
         };
         case GET_NEWS_REQUEST_FAIL: return {
             ...state,
