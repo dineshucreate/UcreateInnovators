@@ -10,19 +10,32 @@ import List from './containers/List';
 import TabBar from './containers/TabBar';
 import { Colors } from './utilities/Colors';
 import CustomDrawer from './containers/CustomDrawer';
+import VectorIcon from './utilities/vectorIcons';
 
 const Drawer = createDrawerNavigator(
     {
         FlatList: {
             screen: TabBar,
             navigationOptions: () => ({
-                header: null
+                header: null,
+                drawerIcon: () => (
+                    <VectorIcon
+                      name={'youtube'}
+                      groupName={'AntDesign'}
+                    />
+                  ),
            })
         },
         Learning: {
             screen: Home,
             navigationOptions: () => ({
-                header: null
+                header: null,
+                drawerIcon: () => (
+                    <VectorIcon
+                      name={'table'}
+                      groupName={'AntDesign'}
+                    />
+                  ),
             })
         },
     },

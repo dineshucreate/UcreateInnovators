@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker, Alert } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { SafeAreaView } from 'react-navigation';
 import styles from './style';
 
@@ -17,13 +17,36 @@ class Other extends PureComponent {
             },
             markers: [
                 {
-                    latlng: { latitude: '37.78825', longitude: '-122.4324' }, 
+                    latlng: { latitude: 19.0860, longitude: 72.9777 }, 
                     title: 'Hello',
                     description: 'Hi Hi hi hi'
                 }
             ],
-            x: { latitude: '37.78925', longitude: '-122.4394' }
+            x: { latitude: 19.0760, longitude: 72.8777 }
           };
+    }
+
+    
+    async componentDidMount() {
+        navigator.geolocation.getCurrentPosition(
+        (position) => {
+            console.log(position);
+            const region = {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                latitudeDelta: 0.09922,
+                longitudeDelta: 0.90421,
+            };
+            this.setState({
+                region,
+            });
+        },
+        (error) => { 
+            this.setState({ error: error.message });
+                alert(error.message);
+            },
+        { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
+        );
     }
 
     render() {
@@ -55,9 +78,10 @@ class Other extends PureComponent {
                             coordinate={this.state.x}
                             onDragEnd={(e) => { 
                                 this.setState({ x: e.nativeEvent.coordinate });
-                                Alert.alert(JSON.stringify(e.nativeEvent.coordinate));
+                                alert(JSON.stringify(e.nativeEvent.coordinate));
                              }}
-                        />
+                        /> 
+                       
                     </MapView>
                 </View>
             </SafeAreaView >

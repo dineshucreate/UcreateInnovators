@@ -46,7 +46,7 @@ class List extends Notification {
         super.createNotificationListeners();
     }
     shouldComponentUpdate() {
-        const { loading } = this.state;
+        const { loading } = this.props;
         if (loading === false) {
             this.state.isRefreshing = false;
         }
