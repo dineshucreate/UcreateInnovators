@@ -45,8 +45,7 @@ class Login extends Component {
 			url: '',
 			loading: false,
 			showModal: false,
-			isModalVisible: false,
-			token: ''
+			isModalVisible: false
 		};
 		// this.getUserData();
 	}
@@ -86,7 +85,6 @@ class Login extends Component {
 		}
 	}
 
-	1;
 	async checkPermission() {
 		const enabled = await firebase.messaging().hasPermission();
 		if (enabled) {
@@ -158,7 +156,7 @@ class Login extends Component {
 		console.log(user);
 	};
 
-	loginClicked = () => {
+	loginFacebook = () => {
 		const { navigation } = this.props;
 		LoginManager.logInWithReadPermissions([ 'public_profile', 'email' ]).then(
 			(result) => {
@@ -268,7 +266,7 @@ class Login extends Component {
 									<TextInput
 										style={[ styles.input, !this.state.emailValid ? styles.inputError : null ]}
 										// onChangeText={(email) => this.setState({ token })}
-										value={this.state.token}
+										value={this.state.email}
 										placeholder="Enter an email"
 										placeholderTextColor="rgba(255, 255, 255, 0.8)"
 										keyboardType="email-address"
@@ -290,8 +288,23 @@ class Login extends Component {
 										clearButtonMode="while-editing"
 										ref={'txtPassword'}
 									/>
-									<TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
-										<Text style={styles.buttonText}>SIGN IN</Text>
+									<TouchableOpacity
+										style={[ styles.buttonContainer, { backgroundColor: '#f7c744' } ]}
+										onPress={this.login}
+									>
+										<Text style={[ styles.buttonText, { color: 'rgb(32, 53, 70)' } ]}>SIGN IN</Text>
+									</TouchableOpacity>
+									<TouchableOpacity
+										style={[
+											styles.buttonContainer,
+											{ backgroundColor: '#3b5998', flexDirection: 'row' }
+										]}
+										onPress={this.loginFacebook}
+									>
+										<Image source={require('../../assets/facebook.png')} style={styles.fbLogo} />
+										<Text style={[ styles.buttonText, { color: 'white' } ]}>
+											Login with Facebook
+										</Text>
 									</TouchableOpacity>
 									{this.props.loading && <Loader loading={this.props.loading} />}
 									<Modal isVisible={this.state.isModalVisible}>

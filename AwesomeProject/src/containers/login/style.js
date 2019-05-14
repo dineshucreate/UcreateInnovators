@@ -15,6 +15,13 @@ export default (styles = StyleSheet.create({
 		width: 100,
 		height: 100
 	},
+	fbLogo: {
+		height: 32,
+		width: 32,
+		position: 'absolute',
+		left: 8,
+		top: 6
+	},
 	title: {
 		alignItems: 'center',
 		color: '#f7c744',
@@ -30,19 +37,23 @@ export default (styles = StyleSheet.create({
 		backgroundColor: 'rgba(255,255,255,0.2)',
 		color: '#FFF',
 		marginBottom: 20,
-		paddingHorizontal: 10
+		paddingHorizontal: 10,
+		marginLeft: 10,
+		marginRight: 10
 	},
 	inputError: {
 		borderColor: 'red',
 		borderWidth: 2
 	},
 	buttonContainer: {
-		backgroundColor: '#f7c744',
-		paddingVertical: 15
+		paddingVertical: 15,
+		marginBottom: 20,
+		marginLeft: 10,
+		marginRight: 10,
+		justifyContent: 'center'
 	},
 	buttonText: {
 		textAlign: 'center',
-		color: 'rgb(32, 53, 70)',
 		fontSize: 15,
 		fontWeight: 'bold'
 	},

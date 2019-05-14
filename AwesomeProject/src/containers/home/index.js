@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList, Image, SafeAreaView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from './style';
-import homeModel from '../../models/home';
 import HeaderView from '../../components/HeaderView/Header';
 import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
 import Loader from '../../loader/loader';
 import { getUserList } from './action';
-import { createAppContainer, DrawerActions } from 'react-navigation';
 import { SearchBar } from 'react-native-elements';
 
 class Home extends Component {
@@ -24,7 +22,8 @@ class Home extends Component {
 			employeeObject: { name: 'Rohhiitt', age: '30', salary: '500000' },
 			isSearching: false,
 			searchText: '',
-			searchArray: []
+			searchArray: [],
+			refreshing: false
 		};
 	}
 
@@ -80,6 +79,35 @@ class Home extends Component {
 		});
 		this.setState({ searchArray: newData });
 	};
+
+	handleRefresh = () => {
+		this.setState(
+			{
+				refreshing: true
+			},
+			() => {
+				this.apiCallling();
+			},
+			() => {
+				this.callBackHeaven();
+			}
+		);
+	};
+
+	loadMore = () => {
+		console.log('end reached');
+	};
+
+	apiCallling = () => {
+		setTimeout(() => {
+			this.setState({ refreshing: false });
+		}, 500);
+	};
+
+	callBackHeaven = () => {
+		console.log('Call back heaven');
+	};
+
 	renderHeader = () => (
 		<SearchBar
 			placeholder="Type Here..."
@@ -116,6 +144,10 @@ class Home extends Component {
 							ItemSeparatorComponent={this.renderSeparator}
 							ListHeaderComponent={this.renderHeader}
 							numColumns={2}
+							refreshing={this.state.refreshing}
+							onRefresh={this.handleRefresh}
+							onEndReached={this.loadMore}
+							onEndReachedThreshold={0}
 						/>
 						{this.state.loading && (
 							<ActivityIndicator
