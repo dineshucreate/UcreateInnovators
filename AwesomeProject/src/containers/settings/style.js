@@ -22,5 +22,9 @@ export default (styles = StyleSheet.create({
 		position: 'absolute',
 		top: 300,
 		left: 200
+	},
+	image: {
+		width: 200,
+		height: 200
 	}
 }));

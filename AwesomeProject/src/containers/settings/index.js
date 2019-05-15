@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, SafeAreaView, Button } from 'react-native';
+import { Text, View, Image, SafeAreaView, Button, Dimensions, Modal } from 'react-native';
 import styles from './style';
 import HeaderView from '../../components/HeaderView/Header';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
-import ImageViewer from 'react-native-image-zoom-viewer';
+// import ImageViewer from 'react-native-image-zoom-viewer';
+import ImageZoom from 'react-native-image-pan-zoom';
 const images = [
 	{
 		// Simplest usage.
@@ -32,7 +33,8 @@ export default class Settings extends Component {
 		super(props);
 		this.state = {
 			isDateTimePickerVisible: false,
-			selectedDate: new Date()
+			selectedDate: new Date(),
+			scrollable: true
 		};
 	}
 	componentWillUnmount() {
@@ -77,9 +79,25 @@ export default class Settings extends Component {
 						onConfirm={this.handleDatePicked}
 						onCancel={this.hideDateTimePicker}
 					/>
-					<Modal visible={true} transparent={true}>
-						<ImageViewer imageUrls={images} />
-					</Modal>
+					<ImageZoom
+						cropWidth={Dimensions.get('window').width}
+						cropHeight={Dimensions.get('window').height}
+						imageWidth={200}
+						imageHeight={200}
+					>
+						<Image
+							style={{ width: 200, height: 200 }}
+							source={{
+								uri: 'http://v1.qzone.cc/avatar/201407/07/00/24/53b9782c444ca987.jpg!200x200.jpg'
+							}}
+						/>
+					</ImageZoom>
+					{/* <Image source={require('../../assets/nature.jpeg')} style={styles.image} /> */}
+					
+						{/* <Modal visible={true} transparent={true}>
+							<ImageViewer imageUrls={images} />
+						</Modal> */}
+				
 				</View>
 			</SafeAreaView>
 		);
