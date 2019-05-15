@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Modal from 'react-native-modalbox';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
-import { MapView, Marker } from 'react-native-maps';
+import ImageZoom from 'react-native-image-pan-zoom';
+import MapView, { Marker } from 'react-native-maps';
 import ImagePicker from 'react-native-image-picker';
 import {
     LoginManager, AccessToken, GraphRequest, GraphRequestManager
@@ -18,6 +19,8 @@ import {
     AsyncStorage,
     Alert,
     TouchableOpacity,
+    Image,
+    Dimensions,
 } from 'react-native';
 import styles from './style';
 import { loginRequest } from './actions';
@@ -249,16 +252,17 @@ const options = {
         console.log(`Get the data :  ${JSON.stringify(loginData)}`);
         return (
             <View style={{ flex: 1 }}>
-                 {/* <MapView
-                    style={styles.map}
-                    initialRegion={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                    }}
-                 /> */}
-
+                <ImageZoom
+                    cropWidth={Dimensions.get('window').width}
+                    cropHeight={Dimensions.get('window').height}
+                    imageWidth={200}
+                    imageHeight={200}
+                >
+                    <Image
+                        style={{ width: 200, height: 200 }}
+                        source={{ uri: 'http://v1.qzone.cc/avatar/201407/07/00/24/53b9782c444ca987.jpg!200x200.jpg' }} 
+                    />
+                </ImageZoom>
                  <MapView
                     style={styles.map}
                     initialRegion={{
@@ -267,15 +271,7 @@ const options = {
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
                     }}
-                 >
-                {this.state.markers.map(marker => (
-                    <Marker
-                    coordinate={marker.latlng}
-                    title={marker.title}
-                    description={marker.description}
-                    />
-                ))}
-                </MapView>
+                 />
                 <Modal
                     style={styles.modal}
                     position={'center'}

@@ -6,7 +6,7 @@ import {
 
 const INITIAL_STATE = {
     loading: false,
-    listData: [],
+    empData: [],
  };
 
 const homeReducer = (state = INITIAL_STATE, action) => {
@@ -18,14 +18,14 @@ const homeReducer = (state = INITIAL_STATE, action) => {
             };
         }
         case REQUEST_SUCCESS: {
-            return {
+            return { 
                 ...state,
-                empData: action.empDataList,
+                empData: [...state.empData, ...action.empDataList],
                 loading: false,
             };
         }
         case REQUEST_FAIL: {
-            return {
+            return {   
                 ...state,
             };
         }

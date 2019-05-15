@@ -40,6 +40,13 @@ class Home extends Component {
         apiRequest();
       }
      /*--------------------------------------------------------------------*/
+      //Load More:
+      onScrollHandler = () => {
+        const { apiRequest } = this.props;
+        apiRequest();
+      };
+      
+      /*-------------------------------------------------------------------*/
       //Serach :
         searchFilterFunction = text => {
             this.setState({ searchText: text, isSearching: true });
@@ -63,6 +70,8 @@ class Home extends Component {
          />
       );
       /*--------------------------------------------------------------------*/
+
+
     render() {
         const { navigation, empData } = this.props;
         console.log(`empData ${empData}`);
@@ -84,6 +93,8 @@ class Home extends Component {
                         onRefresh={this.onRefresh}
                       />
                     }
+                    onEndReached={this.onScrollHandler}
+                    onEndThreshold={0}
                     renderItem={({ item }) => (
                       <ListItem
                         dataOne={item} open={() => {
