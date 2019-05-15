@@ -15,7 +15,11 @@ import {
 export default class Login extends Component {
 
   static navigationOptions = {
-    title: 'Login'
+    title: 'Login',
+    tabBarIcon: ({ tintColor }) => (
+      <Image style={styles.icon}
+      source={require('../../../assets/ic_live.png')}/>
+    )
   };
 
   constructor(props) {
@@ -165,6 +169,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 10,
     height: 50
+  },
+  icon: {
+    width: 20,
+    height: 20
   }
 });
 
