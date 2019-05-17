@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\NBA\\nba_app\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-az\\values-az.xml",
+            "outputFile": "D:\\UcreateInnovators\\nba_app\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-az\\values-az.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ucreate\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\559026ea70b682245b0c722be6bae1ab\\res\\values-az\\values-az.xml",

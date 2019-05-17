@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
-INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
-INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
-INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
-MERGED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
-MERGED from [:react-native-gesture-handler] D:\NBA\nba_app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\eb94c9cff060fd6b842b32b62a437d08\AndroidManifest.xml:2:1-13:12
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-gesture-handler] D:\UcreateInnovators\nba_app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\5b7b29f95cf2abedfaec72fed500519d\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\384b8d826b4f3cea15b8c72b7b95cecf\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\cc580d765e36ba81e80fb0425569d787\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\e0ea76e20e6c44a70a1a332555f73c55\AndroidManifest.xml:17:1-22:12
@@ -40,36 +40,36 @@ MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\Ucreate\.gradle\
 MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\fc496437a8655787e289470dd0a07561\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\b51c38da5a564629d670c340244abdfd\AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\e860aec18a39c8413c0f76b285cedf8b\AndroidManifest.xml:2:1-9:12
-INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:2:1-8:12
-INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:2:1-8:12
-INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:2:1-8:12
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:2:1-8:12
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:2:1-8:12
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:2:1-8:12
 	package
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:2:3-24
-		INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:2:3-24
-		INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:2:3-24
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:2:3-24
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
-		INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml
 	xmlns:tools
-		ADDED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:3:5-51
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
-		INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:4:5-67
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\eb94c9cff060fd6b842b32b62a437d08\AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\eb94c9cff060fd6b842b32b62a437d08\AndroidManifest.xml:11:5-20
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\5b7b29f95cf2abedfaec72fed500519d\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\5b7b29f95cf2abedfaec72fed500519d\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\559026ea70b682245b0c722be6bae1ab\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\559026ea70b682245b0c722be6bae1ab\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\4ebda20e1cf1caceab53062d7963dbd8\AndroidManifest.xml:22:5-23:19
@@ -79,61 +79,61 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\Ucreate\.gradle\cach
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\559026ea70b682245b0c722be6bae1ab\AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:8:7-39
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:8:7-39
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:8:7-39
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:8:7-39
 	tools:ignore
-		ADDED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:7:75-114
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:7:75-114
 	android:roundIcon
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:10:7-52
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:10:7-52
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:10:7-52
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:10:7-52
 	tools:targetApi
-		ADDED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:7:54-74
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:7:54-74
 	android:icon
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:9:7-41
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:9:7-41
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:9:7-41
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:9:7-41
 	android:allowBackup
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:11:7-34
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:11:7-34
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:11:7-34
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:11:7-34
 	android:theme
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:12:7-38
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:12:7-38
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:12:7-38
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:12:7-38
 	android:usesCleartextTraffic
-		ADDED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:7:18-53
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:7:18-53
 	android:name
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:7:7-38
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:7:7-38
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:7:7-38
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:7:7-38
 activity#com.nba_app.MainActivity
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:13:7-22:18
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:13:7-22:18
 	android:label
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:15:9-41
 	android:windowSoftInputMode
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:17:9-51
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:17:9-51
 	android:configChanges
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:16:9-79
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:16:9-79
 	android:name
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:14:9-37
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:14:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:18:9-21:25
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:18:9-21:25
 action#android.intent.action.MAIN
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:19:13-65
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:19:13-65
 	android:name
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:19:21-62
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:19:21-62
 category#android.intent.category.LAUNCHER
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:20:13-73
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:20:13-73
 	android:name
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:20:23-70
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:20:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:23:7-84
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:23:7-84
 	android:name
-		ADDED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml:23:17-81
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml:23:17-81
 uses-sdk
-INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml
-INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml
-MERGED from [:react-native-gesture-handler] D:\NBA\nba_app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] D:\NBA\nba_app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\eb94c9cff060fd6b842b32b62a437d08\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\eb94c9cff060fd6b842b32b62a437d08\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-gesture-handler] D:\UcreateInnovators\nba_app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] D:\UcreateInnovators\nba_app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\5b7b29f95cf2abedfaec72fed500519d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\react-native-0.59.8.aar\5b7b29f95cf2abedfaec72fed500519d\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\384b8d826b4f3cea15b8c72b7b95cecf\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\384b8d826b4f3cea15b8c72b7b95cecf\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\cc580d765e36ba81e80fb0425569d787\AndroidManifest.xml:20:5-44
@@ -200,15 +200,15 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\Ucreate\.gradle\cach
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\b51c38da5a564629d670c340244abdfd\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\e860aec18a39c8413c0f76b285cedf8b\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\Ucreate\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\e860aec18a39c8413c0f76b285cedf8b\AndroidManifest.xml:5:5-7:41
-INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml
-INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml
+INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\NBA\nba_app\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:5:5-77
+ADDED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:5:5-77
 	android:name
-		ADDED from D:\NBA\nba_app\android\app\src\debug\AndroidManifest.xml:5:22-75
+		ADDED from D:\UcreateInnovators\nba_app\android\app\src\debug\AndroidManifest.xml:5:22-75
