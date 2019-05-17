@@ -96,6 +96,7 @@ class News extends Component {
                         onRefresh={this.handleRefresh}
                         onEndReached={this.onScrollEndHandler}
                         onEndThreshold={0}
+
                     />
                     {this.props.loading ?
                         <View style={{ width: '100%', height: '100%', justifyContent: 'center', backgroundColor: 'white' }}>

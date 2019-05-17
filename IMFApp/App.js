@@ -1,13 +1,14 @@
 import React from 'react';
-import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { PersistGate } from 'redux-persist/integration/react';
+import configureStore from './src/configureStore';
+import { createAppContainer } from 'react-navigation';
 import { AsyncStorage } from 'react-native'
 import stack from './src/navigationStack';
 import stack2 from './src/navigationStack2';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
-import store from './src/store';
 
-
+const { store, persistor } = configureStore();
 const Begin1 = createAppContainer(stack);
 const Begin2 = createAppContainer(stack2);
 
@@ -25,7 +26,6 @@ export default class NavigationComponentInitial extends React.Component {
     if (value != null) {
       this.setState({ value: value });
       console.log('....   ' + this.state.value);
-
     }
   }
   componentDidMount() {
@@ -36,8 +36,10 @@ export default class NavigationComponentInitial extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        {this.state.value === '' ?
-          (<Begin1 />) : (<Begin2 />)}
+        <PersistGate loading={null} persistor={persistor}>
+          {this.state.value === '' ?
+            (<Begin1 />) : (<Begin2 />)}
+        </PersistGate>
       </Provider>
     );
   }

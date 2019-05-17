@@ -10,12 +10,14 @@ import stats from './containers/stats';
 import friends from './containers/friends';
 import fanmojies from './containers/fanmojies';
 import SidePanel from './containers/sidePanel';
+import maps from './containers/maps';
 
 const tab = createBottomTabNavigator(
   {
     Home: home,
     Stats: stats,
-    News: news
+    News: news,
+    Maps: maps
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({

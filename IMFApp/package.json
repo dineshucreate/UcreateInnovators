@@ -24,7 +24,9 @@
     "react-navigation": "^3.7.1",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
-    "redux-saga": "^0.16.2"
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.2",
+    "remote-redux-devtools": "^0.5.16"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",
