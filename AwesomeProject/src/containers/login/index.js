@@ -47,6 +47,7 @@ class Login extends Component {
 			showModal: false,
 			isModalVisible: false
 		};
+		console.log('React version', React.version);
 		// this.getUserData();
 	}
 
@@ -61,6 +62,10 @@ class Login extends Component {
 		this.checkPermission();
 		this.createNotificationListeners();
 		console.log('My name is Gurpreet');
+	}
+
+	getDerivedStateFromProps() {
+		console.log('getDerivedStateFromProps called');
 	}
 
 	componentWillUnmount() {
@@ -94,7 +99,6 @@ class Login extends Component {
 		}
 	}
 
-	2;
 	async requestPermission() {
 		try {
 			await firebase.messaging().requestPermission();

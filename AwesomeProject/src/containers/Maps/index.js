@@ -12,7 +12,7 @@ export default class Maps extends Component {
 				{
 					latitude: 30.7046,
 					longitude: 76.7179,
-					title: 'Amit',
+					title: 'Alex',
 					subtitle: '1234 Foo Drive',
 					coordinate: {
 						latitude: 30.7046,
@@ -44,14 +44,14 @@ export default class Maps extends Component {
 					>
 						{this.state.markers.map((marker) => (
 							<Marker
-								draggable
 								coordinate={marker.coordinate}
+								showsUserLocation={true}
 								onDragEnd={(e) => this.setState({ x: e.nativeEvent.coordinate })}
 								title={marker.title}
 							/>
 						))}
 					</MapView>
-					<OverlayComponent style={{ position: 'absolute', bottom: 50 }} />
+					{/* <OverlayComponent style={{ position: 'absolute', bottom: 50 }} /> */}
 				</View>
 			</SafeAreaView>
 		);
