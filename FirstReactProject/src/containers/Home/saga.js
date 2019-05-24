@@ -5,11 +5,12 @@ import { requestSuccess } from './actions';
 
 function* onApiRequested() {
      try {
-         const url = 'http://dummy.restapiexample.com/api/v1/employee/55992';
+         //const url = 'http://dummy.restapiexample.com/api/v1/employee/55992';
+         const url = 'http://dummy.restapiexample.com/api/v1/employees';
          const employeesData = yield call(axios.get, url);
          console.log(`Dev   ${JSON.stringify(employeesData)}`);
          
-         yield put(requestSuccess([employeesData.data]));
+         yield put(requestSuccess([employeesData]));
    } catch (err) {
      console.log('Error - - - ', err);
    }   

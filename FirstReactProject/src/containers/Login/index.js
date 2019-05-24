@@ -95,7 +95,7 @@ const options = {
         }
     }
 
-    1
+    
     async checkPermission() {
         const enabled = await firebase.messaging().hasPermission();
         if (enabled) {
@@ -145,7 +145,7 @@ const options = {
             const { title, body } = notificationOpen.notification;
             this.showAlert(title, body);
         }
-        /*
+        /*       
         * Triggered for data only payload in foreground
         * */
         this.messageListener = firebase.messaging().onMessage((message) => {
@@ -252,7 +252,7 @@ const options = {
         console.log(`Get the data :  ${JSON.stringify(loginData)}`);
         return (
             <View style={{ flex: 1 }}>
-                <ImageZoom
+                {/* <ImageZoom
                     cropWidth={Dimensions.get('window').width}
                     cropHeight={Dimensions.get('window').height}
                     imageWidth={200}
@@ -262,7 +262,7 @@ const options = {
                         style={{ width: 200, height: 200 }}
                         source={{ uri: 'http://v1.qzone.cc/avatar/201407/07/00/24/53b9782c444ca987.jpg!200x200.jpg' }} 
                     />
-                </ImageZoom>
+                </ImageZoom> */}
                  <MapView
                     style={styles.map}
                     initialRegion={{
