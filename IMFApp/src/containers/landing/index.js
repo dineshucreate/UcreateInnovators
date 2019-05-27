@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, Alert } from 'react-native';
 import styles from './style';
+import { withInternetConnection } from './../../utilities/checkInternet'
 
 export default class Landing extends Component {
   constructor(props) {
@@ -10,6 +11,10 @@ export default class Landing extends Component {
     }
   }
   loginPress = () => {
+    // withInternetConnection((arg) => {
+    //   console.log('test---- ' + arg);
+    //   Alert.alert(JSON.stringify(arg));
+    // })('testing callback')
     const { navigation } = this.props;
     navigation.navigate('login');
   };

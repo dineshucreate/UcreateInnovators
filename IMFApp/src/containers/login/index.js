@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, TouchableOpacity, Text, TextInput, View, ScrollView, ActivityIndicator, AsyncStorage } from 'react-native';
+import { Image, TouchableOpacity, Text, TextInput, View, ScrollView, ActivityIndicator, AsyncStorage, Platform, NetInfo, Alert } from 'react-native';
 import styles from './style';
 import BackButton from '../../component/backButton';
 import BackgroundImage from '../../component/backgroundImage';
@@ -21,9 +21,8 @@ class login extends Component {
         const { navigation } = this.props;
         navigation.pop();
     };
+
     LoginPress = () => {
-        const { loginRequest, navigation } = this.props;
-        const { email, password } = this.state
         loginRequest(email, password, navigation);
     };
     loginFacebookClicked = () => {
