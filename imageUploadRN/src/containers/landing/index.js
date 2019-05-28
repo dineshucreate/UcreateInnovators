@@ -50,5 +50,6 @@ export default class Landing extends Component {
         </Modal>
       </View>
     );
+    
   }
 }

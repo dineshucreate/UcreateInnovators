@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>705778921730-2fl315tml6apdghdqgooibufhv6a1946.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.705778921730-2fl315tml6apdghdqgooibufhv6a1946</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBy2gCrwyQOvB-PTsau8PVxmpA9SjLzRMY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>705778921730</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.footballalbum.fa</string>
+	<key>PROJECT_ID</key>
+	<string>ios-app-push</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ios-app-push.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:705778921730:ios:4cf26103519e68ec</string>
+	<key>DATABASE_URL</key>
+	<string>https://ios-app-push.firebaseio.com</string>
+</dict>
+</plist>
