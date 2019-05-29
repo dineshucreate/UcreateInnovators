@@ -23,6 +23,8 @@ class login extends Component {
     };
 
     LoginPress = () => {
+        const { navigation, loginRequest } = this.props;
+        const { email, password } = this.state;
         loginRequest(email, password, navigation);
     };
     loginFacebookClicked = () => {
