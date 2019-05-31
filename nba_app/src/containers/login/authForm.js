@@ -48,10 +48,10 @@ class AuthForm extends Component {
         let formCopy = this.state.form;
         formCopy[name].value = value;
 
-        let rules= formCopy[name].rules;
-        let valid=validationRule(value,rules,formCopy);
+        let rules = formCopy[name].rules;
+        let valid = validationRule(value, rules, formCopy);
 
-        formCopy[name].valid=valid;
+        formCopy[name].valid = valid;
         this.setState({
             form: formCopy
         })
@@ -79,16 +79,45 @@ class AuthForm extends Component {
     )
 
     submitUser = () => {
-
+        let isFormValid = true;
+        let formToSubmit = {}
+        const formCopy = this.state.form;
+        for (let key in formCopy) {
+            if (this.state.type === 'Login') {
+                //LOGIN
+                if (key !== 'confirmPassword') {
+                    isFormValid = isFormValid && formCopy[key].valid;
+                    formToSubmit[key] = formCopy[key].value;
+                }
+            }
+            else {
+                //REGISTER
+                isFormValid = isFormValid && formCopy[key].valid;
+                formToSubmit[key] = formCopy[key].value;
+            }
+        }
+        if (isFormValid) {
+            if (this.state.type === 'Login') {
+                console.log("If: "+formToSubmit);
+            }
+            else {
+                console.log("else: "+formToSubmit);
+            }
+        }
+        else {
+            this.setState({
+                hasError: true
+            })
+        }
     }
 
     changeFormType = () => {
-const type=this.state.type;
-this.setState({
-    type: type==='Login' ? 'Register':'Login',
-    action: type==='Login' ? 'Register':'Login',
-    actionMode: type==='Login' ? 'I want to  Login':'I want to  register',
-})
+        const type = this.state.type;
+        this.setState({
+            type: type === 'Login' ? 'Register' : 'Login',
+            action: type === 'Login' ? 'Register' : 'Login',
+            actionMode: type === 'Login' ? 'I want to  Login' : 'I want to  register',
+        })
     }
 
     render() {
@@ -129,7 +158,7 @@ this.setState({
                     </View>
                     <View style={styles.button}>
                         <Button title="I'll do it later"
-                            onPress={()=>this.props.goNext()} />
+                            onPress={() => this.props.goNext()} />
                     </View>
                 </View>
             </View>
