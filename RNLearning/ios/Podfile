@@ -8,7 +8,10 @@ target 'RNLearning' do
   # Pods for RNLearning
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
-    
+    pod 'Firebase/MLVisionBarcodeModel'
+#    pod 'Firebase/MLVisionTextModel'
+#    pod 'Firebase/MLVisionFaceModel'
+
     rn_path = '../node_modules/react-native'
     rn_maps_path = '../node_modules/react-native-maps'
 
@@ -42,6 +45,10 @@ target 'RNLearning' do
     pod 'react-native-google-maps', path: rn_maps_path
 #    pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
     # pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
+
+    pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
+      'BarcodeDetectorMLKit'
+      ]
 
   target 'RNLearningTests' do
     inherit! :search_paths
