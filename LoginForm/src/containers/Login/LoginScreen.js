@@ -49,6 +49,24 @@ class LoginScreen extends Component {
   }
 
   render() {
+    var array = [1, 3, 5];
+    var [a, b] = array;
+    console.log(a, b);
+
+
+    const mPromise = new Promise((resolve, reject) => {
+      var number = Math.random();
+      console.log("Value : " + number);
+      if (number > 100) {
+        resolve("Number is greator");
+      } else {
+        reject("Project failed");
+      }
+    });
+
+    mPromise.then(value => console.log(value))
+      .catch(error => console.log(error));
+
     return (
       <View style={styles.MainContainer}>
 
