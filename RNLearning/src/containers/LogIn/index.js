@@ -8,6 +8,7 @@ import LoadingView from '../../utilities/loaderView';
 import styles from './style.js';
 import VectorIcon from '../../utilities/vectorIcons';
 import { loginRequest } from './actions';
+import { withInternetConnection } from '../../utilities/internetcheck';
 
 
 const erremail = 'Email is required.';
@@ -43,10 +44,13 @@ class Login extends Component {
     }
 
     onSignInPress = () => {
-        this.showHideLoader(true);
         const { loginRequestP, navigation } = this.props;
         const { username, password, } = this.state;
-        loginRequestP(username, password, navigation);
+        withInternetConnection((arg) => {
+            console.log(arg);
+            this.showHideLoader(true);
+            loginRequestP(arg.username, arg.password, arg.navigation);
+        })({ username, password, navigation });
     }
 
     screenChangeLogic() {

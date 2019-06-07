@@ -18,8 +18,8 @@ export default class FB extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>Name: {name}</Text>
         <Image
-                style={styles.image}
-                source={{ uri: avatar }}
+          style={styles.image}
+          source={{ uri: avatar }}
         />
       </View>
     );

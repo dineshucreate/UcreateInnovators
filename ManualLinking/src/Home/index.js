@@ -22,25 +22,25 @@ export default class Home extends Component {
         if (result.isCancelled) {
           Alert.alert('Login was cancelled');
         } else {
-              AccessToken.getCurrentAccessToken().then(
-                () => {
-                  const responseInfoCallback = (error, result2) => {
-                    if (error) {
-                      Alert.alert(`Error fetching data: ${error.toString()}`);
-                    } else {
-                      console.log(JSON.stringify(result2));
-                      navigation.navigate('fb', { name: result2.name, 
-                        avatar: result2.picture.data.url });
-                    }
-                  };
-                  const infoRequest = new GraphRequest(
-                    '/me?fields=name,email,picture.type(large)',
-                    null,
-                    responseInfoCallback
-                  );
-                  new GraphRequestManager().addRequest(infoRequest).start();
+          AccessToken.getCurrentAccessToken().then(
+            () => {
+              const responseInfoCallback = (error, result2) => {
+                if (error) {
+                  Alert.alert(`Error fetching data: ${error.toString()}`);
+                } else {
+                  console.log(JSON.stringify(result2));
+                  navigation.navigate('fb', { name: result2.name, 
+                    avatar: result2.picture.data.url });
                 }
+              };
+              const infoRequest = new GraphRequest(
+                '/me?fields=name,email,picture.type(large)',
+                null,
+                responseInfoCallback
               );
+              new GraphRequestManager().addRequest(infoRequest).start();
+            }
+          );
         }
       },
       (error) => {

@@ -142,6 +142,8 @@ PODS:
     - React
   - react-native-maps (0.24.2):
     - React
+  - react-native-netinfo (3.2.1):
+    - React
   - React/Core (0.59.1):
     - yoga (= 0.59.1.React)
   - React/CxxBridge (0.59.1):
@@ -207,6 +209,7 @@ DEPENDENCIES:
   - react-native-camera/BarcodeDetectorMLKit (from `../node_modules/react-native-camera`)
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
+  - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -259,6 +262,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  react-native-netinfo:
+    :path: "../node_modules/@react-native-community/netinfo"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
@@ -289,8 +294,9 @@ SPEC CHECKSUMS:
   react-native-camera: 9c50d7def800895e7991ccda6203929553ceec9c
   react-native-google-maps: 77af0fa3b5325c72c107d054677911f6e6170496
   react-native-maps: bb480348a3fe1e5a811fed1ba3387b329161c5cc
+  react-native-netinfo: f4039dc64d3a55da59d6d03d4bd667d0a9f5450e
   yoga: 128daf064cacaede0c3bb27424b6b4c71052e6cd
 
-PODFILE CHECKSUM: 4373eb35f68508d133ab8ccedc8ca62abb437f57
+PODFILE CHECKSUM: 85ff56d0d8c112931d400cd5cf4c087b039d256c
 
 COCOAPODS: 1.5.3

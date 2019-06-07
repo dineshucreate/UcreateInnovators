@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, AsyncStorage, TouchableOpacity, Text, Alert } from 'react-native';
+import { View, Image, TouchableOpacity, Text, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { SafeAreaView, DrawerItems, StackActions, NavigationActions } from 'react-navigation';
 import styles from './style';
@@ -15,12 +15,12 @@ class CustomDrawer extends Component {
         };
     }
     
-    getData = async () => {
-        const uri = await AsyncStorage.getItem('imgDrawer');
-        if (uri != null) {
-            this.setState({ imageURI: uri });
-        }
-    }
+    // getData = async () => {
+    //     const uri = await AsyncStorage.getItem('imgDrawer');
+    //     if (uri != null) {
+    //         this.setState({ imageURI: uri });
+    //     }
+    // }
 
     showLogoutAlert = (props) => {
         Alert.alert(
