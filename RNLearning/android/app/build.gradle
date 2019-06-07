@@ -140,7 +140,6 @@ android {
 
 dependencies {
     implementation project(':@react-native-community_netinfo')
-    implementation project(':react-native-camera')
     implementation(project(':react-native-maps')){
         exclude group: 'com.google.android.gms', module: 'play-services-base'
         exclude group: 'com.google.android.gms', module: 'play-services-maps'
@@ -162,6 +161,7 @@ dependencies {
     // From node_modules
     implementation 'com.google.firebase:firebase-messaging:17.5.0'
     implementation project(':react-native-contacts')
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
 }
 
 // Run this once to be able to run the application with BUCK

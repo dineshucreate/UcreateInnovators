@@ -12,6 +12,10 @@ import TabBar from './containers/TabBar';
 import { Colors } from './utilities/Colors';
 import CustomDrawer from './containers/CustomDrawer';
 import VectorIcon from './utilities/vectorIcons';
+import LoginF from './containers/FirebaseLogin/Login';
+import Main from './containers/FirebaseLogin/Main';
+import SignUp from './containers/FirebaseLogin/SignUp';
+import Loading from './utilities/Loading';
 
 const Drawer = createDrawerNavigator(
     {
@@ -105,6 +109,30 @@ const Components = {
             },
         })
     },
+    Loading: {
+        screen: Loading,
+        navigationOptions: () => ({
+            header: null,
+        })
+    },
+    SignUp: {
+        screen: SignUp,
+        navigationOptions: () => ({
+            header: null,
+        })
+    },
+    LoginF: {
+        screen: LoginF,
+        navigationOptions: () => ({
+            header: null,
+        })
+    },
+    Main: {
+        screen: Main,
+        navigationOptions: () => ({
+            header: null,
+        })
+    },
 };
 
 const AuthStackLogin = createStackNavigator(
@@ -117,6 +145,9 @@ const AuthStackLogin = createStackNavigator(
         },
         ...Components,
     },
+    {
+        initialRouteName: 'Loading',
+    }
 );
 
 const AuthStack = createStackNavigator(

@@ -9,6 +9,7 @@ target 'RNLearning' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'Firebase/MLVisionBarcodeModel'
+    pod 'Firebase/Auth'
 #    pod 'Firebase/MLVisionTextModel'
 #    pod 'Firebase/MLVisionFaceModel'
 
