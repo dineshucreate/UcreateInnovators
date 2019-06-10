@@ -47,44 +47,6 @@ const stylesLive = StyleSheet.create({
         alignItems: 'flex-start',
         
     },
-    cardContainer: {
-        backgroundColor:'#fff',
-        margin:10,
-        shadowColor: '#dddddd',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        elevation: 1,
-        borderRadius: 2,
-      },
-      contentCard:{
-        borderWidth:1,
-        borderColor:'#dddddd'
-      },
-      titleCard:{
-        fontFamily:'Roboto-Bold',
-        color:'#232323',
-        fontSize:16,
-        padding:10
-      },
-      bottomCard:{
-        flex:1,
-        flexDirection:'row',
-        borderTopWidth:1,
-        borderTopColor:'#e6e6e6',
-        padding:10
-      },
-      bottomCardTeam:{
-        fontFamily:'Roboto-Bold',
-        color:'#828282',
-        fontSize:12
-      },
-      bottomCardText:{
-        fontFamily:'Roboto-Light',
-        color:'#828282',
-        fontSize:12
-      }
 
 });
-
 export default stylesLive;

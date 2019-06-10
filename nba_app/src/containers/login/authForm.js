@@ -98,10 +98,10 @@ class AuthForm extends Component {
         }
         if (isFormValid) {
             if (this.state.type === 'Login') {
-                console.log("If: "+formToSubmit);
+                console.log("If: " + formToSubmit);
             }
             else {
-                console.log("else: "+formToSubmit);
+                console.log("else: " + formToSubmit);
             }
         }
         else {
