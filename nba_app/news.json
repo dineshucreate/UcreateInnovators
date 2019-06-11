@@ -1,0 +1,64 @@
+{
+    "itemsNews": [
+        {
+            "id": 1,
+            "news_banner": "https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_2816000/altimages/ff_2816891alt1_full.jpg&w=600",
+            "news_title": "Golden State",
+            "news_detail": "Golden State Warriors WinCraft"
+        },
+        {
+            "id": 2,
+            "news_banner": "https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_2788000/altimages/ff_2788889alt1_full.jpg&w=600",
+            "news_title": "Milwaukee Bucks WinCraft",
+            "news_detail": "Milwaukee Bucks WinCraft Double-Sided Garden Flag"
+        },
+        {
+            "id": 3,
+            "news_banner": "https://media.phillyvoice.com/media/images/USATSI_10779428.7e0f9925.fill-735x490.jpg",
+            "news_title": "New for LeBron James",
+            "news_detail": "Philly-area company steps up campaign to bring LeBron James to Sixers with billboards at NBA Draft"
+        },
+        {
+            "id": 4,
+            "news_banner": "https://img.bleacherreport.net/img/images/photos/003/771/466/hi-res-2bb377d1c38ef69ddfd24ce19e28476a_crop_north.jpg?h=533&w=800&q=70&crop_x=center&crop_y=top",
+            "news_title": "New for Kevin Durant",
+            "news_detail": "Kevin Durant Not Impressed with Banner in New York Recruiting Him to Knicks"
+        },
+        {
+            "id": 5,
+            "news_banner": "https://img.bleacherreport.net/img/images/photos/003/793/655/hi-res-f2c06003574d690a901fd6d3d85006a5_crop_north.jpg?h=533&w=800&q=70&crop_x=center&crop_y=top",
+            "news_title": "Antawn Jamison",
+            "news_detail": "Lakers Can't Recruit on 'Banners and Past Championships Anymore"
+        },
+        {
+            "id": 6,
+            "news_banner": "https://img.bleacherreport.net/img/images/photos/003/769/628/hi-res-9e0afd7a2f45168b7c50a7fcf7705b19_crop_north.jpg?h=533&w=800&q=70&crop_x=center&crop_y=top",
+            "news_title": "New for Warriors",
+            "news_detail": "Warriors Championship 2018 Banner, Ring Ceremony Twitter Reaction and Highlights"
+        },
+        {
+            "id": 7,
+            "news_banner": "https://asset-sports.abs-cbn.com/web/dev/articles/1555024496_image003-2.jpg",
+            "news_title": "NBA Players of the Month",
+            "news_detail": "Antetokounmpo, Harden named NBA Players of the Month"
+        },
+        {
+            "id": 8,
+            "news_banner": "https://asset-sports.abs-cbn.com/web/dev/articles/1555024353_image003-1.jpg",
+            "news_title": "NBA Coaches of the Month",
+            "news_detail": "Clifford, Stotts named NBA Coaches of the Month"
+        },
+        {
+            "id": 9,
+            "news_banner": "https://asset-sports.abs-cbn.com/web/dev/articles/1555024208_image003.jpg",
+            "news_title": "NBA Rookies of the Month",
+            "news_detail": "NBA Trae Young, Luka Doncic named NBA Rookies of the Month"
+        },
+        {
+            "id": 10,
+            "news_banner": "https://asset-sports.abs-cbn.com/web/dev/articles/1554977310_gettyimages-1135671443.jpg",
+            "news_title": "2019 playoffs finalized",
+            "news_detail": "The field is set: NBA matchups for 2019 playoffs finalized"
+        }
+    ]
+}
