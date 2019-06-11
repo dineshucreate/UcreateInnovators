@@ -1,4 +1,4 @@
-import {REQUEST_FAIL,REQUEST_SUCCESS,DATA_REQUEST} from './constant';
+import {REQUEST_FAIL,REQUEST_SUCCESSS,DATA_REQUEST} from './constant';
 
 const INITIAL_STATE = {
     domasticData:null,
@@ -13,7 +13,9 @@ export default (state = INITIAL_STATE, action) => {
             loading: true
         };
 
-        case REQUEST_SUCCESS:
+        case REQUEST_SUCCESSS:
+        console.log('reducer..........'+ JSON.stringify(action.data));
+        
         return{
             ...state,
             loading: false,

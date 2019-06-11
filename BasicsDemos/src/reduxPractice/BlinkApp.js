@@ -48,8 +48,8 @@ apiCall = () =>{
 
   state = {
     text: '' ,
-    email: '',
-    password: '',
+    email: 'try27@gmail.com',
+    password: 'Android@123',
     loading: false,
     erremail:'',
     errpassword:'',

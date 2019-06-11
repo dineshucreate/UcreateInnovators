@@ -1,4 +1,4 @@
-import {REQUEST_FAIL,REQUEST_SUCCESS,DATA_REQUEST} from './constant';
+import {REQUEST_FAIL,REQUEST_SUCCESSS,DATA_REQUEST} from './constant';
 
 
 export const  domasticRequest = () => ({
@@ -7,7 +7,7 @@ export const  domasticRequest = () => ({
 });
 
 export const domasticSuccess = (data) => ({
-    type: REQUEST_SUCCESS,
+    type: REQUEST_SUCCESSS,
     data
 });
 export const domasticFail = () => ({

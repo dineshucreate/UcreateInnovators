@@ -39,7 +39,7 @@ import {domasticRequest} from './action';
 console.log("Select"+ item)
   }
     render(){
-      console.log("enter---------------------Dev"+  +JSON.stringify(this.props.domasticData));
+      console.log("enter---------------------Dev"+  +this.props.domastic);
 
       console.log(this.state.arrayList&& this.state.arrayList.length);
         return(
@@ -118,9 +118,11 @@ console.log("Select"+ item)
 
 
 const mapStateToProps = (state)=>{
+  console.log('statetoprop:  '+JSON.stringify(state.domastic.domasticData));
+  
   return{
    // loading: state.domastic.loading,
-    domasticData: state.domastic.domasticData,
+    domastic: state.domastic.domasticData,
    
   };
 
