@@ -15,16 +15,7 @@ import StatsDetails from '../containers/bottomtab/stats/statsdetails/index';
 import LiveDetails from '../containers/bottomtab/live/livedetails/index';
 import LogoHeader from '../utils/logo';
 
-const AuthStack = createStackNavigator(
-  {
-    login: {
-      screen: login,
-      navigationOptions: () => ({
-        header: null,
-      })
-    },
-  },
-);
+
 
 const headerConf = {
   headerLayoutPreset: 'center',
@@ -80,6 +71,16 @@ const MainApp = createBottomTabNavigator(
   }
 );
 
+const AuthStack = createStackNavigator(
+  {
+    login: {
+      screen: login,
+      navigationOptions: () => ({
+        header: null,
+      })
+    },
+  },
+);
 const SwitchNavigator = createSwitchNavigator({
   loginScreen: AuthStack,
   dashboard: MainApp
