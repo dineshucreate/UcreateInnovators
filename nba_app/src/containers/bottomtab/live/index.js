@@ -19,9 +19,7 @@ class Live extends React.Component {
     }
 
     renderListItem = ({ item }) => (
-        <TouchableOpacity
-             
-        >
+        <TouchableOpacity>
               <View style={stylesLive.cardContainer}>
                 <View>
                   <Image
