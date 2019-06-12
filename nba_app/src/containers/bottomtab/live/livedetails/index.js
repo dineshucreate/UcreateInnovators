@@ -1,13 +1,12 @@
 
 import React from 'react';
-import { Text, View, Alert, Image, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, Alert, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import stylesLive from './style';
 
 
 
 
 class LiveDetails extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -17,10 +16,8 @@ class LiveDetails extends React.Component {
         return text;
     }
 
-
     render() {
         const params = this.props.navigation.state.params;
-
         return (
             <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
                 <Image
