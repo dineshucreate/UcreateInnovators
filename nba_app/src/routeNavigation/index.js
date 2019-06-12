@@ -28,12 +28,14 @@ const headerConf = {
   }
 }
 
-
-const LiveStack = createStackNavigator({
-  Live: Live,
+const LiveStackDetial = createStackNavigator({
   LiveDetails: LiveDetails
 
 }, headerConf);
+
+const LiveStack = createStackNavigator({
+  Live: Live
+  }, headerConf);
 
 const StatsStack = createStackNavigator({
   Stats: Stats,
@@ -76,7 +78,9 @@ const AuthStack = createStackNavigator({
 );
 const SwitchNavigator = createSwitchNavigator({
   loginScreen: AuthStack,
-  dashboard: MainApp
+  dashboard: MainApp,
+  articleDetail: LiveStackDetial
+
 });
 
 export default createAppContainer(SwitchNavigator);

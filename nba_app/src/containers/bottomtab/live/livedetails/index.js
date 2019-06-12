@@ -2,14 +2,14 @@
 import React from 'react';
 import { Text, View, Alert, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import stylesLive from './style';
-
-
-
+import { connect } from 'react-redux';
 
 class LiveDetails extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            itemsRow: {}
+        }
     }
     formatText(content) {
         const text = content.replace(/<p>/g, "").replace(/<\/p>/g, "");
@@ -17,26 +17,25 @@ class LiveDetails extends React.Component {
     }
 
     render() {
-        const params = this.props.navigation.state.params;
         return (
             <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
                 <Image
                     style={{ height: 250 }}
-                    source={{ uri: params.image }}
+                    source={{ uri: this.props.itemsRow.image }}
                     resizeMode="cover"
                 />
                 <View style={stylesLive.articleContainer}>
                     <View>
                         <Text style={stylesLive.articleTitle}>
-                            {params.title}
+                            {this.props.itemsRow.title}
                         </Text>
                         <Text style={stylesLive.articleData}>
-                            {params.team}
+                            {this.props.itemsRow.team}
                         </Text>
                     </View>
                     <View style={stylesLive.articleContent}>
                         <Text style={stylesLive.articleText}>
-                            {this.formatText(params.content)}
+                            {this.formatText(this.props.itemsRow.content)}
                         </Text>
                     </View>
                 </View>
@@ -45,4 +44,16 @@ class LiveDetails extends React.Component {
     }
 }
 
-export default LiveDetails;
+
+const mapStateToPropsLiveDetails = (state) => {
+    console.log('---------------------->>> ' + JSON.stringify(state.article.item));
+
+    return {
+        itemsRow: state.article.item,
+    };
+};
+
+
+export default connect(mapStateToPropsLiveDetails, null)(LiveDetails);
+
+//export default LiveDetails;

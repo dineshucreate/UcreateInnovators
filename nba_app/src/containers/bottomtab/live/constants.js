@@ -1,0 +1,3 @@
+export const ARTICLE_REQUESTED_DATA = 'ARTICLE_REQUESTED_DATA';
+export const SEND_DATA = 'SEND_DATA';
+
