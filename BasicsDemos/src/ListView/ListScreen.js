@@ -150,5 +150,6 @@ const styles = StyleSheet.create({
      fontSize: 20,
      padding: 10,
      height:70
+     
     },
   });
