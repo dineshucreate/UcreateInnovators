@@ -1,5 +1,5 @@
 
-import { StyleSheet,Dimensions} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 const stylesLive = StyleSheet.create({
     container: {
@@ -12,8 +12,8 @@ const stylesLive = StyleSheet.create({
     containerMain: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        width: Dimensions.get('window').width/2
-        
+        width: Dimensions.get('window').width / 2
+
     },
 
     containerImage: {
@@ -27,7 +27,7 @@ const stylesLive = StyleSheet.create({
     name: {
         fontSize: 18,
         marginLeft: 15,
-        fontFamily:'Rajdhani-SemiBold'
+        fontFamily: 'Rajdhani-SemiBold'
     },
     email: {
         color: 'red',
@@ -45,8 +45,30 @@ const stylesLive = StyleSheet.create({
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'flex-start',
-        
+
     },
+
+    articleContainer: {
+        padding: 10
+    },
+    articleTitle: {
+        fontSize: 23,
+        color: '#323232',
+
+    },
+    articleData: {
+        fontSize: 12,
+        color: '#828282',
+
+    },
+    articleContent: {
+        marginTop: 30
+    },
+    articleText: {
+        fontSize: 14,
+        lineHeight: 20,
+
+    }
 
 });
 export default stylesLive;
