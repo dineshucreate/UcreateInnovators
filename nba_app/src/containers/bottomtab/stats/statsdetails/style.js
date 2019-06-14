@@ -48,23 +48,23 @@ const stylesStats = StyleSheet.create({
         alignItems: 'flex-start',
         
     },
-    articleContainer: {
+    newsContainer: {
         padding: 10
     },
-    articleTitle: {
+    newsTitle: {
         fontSize: 23,
         color: '#323232',
 
     },
-    articleData: {
+    newsData: {
         fontSize: 12,
         color: '#828282',
 
     },
-    articleContent: {
+    newsContent: {
         marginTop: 30
     },
-    articleText: {
+    newsText: {
         fontSize: 14,
         lineHeight: 20,
 

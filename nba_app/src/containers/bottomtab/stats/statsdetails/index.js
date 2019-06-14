@@ -39,17 +39,17 @@ class StatsDetails extends React.Component {
                         source={{ uri: this.props.itemsRow.news_banner }}
                         resizeMode="cover"
                     />
-                    <View style={stylesNews.articleContainer}>
+                    <View style={stylesNews.newsContainer}>
                         <View>
-                            <Text style={stylesNews.articleTitle}>
+                            <Text style={stylesNews.newsTitle}>
                                 {this.props.itemsRow.news_title}
                             </Text>
-                            <Text style={stylesNews.articleData}>
+                            <Text style={stylesNews.newsData}>
                                 {this.props.itemsRow.news_detail}
                             </Text>
                         </View>
-                        <View style={stylesNews.articleContent}>
-                            <Text style={stylesNews.articleText}>
+                        <View style={stylesNews.newsContent}>
+                            <Text style={stylesNews.newsText}>
                                 {this.formatText(this.props.itemsRow.news_detail)}
                             </Text>
                         </View>
