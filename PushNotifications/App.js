@@ -30,7 +30,7 @@ export default class App extends Component {
                 // User has authorised
             } catch (error) {
                 // User has rejected permissions
-                alert('No permission for notification');
+                alert(JSON.stringify(error));
             }
         }
 
