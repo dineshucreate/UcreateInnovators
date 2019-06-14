@@ -5,14 +5,37 @@ import haversine from 'haversine';
 import LocationSwitch from 'react-native-location-switch';
 import Geocoder from 'react-native-geocoder';
 import MapViewDirections from 'react-native-maps-directions';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 let { width, height } = Dimensions.get('window');
+const API_KEY = 'AIzaSyDg9a0kfUxD6w9YVKnhMGkj8Bmt9GpJJUg';
 const ASPECT_RATIO = width / height;
 const LATITUDE = 0;
 const LONGITUDE = 0;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
+const HOME = {
+    latitude: 30.6982816,
+    longitude: 76.6907806,
+    latitudeDelta: LATITUDE_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+}
+// markers: [
+//     ...this.state.markers
+//     , {
+//         title: 'Marker1',
+//         coordinates: {
+//             latitude: 30.6982089,
+//             longitude: 76.6907082
+//         },
+//     },
+//     {
+//         title: 'Marker 2',
+//         coordinates: {
+//             latitude: 30.68212089,
+//             longitude: 76.7176607082
+//         },
+//     }]
 
 class GooglemapIntegration extends Component {
     constructor() {
@@ -26,24 +49,9 @@ class GooglemapIntegration extends Component {
                 latitudeDelta: LATITUDE_DELTA,
                 longitudeDelta: LONGITUDE_DELTA,
             }),
-            routeCoordinates: [],
-            distanceTravelled: 0,
             prevLatLng: {},
             address: '',
-            markers: [{
-                title: 'Marker1',
-                coordinates: {
-                    latitude: 30.6982089,
-                    longitude: 76.6907082
-                },
-            },
-            {
-                title: 'Marker 2',
-                coordinates: {
-                    latitude: 30.68212089,
-                    longitude: 76.7176607082
-                },
-            }]
+            markers: []
         };
     }
     getMapRegion = () => ({
@@ -62,11 +70,13 @@ class GooglemapIntegration extends Component {
         const newCoordinate = {
             latitude: latitude + ((Math.random() - 0.5) * (LATITUDE_DELTA / 2)),
             longitude: longitude + ((Math.random() - 0.5) * (LONGITUDE_DELTA / 2)),
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
         };
 
         if (Platform.OS === 'android') {
-            if (this.refs.marker) {
-                this.refs.marker._component.animateMarkerToCoordinate(newCoordinate, 500);
+            if (this.refs.map) {
+                this.refs.map.animateToRegion(HOME, 1000);
             }
         } else {
             coordinate.timing(newCoordinate).start();
@@ -82,15 +92,14 @@ class GooglemapIntegration extends Component {
 
         const newCoordinate = {
             latitude,
-            longitude
+            longitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
         };
         try {
             if (Platform.OS === "android") {
-                if (this.refs.marker) {
-                    this.refs.marker._component.animateMarkerToCoordinate(
-                        newCoordinate,
-                        500
-                    );
+                if (this.refs.map) {
+                    this.refs.map.animateToRegion(newCoordinate, 1000);
                 }
             } else {
                 region.timing(newCoordinate).start();
@@ -104,8 +113,6 @@ class GooglemapIntegration extends Component {
                     latitudeDelta: LATITUDE_DELTA,
                     longitudeDelta: LONGITUDE_DELTA,
                 },
-                routeCoordinates: this.state.routeCoordinates.concat([newCoordinate]),
-                distanceTravelled: this.state.distanceTravelled + this.calcDistance(newCoordinate),
                 prevLatLng: newCoordinate,
 
             });
@@ -114,6 +121,75 @@ class GooglemapIntegration extends Component {
 
         }
 
+    }
+
+    searchPlacesfromGoogle = () => {
+
+        return (
+            <GooglePlacesAutocomplete
+                placeholder='Enter Location'
+                minLength={2}
+                autoFocus={false}
+                listViewDisplayed='false'
+                returnKeyType={'search'}
+                fetchDetails={true}
+                styles={{
+                    textInputContainer: {
+                        backgroundColor: 'rgba(0,0,0,0)',
+                        width: '100%',
+                        borderRadius: 30,
+                        marginLeft: 10
+                    },
+                    textInput: {
+                        height: 38,
+                        color: '#5d5d5d',
+                        fontSize: 16,
+                    },
+                    description: {
+                        fontWeight: 'bold',
+                    },
+                    predefinedPlacesDescription: {
+                        color: '#1faadb'
+                    },
+                    listView: {
+                        backgroundColor: 'white',
+                        padding: 5,
+                    }
+                }}
+
+                onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
+                    console.log(details);
+                    const coordinate = {
+                        latitude: details.geometry.location.lat,
+                        longitude: details.geometry.location.lng
+                    }
+                    this.setState({
+                        latitude: coordinate.latitude,
+                        longitude: coordinate.longitude,
+                        markers: [
+                            ...this.state.markers,
+                            {
+                                coordinate: coordinate,
+                                title: details.formatted_address
+
+                            }
+                        ]
+                    });
+                }}
+                currentLocation={true}
+                currentLocationLabel="Current location"
+                debounce={200}
+
+                query={{
+                    // available options: https://developers.google.com/places/web-service/autocomplete
+                    key: API_KEY,
+                    language: 'en', // language of the results
+                    types: ['(cities)', 'geocode', 'locality'], // default: 'geocode',
+
+                }}
+                currentLocation={false}
+            />
+        );
     }
 
     componentDidMount() {
@@ -145,7 +221,7 @@ class GooglemapIntegration extends Component {
 
     fetchAddressFromLatLong = (lat, long) => {
 
-
+        console.log(`lat: ${lat} long: ${long}`)
         var pos = {
             lat: lat,
             lng: long
@@ -167,14 +243,19 @@ class GooglemapIntegration extends Component {
     markersRender = () => {
         const { markers } = this.state
 
-        markers.map(marker => (
+        console.log(`markers:   ${JSON.stringify(markers)}`);
+
+
+        return markers.map(marker => (
             <MarkerAnimated
                 ref={'marker'}
                 draggable
-                title={markers.title}
-                coordinate={marker.coordinates}
-                //   onDragEnd={(e) => this.setState({ region: e.nativeEvent.coordinate, latitude: e.nativeEvent.coordinate.latitude, longitude: e.nativeEvent.coordinate.longitude })}
-                image={require('./../assets/car.png')}
+                title={'Location'}
+                description={marker.title}
+                coordinate={marker.coordinate}
+            //  onPress={() => this.fetchAddressFromLatLong(marker.coordinate.lat, marker.coordinate.lng)}
+            //   onDragEnd={(e) => this.setState({ region: e.nativeEvent.coordinate, latitude: e.nativeEvent.coordinate.latitude, longitude: e.nativeEvent.coordinate.longitude })}
+
             />
         ));
     }
@@ -185,72 +266,75 @@ class GooglemapIntegration extends Component {
             <Callout style={{
                 flex: 1, flexDirection: "row"
             }}>
-                <View style={{ flex: 1, alignItems: 'center', margin: 5 }}>
-                    <TextInput style={{
-                        backgroundColor: '#ffffff',
-                        width: '90%',
-                        paddingLeft: 10,
-                        height: 40,
-                        color: 'black',
-                        borderRadius: 30
-                    }}
-                        placeholder={"Pickup Point"}
-                    />
-                    <TextInput style={{
-                        backgroundColor: '#ffffff',
-                        width: '90%',
-                        paddingLeft: 10,
-                        marginTop: 10,
-                        height: 40,
-                        color: 'black',
-                        borderRadius: 30
-                    }}
-                        placeholder={"DropOff Point"}
-                    />
+                <View style={{ flex: 1, alignItems: 'center' }}>
+                    {this.searchPlacesfromGoogle()}
                 </View>
             </Callout>
         );
     }
-    render() {
-        return (
-            <View style={{ flex: 1 }}>
-                <MapView
-                    ref={"map"}
-                    style={styles.container}
-                    showsUserLocation
-                    showsMyLocationButton
-                    region={this.getMapRegion()}
-                    onRegionChangeComplete={region => this.setState({ region, latitude: region.latitude, longitude: region.longitude })}
-                >
 
-                    <Polyline coordinates={this.state.routeCoordinates} strokeWidth={5} />
-                    {this.markersRender()}
-                </MapView>
-                <View style={styles.buttonContainer}>
-                    <Text>Latitude:   {this.state.latitude} </Text>
-                    <Text>Longitude:  {this.state.longitude} </Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity
-                            onPress={() => this.animate()}
-                            style={[styles.bubble, styles.button]}
-                        >
-                            <Text>Animate</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => this.fetchAddressFromLatLong(this.state.latitude, this.state.longitude)}
-                            style={[styles.bubble, styles.button]}
-                        >
-                            <Text>Address</Text>
-                        </TouchableOpacity>
-                    </View>
+    googleMapDirection = (origin, destination) => (
+        <MapViewDirections
+            origin={origin}
+            destination={destination}
 
-                </View>
-                {
-                    this.calloutRender()
-                }
-            </View>
-        );
+            apikey={API_KEY}
+        />
+    )
+    onMapPress = (e) => {
+        this.setState = ({
+            markers: [
+                ...this.state.markers,
+
+            ]
+
+        });
     }
+
+
+render() {
+    return (
+        <View style={{ flex: 1 }}>
+            <MapView
+                provider={PROVIDER_GOOGLE}
+                ref={"map"}
+                style={styles.container}
+                followsUserLocation
+                showsMyLocationButton
+                initialRegion={this.getMapRegion()}
+                showsUserLocation
+                region={this.getMapRegion()}
+                onPress={this.onMapPress}
+            >
+
+                {this.googleMapDirection()}
+                {this.markersRender()}
+            </MapView>
+            <View style={styles.buttonContainer}>
+                <Text>Latitude:   {this.state.latitude} </Text>
+                <Text>Longitude:  {this.state.longitude} </Text>
+                <View style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity
+                        onPress={() => this.animate()}
+                        style={[styles.bubble, styles.button]}
+                    >
+                        <Text>HOME</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.fetchAddressFromLatLong(this.state.latitude, this.state.longitude)}
+                        style={[styles.bubble, styles.button]}
+                    >
+                        <Text>Address</Text>
+                    </TouchableOpacity>
+                </View>
+
+            </View>
+            {
+                this.calloutRender()
+            }
+        </View>
+    );
+}
 }
 
 
@@ -260,6 +344,7 @@ const styles = StyleSheet.create({
     container: {
         height: '80%',
         width: '100%',
+        paddingTop: 150,
     },
     bubble: {
         flex: 1,

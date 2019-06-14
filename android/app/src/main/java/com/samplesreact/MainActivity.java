@@ -2,6 +2,7 @@ package com.samplesreact;
 
 import android.content.Intent;
 
+import com.facebook.FacebookSdk;
 import com.facebook.react.ReactActivity;
 import org.pweitz.reactnative.locationswitch.LocationSwitch;
 
@@ -20,5 +21,6 @@ public class MainActivity extends ReactActivity {
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     LocationSwitch.getInstance().onActivityResult(requestCode, resultCode);
+        MainApplication.getCallbackManager().onActivityResult(requestCode, resultCode, data);
 }
 }
