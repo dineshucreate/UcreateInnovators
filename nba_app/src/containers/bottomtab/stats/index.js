@@ -5,6 +5,8 @@ import { Text, View, Alert, Image, FlatList, TouchableOpacity } from 'react-nati
 import stylesStats from './style';
 import newsJson from '../../../../news.json'
 
+import { newsRequestForData, sendDataNew } from '../stats/action'
+import { connect } from 'react-redux';
 
 
 
@@ -15,12 +17,21 @@ class Stats extends React.Component {
         this.state = {
             news_items: []
         }
-        this.state.news_items = newsJson.itemsNews;
+        //this.state.news_items = newsJson.itemsNews;
 
     }
+    componentDidMount() {
+        const { newsRequestForData } = this.props;
+        newsRequestForData()
+    }
 
+    navigateScreen = (item) => {
+        this.props.sendDataNew(item);
+        this.props.navigation.navigate('newDetail');
+    }
     renderListItemNews = ({ item }) => (
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress={() => this.navigateScreen(item)}>
             <View style={stylesStats.cardContainer}>
                 <View>
                     <Image
@@ -45,11 +56,25 @@ class Stats extends React.Component {
     render() {
         return (
             <FlatList
-                data={this.state.news_items}
+                data={this.props.news_items}
                 renderItem={this.renderListItemNews}
                 keyExtractor={item => item.id} />
         );
     }
 }
 
-export default Stats;
+const mapStateToPropsStats = (state) => {
+    return {
+        news_items: state.news.news_items,
+    };
+};
+const mapDispatchToPropsStats = (dispatch) => ({
+    newsRequestForData: () => dispatch(newsRequestForData(newsJson.itemsNews)),
+    sendDataNew: (item) => dispatch(sendDataNew(item))
+
+
+});
+
+export default connect(mapStateToPropsStats, mapDispatchToPropsStats)(Stats);
+
+

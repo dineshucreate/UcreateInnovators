@@ -1,0 +1,2 @@
+export const NEWS_REQUESTED_DATA = 'NEWS_REQUESTED_DATA';
+export const NEW_SEND_DATA = 'NEW_SEND_DATA';

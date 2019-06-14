@@ -24,24 +24,26 @@ const headerConf = {
       backgroundColor: '#001338'
     },
     headerTintColor: 'white',
-    headerTitle: LogoHeader
+    headerTitle: LogoHeader,
+    
   }
 }
 
 const LiveStackDetial = createStackNavigator({
   LiveDetails: LiveDetails
+});
 
-}, headerConf);
+const StatsStackDetial = createStackNavigator({
+  StatsDetails: StatsDetails
+});
 
 const LiveStack = createStackNavigator({
   Live: Live
   }, headerConf);
 
 const StatsStack = createStackNavigator({
-  Stats: Stats,
-  StatsDetails: StatsDetails,
-
-}, headerConf);
+  Stats: Stats
+ }, headerConf);
 
 const MainApp = createBottomTabNavigator({
   Live: LiveStack,
@@ -79,7 +81,8 @@ const AuthStack = createStackNavigator({
 const SwitchNavigator = createSwitchNavigator({
   loginScreen: AuthStack,
   dashboard: MainApp,
-  articleDetail: LiveStackDetial
+  articleDetail: LiveStackDetial,
+  newDetail: StatsStackDetial
 
 });
 

@@ -1,16 +1,19 @@
 import React from 'react';
-import { Text, View, Alert, Image, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, Image, FlatList, TouchableOpacity } from 'react-native';
 import stylesLive from './style';
 import articleJson from '../../../../articles.json'
 import { articleRequestForData, sendData } from '../live/actions'
 import { connect } from 'react-redux';
 
 class Live extends React.Component {
+
+
   constructor(props) {
     super(props);
     this.state = {
       items: []
     }
+
     //this.state.items = articleJson.items;
 
   }
