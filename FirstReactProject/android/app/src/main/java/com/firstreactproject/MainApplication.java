@@ -17,9 +17,14 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
+import com.facebook.CallbackManager;
 
 public class MainApplication extends Application implements ReactApplication {
+  private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
 
+  protected static CallbackManager getCallbackManager() {
+    return mCallbackManager;
+  }
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
@@ -34,7 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
             new VectorIconsPackage(),
             new ImagePickerPackage(),
             new RNFirebasePackage(),
-            new FBSDKPackage(),
+            new FBSDKPackage(mCallbackManager),
             new SplashScreenReactPackage(),
             new RNGestureHandlerPackage()
       );

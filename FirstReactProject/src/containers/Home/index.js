@@ -103,6 +103,7 @@ class Home extends Component {
                       />
                     )}
                 /> : <View>
+                  
                         <Text>No data found</Text>
                     </View>
               }
