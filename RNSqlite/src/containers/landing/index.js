@@ -64,17 +64,60 @@ export default class Landing extends Component {
   };
 
   deleteFromTable = index => {
-    return new Promise((resolve, reject) => {
-      db.transaction(txn => {
-        txn.executeSql(
-          "delete from user where user_id=" + index,
-          [],
-          (tx, res) => {
-            resolve();
-          }
-        );
-      });
-    });
+    // return new Promise((resolve, reject) => {
+    //   db.transaction(txn => {
+    //     txn.executeSql(
+    //       "delete from user where user_id=" + index,
+    //       [],
+    //       (tx, res) => {
+    //         console.log(JSON.stringify(tx))
+    //         console.log(JSON.stringify(res))
+    //         resolve();
+    //       }
+    //     );
+    //   });
+    // });
+    // return new Promise((resolve, reject) => {
+    //   db.transaction(txn => {
+    //     txn.executeSql(
+    //       "CREATE TABLE IF NOT EXISTS table_user(user_id INTEGER PRIMARY KEY AUTOINCREMENT, user_name VARCHAR(20), user_contact INT(10), user_address VARCHAR(255))",
+    //       [],
+    //       (tx, res) => {
+    //         console.log(JSON.stringify(tx));
+    //         console.log(JSON.stringify(res));
+    //         resolve();
+    //       }
+    //     );
+    //   });
+    // });
+    // return new Promise((resolve, reject) => {
+    //   console.log(
+    //     "insert into table_user values(1, 'abc', 2, 'abcd')"
+    //   );
+    //   db.transaction(txn => {
+    //     txn.executeSql(
+    //       "insert into table_user values(1, 'abc', 2, 'abcd')",
+    //       [],
+    //       (tx, res) => {
+    //         console.log(JSON.stringify(tx));
+    //         console.log(JSON.stringify(res));
+    //         resolve();
+    //       }
+    //     );
+    //   });
+    // });
+
+    // return new Promise((resolve, reject) => {
+    //   var temp = [];
+    //   db.transaction(function(txn) {
+    //     txn.executeSql("SELECT * FROM table_user", [], function(tx, res) {
+    //       for (var i = 0; i < res.rows.length; i++) {
+    //         console.log(res.rows.item(i));
+    //       }
+    //       resolve(temp);
+    //     });
+    //   });
+    // });
   };
 
   //User defined
@@ -117,11 +160,11 @@ export default class Landing extends Component {
   };
 
   endReachedAction = () => {
-    console.log('workinggggg')
+    console.log("workinggggg");
     if (!this.loading) {
       setTimeout(() => {
         this.loading = true;
-        this.setState({start : this.state.start + 1})
+        this.setState({ start: this.state.start + 1 });
       }, 5000);
     }
   };
