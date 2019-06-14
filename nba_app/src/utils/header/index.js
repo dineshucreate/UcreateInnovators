@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { NavigationAction } from 'react-navigation';
 import { Image, View, TouchableOpacity } from 'react-native';
 import backIcon from '../../assets/ic_back.png'
 
@@ -9,7 +9,10 @@ const Header = (props) => {
     return (
         <View style={viewStyle }>
             <TouchableOpacity onPress={() => {
-                props.navigation.navigate('dashboard');
+                // const action = NavigationActio();
+                // props.navigation.dispatch(action);
+                props.navigation.goBack();
+                // props.navigation.navigate('dashboard');
             }}>
                 <Image source={backIcon} style={imageStyle} />
             </TouchableOpacity>
