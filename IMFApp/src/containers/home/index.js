@@ -8,6 +8,8 @@ import ImagePicker from 'react-native-image-picker';
 import ImageZoom from 'react-native-image-pan-zoom';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
+import wrapComponent from '../../utilities/WrapComponent';
+import { addition, subract } from './../../utilities/Addition';
 
 const options = {
     title: 'Select Avatar',
@@ -107,6 +109,11 @@ export default class Home extends Component {
                     onConfirm={this.handleDatePicked}
                     onCancel={this.hideDateTimePicker}
                 />
+                <View >
+                    <Text>HOC</Text>
+                    {wrapComponent(addition(2)(5))}
+                    {wrapComponent(subract(2)(5))}
+                </View>
             </SafeAreaView >
         );
     }
