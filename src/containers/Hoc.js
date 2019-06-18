@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import multiply from './Multiply';
-import addition from './Addition';
+import { addition, subract } from './Addition';
 
 // var numbers = [2,3,4,5,8];
 // var numbers1 = [1,2,3,4,5];
@@ -30,15 +30,15 @@ import addition from './Addition';
 
 // // squaring regular
 
-class WrappedParent extends PureComponent{
+class WrappedParent extends PureComponent {
 
-    render(){
+    render() {
         return (
-        <View style={{flex:1}}>
-        <Text>HOC</Text>
-        {multiply(addition(2)(5))}
-
-        </View>
+            <View style={{ flex: 1 }}>
+                <Text>HOC</Text>
+                {multiply(addition(2)(5))}
+                {multiply(subract(2)(5))}
+            </View>
         );
     }
 }

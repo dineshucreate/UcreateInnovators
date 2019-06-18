@@ -8,7 +8,8 @@ import Login from './Login';
 import GooglemapIntegration from './src/Googlemaps';
 import NavigationMap from './src/Googlemaps/AnimateNavigation';
 import Home from './src/Facebook/Home';
+import multiply from './src/containers/Multiply';
+import WrappedParent from './src/containers/Hoc';
 // import Geocoder from 'react-native-geocoding';
 // Geocoder.init('AIzaSyBP-lbtyr9rjySX_rYnDAoVOvKHe9_3mg0');
-AppRegistry.registerComponent(appName, () => Home);
- 
+AppRegistry.registerComponent(appName, () => WrappedParent);
