@@ -47,6 +47,10 @@ export default class Static extends Component {
     console.log(`Hi My name is ${name}`);
 
     this.defaultValue(2)
+
+    this.callbackFunction((a)=> {
+        alert(a)
+    })
   }
 
   // Function default 
@@ -57,6 +61,9 @@ export default class Static extends Component {
   // Rest paramaters
 
 
+  callbackFunction = (callback) => {
+      callback('1234')
+  }
 
   render() {
     return (
